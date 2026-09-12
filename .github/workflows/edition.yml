@@ -1,0 +1,53 @@
+name: Print the edition
+
+# The presses run once a day. Committing the edition is what triggers the
+# deploy, so there is no server to keep alive and nothing to pay for.
+on:
+  schedule:
+    # 05:10 UTC — after the US evening and the European morning news cycles.
+    - cron: "10 5 * * *"
+  workflow_dispatch:
+
+# Never let two runs fight over the same commit.
+concurrency:
+  group: edition
+  cancel-in-progress: false
+
+jobs:
+  edition:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Node 24 strips TypeScript natively, so the services run unbuilt.
+          node-version: "24"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Gather the wire
+        run: node services/ingestion/run.ts
+
+      - name: Compile the briefs
+        run: node services/ai/extractive.ts
+
+      - name: Check it still builds
+        run: npm run build
+
+      - name: Commit the edition
+        run: |
+          git config user.name  "the-ai-daily-press"
+          git config user.email "press@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No new stories on the wire; nothing to print."
+            exit 0
+          fi
+          git commit -m "Edition of $(date -u +%Y-%m-%d)"
+          git push

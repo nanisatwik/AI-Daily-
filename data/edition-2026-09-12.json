@@ -1,0 +1,1578 @@
+{
+  "date": "2026-09-12",
+  "edition": 150,
+  "itemsIngested": 2575,
+  "eventsPublished": 24,
+  "generatedAt": "2026-09-12T21:48:14.810Z",
+  "clusters": [
+    {
+      "id": "b5c02ddb6de498e0",
+      "title": "Sam Altman says OpenAI going public in 2026 would be ‘ill-advised’",
+      "summary": "OpenAI CEO Sam Altman confirmed that there would be no OpenAI IPO in 2026 during an interview with Fortune. Over the course of 45 minutes, Altman discussed a variety of subjects including the Hugging Face hacking incident, recursive self-improvement, and the possibility of building an AI that was beyond human control. On the latter, he […]",
+      "category": "AI Business",
+      "tags": [
+        "sam",
+        "altman",
+        "openai",
+        "going",
+        "public",
+        "2026",
+        "would",
+        "ill",
+        "advised"
+      ],
+      "firstSeenAt": "2026-09-12T20:19:16.000Z",
+      "lastSeenAt": "2026-09-12T21:16:28.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "3fa5083aa1538b29",
+          "title": "Sam Altman says OpenAI going public in 2026 would be ‘ill-advised’",
+          "summary": "OpenAI CEO Sam Altman confirmed that there would be no OpenAI IPO in 2026 during an interview with Fortune. Over the course of 45 minutes, Altman discussed a variety of subjects including the Hugging Face hacking incident, recursive self-improvement, and the possibility of building an AI that was beyond human control. On the latter, he […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/994384/sam-altman-no-openai-ipo-ill-advised",
+          "author": null,
+          "publishedAt": "2026-09-12T21:16:28.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Business",
+          "tags": [
+            "sam",
+            "altman",
+            "openai",
+            "going",
+            "public",
+            "2026",
+            "would",
+            "ill"
+          ],
+          "contentHash": "da43711d03632197",
+          "eventClusterId": "b5c02ddb6de498e0"
+        },
+        {
+          "id": "6892b3c6210ec89f",
+          "title": "OpenAI’s Sam Altman says it would be ‘ill-advised’ to go public in 2026",
+          "summary": "While OpenAI has filed confidentially for an IPO, the company will not be going public this year, according to CEO Sam Altman.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/12/openais-sam-altman-says-it-would-be-ill-advised-to-go-public-in-2026/",
+          "author": "Anthony Ha",
+          "publishedAt": "2026-09-12T20:19:16.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Business",
+          "tags": [
+            "openai",
+            "sam",
+            "altman",
+            "would",
+            "ill",
+            "advised",
+            "public",
+            "2026"
+          ],
+          "contentHash": "07b365e3b8f840ae",
+          "eventClusterId": "b5c02ddb6de498e0"
+        }
+      ],
+      "score": 0.7439592499693163
+    },
+    {
+      "id": "92221dea827b3c1f",
+      "title": "OpenAI’s rogue AI tried to hack another company in May",
+      "summary": "In May, hundreds of malicious and spam packages were uploaded to RubyGems, causing a serious disruption for the host. Now independent researchers have said that a swarm of OpenAI agents were responsible for the attack. Not only that, but the AI tried to steal users' API keys. At the time, RubyGems described it as a […]",
+      "category": "Developer",
+      "tags": [
+        "openai",
+        "rogue",
+        "tried",
+        "hack",
+        "another",
+        "company"
+      ],
+      "firstSeenAt": "2026-09-12T21:41:36.000Z",
+      "lastSeenAt": "2026-09-12T21:41:36.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "0459f0044a0384ac",
+          "title": "OpenAI’s rogue AI tried to hack another company in May",
+          "summary": "In May, hundreds of malicious and spam packages were uploaded to RubyGems, causing a serious disruption for the host. Now independent researchers have said that a swarm of OpenAI agents were responsible for the attack. Not only that, but the AI tried to steal users' API keys. At the time, RubyGems described it as a […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/994383/openais-rogue-ai-rubygems-hack",
+          "author": null,
+          "publishedAt": "2026-09-12T21:41:36.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "Developer",
+          "tags": [
+            "openai",
+            "rogue",
+            "tried",
+            "hack",
+            "another",
+            "company"
+          ],
+          "contentHash": "d1d90babe97fc750",
+          "eventClusterId": "92221dea827b3c1f"
+        }
+      ],
+      "score": 0.6597428935929328
+    },
+    {
+      "id": "9e6a748e5f5139b1",
+      "title": "Anthropic CEO outlines plan to slow AI development",
+      "summary": "Anthropic's Dario Amodei and OpenAI's Sam Altman seem to agree that it's time to \"pace the frontier.\" What would that actually look like?",
+      "category": "AI Startups",
+      "tags": [
+        "anthropic",
+        "ceo",
+        "outlines",
+        "plan",
+        "slow",
+        "development"
+      ],
+      "firstSeenAt": "2026-09-12T19:34:44.000Z",
+      "lastSeenAt": "2026-09-12T19:34:44.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "65087b51dbd344e6",
+          "title": "Anthropic CEO outlines plan to slow AI development",
+          "summary": "Anthropic's Dario Amodei and OpenAI's Sam Altman seem to agree that it's time to \"pace the frontier.\" What would that actually look like?",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/12/anthropic-ceo-outlines-plan-to-pace-the-frontier/",
+          "author": "Anthony Ha",
+          "publishedAt": "2026-09-12T19:34:44.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "anthropic",
+            "ceo",
+            "outlines",
+            "plan",
+            "slow",
+            "development"
+          ],
+          "contentHash": "fcee902d8084bc72",
+          "eventClusterId": "9e6a748e5f5139b1"
+        }
+      ],
+      "score": 0.6246115004714843
+    },
+    {
+      "id": "1b847e96d7adb6ed",
+      "title": "Anthropic CEO says it’s time to pump the brakes on AI",
+      "summary": "Anthropic CEO Dario Amodei says the time has come to slow down AI development and will give third-party evaluators like METR access to its models to help ensure its \"adherence to safety practices and commitments.\" In a winding essay, Amodei proposed a three-step plan to \"pace the frontier\" - jargon that simply means to slow […]",
+      "category": "AI News",
+      "tags": [
+        "anthropic",
+        "ceo",
+        "time",
+        "pump",
+        "brakes"
+      ],
+      "firstSeenAt": "2026-09-12T16:23:40.000Z",
+      "lastSeenAt": "2026-09-12T16:23:40.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "3d4f1c873bef6a90",
+          "title": "Anthropic CEO says it’s time to pump the brakes on AI",
+          "summary": "Anthropic CEO Dario Amodei says the time has come to slow down AI development and will give third-party evaluators like METR access to its models to help ensure its \"adherence to safety practices and commitments.\" In a winding essay, Amodei proposed a three-step plan to \"pace the frontier\" - jargon that simply means to slow […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/994337/anthropic-ceo-slow-down-ai-development",
+          "author": null,
+          "publishedAt": "2026-09-12T16:23:40.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "anthropic",
+            "ceo",
+            "time",
+            "pump",
+            "brakes"
+          ],
+          "contentHash": "e70a3b8045d8f6c7",
+          "eventClusterId": "1b847e96d7adb6ed"
+        }
+      ],
+      "score": 0.5778031595864719
+    },
+    {
+      "id": "3b64bda042d3177c",
+      "title": "Trump is giving data centers a pass to pollute",
+      "summary": "President Donald Trump is weakening environmental regulations in the name of speeding up the construction of AI data centers, raising health risks for Americans, a cadre of former EPA officials said this week in a briefing and new report. They are urging - perhaps futilely - the president to adopt a \"Data Center Health Protection […]",
+      "category": "AI Policy",
+      "tags": [
+        "trump",
+        "giving",
+        "data",
+        "centers",
+        "pass",
+        "pollute"
+      ],
+      "firstSeenAt": "2026-09-12T14:41:27.000Z",
+      "lastSeenAt": "2026-09-12T14:41:27.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "1f6c68d8e9ae41ea",
+          "title": "Trump is giving data centers a pass to pollute",
+          "summary": "President Donald Trump is weakening environmental regulations in the name of speeding up the construction of AI data centers, raising health risks for Americans, a cadre of former EPA officials said this week in a briefing and new report. They are urging - perhaps futilely - the president to adopt a \"Data Center Health Protection […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/994112/ai-data-center-pollution-health-epa",
+          "author": null,
+          "publishedAt": "2026-09-12T14:41:27.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "trump",
+            "giving",
+            "data",
+            "centers",
+            "pass",
+            "pollute"
+          ],
+          "contentHash": "83d7dd2738758738",
+          "eventClusterId": "3b64bda042d3177c"
+        }
+      ],
+      "score": 0.5716124055741076
+    },
+    {
+      "id": "7adc9c15534e67c1",
+      "title": "OpenAI just wants to win",
+      "summary": "OpenAI has spent the last few years planting flags across the increasingly difficult terrain in mathematics. This week, it claimed one of its biggest prizes yet: a solution to a legendary Millennium Prize problem. In normal circumstances, this would have been celebrated as a historic achievement. Instead, many mathematicians have watched OpenAI's relentless advance with […]",
+      "category": "AI News",
+      "tags": [
+        "openai",
+        "just",
+        "wants",
+        "win"
+      ],
+      "firstSeenAt": "2026-09-12T11:00:00.000Z",
+      "lastSeenAt": "2026-09-12T11:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "851d557b884bfcb9",
+          "title": "OpenAI just wants to win",
+          "summary": "OpenAI has spent the last few years planting flags across the increasingly difficult terrain in mathematics. This week, it claimed one of its biggest prizes yet: a solution to a legendary Millennium Prize problem. In normal circumstances, this would have been celebrated as a historic achievement. Instead, many mathematicians have watched OpenAI's relentless advance with […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/994255/openai-millennium-prize-problem-tristan-buckmaster-competition",
+          "author": null,
+          "publishedAt": "2026-09-12T11:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "openai",
+            "just",
+            "wants",
+            "win"
+          ],
+          "contentHash": "2f0d77d2e89aeb13",
+          "eventClusterId": "7adc9c15534e67c1"
+        }
+      ],
+      "score": 0.5111885238422028
+    },
+    {
+      "id": "14a0b8f7c391c8d2",
+      "title": "Probabilistic Focal Search: Accelerating Bounded-Suboptimal Search via Lower-Bound Advancement",
+      "summary": "arXiv:2609.10584v1 Announce Type: new Abstract: Bounded-suboptimal search seeks a solution within a factor $w$ of optimal while reducing search effort. Focal Search (FS) uses heuristic guidance within FOCAL, the frontier nodes eligible under the threshold $w f_{\\min}$, but its deterministic policy may leave $f_{\\min}$ unchanged for many expansions. We introduce Probabilistic Focal Search (PFS), which follows the FS g",
+      "category": "AI Policy",
+      "tags": [
+        "probabilistic",
+        "focal",
+        "search",
+        "accelerating",
+        "bounded",
+        "suboptimal",
+        "via",
+        "lower"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "bea5b580f2c5564b",
+          "title": "Probabilistic Focal Search: Accelerating Bounded-Suboptimal Search via Lower-Bound Advancement",
+          "summary": "arXiv:2609.10584v1 Announce Type: new Abstract: Bounded-suboptimal search seeks a solution within a factor $w$ of optimal while reducing search effort. Focal Search (FS) uses heuristic guidance within FOCAL, the frontier nodes eligible under the threshold $w f_{\\min}$, but its deterministic policy may leave $f_{\\min}$ unchanged for many expansions. We introduce Probabilistic Focal Search (PFS), which follows the FS g",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.10584",
+          "author": "Minh Vu Duc, Trung Le Huu, H\\`a Minh Ho\\`ang, Trung Thanh Nguyen, Phuong Khanh N",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "probabilistic",
+            "focal",
+            "search",
+            "accelerating",
+            "bounded",
+            "suboptimal",
+            "via",
+            "lower"
+          ],
+          "contentHash": "5c5f23e6e784828c",
+          "eventClusterId": "14a0b8f7c391c8d2"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "42147b00d87caefd",
+      "title": "Automating Quadratic Unconstrained Binary Optimization (QUBO) Formulation Generation from Natural Language",
+      "summary": "arXiv:2609.10629v1 Announce Type: new Abstract: Quadratic Unconstrained Binary Optimization (QUBO) is a central formulation for combinatorial optimization and has gained increasing attention due to its compatibility with quantum, hybrid quantum-classical, and quantum-inspired solvers. However, translating natural-language problem descriptions into correct QUBO formulations remains difficult, requiring the identificat",
+      "category": "AI Research",
+      "tags": [
+        "automating",
+        "quadratic",
+        "unconstrained",
+        "binary",
+        "optimization",
+        "qubo",
+        "formulation",
+        "generation"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "aac7cec7bea34643",
+          "title": "Automating Quadratic Unconstrained Binary Optimization (QUBO) Formulation Generation from Natural Language",
+          "summary": "arXiv:2609.10629v1 Announce Type: new Abstract: Quadratic Unconstrained Binary Optimization (QUBO) is a central formulation for combinatorial optimization and has gained increasing attention due to its compatibility with quantum, hybrid quantum-classical, and quantum-inspired solvers. However, translating natural-language problem descriptions into correct QUBO formulations remains difficult, requiring the identificat",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.10629",
+          "author": "Niloy Kumar Mondal, Md Rizwan Parvez",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "automating",
+            "quadratic",
+            "unconstrained",
+            "binary",
+            "optimization",
+            "qubo",
+            "formulation",
+            "generation"
+          ],
+          "contentHash": "56362156c4ead31f",
+          "eventClusterId": "42147b00d87caefd"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "049d5df12becfe46",
+      "title": "A Multi-Stage Rule-Chaining Framework for Compositional and Interpretable Cognitive Reasoning",
+      "summary": "arXiv:2609.10654v1 Announce Type: new Abstract: The Abstraction and Reasoning Corpus (ARC) benchmarks cognitive generalization, the ability to infer and apply abstract rules from limited examples. This paper presents a multi-stage rule-chaining framework that performs compositional reasoning across symbolic, structural, and conceptual levels. The framework integrates three complementary solvers: (1) a deterministic r",
+      "category": "AI Research",
+      "tags": [
+        "multi",
+        "stage",
+        "rule",
+        "chaining",
+        "framework",
+        "compositional",
+        "interpretable",
+        "cognitive"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "4b701033127eb8be",
+          "title": "A Multi-Stage Rule-Chaining Framework for Compositional and Interpretable Cognitive Reasoning",
+          "summary": "arXiv:2609.10654v1 Announce Type: new Abstract: The Abstraction and Reasoning Corpus (ARC) benchmarks cognitive generalization, the ability to infer and apply abstract rules from limited examples. This paper presents a multi-stage rule-chaining framework that performs compositional reasoning across symbolic, structural, and conceptual levels. The framework integrates three complementary solvers: (1) a deterministic r",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.10654",
+          "author": "Deblina Kar",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "multi",
+            "stage",
+            "rule",
+            "chaining",
+            "framework",
+            "compositional",
+            "interpretable",
+            "cognitive"
+          ],
+          "contentHash": "2ebff12280bedfb8",
+          "eventClusterId": "049d5df12becfe46"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "fccfb8a28f57a718",
+      "title": "Understanding LoRA Rank Trade-offs in Diffusion Model Fine-Tuning",
+      "summary": "arXiv:2609.10656v1 Announce Type: new Abstract: Selecting LoRA rank for diffusion fine-tuning requires balancing quality and compute cost. We present a controlled study on CIFAR-10 using a DDPM U-Net with ranks {2,4,8,16,32}, fixed optimization settings, and a reproducible local-folder pytorch-fid protocol. We report FID, trainable parameters, runtime, and GPU memory, then validate trends with extended-budget DDPM ru",
+      "category": "AI Research",
+      "tags": [
+        "understanding",
+        "lora",
+        "rank",
+        "trade",
+        "offs",
+        "diffusion",
+        "model",
+        "fine"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "89d7caff9119cf5d",
+          "title": "Understanding LoRA Rank Trade-offs in Diffusion Model Fine-Tuning",
+          "summary": "arXiv:2609.10656v1 Announce Type: new Abstract: Selecting LoRA rank for diffusion fine-tuning requires balancing quality and compute cost. We present a controlled study on CIFAR-10 using a DDPM U-Net with ranks {2,4,8,16,32}, fixed optimization settings, and a reproducible local-folder pytorch-fid protocol. We report FID, trainable parameters, runtime, and GPU memory, then validate trends with extended-budget DDPM ru",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.10656",
+          "author": "Iman Khazrak, Narges Nejad, Mostafa M. Rezaee, Robert C. Green II",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "understanding",
+            "lora",
+            "rank",
+            "trade",
+            "offs",
+            "diffusion",
+            "model",
+            "fine"
+          ],
+          "contentHash": "9ed33443e7475b89",
+          "eventClusterId": "fccfb8a28f57a718"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "34bfae6c1a7faaae",
+      "title": "Quantifying the Memorization-to-Generalization Transition: Scaling Laws and Phase Structure in Grokking",
+      "summary": "arXiv:2609.10657v1 Announce Type: new Abstract: Neural networks trained past memorization frequently undergo a delayed transition to generalization, a phenomenon known as grokking. Despite theoretical progress on \\emph{why} this transition occurs, the quantitative structure of \\emph{when} it occurs in hyperparameter space remains uncharacterized. We map the memorization-to-generalization boundary across 384 configura",
+      "category": "AI Policy",
+      "tags": [
+        "quantifying",
+        "memorization",
+        "generalization",
+        "transition",
+        "scaling",
+        "laws",
+        "phase",
+        "structure"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "dc5293bc8567995b",
+          "title": "Quantifying the Memorization-to-Generalization Transition: Scaling Laws and Phase Structure in Grokking",
+          "summary": "arXiv:2609.10657v1 Announce Type: new Abstract: Neural networks trained past memorization frequently undergo a delayed transition to generalization, a phenomenon known as grokking. Despite theoretical progress on \\emph{why} this transition occurs, the quantitative structure of \\emph{when} it occurs in hyperparameter space remains uncharacterized. We map the memorization-to-generalization boundary across 384 configura",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.10657",
+          "author": "Anish Kataria",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "quantifying",
+            "memorization",
+            "generalization",
+            "transition",
+            "scaling",
+            "laws",
+            "phase",
+            "structure"
+          ],
+          "contentHash": "2dc263731544fec7",
+          "eventClusterId": "34bfae6c1a7faaae"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "ef9359a2efd64cb1",
+      "title": "An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics",
+      "summary": "arXiv:2609.10712v1 Announce Type: new Abstract: We study how model post-training and test-time inference design affect natural-language proof generation for hard olympiad mathematics. Starting from Nemotron 3 Ultra, we train two specialist checkpoints using supervised fine-tuning and reinforcement learning, and evaluate checkpoint choice, verification, and refinement. Based on these findings, we present an open-model",
+      "category": "AI Research",
+      "tags": [
+        "open",
+        "recipe",
+        "imo",
+        "gold",
+        "training",
+        "nemotron",
+        "olympiad",
+        "mathematics"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "5f228356d94c2b40",
+          "title": "An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics",
+          "summary": "arXiv:2609.10712v1 Announce Type: new Abstract: We study how model post-training and test-time inference design affect natural-language proof generation for hard olympiad mathematics. Starting from Nemotron 3 Ultra, we train two specialist checkpoints using supervised fine-tuning and reinforcement learning, and evaluate checkpoint choice, verification, and refinement. Based on these findings, we present an open-model",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.10712",
+          "author": "Ivan Moshkov, Stephen Ge, George Armstrong, Wei Du, Sadegh Mahdavi, Igor Gitman",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "open",
+            "recipe",
+            "imo",
+            "gold",
+            "training",
+            "nemotron",
+            "olympiad",
+            "mathematics"
+          ],
+          "contentHash": "2a9c24a5cbd5decc",
+          "eventClusterId": "ef9359a2efd64cb1"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "6565907be4fe8e63",
+      "title": "Finishing the Task Is Not Enough: Evaluating Agent Resilience and Considerate Participation under Accumulating Challenge",
+      "summary": "arXiv:2609.10724v1 Announce Type: new Abstract: Sustained deployment of generative AI agents requires more than isolated task success. Agents must remain useful across repeated interactions, changing conditions, and dependencies on people within shared workflows, especially as technical, human, and operational disruptions accumulate over time. We propose operational resilience and considerate participation as two com",
+      "category": "Robotics",
+      "tags": [
+        "finishing",
+        "task",
+        "not",
+        "enough",
+        "evaluating",
+        "agent",
+        "resilience",
+        "considerate"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "34f1e7e80affe7df",
+          "title": "Finishing the Task Is Not Enough: Evaluating Agent Resilience and Considerate Participation under Accumulating Challenge",
+          "summary": "arXiv:2609.10724v1 Announce Type: new Abstract: Sustained deployment of generative AI agents requires more than isolated task success. Agents must remain useful across repeated interactions, changing conditions, and dependencies on people within shared workflows, especially as technical, human, and operational disruptions accumulate over time. We propose operational resilience and considerate participation as two com",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.10724",
+          "author": "Yuanchen Bai, Zijian Ding, Angelique Taylor",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "Robotics",
+          "tags": [
+            "finishing",
+            "task",
+            "not",
+            "enough",
+            "evaluating",
+            "agent",
+            "resilience",
+            "considerate"
+          ],
+          "contentHash": "bce24273ac3f7329",
+          "eventClusterId": "6565907be4fe8e63"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "961d7b3a026c4612",
+      "title": "When Validation Stops Learning: Auditing Update Admission for Continual Embodied Agents",
+      "summary": "arXiv:2609.10873v1 Announce Type: new Abstract: Independent evaluation can reject harmful policy updates yet also prevent useful continual learning. We argue that update admission must be assessed through both error control and retained learning opportunities at a stated interaction budget. We identify a concrete failure: a range-based confidence gate cannot certify unchanged old-task behavior within otherwise substa",
+      "category": "AI Policy",
+      "tags": [
+        "when",
+        "validation",
+        "stops",
+        "learning",
+        "auditing",
+        "update",
+        "admission",
+        "continual"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "46a0c3107b1b8546",
+          "title": "When Validation Stops Learning: Auditing Update Admission for Continual Embodied Agents",
+          "summary": "arXiv:2609.10873v1 Announce Type: new Abstract: Independent evaluation can reject harmful policy updates yet also prevent useful continual learning. We argue that update admission must be assessed through both error control and retained learning opportunities at a stated interaction budget. We identify a concrete failure: a range-based confidence gate cannot certify unchanged old-task behavior within otherwise substa",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.10873",
+          "author": "Qinzhen Ma, Ruihai Wu",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "when",
+            "validation",
+            "stops",
+            "learning",
+            "auditing",
+            "update",
+            "admission",
+            "continual"
+          ],
+          "contentHash": "cfd9272b475059d9",
+          "eventClusterId": "961d7b3a026c4612"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "04f8b4da1b63c443",
+      "title": "Decoupling Readiness from Release for Tail-Aware Scheduling of Agentic LLM Workflows",
+      "summary": "arXiv:2609.10964v1 Announce Type: new Abstract: Agentic LLM workflows consist of sequences of model turns interleaved with tool interactions, so their end-to-end completion time depends not only on inference speed but also on when ready turns are released. Most runtimes release each turn immediately upon readiness. Under contention, this eager release policy can accumulate released but unfinished work; once submitted",
+      "category": "AI Policy",
+      "tags": [
+        "decoupling",
+        "readiness",
+        "release",
+        "tail",
+        "aware",
+        "scheduling",
+        "agentic",
+        "llm"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "ee332be1ac4c355a",
+          "title": "Decoupling Readiness from Release for Tail-Aware Scheduling of Agentic LLM Workflows",
+          "summary": "arXiv:2609.10964v1 Announce Type: new Abstract: Agentic LLM workflows consist of sequences of model turns interleaved with tool interactions, so their end-to-end completion time depends not only on inference speed but also on when ready turns are released. Most runtimes release each turn immediately upon readiness. Under contention, this eager release policy can accumulate released but unfinished work; once submitted",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.10964",
+          "author": "Bochao Feng, Jianjiang Li, Haojie Wang, Lin Qiao, Yinghui Li, Yukun Yan, Jidong ",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "decoupling",
+            "readiness",
+            "release",
+            "tail",
+            "aware",
+            "scheduling",
+            "agentic",
+            "llm"
+          ],
+          "contentHash": "52b19ca4cc412ce6",
+          "eventClusterId": "04f8b4da1b63c443"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "8b68d838170f7c95",
+      "title": "Grounding Agent Memory: Environment-Probing Curation for Enterprise Agents",
+      "summary": "arXiv:2609.11060v1 Announce Type: new Abstract: Persistent memory is entering production-oriented agent platforms to help long-horizon agents accumulate experience across sessions. Yet a post-task curator agent restricted to completed trajectories can preserve errors, overgeneralize partial evidence, or retain stale knowledge. We introduce environment-probing curation, a deployment-compatible extension that gives an ",
+      "category": "AI Startups",
+      "tags": [
+        "grounding",
+        "agent",
+        "memory",
+        "environment",
+        "probing",
+        "curation",
+        "enterprise",
+        "agents"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "9f8f849abfe5b274",
+          "title": "Grounding Agent Memory: Environment-Probing Curation for Enterprise Agents",
+          "summary": "arXiv:2609.11060v1 Announce Type: new Abstract: Persistent memory is entering production-oriented agent platforms to help long-horizon agents accumulate experience across sessions. Yet a post-task curator agent restricted to completed trajectories can preserve errors, overgeneralize partial evidence, or retain stale knowledge. We introduce environment-probing curation, a deployment-compatible extension that gives an ",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.11060",
+          "author": "Susheel Suresh, Hazel Mak, Sahil Bhatnagar, Chhaya Methani, Alejandro Gutierrez ",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "grounding",
+            "agent",
+            "memory",
+            "environment",
+            "probing",
+            "curation",
+            "enterprise",
+            "agents"
+          ],
+          "contentHash": "5063dee5e7cd7ab1",
+          "eventClusterId": "8b68d838170f7c95"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "a6e8d55d19b184fd",
+      "title": "Fork Where the Model Changes Its Mind: Belief-Shift Branching for Tree-Structured Reinforcement Learning",
+      "summary": "arXiv:2609.11061v1 Announce Type: new Abstract: Tree-structured rollouts give critic-free reinforcement learning with verifiable rewards (RLVR) step-level credit: fork a chain at an intermediate point, and sibling outcome differences estimate step value. Each fork adds sampling cost, so realistic budgets typically allow only a few forks per chain. A fork placed where the outcome is already largely settled yields sibl",
+      "category": "AI Research",
+      "tags": [
+        "fork",
+        "where",
+        "model",
+        "changes",
+        "mind",
+        "belief",
+        "shift",
+        "branching"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "d153dd7b9a044c0f",
+          "title": "Fork Where the Model Changes Its Mind: Belief-Shift Branching for Tree-Structured Reinforcement Learning",
+          "summary": "arXiv:2609.11061v1 Announce Type: new Abstract: Tree-structured rollouts give critic-free reinforcement learning with verifiable rewards (RLVR) step-level credit: fork a chain at an intermediate point, and sibling outcome differences estimate step value. Each fork adds sampling cost, so realistic budgets typically allow only a few forks per chain. A fork placed where the outcome is already largely settled yields sibl",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.11061",
+          "author": "Bin Lei, Yu Li, Prafulla Kumar Choubey, Jiaxin Zhang, Becky Xiangyu Peng, Qinyua",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "fork",
+            "where",
+            "model",
+            "changes",
+            "mind",
+            "belief",
+            "shift",
+            "branching"
+          ],
+          "contentHash": "7a63a8a58c8b5b0c",
+          "eventClusterId": "a6e8d55d19b184fd"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "aedfccfe0b93fed8",
+      "title": "Benchmark Radar: A Living Database and Search Engine for AI Benchmarks and Evaluation",
+      "summary": "arXiv:2609.11115v1 Announce Type: new Abstract: Benchmark researchers and developers of large language models (LLMs) and other AI systems need to find relevant evaluations, locate their benchmark datasets and code, and understand the settings behind reported scores. We present Benchmark Radar, a living database and search engine for retrieval and discovery of AI benchmarks, covering LLM evaluation, agentic and tool-u",
+      "category": "AI Research",
+      "tags": [
+        "benchmark",
+        "radar",
+        "living",
+        "database",
+        "search",
+        "engine",
+        "benchmarks",
+        "evaluation"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "abd6349b95b77977",
+          "title": "Benchmark Radar: A Living Database and Search Engine for AI Benchmarks and Evaluation",
+          "summary": "arXiv:2609.11115v1 Announce Type: new Abstract: Benchmark researchers and developers of large language models (LLMs) and other AI systems need to find relevant evaluations, locate their benchmark datasets and code, and understand the settings behind reported scores. We present Benchmark Radar, a living database and search engine for retrieval and discovery of AI benchmarks, covering LLM evaluation, agentic and tool-u",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.11115",
+          "author": "Koutian Wu, Junjie Zhou, Ergan Shang, Jiayu Wang, Pengqian Han, Junkai Wang, Wan",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "benchmark",
+            "radar",
+            "living",
+            "database",
+            "search",
+            "engine",
+            "benchmarks",
+            "evaluation"
+          ],
+          "contentHash": "8f0908375ee80e8d",
+          "eventClusterId": "aedfccfe0b93fed8"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "4e3acc06298b2e32",
+      "title": "Same Day, Same Story; One Day Ahead, a Different Signal: The Dual Validity of Financial Sentiment",
+      "summary": "arXiv:2609.11144v1 Announce Type: new Abstract: Financial NLP has a standard workflow: validate a sentiment tool against human labels, then trust it to extract market signal. This assumes the two evaluations measure the same thing. We test that assumption in a setting where both can be measured at once: a corpus of securities class actions (2002-2025) linking 70,500 X messages to abnormal stock returns, with a single",
+      "category": "AI Research",
+      "tags": [
+        "same",
+        "day",
+        "story",
+        "one",
+        "ahead",
+        "different",
+        "signal",
+        "dual"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "200ceb99828ac391",
+          "title": "Same Day, Same Story; One Day Ahead, a Different Signal: The Dual Validity of Financial Sentiment",
+          "summary": "arXiv:2609.11144v1 Announce Type: new Abstract: Financial NLP has a standard workflow: validate a sentiment tool against human labels, then trust it to extract market signal. This assumes the two evaluations measure the same thing. We test that assumption in a setting where both can be measured at once: a corpus of securities class actions (2002-2025) linking 70,500 X messages to abnormal stock returns, with a single",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.11144",
+          "author": "AS Aravinthkakshan, Laven Srivastava, Harsh Nandwani",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "same",
+            "day",
+            "story",
+            "one",
+            "ahead",
+            "different",
+            "signal",
+            "dual"
+          ],
+          "contentHash": "89e8ca412b0a77f3",
+          "eventClusterId": "4e3acc06298b2e32"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "5273f13690855f41",
+      "title": "Autonomous Chemical Mechanistic Discovery through Agentic Reasoning and Validation",
+      "summary": "arXiv:2609.11147v1 Announce Type: new Abstract: Unraveling reaction mechanisms is central to modern chemistry, yet automating these investigations remains challenging because computational workflows still rely heavily on expert intervention. Here we introduce ARCHE, an autonomous agentic system that integrates a general-purpose reasoning model, a domain-specialized computational chemistry model, and a structured tool",
+      "category": "Robotics",
+      "tags": [
+        "autonomous",
+        "chemical",
+        "mechanistic",
+        "discovery",
+        "through",
+        "agentic",
+        "reasoning",
+        "validation"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "8b51a29c5cd95ffe",
+          "title": "Autonomous Chemical Mechanistic Discovery through Agentic Reasoning and Validation",
+          "summary": "arXiv:2609.11147v1 Announce Type: new Abstract: Unraveling reaction mechanisms is central to modern chemistry, yet automating these investigations remains challenging because computational workflows still rely heavily on expert intervention. Here we introduce ARCHE, an autonomous agentic system that integrates a general-purpose reasoning model, a domain-specialized computational chemistry model, and a structured tool",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.11147",
+          "author": "Dong Li, Sixuan Mi, Zihao Ye, Huan Xiong, Tao XU, Tong Zhu, Aijia Zhang, Junqi G",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "Robotics",
+          "tags": [
+            "autonomous",
+            "chemical",
+            "mechanistic",
+            "discovery",
+            "through",
+            "agentic",
+            "reasoning",
+            "validation"
+          ],
+          "contentHash": "cf9ec4e8c4b34406",
+          "eventClusterId": "5273f13690855f41"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "28c39c713facc081",
+      "title": "DRG-MAPPO: Hierarchical Dynamic Role-Graph Multi-Agent Reinforcement Learning for Cooperative Air Combat",
+      "summary": "arXiv:2609.11155v1 Announce Type: new Abstract: Multi-Agent Reinforcement Learning (MARL) has emerged as a pivotal paradigm for complex decision-making in autonomous systems and air combat. While MARL has demonstrated significant potential in air combat, achieving sophisticated tactical coordination remains a non-trivial challenge. This difficulty is largely attributed to two primary limitations: (1) the absence of s",
+      "category": "AI Policy",
+      "tags": [
+        "drg",
+        "mappo",
+        "hierarchical",
+        "dynamic",
+        "role",
+        "graph",
+        "multi",
+        "agent"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "3c875619d2800286",
+          "title": "DRG-MAPPO: Hierarchical Dynamic Role-Graph Multi-Agent Reinforcement Learning for Cooperative Air Combat",
+          "summary": "arXiv:2609.11155v1 Announce Type: new Abstract: Multi-Agent Reinforcement Learning (MARL) has emerged as a pivotal paradigm for complex decision-making in autonomous systems and air combat. While MARL has demonstrated significant potential in air combat, achieving sophisticated tactical coordination remains a non-trivial challenge. This difficulty is largely attributed to two primary limitations: (1) the absence of s",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.11155",
+          "author": "Junlin Liu, Chengwei Li, Yang Gao, Hui Chang, Xinchen Zhang, Zhijun Zhao, Hao Zh",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "drg",
+            "mappo",
+            "hierarchical",
+            "dynamic",
+            "role",
+            "graph",
+            "multi",
+            "agent"
+          ],
+          "contentHash": "8c1044f98acc5806",
+          "eventClusterId": "28c39c713facc081"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "2792e3d8b649b50d",
+      "title": "Breaking Predictions Is Not Enough: Specified-Foil Counterfactuals for Temporal Graphs",
+      "summary": "arXiv:2609.11170v1 Announce Type: new Abstract: Temporal graph counterfactual explanations typically change past events to change or invalidate an original prediction, while leaving its replacement unspecified. Yet a user facing a predicted outcome often asks which past conditions would make a particular alternative occur instead. We formulate this destination-specific question as the Specified-Foil Counterfactual: g",
+      "category": "AI Research",
+      "tags": [
+        "breaking",
+        "predictions",
+        "not",
+        "enough",
+        "specified",
+        "foil",
+        "counterfactuals",
+        "temporal"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "737926599624886e",
+          "title": "Breaking Predictions Is Not Enough: Specified-Foil Counterfactuals for Temporal Graphs",
+          "summary": "arXiv:2609.11170v1 Announce Type: new Abstract: Temporal graph counterfactual explanations typically change past events to change or invalidate an original prediction, while leaving its replacement unspecified. Yet a user facing a predicted outcome often asks which past conditions would make a particular alternative occur instead. We formulate this destination-specific question as the Specified-Foil Counterfactual: g",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.11170",
+          "author": "Minwoo Yu, Young-guk Ha",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "breaking",
+            "predictions",
+            "not",
+            "enough",
+            "specified",
+            "foil",
+            "counterfactuals",
+            "temporal"
+          ],
+          "contentHash": "5d69715c31e59f7d",
+          "eventClusterId": "2792e3d8b649b50d"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "93fc3ddb32614f92",
+      "title": "Debate-to-Skill: Capability-Bound Process Supervision for Industrial Query-to-Agent Annotation",
+      "summary": "arXiv:2609.11176v1 Announce Type: new Abstract: Industrial query-to-agent matching fails when topical relevance is mistaken for executable capability, especially on long-tail and boundary-sensitive requests. We formulate annotation as \\emph{capability-bound process supervision} and instantiate it with Debate-to-Skill, which uses reusable decision principles, structured deliberation, verifier-based verdict extraction,",
+      "category": "AI Research",
+      "tags": [
+        "debate",
+        "skill",
+        "capability",
+        "bound",
+        "process",
+        "supervision",
+        "industrial",
+        "query"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "faa072b96829dabe",
+          "title": "Debate-to-Skill: Capability-Bound Process Supervision for Industrial Query-to-Agent Annotation",
+          "summary": "arXiv:2609.11176v1 Announce Type: new Abstract: Industrial query-to-agent matching fails when topical relevance is mistaken for executable capability, especially on long-tail and boundary-sensitive requests. We formulate annotation as \\emph{capability-bound process supervision} and instantiate it with Debate-to-Skill, which uses reusable decision principles, structured deliberation, verifier-based verdict extraction,",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.11176",
+          "author": "Shiyu Zhang, Leisheng Cheng, Huifu Li",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "debate",
+            "skill",
+            "capability",
+            "bound",
+            "process",
+            "supervision",
+            "industrial",
+            "query"
+          ],
+          "contentHash": "7091b42d560cdf43",
+          "eventClusterId": "93fc3ddb32614f92"
+        }
+      ],
+      "score": 0.4783713909711157
+    },
+    {
+      "id": "af0a14f82b374818",
+      "title": "SemVerBench: Benchmarking LLM Comprehension of Version-Constraint Resolution Semantics",
+      "summary": "arXiv:2609.11180v1 Announce Type: new Abstract: Large language model (LLM) coding agents constantly decide whether a version satisfies a constraint such as ^1.2.3 or >=2.0, 1.2 means >=1.3.0) traps every model on Cargo (near 60%), and although standard PEP 440 prefix matching is universal, on zero-pad/post-release corner cases GPT-5.1 collapses (0/26) while Claude stays at 97-100% (verified on a 67-item oracle-valida",
+      "category": "AI Research",
+      "tags": [
+        "semverbench",
+        "benchmarking",
+        "llm",
+        "comprehension",
+        "version",
+        "constraint",
+        "resolution",
+        "semantics"
+      ],
+      "firstSeenAt": "2026-09-12T04:00:00.000Z",
+      "lastSeenAt": "2026-09-12T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "7c852ce24727287e",
+          "title": "SemVerBench: Benchmarking LLM Comprehension of Version-Constraint Resolution Semantics",
+          "summary": "arXiv:2609.11180v1 Announce Type: new Abstract: Large language model (LLM) coding agents constantly decide whether a version satisfies a constraint such as ^1.2.3 or >=2.0, 1.2 means >=1.3.0) traps every model on Cargo (near 60%), and although standard PEP 440 prefix matching is universal, on zero-pad/post-release corner cases GPT-5.1 collapses (0/26) while Claude stays at 97-100% (verified on a 67-item oracle-valida",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.11180",
+          "author": "Qibai Chen, Zeming Liu",
+          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "semverbench",
+            "benchmarking",
+            "llm",
+            "comprehension",
+            "version",
+            "constraint",
+            "resolution",
+            "semantics"
+          ],
+          "contentHash": "4c76dd5b35030fae",
+          "eventClusterId": "af0a14f82b374818"
+        }
+      ],
+      "score": 0.4783713909711157
+    }
+  ],
+  "aiArtifacts": [
+    {
+      "id": "367c4634a3e4df20",
+      "type": "tldr",
+      "content": "OpenAI CEO Sam Altman confirmed that there would be no OpenAI IPO in 2026 during an interview with Fortune. — The Verge",
+      "clusterId": "b5c02ddb6de498e0",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.606Z"
+    },
+    {
+      "id": "e5002431a1a7c261",
+      "type": "key_points",
+      "content": [
+        "While OpenAI has filed confidentially for an IPO, the company will not be going public this year, according to CEO Sam Altman. — TechCrunch",
+        "Over the course of 45 minutes, Altman discussed a variety of subjects including the Hugging Face hacking incident, recursive self-improvement, and the possibility of building an AI that was beyond human control. — The Verge"
+      ],
+      "clusterId": "b5c02ddb6de498e0",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.606Z"
+    },
+    {
+      "id": "5a4283696d19bd4f",
+      "type": "tldr",
+      "content": "In May, hundreds of malicious and spam packages were uploaded to RubyGems, causing a serious disruption for the host. — The Verge",
+      "clusterId": "92221dea827b3c1f",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.607Z"
+    },
+    {
+      "id": "63f853c58227d8e9",
+      "type": "key_points",
+      "content": [
+        "Now independent researchers have said that a swarm of OpenAI agents were responsible for the attack. — The Verge",
+        "Not only that, but the AI tried to steal users' API keys. — The Verge"
+      ],
+      "clusterId": "92221dea827b3c1f",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.607Z"
+    },
+    {
+      "id": "e5b4c8f2f6c4a544",
+      "type": "tldr",
+      "content": "OpenAI has spent the last few years planting flags across the increasingly difficult terrain in mathematics. — The Verge",
+      "clusterId": "7adc9c15534e67c1",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "b49cdb5d7ba5e0f0",
+      "type": "key_points",
+      "content": [
+        "This week, it claimed one of its biggest prizes yet: a solution to a legendary Millennium Prize problem. — The Verge"
+      ],
+      "clusterId": "7adc9c15534e67c1",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "47c51132ebc41a1d",
+      "type": "tldr",
+      "content": "arXiv:2609.10584v1 Announce Type: new Abstract: Bounded-suboptimal search seeks a solution within a factor $w$ of optimal while reducing search effort. — arXiv cs.AI",
+      "clusterId": "14a0b8f7c391c8d2",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "26619f0b4ebe2e4d",
+      "type": "key_points",
+      "content": [
+        "Focal Search (FS) uses heuristic guidance within FOCAL, the frontier nodes eligible under the threshold $w f_{\\min}$, but its deterministic policy may leave $f_{\\min}$ unchanged for many expansions. — arXiv cs.AI",
+        "We introduce Probabilistic Focal Search (PFS), which follows the FS g — arXiv cs.AI"
+      ],
+      "clusterId": "14a0b8f7c391c8d2",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "1024b7356818c8c3",
+      "type": "tldr",
+      "content": "arXiv:2609.10629v1 Announce Type: new Abstract: Quadratic Unconstrained Binary Optimization (QUBO) is a central formulation for combinatorial optimization and has gained increasing attention due to its compatibility with quantum, hybrid quantum-classical, and quantum-inspired solvers. — arXiv cs.AI",
+      "clusterId": "42147b00d87caefd",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "eedeabf01b000a4b",
+      "type": "key_points",
+      "content": [
+        "However, translating natural-language problem descriptions into correct QUBO formulations remains difficult, requiring the identificat — arXiv cs.AI"
+      ],
+      "clusterId": "42147b00d87caefd",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "7e9fe0270c441925",
+      "type": "tldr",
+      "content": "arXiv:2609.10654v1 Announce Type: new Abstract: The Abstraction and Reasoning Corpus (ARC) benchmarks cognitive generalization, the ability to infer and apply abstract rules from limited examples. — arXiv cs.AI",
+      "clusterId": "049d5df12becfe46",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "021d62ab5b490e8b",
+      "type": "key_points",
+      "content": [
+        "This paper presents a multi-stage rule-chaining framework that performs compositional reasoning across symbolic, structural, and conceptual levels. — arXiv cs.AI",
+        "The framework integrates three complementary solvers: (1) a deterministic r — arXiv cs.AI"
+      ],
+      "clusterId": "049d5df12becfe46",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "c327adbe85017332",
+      "type": "tldr",
+      "content": "arXiv:2609.10656v1 Announce Type: new Abstract: Selecting LoRA rank for diffusion fine-tuning requires balancing quality and compute cost. — arXiv cs.AI",
+      "clusterId": "fccfb8a28f57a718",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "aceeb57b8407fcc1",
+      "type": "key_points",
+      "content": [
+        "We present a controlled study on CIFAR-10 using a DDPM U-Net with ranks {2,4,8,16,32}, fixed optimization settings, and a reproducible local-folder pytorch-fid protocol. — arXiv cs.AI",
+        "We report FID, trainable parameters, runtime, and GPU memory, then validate trends with extended-budget DDPM ru — arXiv cs.AI"
+      ],
+      "clusterId": "fccfb8a28f57a718",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "ca6edb5dd0e68b45",
+      "type": "tldr",
+      "content": "arXiv:2609.10657v1 Announce Type: new Abstract: Neural networks trained past memorization frequently undergo a delayed transition to generalization, a phenomenon known as grokking. — arXiv cs.AI",
+      "clusterId": "34bfae6c1a7faaae",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "9a1440276151a2b0",
+      "type": "key_points",
+      "content": [
+        "Despite theoretical progress on \\emph{why} this transition occurs, the quantitative structure of \\emph{when} it occurs in hyperparameter space remains uncharacterized. — arXiv cs.AI",
+        "We map the memorization-to-generalization boundary across 384 configura — arXiv cs.AI"
+      ],
+      "clusterId": "34bfae6c1a7faaae",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "5b825c6d928b7036",
+      "type": "tldr",
+      "content": "arXiv:2609.10712v1 Announce Type: new Abstract: We study how model post-training and test-time inference design affect natural-language proof generation for hard olympiad mathematics. — arXiv cs.AI",
+      "clusterId": "ef9359a2efd64cb1",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "0504d826f57c8334",
+      "type": "key_points",
+      "content": [
+        "Starting from Nemotron 3 Ultra, we train two specialist checkpoints using supervised fine-tuning and reinforcement learning, and evaluate checkpoint choice, verification, and refinement. — arXiv cs.AI"
+      ],
+      "clusterId": "ef9359a2efd64cb1",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "3582c35f1e9552ff",
+      "type": "tldr",
+      "content": "arXiv:2609.10724v1 Announce Type: new Abstract: Sustained deployment of generative AI agents requires more than isolated task success. — arXiv cs.AI",
+      "clusterId": "6565907be4fe8e63",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "ed9c4081126088ef",
+      "type": "key_points",
+      "content": [
+        "Agents must remain useful across repeated interactions, changing conditions, and dependencies on people within shared workflows, especially as technical, human, and operational disruptions accumulate over time. — arXiv cs.AI",
+        "We propose operational resilience and considerate participation as two com — arXiv cs.AI"
+      ],
+      "clusterId": "6565907be4fe8e63",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "024e7f53f6c64771",
+      "type": "tldr",
+      "content": "arXiv:2609.10873v1 Announce Type: new Abstract: Independent evaluation can reject harmful policy updates yet also prevent useful continual learning. — arXiv cs.AI",
+      "clusterId": "961d7b3a026c4612",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "121ef2de42df9227",
+      "type": "key_points",
+      "content": [
+        "We argue that update admission must be assessed through both error control and retained learning opportunities at a stated interaction budget. — arXiv cs.AI",
+        "We identify a concrete failure: a range-based confidence gate cannot certify unchanged old-task behavior within otherwise substa — arXiv cs.AI"
+      ],
+      "clusterId": "961d7b3a026c4612",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "93722c5e120a4d41",
+      "type": "tldr",
+      "content": "arXiv:2609.10964v1 Announce Type: new Abstract: Agentic LLM workflows consist of sequences of model turns interleaved with tool interactions, so their end-to-end completion time depends not only on inference speed but also on when ready turns are released. — arXiv cs.AI",
+      "clusterId": "04f8b4da1b63c443",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "990249d15236977b",
+      "type": "key_points",
+      "content": [
+        "Most runtimes release each turn immediately upon readiness. — arXiv cs.AI",
+        "Under contention, this eager release policy can accumulate released but unfinished work; once submitted — arXiv cs.AI"
+      ],
+      "clusterId": "04f8b4da1b63c443",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.608Z"
+    },
+    {
+      "id": "959ac884e8388048",
+      "type": "tldr",
+      "content": "arXiv:2609.11060v1 Announce Type: new Abstract: Persistent memory is entering production-oriented agent platforms to help long-horizon agents accumulate experience across sessions. — arXiv cs.AI",
+      "clusterId": "8b68d838170f7c95",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "3cea20ab2f644c6d",
+      "type": "key_points",
+      "content": [
+        "Yet a post-task curator agent restricted to completed trajectories can preserve errors, overgeneralize partial evidence, or retain stale knowledge. — arXiv cs.AI",
+        "We introduce environment-probing curation, a deployment-compatible extension that gives an — arXiv cs.AI"
+      ],
+      "clusterId": "8b68d838170f7c95",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "dc033f2bdf2d79a3",
+      "type": "tldr",
+      "content": "arXiv:2609.11061v1 Announce Type: new Abstract: Tree-structured rollouts give critic-free reinforcement learning with verifiable rewards (RLVR) step-level credit: fork a chain at an intermediate point, and sibling outcome differences estimate step value. — arXiv cs.AI",
+      "clusterId": "a6e8d55d19b184fd",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "b46c3d9942751eb8",
+      "type": "key_points",
+      "content": [
+        "Each fork adds sampling cost, so realistic budgets typically allow only a few forks per chain. — arXiv cs.AI",
+        "A fork placed where the outcome is already largely settled yields sibl — arXiv cs.AI"
+      ],
+      "clusterId": "a6e8d55d19b184fd",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "e9b8c48e3c459251",
+      "type": "tldr",
+      "content": "arXiv:2609.11115v1 Announce Type: new Abstract: Benchmark researchers and developers of large language models (LLMs) and other AI systems need to find relevant evaluations, locate their benchmark datasets and code, and understand the settings behind reported scores. — arXiv cs.AI",
+      "clusterId": "aedfccfe0b93fed8",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "d384523d7221a0d5",
+      "type": "key_points",
+      "content": [
+        "We present Benchmark Radar, a living database and search engine for retrieval and discovery of AI benchmarks, covering LLM evaluation, agentic and tool-u — arXiv cs.AI"
+      ],
+      "clusterId": "aedfccfe0b93fed8",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "57c7b1ea177b4c80",
+      "type": "tldr",
+      "content": "arXiv:2609.11144v1 Announce Type: new Abstract: Financial NLP has a standard workflow: validate a sentiment tool against human labels, then trust it to extract market signal. — arXiv cs.AI",
+      "clusterId": "4e3acc06298b2e32",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "f947dbdb7f4f8971",
+      "type": "key_points",
+      "content": [
+        "This assumes the two evaluations measure the same thing. — arXiv cs.AI",
+        "We test that assumption in a setting where both can be measured at once: a corpus of securities class actions (2002-2025) linking 70,500 X messages to abnormal stock returns, with a single — arXiv cs.AI"
+      ],
+      "clusterId": "4e3acc06298b2e32",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "3d9e206c849847f4",
+      "type": "tldr",
+      "content": "arXiv:2609.11147v1 Announce Type: new Abstract: Unraveling reaction mechanisms is central to modern chemistry, yet automating these investigations remains challenging because computational workflows still rely heavily on expert intervention. — arXiv cs.AI",
+      "clusterId": "5273f13690855f41",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "eeaf308a40d231fd",
+      "type": "key_points",
+      "content": [
+        "Here we introduce ARCHE, an autonomous agentic system that integrates a general-purpose reasoning model, a domain-specialized computational chemistry model, and a structured tool — arXiv cs.AI"
+      ],
+      "clusterId": "5273f13690855f41",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "e71a01738963d1a9",
+      "type": "tldr",
+      "content": "arXiv:2609.11155v1 Announce Type: new Abstract: Multi-Agent Reinforcement Learning (MARL) has emerged as a pivotal paradigm for complex decision-making in autonomous systems and air combat. — arXiv cs.AI",
+      "clusterId": "28c39c713facc081",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "1208ded5da91fb7e",
+      "type": "key_points",
+      "content": [
+        "While MARL has demonstrated significant potential in air combat, achieving sophisticated tactical coordination remains a non-trivial challenge. — arXiv cs.AI",
+        "This difficulty is largely attributed to two primary limitations: (1) the absence of s — arXiv cs.AI"
+      ],
+      "clusterId": "28c39c713facc081",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "d11600ad9b973583",
+      "type": "tldr",
+      "content": "arXiv:2609.11170v1 Announce Type: new Abstract: Temporal graph counterfactual explanations typically change past events to change or invalidate an original prediction, while leaving its replacement unspecified. — arXiv cs.AI",
+      "clusterId": "2792e3d8b649b50d",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "414c3da0c6ada376",
+      "type": "key_points",
+      "content": [
+        "Yet a user facing a predicted outcome often asks which past conditions would make a particular alternative occur instead. — arXiv cs.AI",
+        "We formulate this destination-specific question as the Specified-Foil Counterfactual: g — arXiv cs.AI"
+      ],
+      "clusterId": "2792e3d8b649b50d",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "26c98dc070fec793",
+      "type": "tldr",
+      "content": "arXiv:2609.11176v1 Announce Type: new Abstract: Industrial query-to-agent matching fails when topical relevance is mistaken for executable capability, especially on long-tail and boundary-sensitive requests. — arXiv cs.AI",
+      "clusterId": "93fc3ddb32614f92",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    },
+    {
+      "id": "43a88e1841b43fd2",
+      "type": "key_points",
+      "content": [
+        "We formulate annotation as \\emph{capability-bound process supervision} and instantiate it with Debate-to-Skill, which uses reusable decision principles, structured deliberation, verifier-based verdict extraction, — arXiv cs.AI"
+      ],
+      "clusterId": "93fc3ddb32614f92",
+      "language": "en",
+      "model": "extractive-v1",
+      "createdAt": "2026-09-12T21:48:43.609Z"
+    }
+  ]
+}

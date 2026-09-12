@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+@custom-variant night (&:where(.night, .night *));
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+}
+
+:root {
+  --paper: #e7d9bb;
+  --paper-deep: #dcc9a4;
+  --ink: #2b1f12;
+  --ink-soft: #5c4830;
+  --ink-faint: #8a7454;
+  --rule: #a68f68;
+  --accent: #8b2e1f;
+  --grain: 0.16;
+  --vignette: 0.13;
+  --crease-shade: rgba(60, 42, 20, 0.13);
+  --crease-light: rgba(255, 250, 235, 0.5);
+  --sheet-back: #d8c7a2;
+}
+
+.night {
+  --paper: #17120c;
+  --paper-deep: #100c08;
+  --ink: #e4d6b8;
+  --ink-soft: #b39f7d;
+  --ink-faint: #7d6b4f;
+  --rule: #4a3c28;
+  --accent: #cf7a5e;
+  --grain: 0.1;
+  --vignette: 0.42;
+  --crease-shade: rgba(0, 0, 0, 0.45);
+  --crease-light: rgba(228, 214, 184, 0.12);
+  --sheet-back: #0d0a06;
+}
+
+html {
+  background: var(--paper-deep);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background 420ms ease, color 420ms ease;
+}
+
+@layer components {
+  .font-mast {
+    font-family: var(--font-mast), "Old English Text MT", serif;
+    font-weight: 400;
+  }
+
+  .font-head {
+    font-family: var(--font-head), Georgia, serif;
+  }
+
+  .font-body {
+    font-family: var(--font-body), Georgia, serif;
+  }
+
+  .font-label {
+    font-family: var(--font-label), "Franklin Gothic", sans-serif;
+  }
+
+  .kicker {
+    font-family: var(--font-label), "Franklin Gothic", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .meta {
+    font-family: var(--font-label), "Franklin Gothic", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* Smaller headlines take the text cut, bold — as set in a real paper. */
+  .headline {
+    font-family: var(--font-body), Georgia, serif;
+    font-weight: 700;
+    line-height: 1.14;
+    text-wrap: balance;
+  }
+
+  /* Large headlines take the display cut, which needs no synthetic weight. */
+  .headline-caps {
+    font-family: var(--font-head), Georgia, serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.004em;
+    line-height: 1.03;
+    text-wrap: balance;
+  }
+
+  .prose-column {
+    font-family: var(--font-body), Georgia, serif;
+    font-size: 16px;
+    line-height: 1.66;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .prose-column p + p {
+    margin-top: 0.95em;
+  }
+
+  .drop-cap::first-letter {
+    float: left;
+    font-family: var(--font-head), Georgia, serif;
+    font-weight: 400;
+    font-size: 4em;
+    line-height: 0.82;
+    padding-right: 0.08em;
+    padding-top: 0.06em;
+    color: var(--accent);
+  }
+
+  .rule-double {
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    height: 5px;
+  }
+
+  .rule-triple {
+    border-top: 1px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
+    height: 4px;
+  }
+}
+
+.paper-grain {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 60;
+  opacity: var(--grain);
+  mix-blend-mode: multiply;
+}
+
+.night .paper-grain {
+  mix-blend-mode: screen;
+}
+
+.paper-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 59;
+  background: radial-gradient(
+    ellipse 120% 90% at 50% 45%,
+    transparent 40%,
+    rgba(60, 40, 18, var(--vignette)) 100%
+  );
+}
+
+.stage {
+  perspective: 2800px;
+  perspective-origin: 50% 42%;
+}
+
+.sheet-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* The horizontal crease a broadsheet carries once it has been folded once. */
+.fold-crease {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 26px;
+  pointer-events: none;
+  z-index: 25;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--crease-shade) 46%,
+    var(--crease-shade) 50%,
+    var(--crease-light) 56%,
+    transparent 100%
+  );
+}
+
+/* Stacked page edges, so the sheet reads as having pages behind it. */
+.page-edges::after,
+.page-edges::before {
+  content: "";
+  position: absolute;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  z-index: -1;
+  filter: url(#cut-edge);
+}
+
+.page-edges::before {
+  inset: 5px -5px -5px 5px;
+}
+
+.page-edges::after {
+  inset: 10px -10px -10px 10px;
+  opacity: 0.6;
+}
+
+.story-link {
+  display: block;
+  transition: color 200ms ease;
+}
+
+.story-link:hover .headline,
+.story-link:hover .headline-caps {
+  color: var(--accent);
+}
+
+.story-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 8px;
+}
+
+.is-cued {
+  box-shadow: -16px 0 0 -13px var(--accent);
+}
+
+.ornament-rule {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+}
+
+.ornament-rule::before,
+.ornament-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rule);
+  border: 3px solid var(--paper-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

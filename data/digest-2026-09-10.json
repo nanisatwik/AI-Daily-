@@ -1,0 +1,159 @@
+{
+  "date": "2026-09-10",
+  "edition": 148,
+  "totalItems": 41,
+  "stories": [
+    {
+      "id": "local-reasoning-model-laptop",
+      "headline": "A reasoning model that runs on a laptop",
+      "deck": "Quantised weights put frontier-class inference on consumer hardware, and the local-first crowd has opinions.",
+      "section": "Model release",
+      "publishedAt": "2026-09-10T09:00:00Z",
+      "body": [
+        "The release landed without a livestream, which is itself part of the story. Benchmarks put the model within a rounding error of systems that needed a datacentre eighteen months ago, and the weights are small enough to sit comfortably on an external drive.",
+        "What changed is not the architecture but the quantisation pipeline. By holding attention layers at higher precision while aggressively compressing the feed-forward blocks, the team kept reasoning performance largely intact at roughly a quarter of the memory footprint.",
+        "The practical consequence is that a mid-range laptop from the last three years can now run the kind of multi-step reasoning that previously meant an API call and a per-token bill. Early community benchmarks are noisy and should be treated with caution, but the direction is not in dispute."
+      ],
+      "sources": [
+        { "name": "Hacker News", "url": "https://news.ycombinator.com", "publishedAt": "2026-09-10T09:14:00Z" },
+        { "name": "Ars Technica", "url": "https://arstechnica.com", "publishedAt": "2026-09-10T10:02:00Z" },
+        { "name": "The Verge", "url": "https://theverge.com", "publishedAt": "2026-09-10T10:30:00Z" },
+        { "name": "r/LocalLLaMA", "url": "https://reddit.com/r/LocalLLaMA", "publishedAt": "2026-09-10T09:20:00Z" },
+        { "name": "Hugging Face Blog", "url": "https://huggingface.co/blog", "publishedAt": "2026-09-10T11:00:00Z" },
+        { "name": "TechCrunch", "url": "https://techcrunch.com", "publishedAt": "2026-09-10T11:45:00Z" }
+      ]
+    },
+    {
+      "id": "eu-model-audit-timeline",
+      "headline": "EU timeline for model audits slips to 2027",
+      "deck": "Compliance teams get another year; the people who built the auditing tooling get a harder conversation with their investors.",
+      "section": "Policy",
+      "publishedAt": "2026-09-10T07:30:00Z",
+      "body": [
+        "The delay was framed as a technical consultation extension rather than a retreat, but the effect is the same: mandatory third-party audits for general-purpose models will not bind until well into 2027.",
+        "Industry groups had argued that the audit methodology was underspecified and that firms could not meaningfully prepare against a moving target. Civil society groups countered that the specification had been stable for months and the objection was really about cost.",
+        "For anyone building compliance tooling, the runway just got longer and the urgency just got smaller — a mixed result that markets tend to price as bad news."
+      ],
+      "sources": [
+        { "name": "Reuters", "url": "https://reuters.com", "publishedAt": "2026-09-10T07:30:00Z" },
+        { "name": "Financial Times", "url": "https://ft.com", "publishedAt": "2026-09-10T08:15:00Z" },
+        { "name": "Politico EU", "url": "https://politico.eu", "publishedAt": "2026-09-10T08:40:00Z" },
+        { "name": "TechCrunch", "url": "https://techcrunch.com", "publishedAt": "2026-09-10T09:55:00Z" }
+      ]
+    },
+    {
+      "id": "attention-variant-long-context",
+      "headline": "A quieter attention variant halves memory at long context",
+      "deck": "No press release, no demo, just a preprint and a benchmark table that is difficult to argue with.",
+      "section": "Research",
+      "publishedAt": "2026-09-09T22:10:00Z",
+      "body": [
+        "The paper proposes a sparsity pattern that is learned rather than fixed, letting the model decide which earlier tokens deserve full attention and which can be summarised into a compressed cache.",
+        "Memory use at 200k context drops by roughly half against a dense baseline, with perplexity degradation the authors describe as within noise. The result has not been independently reproduced at scale, which is the usual and correct caveat.",
+        "What makes this interesting is less the number than the framing: long context has been treated as a hardware problem for two years, and this is a reminder that it is still partly an algorithms problem."
+      ],
+      "sources": [
+        { "name": "arXiv", "url": "https://arxiv.org", "publishedAt": "2026-09-09T22:10:00Z" },
+        { "name": "Hacker News", "url": "https://news.ycombinator.com", "publishedAt": "2026-09-10T06:20:00Z" },
+        { "name": "The Gradient", "url": "https://thegradient.pub", "publishedAt": "2026-09-10T12:00:00Z" }
+      ]
+    },
+    {
+      "id": "agent-protocol-consolidation",
+      "headline": "Agent frameworks consolidate around one protocol",
+      "deck": "Three competing tool-calling standards became one this week, largely because customers refused to integrate three.",
+      "section": "Tooling",
+      "publishedAt": "2026-09-10T13:00:00Z",
+      "body": [
+        "Standardisation in this space has been predicted for two years and repeatedly failed to arrive, mostly because each vendor's protocol was load-bearing for its own product.",
+        "The forcing function was procurement. Enterprise buyers started writing protocol-agnostic requirements into contracts, and maintaining a bespoke integration surface stopped being a moat and started being a line item.",
+        "Migration guides are already out. The interesting question is what happens to the smaller frameworks whose main differentiator was the integration layer they are now giving up."
+      ],
+      "sources": [
+        { "name": "InfoWorld", "url": "https://infoworld.com", "publishedAt": "2026-09-10T13:00:00Z" },
+        { "name": "Hacker News", "url": "https://news.ycombinator.com", "publishedAt": "2026-09-10T13:40:00Z" },
+        { "name": "The New Stack", "url": "https://thenewstack.io", "publishedAt": "2026-09-10T14:20:00Z" }
+      ]
+    },
+    {
+      "id": "inference-prices-fall-again",
+      "headline": "Inference prices fall again across three providers",
+      "deck": "The third round of cuts this year, and the first where the cheapest tier is genuinely usable for production work.",
+      "section": "Industry",
+      "publishedAt": "2026-09-10T15:20:00Z",
+      "body": [
+        "Price cuts at this cadence stop being news and start being a trend line. What is notable this round is that the reductions landed on the mid-tier models rather than the smallest ones.",
+        "That matters because mid-tier is where most production traffic actually sits. Cutting the price of a model nobody ships is marketing; cutting the price of the workhorse is margin.",
+        "Analysts expect the compression to continue through the year as capacity comes online faster than demand for the largest models."
+      ],
+      "sources": [
+        { "name": "The Information", "url": "https://theinformation.com", "publishedAt": "2026-09-10T15:20:00Z" },
+        { "name": "CNBC", "url": "https://cnbc.com", "publishedAt": "2026-09-10T16:00:00Z" }
+      ]
+    },
+    {
+      "id": "eval-harness-reproducibility",
+      "headline": "A widely cited eval harness fails reproduction",
+      "deck": "Two independent groups could not match the published numbers. The maintainers say the config defaults changed.",
+      "section": "Research",
+      "publishedAt": "2026-09-09T18:00:00Z",
+      "body": [
+        "The discrepancy traces to a default sampling temperature that shifted between minor versions, which is a small change with outsized consequences for a benchmark used in dozens of papers.",
+        "Nobody is alleging bad faith. The failure mode is mundane: a configuration surface that was never treated as a stable API being depended on as though it were one.",
+        "The maintainers have pinned defaults and cut a new release. The papers citing the old numbers remain as they are."
+      ],
+      "sources": [
+        { "name": "arXiv", "url": "https://arxiv.org", "publishedAt": "2026-09-09T18:00:00Z" },
+        { "name": "Hacker News", "url": "https://news.ycombinator.com", "publishedAt": "2026-09-10T05:10:00Z" }
+      ]
+    },
+    {
+      "id": "open-weights-license-shift",
+      "headline": "A major open-weights licence quietly adds a usage cap",
+      "deck": "Still free for almost everyone, but the definition of 'almost' now has a number attached to it.",
+      "section": "Open source",
+      "publishedAt": "2026-09-09T14:00:00Z",
+      "body": [
+        "The revised terms introduce a monthly active user threshold above which commercial use requires a negotiated licence. Below it, nothing changes.",
+        "The threshold is high enough that the overwhelming majority of users will never encounter it, which is precisely the design. It is a competitor clause dressed as a fairness clause.",
+        "Whether this still counts as open source is a question the licence-steward community has been arguing about for long enough that the answer is probably 'it depends who is asking'."
+      ],
+      "sources": [
+        { "name": "The Register", "url": "https://theregister.com", "publishedAt": "2026-09-09T14:00:00Z" },
+        { "name": "Hacker News", "url": "https://news.ycombinator.com", "publishedAt": "2026-09-09T15:30:00Z" },
+        { "name": "LWN", "url": "https://lwn.net", "publishedAt": "2026-09-10T11:00:00Z" }
+      ]
+    },
+    {
+      "id": "datacentre-power-siting",
+      "headline": "Two datacentre projects stall on grid connection",
+      "deck": "The bottleneck for frontier training is increasingly a substation, not a chip.",
+      "section": "Industry",
+      "publishedAt": "2026-09-09T11:00:00Z",
+      "body": [
+        "Both projects had secured hardware allocations and planning permission. Neither could secure a grid connection date inside the decade.",
+        "This is becoming the defining constraint of the buildout. Compute can be manufactured on a two-year horizon; transmission infrastructure cannot.",
+        "Several operators have responded by siting new capacity next to existing generation rather than near demand, which solves the power problem and creates a latency one."
+      ],
+      "sources": [
+        { "name": "Bloomberg", "url": "https://bloomberg.com", "publishedAt": "2026-09-09T11:00:00Z" },
+        { "name": "Data Center Dynamics", "url": "https://datacenterdynamics.com", "publishedAt": "2026-09-09T12:30:00Z" }
+      ]
+    },
+    {
+      "id": "small-model-distillation-recipe",
+      "headline": "A distillation recipe nobody else picked up",
+      "deck": "Eleven upvotes and one comment, but the method is clean and the ablations are honest.",
+      "section": "Research",
+      "publishedAt": "2026-09-08T20:00:00Z",
+      "body": [
+        "Buried under the week's louder releases, this preprint describes a staged distillation approach that trades a small amount of accuracy for a large reduction in student training cost.",
+        "The ablation table is the good part. The authors report the configurations that did not work, including two that look obviously promising and are not.",
+        "Included here because a digest that only surfaces what everyone already saw is a worse digest."
+      ],
+      "sources": [
+        { "name": "arXiv", "url": "https://arxiv.org", "publishedAt": "2026-09-08T20:00:00Z" }
+      ]
+    }
+  ]
+}
