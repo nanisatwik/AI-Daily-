@@ -30,7 +30,7 @@ const turnedAt = (w: number) => -w * 1.15;
 
 type Props = { pages: ReactNode[]; labels: string[] };
 type Side = "next" | "prev";
-type Lift = { target: number; side: Side; h: number };
+type Lift = { target: number; side: Side };
 
 /**
  * Three phases, in the proportions a hand actually turns a page.
@@ -67,7 +67,9 @@ export default function Newspaper({ pages, labels }: Props) {
   const [lifting, setLifting] = useState<Lift | null>(null);
 
   const sheetRef = useRef<HTMLDivElement>(null);
-  const pageLayer = useRef<HTMLDivElement>(null);
+  /** One entry per sheet in the stack; paint() clips whichever is flying. */
+  const pageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const flyingRef = useRef(0);
   const rigRef = useRef<HTMLDivElement>(null);
   const curlLayer = useRef<HTMLDivElement>(null);
   const liftedRef = useRef<HTMLDivElement>(null);
@@ -131,7 +133,7 @@ export default function Newspaper({ pages, labels }: Props) {
    */
   const paint = useCallback(() => {
     const { w, h } = size.current;
-    const pageEl = pageLayer.current;
+    const pageEl = pageRefs.current[flyingRef.current];
     // Wait for the curl rig to mount. Clipping the page before the bend exists
     // would show one frame of a sheet cut off against nothing.
     if (!pageEl || !curlLayer.current || w === 0) return;
@@ -203,7 +205,10 @@ export default function Newspaper({ pages, labels }: Props) {
     dragging.current = false;
     amount.current = 0;
     grabY.current = -1;
-    if (pageLayer.current) pageLayer.current.style.clipPath = "";
+    // Clear every sheet's clip, not just the current one — a turn that commits
+    // swaps which sheet is flying, and a stale clip would strand a page cut in
+    // half on the next turn.
+    for (const el of pageRefs.current) if (el) el.style.clipPath = "";
     setLifting(null);
   }, []);
 
@@ -242,11 +247,9 @@ export default function Newspaper({ pages, labels }: Props) {
       // Start at the pose that matches what is already on screen, so taking
       // hold of the sheet never makes it jump.
       cursor.current = s === "next" ? flatAt(w) : turnedAt(w);
-      setLifting({
-        target,
-        side: s,
-        h: sheetRef.current?.offsetHeight ?? 0,
-      });
+      // No height captured here any more: the grid stack keeps the sheet one
+      // fixed size, so there is nothing to freeze for the length of a turn.
+      setLifting({ target, side: s });
     },
     []
   );
@@ -400,64 +403,80 @@ export default function Newspaper({ pages, labels }: Props) {
       ? lifting.target
       : page
     : null;
-  const flyingSheet = pages[flying];
+  // paint() runs from rAF after render, so a plain assignment here is enough to
+  // keep it pointed at the right sheet without an extra render pass.
+  flyingRef.current = flying;
 
   return (
     <div className="stage">
+      {/*
+        Every sheet is laid into the same single grid cell. The cell is
+        therefore always as tall as the tallest page in the edition, and each
+        sheet stretches to fill it — so the paper is one fixed rectangle no
+        matter which page is face up, and a short page ends in blank newsprint
+        rather than collapsing around its content.
+
+        This is also what makes the turn geometry stable: the curl reads its
+        dimensions from this box, which never changes size.
+      */}
       <div
         ref={sheetRef}
-        className={`relative ${lifting ? "select-none" : ""}`}
+        className={`relative grid ${lifting ? "select-none" : ""}`}
         onPointerDown={reduce ? undefined : onPointerDown}
         onPointerMove={reduce ? undefined : onPointerMove}
         onPointerUp={reduce ? undefined : onPointerUp}
         onPointerCancel={reduce ? undefined : onPointerUp}
-        style={{
-          cursor: lifting ? "grabbing" : undefined,
-          touchAction: "pan-y",
-          // Hold the height still for the length of the turn. Pages differ in
-          // length, and letting the box resize mid-flight reads as a lurch.
-          height: lifting ? lifting.h : undefined,
-        }}
+        style={{ cursor: lifting ? "grabbing" : undefined, touchAction: "pan-y" }}
       >
-        {beneath !== null && (
-          <div className="absolute top-0 left-0 w-full z-0" aria-hidden="true">
-            {pages[beneath]}
-          </div>
-        )}
+        {pages.map((sheet, i) => {
+          const isFlying = i === flying;
+          const isBeneath = i === beneath;
+          const shown = isFlying || isBeneath;
 
-        {/* No will-change here: promoting this layer switches the body text
-            from subpixel to grayscale antialiasing and visibly washes out the
-            ink, and it buys nothing — a clip-path change repaints regardless. */}
-        <div
-          ref={pageLayer}
-          className={
-            lifting ? "absolute top-0 left-0 w-full z-10" : "relative z-10"
-          }
-        >
-          {showFold ? (
-            <FoldedSheet onOpened={() => setFolded(false)}>
-              {flyingSheet}
-            </FoldedSheet>
-          ) : (
-            flyingSheet
-          )}
-
-          {/* Cast by the raised sheet onto the page still lying flat. */}
-          {lifting && (
+          return (
             <div
-              ref={shadowRef}
-              className="absolute z-20 pointer-events-none opacity-0"
-              style={{
-                top: "-12%",
-                height: "124%",
-                willChange: "left, width, opacity, transform",
-                background:
-                  "linear-gradient(to left, rgba(26,15,4,0.85) 0%, rgba(26,15,4,0.34) 22%, rgba(26,15,4,0) 78%)",
+              key={i}
+              ref={(el) => {
+                pageRefs.current[i] = el;
               }}
-              aria-hidden="true"
-            />
-          )}
-        </div>
+              // Hidden sheets stay in the grid so they keep holding the height,
+              // but visibility:hidden takes them out of the a11y tree.
+              className="relative"
+              style={{
+                gridArea: "1 / 1",
+                zIndex: isFlying ? 10 : 0,
+                visibility: shown ? "visible" : "hidden",
+              }}
+              aria-hidden={!isFlying}
+            >
+              {isFlying && showFold ? (
+                <FoldedSheet onOpened={() => setFolded(false)}>
+                  {sheet}
+                </FoldedSheet>
+              ) : (
+                sheet
+              )}
+
+              {/* Cast by the raised sheet onto the page still lying flat. Lives
+                  inside the flying sheet so it inherits that sheet's clip and
+                  cannot spill past the crease. */}
+              {isFlying && lifting && (
+                <div
+                  ref={shadowRef}
+                  className="absolute z-20 pointer-events-none opacity-0"
+                  style={{
+                    top: "-12%",
+                    height: "124%",
+                    willChange: "left, width, opacity, transform",
+                    background:
+                      "linear-gradient(to left, rgba(26,15,4,0.85) 0%, rgba(26,15,4,0.34) 22%, rgba(26,15,4,0) 78%)",
+                  }}
+                  aria-hidden="true"
+                />
+              )}
+            </div>
+          );
+        })}
 
         {lifting && (
           // Flat wrapper, kept out of the 3D context purely to trim anything
@@ -523,7 +542,7 @@ export default function Newspaper({ pages, labels }: Props) {
                     className="absolute left-0 w-full opacity-[0.11]"
                     style={{ top: "9.677%" }}
                   >
-                    {flyingSheet}
+                    {pages[flying]}
                   </div>
                   <div
                     data-shade
