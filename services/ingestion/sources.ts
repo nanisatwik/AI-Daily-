@@ -57,16 +57,51 @@ export const FEEDS: Feed[] = [
     url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
     defaultCategory: "AI News",
   },
+  // VentureBeat removed: it answers every request with HTTP 429 regardless of
+  // pacing, so it was a guaranteed failure line in every run.
   {
     source: {
-      id: "venturebeat-ai",
-      name: "VentureBeat",
-      url: "https://venturebeat.com",
+      id: "wired-ai",
+      name: "Wired",
+      url: "https://www.wired.com",
       publisherType: "publication",
-      trust: 0.76,
+      trust: 0.85,
     },
-    url: "https://venturebeat.com/category/ai/feed/",
-    defaultCategory: "AI Business",
+    url: "https://www.wired.com/feed/tag/ai/latest/rss",
+    defaultCategory: "AI News",
+  },
+  {
+    source: {
+      id: "ieee-spectrum",
+      name: "IEEE Spectrum",
+      url: "https://spectrum.ieee.org",
+      publisherType: "publication",
+      trust: 0.89,
+    },
+    url: "https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss",
+    defaultCategory: "AI Research",
+  },
+  {
+    source: {
+      id: "mit-news-ai",
+      name: "MIT News",
+      url: "https://news.mit.edu",
+      publisherType: "lab",
+      trust: 0.88,
+    },
+    url: "https://news.mit.edu/rss/topic/artificial-intelligence2",
+    defaultCategory: "AI Research",
+  },
+  {
+    source: {
+      id: "google-research",
+      name: "Google Research",
+      url: "https://research.google",
+      publisherType: "lab",
+      trust: 0.89,
+    },
+    url: "https://research.google/blog/rss/",
+    defaultCategory: "AI Research",
   },
   {
     source: {
@@ -76,7 +111,9 @@ export const FEEDS: Feed[] = [
       publisherType: "publication",
       trust: 0.88,
     },
-    url: "https://feeds.arstechnica.com/arstechnica/technology-lab",
+    // The main feed, not technology-lab: that one runs days stale, and the
+    // relevance gate already keeps non-AI stories off the page.
+    url: "https://feeds.arstechnica.com/arstechnica/index",
     defaultCategory: "AI News",
   },
   {

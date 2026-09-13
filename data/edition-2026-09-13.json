@@ -1,14 +1,58 @@
 {
   "date": "2026-09-13",
   "edition": 151,
-  "itemsIngested": 2302,
+  "itemsIngested": 2492,
   "eventsPublished": 24,
-  "generatedAt": "2026-09-13T17:43:42.162Z",
+  "generatedAt": "2026-09-13T20:17:43.984Z",
   "clusters": [
+    {
+      "id": "dd8ccca7886a26e3",
+      "title": "Perplexity trusts GPT-6 Astra with end-to-end systems",
+      "summary": "Perplexity uses Astra to write communications, change software, and monitor production systems, and checks in much less frequently than with earlier models.",
+      "category": "AI News",
+      "tags": [
+        "perplexity",
+        "trusts",
+        "gpt",
+        "astra",
+        "end",
+        "systems"
+      ],
+      "firstSeenAt": "2026-09-14T00:00:00.000Z",
+      "lastSeenAt": "2026-09-14T00:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "f8d285f91a177f80",
+          "title": "Perplexity trusts GPT-6 Astra with end-to-end systems",
+          "summary": "Perplexity uses Astra to write communications, change software, and monitor production systems, and checks in much less frequently than with earlier models.",
+          "sourceId": "openai",
+          "sourceName": "OpenAI",
+          "sourceUrl": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
+          "author": null,
+          "publishedAt": "2026-09-14T00:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "perplexity",
+            "trusts",
+            "gpt",
+            "astra",
+            "end",
+            "systems"
+          ],
+          "contentHash": "c0dffdb9444c89e3",
+          "eventClusterId": "dd8ccca7886a26e3"
+        }
+      ],
+      "score": 0.6666000000000001
+    },
     {
       "id": "b8571ed79cec60d0",
       "title": "Garry Tan wants US open-weight AI labs to 'distill' frontier models, too",
-      "summary": "Article URL: https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too/ Comments URL: https://news.ycombinator.com/item?id=49685253 Points: 123 # Comments: 49",
+      "summary": "Article URL: https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too/ Comments URL: https://news.ycombinator.com/item?id=49685253 Points: 234 # Comments: 118",
       "category": "AI Research",
       "tags": [
         "garry",
@@ -28,7 +72,7 @@
         {
           "id": "527e03ca4d07dd97",
           "title": "Garry Tan wants US open-weight AI labs to 'distill' frontier models, too",
-          "summary": "Article URL: https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too/ Comments URL: https://news.ycombinator.com/item?id=49685253 Points: 123 # Comments: 49",
+          "summary": "Article URL: https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too/ Comments URL: https://news.ycombinator.com/item?id=49685253 Points: 234 # Comments: 118",
           "sourceId": "hn-ai",
           "sourceName": "Hacker News",
           "sourceUrl": "https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too/",
@@ -78,7 +122,49 @@
           "eventClusterId": "b8571ed79cec60d0"
         }
       ],
-      "score": 0.6922618250287773
+      "score": 0.6595368706340413
+    },
+    {
+      "id": "81c3b52e4b193562",
+      "title": "What’s behind the AI industry’s latest warnings of doom?",
+      "summary": "On Equity, we discussed the AI industry's latest debate about whether it poses an existential threat to humanity.",
+      "category": "AI Startups",
+      "tags": [
+        "behind",
+        "industry",
+        "latest",
+        "warnings",
+        "doom"
+      ],
+      "firstSeenAt": "2026-09-13T19:40:15.000Z",
+      "lastSeenAt": "2026-09-13T19:40:15.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "ba01f609012d18f8",
+          "title": "What’s behind the AI industry’s latest warnings of doom?",
+          "summary": "On Equity, we discussed the AI industry's latest debate about whether it poses an existential threat to humanity.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/13/whats-behind-the-ai-industrys-latest-warnings-of-doom/",
+          "author": "Anthony Ha",
+          "publishedAt": "2026-09-13T19:40:15.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "behind",
+            "industry",
+            "latest",
+            "warnings",
+            "doom"
+          ],
+          "contentHash": "8fb751b9e3ccdf20",
+          "eventClusterId": "81c3b52e4b193562"
+        }
+      ],
+      "score": 0.6344740774977411
     },
     {
       "id": "8ad9f494ad33e7ad",
@@ -124,7 +210,7 @@
           "eventClusterId": "8ad9f494ad33e7ad"
         }
       ],
-      "score": 0.6508287587346123
+      "score": 0.6168429355073125
     },
     {
       "id": "b5c02ddb6de498e0",
@@ -199,7 +285,45 @@
           "eventClusterId": "b5c02ddb6de498e0"
         }
       ],
-      "score": 0.5596871507326914
+      "score": 0.5466908378089622
+    },
+    {
+      "id": "267dd1ea55c3ff44",
+      "title": "AI Agents Are Thirsty for Power",
+      "summary": "Silicon Valley is shifting away from chatbot queries toward a future filled with resource-intensive agentic AI—and it's driving the data center buildout.",
+      "category": "AI News",
+      "tags": [
+        "agents",
+        "thirsty",
+        "power"
+      ],
+      "firstSeenAt": "2026-09-13T10:00:00.000Z",
+      "lastSeenAt": "2026-09-13T10:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "49b3aab83cdd9ed7",
+          "title": "AI Agents Are Thirsty for Power",
+          "summary": "Silicon Valley is shifting away from chatbot queries toward a future filled with resource-intensive agentic AI—and it's driving the data center buildout.",
+          "sourceId": "wired-ai",
+          "sourceName": "Wired",
+          "sourceUrl": "https://www.wired.com/story/ai-agents-are-thirsty-for-power/",
+          "author": "Molly Taft",
+          "publishedAt": "2026-09-13T10:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "agents",
+            "thirsty",
+            "power"
+          ],
+          "contentHash": "51c3b90593847366",
+          "eventClusterId": "267dd1ea55c3ff44"
+        }
+      ],
+      "score": 0.5057900585170739
     },
     {
       "id": "92221dea827b3c1f",
@@ -243,7 +367,7 @@
           "eventClusterId": "92221dea827b3c1f"
         }
       ],
-      "score": 0.47157061665673256
+      "score": 0.4582992326286322
     },
     {
       "id": "9e6a748e5f5139b1",
@@ -287,7 +411,7 @@
           "eventClusterId": "9e6a748e5f5139b1"
         }
       ],
-      "score": 0.45531769698476493
+      "score": 0.4433777708902756
     },
     {
       "id": "3b64bda042d3177c",
@@ -331,7 +455,7 @@
           "eventClusterId": "3b64bda042d3177c"
         }
       ],
-      "score": 0.4390262175112965
+      "score": 0.4296752002028325
     },
     {
       "id": "1b847e96d7adb6ed",
@@ -373,12 +497,290 @@
           "eventClusterId": "1b847e96d7adb6ed"
         }
       ],
-      "score": 0.43342824849491723
+      "score": 0.42324579802816487
+    },
+    {
+      "id": "91ce2d28599af048",
+      "title": "ChatGPT-using lawyer punished for citing fake testimony from made-up witnesses",
+      "summary": "\"I didn't know that AI could hallucinate facts,\" New Mexico defense lawyer says.",
+      "category": "AI Policy",
+      "tags": [
+        "chatgpt",
+        "using",
+        "lawyer",
+        "punished",
+        "citing",
+        "fake",
+        "testimony",
+        "made"
+      ],
+      "firstSeenAt": "2026-09-11T19:34:09.000Z",
+      "lastSeenAt": "2026-09-11T19:34:09.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "07b5c6428197ac1b",
+          "title": "ChatGPT-using lawyer punished for citing fake testimony from made-up witnesses",
+          "summary": "\"I didn't know that AI could hallucinate facts,\" New Mexico defense lawyer says.",
+          "sourceId": "arstechnica",
+          "sourceName": "Ars Technica",
+          "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/chatgpt-using-lawyer-punished-for-citing-fake-testimony-from-made-up-witnesses/",
+          "author": "Jon Brodkin",
+          "publishedAt": "2026-09-11T19:34:09.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "chatgpt",
+            "using",
+            "lawyer",
+            "punished",
+            "citing",
+            "fake",
+            "testimony",
+            "made"
+          ],
+          "contentHash": "e969b6198508429b",
+          "eventClusterId": "91ce2d28599af048"
+        }
+      ],
+      "score": 0.4230446790680925
+    },
+    {
+      "id": "8cab49436ec429bf",
+      "title": "Oracle tries to appease Stargate data center opponents with renewables push",
+      "summary": "Renewables pledge won’t change the Oracle and OpenAI data center’s use of gas.",
+      "category": "AI News",
+      "tags": [
+        "oracle",
+        "tries",
+        "appease",
+        "stargate",
+        "data",
+        "center",
+        "opponents",
+        "renewables"
+      ],
+      "firstSeenAt": "2026-09-11T18:22:22.000Z",
+      "lastSeenAt": "2026-09-11T18:22:22.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "dd96b99f585648ce",
+          "title": "Oracle tries to appease Stargate data center opponents with renewables push",
+          "summary": "Renewables pledge won’t change the Oracle and OpenAI data center’s use of gas.",
+          "sourceId": "arstechnica",
+          "sourceName": "Ars Technica",
+          "sourceUrl": "https://arstechnica.com/gadgets/2026/09/oracle-promises-2-gw-of-renewables-to-match-stargate-data-center-emissions/",
+          "author": "Jeremy Hsu",
+          "publishedAt": "2026-09-11T18:22:22.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "oracle",
+            "tries",
+            "appease",
+            "stargate",
+            "data",
+            "center",
+            "opponents",
+            "renewables"
+          ],
+          "contentHash": "06cd58f5e2acb3fd",
+          "eventClusterId": "8cab49436ec429bf"
+        }
+      ],
+      "score": 0.42152077101124596
+    },
+    {
+      "id": "dc3da0e4466a2a38",
+      "title": "From Hacks to Bioweapons, Claude Misuse Is Now Everywhere",
+      "summary": "Plus: The US disrupts the internet’s biggest black market, a Conti ransomware hacker gets prison time, Meta fails to stop AI-generated videos of child abuse.",
+      "category": "AI Business",
+      "tags": [
+        "hacks",
+        "bioweapons",
+        "claude",
+        "misuse",
+        "now",
+        "everywhere"
+      ],
+      "firstSeenAt": "2026-09-12T10:30:00.000Z",
+      "lastSeenAt": "2026-09-12T10:30:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "7943976c7614c029",
+          "title": "From Hacks to Bioweapons, Claude Misuse Is Now Everywhere",
+          "summary": "Plus: The US disrupts the internet’s biggest black market, a Conti ransomware hacker gets prison time, Meta fails to stop AI-generated videos of child abuse.",
+          "sourceId": "wired-ai",
+          "sourceName": "Wired",
+          "sourceUrl": "https://www.wired.com/story/security-news-this-week-from-hacks-to-bioweapons-claude-misuse-is-now-everywhere/",
+          "author": "Andy Greenberg, Lily Hay Newman, Dell Cameron",
+          "publishedAt": "2026-09-12T10:30:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Business",
+          "tags": [
+            "hacks",
+            "bioweapons",
+            "claude",
+            "misuse",
+            "now",
+            "everywhere"
+          ],
+          "contentHash": "4b4585434f6723ab",
+          "eventClusterId": "dc3da0e4466a2a38"
+        }
+      ],
+      "score": 0.41936817293944817
+    },
+    {
+      "id": "bab0e11e18db7ed0",
+      "title": "Lifesaving Lincoln Laboratory device wins 2026 Excellence in Technology Transfer Award",
+      "summary": "The handheld catheterization device AI-GUIDE, created by Lincoln Laboratory and Massachusetts General Hospital, promises improved health outcomes for injured service members and civilians.",
+      "category": "AI Research",
+      "tags": [
+        "lifesaving",
+        "lincoln",
+        "laboratory",
+        "device",
+        "wins",
+        "2026",
+        "excellence",
+        "technology"
+      ],
+      "firstSeenAt": "2026-09-11T13:45:00.000Z",
+      "lastSeenAt": "2026-09-11T13:45:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "a3eb026eee4485f1",
+          "title": "Lifesaving Lincoln Laboratory device wins 2026 Excellence in Technology Transfer Award",
+          "summary": "The handheld catheterization device AI-GUIDE, created by Lincoln Laboratory and Massachusetts General Hospital, promises improved health outcomes for injured service members and civilians.",
+          "sourceId": "mit-news-ai",
+          "sourceName": "MIT News",
+          "sourceUrl": "https://news.mit.edu/2026/lifesaving-lincoln-laboratory-technology-wins-tech-transfer-award-0911",
+          "author": "Erin Lee | Lincoln Laboratory",
+          "publishedAt": "2026-09-11T13:45:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "lifesaving",
+            "lincoln",
+            "laboratory",
+            "device",
+            "wins",
+            "2026",
+            "excellence",
+            "technology"
+          ],
+          "contentHash": "6bbcd3b8c64a1d09",
+          "eventClusterId": "bab0e11e18db7ed0"
+        }
+      ],
+      "score": 0.41641912651452695
+    },
+    {
+      "id": "fac4d25609e69b6c",
+      "title": "I spent $4,000 on a robot dog from China",
+      "summary": "Unitree might be the world’s most important robotics company.",
+      "category": "Robotics",
+      "tags": [
+        "spent",
+        "000",
+        "robot",
+        "dog",
+        "china"
+      ],
+      "firstSeenAt": "2026-09-12T11:00:53.000Z",
+      "lastSeenAt": "2026-09-12T11:00:53.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "6c38da02382d78a1",
+          "title": "I spent $4,000 on a robot dog from China",
+          "summary": "Unitree might be the world’s most important robotics company.",
+          "sourceId": "arstechnica",
+          "sourceName": "Ars Technica",
+          "sourceUrl": "https://arstechnica.com/gadgets/2026/09/i-spent-4000-on-a-robot-dog-from-china/",
+          "author": "Timothy B. Lee",
+          "publishedAt": "2026-09-12T11:00:53.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "Robotics",
+          "tags": [
+            "spent",
+            "000",
+            "robot",
+            "dog",
+            "china"
+          ],
+          "contentHash": "b5010c485ed28508",
+          "eventClusterId": "fac4d25609e69b6c"
+        }
+      ],
+      "score": 0.4161116291939313
+    },
+    {
+      "id": "2d93af68b60d67ba",
+      "title": "Claude users found ways around safeguards for bioweapons research",
+      "summary": "Some dangerous biology looks much like legitimate research, complicating AI safeguards.",
+      "category": "AI News",
+      "tags": [
+        "claude",
+        "users",
+        "found",
+        "ways",
+        "around",
+        "safeguards",
+        "bioweapons",
+        "research"
+      ],
+      "firstSeenAt": "2026-09-11T13:02:35.000Z",
+      "lastSeenAt": "2026-09-11T13:02:35.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "401f96a60300fad4",
+          "title": "Claude users found ways around safeguards for bioweapons research",
+          "summary": "Some dangerous biology looks much like legitimate research, complicating AI safeguards.",
+          "sourceId": "arstechnica",
+          "sourceName": "Ars Technica",
+          "sourceUrl": "https://arstechnica.com/ai/2026/09/claude-users-found-ways-around-safeguards-for-bioweapons-research/",
+          "author": "Zehra Munir, Financial Times",
+          "publishedAt": "2026-09-11T13:02:35.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "claude",
+            "users",
+            "found",
+            "ways",
+            "around",
+            "safeguards",
+            "bioweapons",
+            "research"
+          ],
+          "contentHash": "05a42f4ef8753643",
+          "eventClusterId": "2d93af68b60d67ba"
+        }
+      ],
+      "score": 0.4157377580724966
     },
     {
       "id": "738cb0354b051d3d",
       "title": "Real-SWE: Benchmarking AI models on private, real-world, enterprise codebases",
-      "summary": "Article URL: https://withspecific.com/benchmarks/real-swe Comments URL: https://news.ycombinator.com/item?id=49676820 Points: 258 # Comments: 140",
+      "summary": "Article URL: https://withspecific.com/benchmarks/real-swe Comments URL: https://news.ycombinator.com/item?id=49676820 Points: 264 # Comments: 144",
       "category": "AI Business",
       "tags": [
         "real",
@@ -397,7 +799,7 @@
         {
           "id": "908d6da60b2ba682",
           "title": "Real-SWE: Benchmarking AI models on private, real-world, enterprise codebases",
-          "summary": "Article URL: https://withspecific.com/benchmarks/real-swe Comments URL: https://news.ycombinator.com/item?id=49676820 Points: 258 # Comments: 140",
+          "summary": "Article URL: https://withspecific.com/benchmarks/real-swe Comments URL: https://news.ycombinator.com/item?id=49676820 Points: 264 # Comments: 144",
           "sourceId": "hn-ai",
           "sourceName": "Hacker News",
           "sourceUrl": "https://withspecific.com/benchmarks/real-swe",
@@ -421,99 +823,7 @@
           "eventClusterId": "738cb0354b051d3d"
         }
       ],
-      "score": 0.42742674227520483
-    },
-    {
-      "id": "400839e7414f2f07",
-      "title": "Everyone should slow down AI development except for me",
-      "summary": "Article URL: https://xeiaso.net/notes/2026/everyone-slowdown-but-me/ Comments URL: https://news.ycombinator.com/item?id=49678683 Points: 695 # Comments: 406",
-      "category": "AI News",
-      "tags": [
-        "everyone",
-        "should",
-        "slow",
-        "down",
-        "development",
-        "except"
-      ],
-      "firstSeenAt": "2026-09-13T00:30:44.000Z",
-      "lastSeenAt": "2026-09-13T00:30:44.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "fd9d887085511f01",
-          "title": "Everyone should slow down AI development except for me",
-          "summary": "Article URL: https://xeiaso.net/notes/2026/everyone-slowdown-but-me/ Comments URL: https://news.ycombinator.com/item?id=49678683 Points: 695 # Comments: 406",
-          "sourceId": "hn-ai",
-          "sourceName": "Hacker News",
-          "sourceUrl": "https://xeiaso.net/notes/2026/everyone-slowdown-but-me/",
-          "author": "xena",
-          "publishedAt": "2026-09-13T00:30:44.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "everyone",
-            "should",
-            "slow",
-            "down",
-            "development",
-            "except"
-          ],
-          "contentHash": "044db59eac7e5730",
-          "eventClusterId": "400839e7414f2f07"
-        }
-      ],
-      "score": 0.42584611630002556
-    },
-    {
-      "id": "eaa69a892b5090fb",
-      "title": "Mecka AI nears $500M valuation in Sequoia-led deal amid rush for robot training data",
-      "summary": "The round for the two-year-old startup is coming together months after Mecka announced its Series A.",
-      "category": "AI Startups",
-      "tags": [
-        "mecka",
-        "nears",
-        "500m",
-        "valuation",
-        "sequoia",
-        "led",
-        "deal",
-        "rush"
-      ],
-      "firstSeenAt": "2026-09-11T22:58:17.000Z",
-      "lastSeenAt": "2026-09-11T22:58:17.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "be5369b0980a6777",
-          "title": "Mecka AI nears $500M valuation in Sequoia-led deal amid rush for robot training data",
-          "summary": "The round for the two-year-old startup is coming together months after Mecka announced its Series A.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/11/mecka-ai-nears-500m-valuation-in-sequoia-led-deal-amid-rush-for-robot-training-data/",
-          "author": "Marina Temkin",
-          "publishedAt": "2026-09-11T22:58:17.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "mecka",
-            "nears",
-            "500m",
-            "valuation",
-            "sequoia",
-            "led",
-            "deal",
-            "rush"
-          ],
-          "contentHash": "9710254384b5d190",
-          "eventClusterId": "eaa69a892b5090fb"
-        }
-      ],
-      "score": 0.4165724405864891
+      "score": 0.4149677395287068
     },
     {
       "id": "4b595f36d2dcaeec",
@@ -561,7 +871,195 @@
           "eventClusterId": "4b595f36d2dcaeec"
         }
       ],
-      "score": 0.4165622219005174
+      "score": 0.413555220187269
+    },
+    {
+      "id": "eaa69a892b5090fb",
+      "title": "Mecka AI nears $500M valuation in Sequoia-led deal amid rush for robot training data",
+      "summary": "The round for the two-year-old startup is coming together months after Mecka announced its Series A.",
+      "category": "AI Startups",
+      "tags": [
+        "mecka",
+        "nears",
+        "500m",
+        "valuation",
+        "sequoia",
+        "led",
+        "deal",
+        "rush"
+      ],
+      "firstSeenAt": "2026-09-11T22:58:17.000Z",
+      "lastSeenAt": "2026-09-11T22:58:17.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "be5369b0980a6777",
+          "title": "Mecka AI nears $500M valuation in Sequoia-led deal amid rush for robot training data",
+          "summary": "The round for the two-year-old startup is coming together months after Mecka announced its Series A.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/11/mecka-ai-nears-500m-valuation-in-sequoia-led-deal-amid-rush-for-robot-training-data/",
+          "author": "Marina Temkin",
+          "publishedAt": "2026-09-11T22:58:17.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "mecka",
+            "nears",
+            "500m",
+            "valuation",
+            "sequoia",
+            "led",
+            "deal",
+            "rush"
+          ],
+          "contentHash": "9710254384b5d190",
+          "eventClusterId": "eaa69a892b5090fb"
+        }
+      ],
+      "score": 0.4123114020511677
+    },
+    {
+      "id": "400839e7414f2f07",
+      "title": "Everyone should slow down AI development except for me",
+      "summary": "Article URL: https://xeiaso.net/notes/2026/everyone-slowdown-but-me/ Comments URL: https://news.ycombinator.com/item?id=49678683 Points: 715 # Comments: 421",
+      "category": "AI News",
+      "tags": [
+        "everyone",
+        "should",
+        "slow",
+        "down",
+        "development",
+        "except"
+      ],
+      "firstSeenAt": "2026-09-13T00:30:44.000Z",
+      "lastSeenAt": "2026-09-13T00:30:44.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "fd9d887085511f01",
+          "title": "Everyone should slow down AI development except for me",
+          "summary": "Article URL: https://xeiaso.net/notes/2026/everyone-slowdown-but-me/ Comments URL: https://news.ycombinator.com/item?id=49678683 Points: 715 # Comments: 421",
+          "sourceId": "hn-ai",
+          "sourceName": "Hacker News",
+          "sourceUrl": "https://xeiaso.net/notes/2026/everyone-slowdown-but-me/",
+          "author": "xena",
+          "publishedAt": "2026-09-13T00:30:44.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "everyone",
+            "should",
+            "slow",
+            "down",
+            "development",
+            "except"
+          ],
+          "contentHash": "044db59eac7e5730",
+          "eventClusterId": "400839e7414f2f07"
+        }
+      ],
+      "score": 0.41056596653798966
+    },
+    {
+      "id": "e2c180ecbd82e812",
+      "title": "One of AI’s Fiercest Critics Says All the Doom Talk Is ‘Meant to Distract Us’",
+      "summary": "Timnit Gebru argues that AI companies are stoking fears of extinction to avoid discussing actual harms, like autonomous weapons.",
+      "category": "Robotics",
+      "tags": [
+        "one",
+        "fiercest",
+        "critics",
+        "all",
+        "doom",
+        "talk",
+        "meant",
+        "distract"
+      ],
+      "firstSeenAt": "2026-09-11T15:00:00.000Z",
+      "lastSeenAt": "2026-09-11T15:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "9de692d020d76581",
+          "title": "One of AI’s Fiercest Critics Says All the Doom Talk Is ‘Meant to Distract Us’",
+          "summary": "Timnit Gebru argues that AI companies are stoking fears of extinction to avoid discussing actual harms, like autonomous weapons.",
+          "sourceId": "wired-ai",
+          "sourceName": "Wired",
+          "sourceUrl": "https://www.wired.com/story/one-of-ais-fiercest-critics-says-all-the-doom-talk-is-meant-to-distract-us/",
+          "author": "Lauren Goode",
+          "publishedAt": "2026-09-11T15:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "Robotics",
+          "tags": [
+            "one",
+            "fiercest",
+            "critics",
+            "all",
+            "doom",
+            "talk",
+            "meant",
+            "distract"
+          ],
+          "contentHash": "9949408285a63cae",
+          "eventClusterId": "e2c180ecbd82e812"
+        }
+      ],
+      "score": 0.40988445146352237
+    },
+    {
+      "id": "977abb6f09494043",
+      "title": "ToolGrad: Efficient tool-use dataset generation with textual \"gradients\"",
+      "summary": "Machine Intelligence",
+      "category": "AI Research",
+      "tags": [
+        "toolgrad",
+        "efficient",
+        "tool",
+        "use",
+        "dataset",
+        "generation",
+        "textual",
+        "gradients"
+      ],
+      "firstSeenAt": "2026-09-10T22:50:22.000Z",
+      "lastSeenAt": "2026-09-10T22:50:22.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "12f7f58f24135b64",
+          "title": "ToolGrad: Efficient tool-use dataset generation with textual \"gradients\"",
+          "summary": "Machine Intelligence",
+          "sourceId": "google-research",
+          "sourceName": "Google Research",
+          "sourceUrl": "https://research.google/blog/toolgrad-efficient-tool-use-dataset-generation-with-textual-gradients/",
+          "author": null,
+          "publishedAt": "2026-09-10T22:50:22.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "toolgrad",
+            "efficient",
+            "tool",
+            "use",
+            "dataset",
+            "generation",
+            "textual",
+            "gradients"
+          ],
+          "contentHash": "64890e35f25f0685",
+          "eventClusterId": "977abb6f09494043"
+        }
+      ],
+      "score": 0.40870895793344464
     },
     {
       "id": "02647dc90bb2bf51",
@@ -609,7 +1107,7 @@
           "eventClusterId": "02647dc90bb2bf51"
         }
       ],
-      "score": 0.41009246881260353
+      "score": 0.4078648271538079
     },
     {
       "id": "76c28882a3a1d034",
@@ -657,509 +1155,7 @@
           "eventClusterId": "76c28882a3a1d034"
         }
       ],
-      "score": 0.4097658166289021
-    },
-    {
-      "id": "d691165a4ca190e1",
-      "title": "Nscale adds former OpenAI exec Fidji Simo to its board ahead of potential IPO",
-      "summary": "The No. 2 exec at OpenAI also led Instacart through its IPO in 2023.",
-      "category": "AI Business",
-      "tags": [
-        "nscale",
-        "adds",
-        "former",
-        "openai",
-        "exec",
-        "fidji",
-        "simo",
-        "board"
-      ],
-      "firstSeenAt": "2026-09-11T16:46:25.000Z",
-      "lastSeenAt": "2026-09-11T16:46:25.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "ea5939a4ee833ae7",
-          "title": "Nscale adds former OpenAI exec Fidji Simo to its board ahead of potential IPO",
-          "summary": "The No. 2 exec at OpenAI also led Instacart through its IPO in 2023.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/11/nscale-adds-former-openai-exec-fidji-simo-to-its-board-ahead-of-potential-ipo/",
-          "author": "Kirsten Korosec",
-          "publishedAt": "2026-09-11T16:46:25.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Business",
-          "tags": [
-            "nscale",
-            "adds",
-            "former",
-            "openai",
-            "exec",
-            "fidji",
-            "simo",
-            "board"
-          ],
-          "contentHash": "0426bb21c8f1ee0f",
-          "eventClusterId": "d691165a4ca190e1"
-        }
-      ],
-      "score": 0.40714669168796924
-    },
-    {
-      "id": "532e212ad9fafa32",
-      "title": "Why are AI agents lying, cheating and coordinating?",
-      "summary": "Article URL: https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating Comments URL: https://news.ycombinator.com/item?id=49678969 Points: 488 # Comments: 567",
-      "category": "AI News",
-      "tags": [
-        "agents",
-        "lying",
-        "cheating",
-        "coordinating"
-      ],
-      "firstSeenAt": "2026-09-13T01:22:31.000Z",
-      "lastSeenAt": "2026-09-13T01:22:31.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "7608d1692a0e8092",
-          "title": "Why are AI agents lying, cheating and coordinating?",
-          "summary": "Article URL: https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating Comments URL: https://news.ycombinator.com/item?id=49678969 Points: 488 # Comments: 567",
-          "sourceId": "hn-ai",
-          "sourceName": "Hacker News",
-          "sourceUrl": "https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating",
-          "author": "jonifico",
-          "publishedAt": "2026-09-13T01:22:31.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "agents",
-            "lying",
-            "cheating",
-            "coordinating"
-          ],
-          "contentHash": "13182601a79b11a4",
-          "eventClusterId": "532e212ad9fafa32"
-        }
-      ],
-      "score": 0.4064396999177055
-    },
-    {
-      "id": "7adc9c15534e67c1",
-      "title": "OpenAI just wants to win",
-      "summary": "OpenAI has spent the last few years planting flags across the increasingly difficult terrain in mathematics. This week, it claimed one of its biggest prizes yet: a solution to a legendary Millennium Prize problem. In normal circumstances, this would have been celebrated as a historic achievement. Instead, many mathematicians have watched OpenAI's relentless advance with […]",
-      "category": "AI News",
-      "tags": [
-        "openai",
-        "just",
-        "wants",
-        "win"
-      ],
-      "firstSeenAt": "2026-09-12T11:00:00.000Z",
-      "lastSeenAt": "2026-09-12T11:00:00.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "851d557b884bfcb9",
-          "title": "OpenAI just wants to win",
-          "summary": "OpenAI has spent the last few years planting flags across the increasingly difficult terrain in mathematics. This week, it claimed one of its biggest prizes yet: a solution to a legendary Millennium Prize problem. In normal circumstances, this would have been celebrated as a historic achievement. Instead, many mathematicians have watched OpenAI's relentless advance with […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/994255/openai-millennium-prize-problem-tristan-buckmaster-competition",
-          "author": null,
-          "publishedAt": "2026-09-12T11:00:00.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "openai",
-            "just",
-            "wants",
-            "win"
-          ],
-          "contentHash": "2f0d77d2e89aeb13",
-          "eventClusterId": "7adc9c15534e67c1"
-        }
-      ],
-      "score": 0.4009450582861533
-    },
-    {
-      "id": "d4d65a1f06d75fbb",
-      "title": "Meta says it’s changing AI suggestions after posing invasive personal questions",
-      "summary": "Meta says it's making changes to the prompts suggested by its AI chatbot after a viral video showed it digging for personal information about a woman's young daughters, as reported earlier by Futurism. In a statement to The Verge, Meta spokesperson Dina El-Kassaby says the company \"missed the mark,\" adding that \"the feature never should […]",
-      "category": "AI News",
-      "tags": [
-        "meta",
-        "changing",
-        "suggestions",
-        "posing",
-        "invasive",
-        "personal",
-        "questions"
-      ],
-      "firstSeenAt": "2026-09-11T14:25:21.000Z",
-      "lastSeenAt": "2026-09-11T14:25:21.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "432b0d8d0d5da3f2",
-          "title": "Meta says it’s changing AI suggestions after posing invasive personal questions",
-          "summary": "Meta says it's making changes to the prompts suggested by its AI chatbot after a viral video showed it digging for personal information about a woman's young daughters, as reported earlier by Futurism. In a statement to The Verge, Meta spokesperson Dina El-Kassaby says the company \"missed the mark,\" adding that \"the feature never should […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/tech/993974/meta-ai-prompt-invasive-suggestions",
-          "author": null,
-          "publishedAt": "2026-09-11T14:25:21.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "meta",
-            "changing",
-            "suggestions",
-            "posing",
-            "invasive",
-            "personal",
-            "questions"
-          ],
-          "contentHash": "6b1b472e52629cca",
-          "eventClusterId": "d4d65a1f06d75fbb"
-        }
-      ],
-      "score": 0.3969689730803518
-    },
-    {
-      "id": "e11fb219e4cad082",
-      "title": "Slack can now vibe-code interactive charts and reports inside chats",
-      "summary": "A new feature coming to Slack will allow you to build interactive reports, polls, dashboards, presentations, microsites, and other tools directly inside a chat. With Slackforce Surfaces, you can describe to Slackbot what you need, and it will use AI to gather information from relevant conversations and connected apps, like Google Drive or Salesforce, to […]",
-      "category": "AI News",
-      "tags": [
-        "slack",
-        "now",
-        "vibe",
-        "code",
-        "interactive",
-        "charts",
-        "reports",
-        "inside"
-      ],
-      "firstSeenAt": "2026-09-10T21:25:21.000Z",
-      "lastSeenAt": "2026-09-10T21:25:21.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "f24a83c0b3e6145c",
-          "title": "Slack can now vibe-code interactive charts and reports inside chats",
-          "summary": "A new feature coming to Slack will allow you to build interactive reports, polls, dashboards, presentations, microsites, and other tools directly inside a chat. With Slackforce Surfaces, you can describe to Slackbot what you need, and it will use AI to gather information from relevant conversations and connected apps, like Google Drive or Salesforce, to […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/tech/989853/slackforce-surfaces-launch",
-          "author": null,
-          "publishedAt": "2026-09-10T21:25:21.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "slack",
-            "now",
-            "vibe",
-            "code",
-            "interactive",
-            "charts",
-            "reports",
-            "inside"
-          ],
-          "contentHash": "e22c4e2558b34cf6",
-          "eventClusterId": "e11fb219e4cad082"
-        }
-      ],
-      "score": 0.3962600235592656
-    },
-    {
-      "id": "bb9645ddbfc7e10b",
-      "title": "Lawyer fined $5K over AI-hallucinated witnesses in a murder case",
-      "summary": "New Mexico's Supreme Court is punishing a lawyer for including AI-fabricated witnesses and fake police testimony in an appeal for his client's murder conviction, according to a report from Reuters. In a filing on Wednesday, the court fined Stephen Aarons $5,000 and held him in contempt for failing to \"verify the factual claims and legal […]",
-      "category": "AI Policy",
-      "tags": [
-        "lawyer",
-        "fined",
-        "hallucinated",
-        "witnesses",
-        "murder",
-        "case"
-      ],
-      "firstSeenAt": "2026-09-11T20:44:02.000Z",
-      "lastSeenAt": "2026-09-11T20:44:02.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "1f5e82370339c16f",
-          "title": "Lawyer fined $5K over AI-hallucinated witnesses in a murder case",
-          "summary": "New Mexico's Supreme Court is punishing a lawyer for including AI-fabricated witnesses and fake police testimony in an appeal for his client's murder conviction, according to a report from Reuters. In a filing on Wednesday, the court fined Stephen Aarons $5,000 and held him in contempt for failing to \"verify the factual claims and legal […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/994207/chatgpt-new-mexico-lawyer-fined-murder-appeal",
-          "author": null,
-          "publishedAt": "2026-09-11T20:44:02.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Policy",
-          "tags": [
-            "lawyer",
-            "fined",
-            "hallucinated",
-            "witnesses",
-            "murder",
-            "case"
-          ],
-          "contentHash": "84e5768254b90ffc",
-          "eventClusterId": "bb9645ddbfc7e10b"
-        }
-      ],
-      "score": 0.39302848069312263
-    },
-    {
-      "id": "52a9500d03932ecd",
-      "title": "Jensen Huang explains why Nvidia will grow an astounding 70% next year",
-      "summary": "Nvidia has its finger in every pie, and sees another year of plenty in its future, Jensen Huang says. But, he insists, its deals are not circular.",
-      "category": "AI Startups",
-      "tags": [
-        "jensen",
-        "huang",
-        "explains",
-        "nvidia",
-        "grow",
-        "astounding",
-        "next",
-        "year"
-      ],
-      "firstSeenAt": "2026-09-10T21:51:59.000Z",
-      "lastSeenAt": "2026-09-10T21:51:59.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "03e3f771535a9c30",
-          "title": "Jensen Huang explains why Nvidia will grow an astounding 70% next year",
-          "summary": "Nvidia has its finger in every pie, and sees another year of plenty in its future, Jensen Huang says. But, he insists, its deals are not circular.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/10/jensen-huang-explains-why-nvidia-will-grow-an-astounding-70-next-year/",
-          "author": "Julie Bort",
-          "publishedAt": "2026-09-10T21:51:59.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "jensen",
-            "huang",
-            "explains",
-            "nvidia",
-            "grow",
-            "astounding",
-            "next",
-            "year"
-          ],
-          "contentHash": "8e28a69b54a8e86e",
-          "eventClusterId": "52a9500d03932ecd"
-        }
-      ],
-      "score": 0.39128130786192983
-    },
-    {
-      "id": "3ffb1df4ce63c155",
-      "title": "OpenAI puts Pro subscriptions on hold due to Astra demand",
-      "summary": "The company said Pro subscriptions put the most strain on its systems, so it's pausing sign-ups while adding more capacity.",
-      "category": "AI Startups",
-      "tags": [
-        "openai",
-        "puts",
-        "pro",
-        "subscriptions",
-        "hold",
-        "due",
-        "astra",
-        "demand"
-      ],
-      "firstSeenAt": "2026-09-10T20:59:51.000Z",
-      "lastSeenAt": "2026-09-10T20:59:51.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "0c049a20252486d5",
-          "title": "OpenAI puts Pro subscriptions on hold due to Astra demand",
-          "summary": "The company said Pro subscriptions put the most strain on its systems, so it's pausing sign-ups while adding more capacity.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/10/openai-puts-pro-subscriptions-on-hold-due-to-astra-demand/",
-          "author": "Sarah Perez",
-          "publishedAt": "2026-09-10T20:59:51.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "openai",
-            "puts",
-            "pro",
-            "subscriptions",
-            "hold",
-            "due",
-            "astra",
-            "demand"
-          ],
-          "contentHash": "f4be2eafc4aa0637",
-          "eventClusterId": "3ffb1df4ce63c155"
-        }
-      ],
-      "score": 0.3908527085815169
-    },
-    {
-      "id": "5639c15aa37a8603",
-      "title": "Anthropic reveals rogue AI agents hate CAPTCHAs, just like you",
-      "summary": "Come inside the mind of a bot trying to convince the internet it's human.",
-      "category": "AI Startups",
-      "tags": [
-        "anthropic",
-        "reveals",
-        "rogue",
-        "agents",
-        "hate",
-        "captchas",
-        "just",
-        "like"
-      ],
-      "firstSeenAt": "2026-09-10T17:54:44.000Z",
-      "lastSeenAt": "2026-09-10T17:54:44.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "6c2f5334f4b43ae0",
-          "title": "Anthropic reveals rogue AI agents hate CAPTCHAs, just like you",
-          "summary": "Come inside the mind of a bot trying to convince the internet it's human.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/10/anthropic-reveals-rogue-ai-agents-hate-captchas-just-like-you/",
-          "author": "Tim Fernholz",
-          "publishedAt": "2026-09-10T17:54:44.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "anthropic",
-            "reveals",
-            "rogue",
-            "agents",
-            "hate",
-            "captchas",
-            "just",
-            "like"
-          ],
-          "contentHash": "fed999ec1d7e3102",
-          "eventClusterId": "5639c15aa37a8603"
-        }
-      ],
-      "score": 0.3894728136022484
-    },
-    {
-      "id": "35bb08ee32166599",
-      "title": "India’s Pocket FM doubles revenue run rate to $500M as AI powers 93% of audio content",
-      "summary": "Pocket FM uses AI to produce 99% of its new content, helping make content production about 80 times cheaper.",
-      "category": "AI Startups",
-      "tags": [
-        "india",
-        "pocket",
-        "doubles",
-        "revenue",
-        "run",
-        "rate",
-        "500m",
-        "powers"
-      ],
-      "firstSeenAt": "2026-09-10T17:45:00.000Z",
-      "lastSeenAt": "2026-09-10T17:45:00.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "7e7bf94d0842d4c2",
-          "title": "India’s Pocket FM doubles revenue run rate to $500M as AI powers 93% of audio content",
-          "summary": "Pocket FM uses AI to produce 99% of its new content, helping make content production about 80 times cheaper.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/10/indias-pocket-fm-doubles-revenue-run-rate-to-500m-as-ai-powers-93-of-audio-content/",
-          "author": "Jagmeet Singh",
-          "publishedAt": "2026-09-10T17:45:00.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "india",
-            "pocket",
-            "doubles",
-            "revenue",
-            "run",
-            "rate",
-            "500m",
-            "powers"
-          ],
-          "contentHash": "b7d1011db0f97818",
-          "eventClusterId": "35bb08ee32166599"
-        }
-      ],
-      "score": 0.3894059832923511
-    },
-    {
-      "id": "56ecb9416258a4da",
-      "title": "Anthropic spent this week in hot water over cybersecurity",
-      "summary": "After admitting earlier this year that its AI models had hacked other companies' systems on a handful of occasions, Anthropic released a new report on Wednesday detailing the attacks. It reveals a string of incidents displaying what Anthropic deems its models' single-minded \"recklessness\" - and will likely fuel already raging concerns about cybersecurity and AI. […]",
-      "category": "AI News",
-      "tags": [
-        "anthropic",
-        "spent",
-        "week",
-        "hot",
-        "water",
-        "cybersecurity"
-      ],
-      "firstSeenAt": "2026-09-11T16:09:14.000Z",
-      "lastSeenAt": "2026-09-11T16:09:14.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "f94b9561420bb0be",
-          "title": "Anthropic spent this week in hot water over cybersecurity",
-          "summary": "After admitting earlier this year that its AI models had hacked other companies' systems on a handful of occasions, Anthropic released a new report on Wednesday detailing the attacks. It reveals a string of incidents displaying what Anthropic deems its models' single-minded \"recklessness\" - and will likely fuel already raging concerns about cybersecurity and AI. […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/994064/anthropic-spent-this-week-in-hot-water-over-cybersecurity",
-          "author": null,
-          "publishedAt": "2026-09-11T16:09:14.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "anthropic",
-            "spent",
-            "week",
-            "hot",
-            "water",
-            "cybersecurity"
-          ],
-          "contentHash": "4d31ccf44d305334",
-          "eventClusterId": "56ecb9416258a4da"
-        }
-      ],
-      "score": 0.38655503316665535
+      "score": 0.4063247183209959
     }
   ],
   "aiArtifacts": [
@@ -1170,18 +1166,18 @@
       "clusterId": "b8571ed79cec60d0",
       "language": "en",
       "model": "extractive-v1",
-      "createdAt": "2026-09-13T17:43:42.675Z"
+      "createdAt": "2026-09-13T20:17:44.406Z"
     },
     {
       "id": "ffa305c849c7edfa",
       "type": "key_points",
       "content": [
-        "Article URL: https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too/ Comments URL: https://news.ycombinator.com/item?id=49685253 Points: 123 # Comments: 49 — Hacker News"
+        "Article URL: https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too/ Comments URL: https://news.ycombinator.com/item?id=49685253 Points: 234 # Comments: 118 — Hacker News"
       ],
       "clusterId": "b8571ed79cec60d0",
       "language": "en",
       "model": "extractive-v1",
-      "createdAt": "2026-09-13T17:43:42.675Z"
+      "createdAt": "2026-09-13T20:17:44.406Z"
     },
     {
       "id": "367c4634a3e4df20",
@@ -1190,7 +1186,7 @@
       "clusterId": "b5c02ddb6de498e0",
       "language": "en",
       "model": "extractive-v1",
-      "createdAt": "2026-09-13T17:43:42.677Z"
+      "createdAt": "2026-09-13T20:17:44.408Z"
     },
     {
       "id": "e5002431a1a7c261",
@@ -1202,7 +1198,7 @@
       "clusterId": "b5c02ddb6de498e0",
       "language": "en",
       "model": "extractive-v1",
-      "createdAt": "2026-09-13T17:43:42.677Z"
+      "createdAt": "2026-09-13T20:17:44.408Z"
     },
     {
       "id": "5a4283696d19bd4f",
@@ -1211,7 +1207,7 @@
       "clusterId": "92221dea827b3c1f",
       "language": "en",
       "model": "extractive-v1",
-      "createdAt": "2026-09-13T17:43:42.677Z"
+      "createdAt": "2026-09-13T20:17:44.408Z"
     },
     {
       "id": "63f853c58227d8e9",
@@ -1223,7 +1219,7 @@
       "clusterId": "92221dea827b3c1f",
       "language": "en",
       "model": "extractive-v1",
-      "createdAt": "2026-09-13T17:43:42.677Z"
+      "createdAt": "2026-09-13T20:17:44.408Z"
     },
     {
       "id": "13f5cb8bd335d286",
@@ -1232,7 +1228,7 @@
       "clusterId": "76c28882a3a1d034",
       "language": "en",
       "model": "extractive-v1",
-      "createdAt": "2026-09-13T17:43:42.678Z"
+      "createdAt": "2026-09-13T20:17:44.409Z"
     },
     {
       "id": "d8a3a65b0ce02821",
@@ -1244,27 +1240,7 @@
       "clusterId": "76c28882a3a1d034",
       "language": "en",
       "model": "extractive-v1",
-      "createdAt": "2026-09-13T17:43:42.678Z"
-    },
-    {
-      "id": "e5b4c8f2f6c4a544",
-      "type": "tldr",
-      "content": "OpenAI has spent the last few years planting flags across the increasingly difficult terrain in mathematics. — The Verge",
-      "clusterId": "7adc9c15534e67c1",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-13T17:43:42.678Z"
-    },
-    {
-      "id": "b49cdb5d7ba5e0f0",
-      "type": "key_points",
-      "content": [
-        "This week, it claimed one of its biggest prizes yet: a solution to a legendary Millennium Prize problem. — The Verge"
-      ],
-      "clusterId": "7adc9c15534e67c1",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-13T17:43:42.678Z"
+      "createdAt": "2026-09-13T20:17:44.409Z"
     }
   ]
 }
