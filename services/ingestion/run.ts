@@ -34,13 +34,26 @@ const MAX_PER_SOURCE = 30;
 const trustOf = (sourceId: string) =>
   FEEDS.find((f) => f.source.id === sourceId)?.source.trust ?? 0.5;
 
-async function nextEditionNumber(): Promise<number> {
+/**
+ * One number per day printed, counted from the dated editions on disk.
+ *
+ * Matches the date in the filename rather than any `edition-*.json`, because
+ * `edition-latest.json` is a copy of one of them — counting it held the number
+ * frozen while the paper carried on printing.
+ */
+async function nextEditionNumber(today: string): Promise<number> {
   try {
     const files = await readdir(DATA_DIR);
-    const editions = files.filter((f) => /^edition-.*\.json$/.test(f));
-    return 148 + editions.length;
+    const dates = new Set<string>();
+    for (const f of files) {
+      const m = /^edition-(\d{4}-\d{2}-\d{2})\.json$/.exec(f);
+      if (m) dates.add(m[1]);
+    }
+    // Today's file is written after this runs, so count it in by hand.
+    dates.add(today);
+    return 149 + dates.size;
   } catch {
-    return 148;
+    return 150;
   }
 }
 
@@ -96,7 +109,7 @@ async function main() {
   const date = new Date().toISOString().slice(0, 10);
   const edition: Edition = {
     date,
-    edition: await nextEditionNumber(),
+    edition: await nextEditionNumber(date),
     itemsIngested: raw.length,
     eventsPublished: published.length,
     generatedAt: new Date().toISOString(),

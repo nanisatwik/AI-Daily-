@@ -421,7 +421,12 @@ export default function Newspaper({ pages, labels }: Props) {
       */}
       <div
         ref={sheetRef}
-        className={`relative grid ${lifting ? "select-none" : ""}`}
+        // grid-cols-[minmax(0,1fr)] is load-bearing: a bare `grid` sizes its
+        // implicit column to max-content, so the widest sheet in the stack sets
+        // the width and overflows the viewport on narrow screens.
+        className={`relative grid grid-cols-[minmax(0,1fr)] ${
+          lifting ? "select-none" : ""
+        }`}
         onPointerDown={reduce ? undefined : onPointerDown}
         onPointerMove={reduce ? undefined : onPointerMove}
         onPointerUp={reduce ? undefined : onPointerUp}
@@ -441,7 +446,9 @@ export default function Newspaper({ pages, labels }: Props) {
               }}
               // Hidden sheets stay in the grid so they keep holding the height,
               // but visibility:hidden takes them out of the a11y tree.
-              className="relative"
+              // min-w-0 too: grid items default to min-width:auto, which would
+              // let a long headline push the cell wider than its column.
+              className="relative min-w-0"
               style={{
                 gridArea: "1 / 1",
                 zIndex: isFlying ? 10 : 0,
