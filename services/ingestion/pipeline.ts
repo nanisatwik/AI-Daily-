@@ -6,6 +6,7 @@ import type {
   Section,
 } from "../../lib/types.ts";
 import { CATEGORY_RULES, type Feed } from "./sources.ts";
+import { extractLocations, citiesFor } from "./geo.ts";
 
 /* ------------------------------------------------------------------ *
  * 01  Source discovery
@@ -197,6 +198,7 @@ export function normalize(item: RawItem): Article | null {
     tags: [...tokenize(title)].slice(0, 8),
     contentHash: hash(title),
     eventClusterId: "",
+    locations: extractLocations(title, summary),
   };
 }
 
@@ -274,6 +276,11 @@ export function clusterArticles(articles: Article[]): EventCluster[] {
       lastSeenAt: new Date(Math.max(...times)).toISOString(),
       imageUrl: c.articles.find((a) => a.imageUrl)?.imageUrl ?? null,
       articles: c.articles,
+      // A cluster belongs to a city if any report in it does — corroboration
+      // across outlets is itself evidence the placing is right.
+      cities: [
+        ...new Set(c.articles.flatMap((a) => citiesFor(a.locations))),
+      ],
       score: 0,
     };
   });
@@ -291,6 +298,8 @@ export function clusterArticles(articles: Article[]): EventCluster[] {
 export function rank(
   clusters: EventCluster[],
   trustOf: (sourceId: string) => number,
+  /** Editorial prominence of the publisher type — see TYPE_WEIGHT. */
+  weightOf: (sourceId: string) => number,
   now = Date.now()
 ): EventCluster[] {
   for (const c of clusters) {
@@ -307,8 +316,13 @@ export function rank(
     // A lone community post is not a lead story; a lab announcement can be.
     const novelty = Math.min(c.tags.length / 8, 1);
 
+    // Best prominence in the cluster: one wire report picking up a preprint is
+    // enough to make it a news story.
+    const prominence = Math.max(...[...outlets].map(weightOf));
+
     c.score =
-      0.34 * corroboration + 0.3 * freshness + 0.26 * trust + 0.1 * novelty;
+      (0.34 * corroboration + 0.3 * freshness + 0.26 * trust + 0.1 * novelty) *
+      prominence;
   }
 
   return clusters.sort((a, b) => b.score - a.score);

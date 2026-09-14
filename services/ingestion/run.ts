@@ -10,7 +10,8 @@ import { writeFile, mkdir, readdir } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Article, Edition } from "../../lib/types.ts";
-import { FEEDS } from "./sources.ts";
+import { FEEDS, TYPE_WEIGHT } from "./sources.ts";
+import { Registry, classify } from "./registry.ts";
 import {
   fetchFeed,
   normalize,
@@ -31,8 +32,15 @@ const MAX_EVENTS = 24;
  */
 const MAX_PER_SOURCE = 30;
 
-const trustOf = (sourceId: string) =>
-  FEEDS.find((f) => f.source.id === sourceId)?.source.trust ?? 0.5;
+const sourceOf = (sourceId: string) =>
+  FEEDS.find((f) => f.source.id === sourceId)?.source;
+
+const trustOf = (sourceId: string) => sourceOf(sourceId)?.trust ?? 0.5;
+
+const weightOf = (sourceId: string) => {
+  const type = sourceOf(sourceId)?.publisherType;
+  return type ? TYPE_WEIGHT[type] : 0.8;
+};
 
 /**
  * One number per day printed, counted from the dated editions on disk.
@@ -59,22 +67,52 @@ async function nextEditionNumber(today: string): Promise<number> {
 
 async function main() {
   const started = Date.now();
-  console.log(`Ingesting ${FEEDS.length} feeds...`);
+  const registry = await Registry.load();
 
-  const results = await Promise.allSettled(FEEDS.map((f) => fetchFeed(f)));
+  // A source that is backing off or resting is skipped, not failed. Hammering
+  // a publisher that has already thrown 429 only lengthens the ban.
+  const due = FEEDS.filter((f) => registry.shouldFetch(f.source.id));
+  const resting = FEEDS.length - due.length;
+
+  console.log(
+    `Ingesting ${due.length} of ${FEEDS.length} feeds` +
+      (resting ? ` (${resting} resting: backing off or cooling down)` : "")
+  );
+
+  const results = await Promise.allSettled(due.map((f) => fetchFeed(f)));
 
   const raw = [];
   for (let i = 0; i < results.length; i++) {
+    const feed = due[i];
     const r = results[i];
-    const name = FEEDS[i].source.name;
+
     if (r.status === "fulfilled") {
-      console.log(`  ok    ${name.padEnd(24)} ${r.value.length} items`);
+      const newest = r.value
+        .map((it) => Date.parse(it.published ?? ""))
+        .filter((t) => Number.isFinite(t) && t <= Date.now() + 6 * 3_600_000)
+        .sort((a, b) => b - a)[0];
+
+      registry.recordSuccess(
+        feed.source.id,
+        newest ? new Date(newest).toISOString() : null
+      );
       raw.push(...r.value);
+
+      const state = classify(registry.get(feed.source.id));
+      console.log(
+        `  ${state.padEnd(13)} ${feed.source.name.padEnd(24)} ${r.value.length} items`
+      );
     } else {
       // One dead feed must never take down the edition.
-      console.log(`  FAIL  ${name.padEnd(24)} ${r.reason?.message ?? r.reason}`);
+      const msg = String(r.reason?.message ?? r.reason);
+      registry.recordFailure(feed.source.id, msg);
+      console.log(
+        `  ${classify(registry.get(feed.source.id)).padEnd(13)} ${feed.source.name.padEnd(24)} ${msg.slice(0, 40)}`
+      );
     }
   }
+
+  await registry.save();
 
   const cutoff = Date.now() - MAX_AGE_HOURS * 3_600_000;
 
@@ -98,7 +136,7 @@ async function main() {
     `\n${raw.length} ingested → ${onTopic.length} on-topic → ${dated.length} dated within ${MAX_AGE_HOURS}h → ${articles.length} after per-source cap`
   );
 
-  const clusters = rank(clusterArticles(articles), trustOf);
+  const clusters = rank(clusterArticles(articles), trustOf, weightOf);
   const published = clusters.slice(0, MAX_EVENTS);
 
   const merged = clusters.filter((c) => c.articles.length > 1).length;

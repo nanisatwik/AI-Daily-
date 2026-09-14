@@ -187,6 +187,24 @@ export const FEEDS: Feed[] = [
 ];
 
 /**
+ * Editorial prominence by publisher type — distinct from trust.
+ *
+ * A preprint can be entirely trustworthy and still not be a front-page news
+ * event. arXiv files hundreds of papers a day, all of them minutes old, so on
+ * freshness alone they will bury every reported story: the front page becomes
+ * a list of paper titles. This weight keeps research in the Research section
+ * where it belongs, while leaving it free to lead if several outlets pick it up.
+ */
+export const TYPE_WEIGHT: Record<PublisherType, number> = {
+  wire: 1,
+  publication: 1,
+  lab: 0.95,
+  vendor: 0.8,
+  community: 0.75,
+  preprint: 0.5,
+};
+
+/**
  * Keyword rules for topic classification. Deliberately boring and inspectable:
  * a model is not needed to tell a funding round from a policy ruling, and a
  * rule that can be read is a rule that can be corrected.

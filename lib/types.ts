@@ -60,6 +60,17 @@ export type Article = {
   /** Normalised-title fingerprint used for exact duplicate rejection. */
   contentHash: string;
   eventClusterId: string;
+  /** Where the story is about, with the evidence that decided it. */
+  locations: GeoTag[];
+};
+
+/** A place a story was tagged to, and why. */
+export type GeoTag = {
+  city: string;
+  state: string | null;
+  country: string;
+  confidence: number;
+  evidence: string;
 };
 
 /**
@@ -79,6 +90,8 @@ export type EventCluster = {
   lastSeenAt: string;
   imageUrl: string | null;
   articles: Article[];
+  /** Cities confident enough to carry this story on a local edition. */
+  cities: string[];
   /** Editorial score: freshness, corroboration, source trust, novelty. */
   score: number;
 };
