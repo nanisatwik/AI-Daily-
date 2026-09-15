@@ -8,6 +8,8 @@ import {
 import "./globals.css";
 import PaperTexture from "@/components/PaperTexture";
 import ServiceWorker from "@/components/ServiceWorker";
+import { PreferencesProvider } from "@/components/Preferences";
+import Onboarding from "@/components/Onboarding";
 
 /** Nameplate. Blackletter, as on the Times, the Telegraph and the Tribune. */
 const mast = UnifrakturMaguntia({
@@ -89,7 +91,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full">
         <PaperTexture />
-        {children}
+        <PreferencesProvider>
+          {children}
+          <Onboarding />
+        </PreferencesProvider>
         <ServiceWorker />
       </body>
     </html>

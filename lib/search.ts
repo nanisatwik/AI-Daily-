@@ -16,6 +16,10 @@ export type SearchDoc = {
   tags: string[];
   publishedAt: string;
   sourceCount: number;
+  /** Cities the story was geo-tagged to; drives local personalisation. */
+  cities: string[];
+  /** Editorial score from ingestion, so the client can re-rank without re-scoring. */
+  score: number;
 };
 
 export type SearchHit = SearchDoc & { score: number; matched: string[] };

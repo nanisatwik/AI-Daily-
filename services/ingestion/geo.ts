@@ -1,5 +1,5 @@
-/**
- * Geo-tagging — the LOCAL pillar.
+﻿/**
+ * Geo-tagging â€” the LOCAL pillar.
  *
  * Works on explicit place names and on the institutions and companies that
  * imply a place: a story about MIT is a Boston story whether or not it says
@@ -10,97 +10,18 @@
  * far more damaging to trust than one that simply never appears there.
  */
 
+import { HUBS } from "../../lib/hubs.ts";
+
 export type GeoTag = {
   city: string;
   state: string | null;
   country: string;
-  /** 0..1 — how sure we are the story is actually *about* this place. */
+  /** 0..1 â€” how sure we are the story is actually *about* this place. */
   confidence: number;
   /** The phrase that matched, so a bad tag can be traced to its cause. */
   evidence: string;
 };
 
-type Hub = {
-  city: string;
-  state: string | null;
-  country: string;
-  /** Lower-cased phrases. Longer and rarer phrases score higher. */
-  aliases: string[];
-};
-
-/** The AI hubs named in the blueprint, plus the districts people actually write. */
-const HUBS: Hub[] = [
-  {
-    city: "San Francisco",
-    state: "California",
-    country: "United States",
-    aliases: [
-      "san francisco", "bay area", "silicon valley", "palo alto",
-      "mountain view", "menlo park", "cupertino", "santa clara",
-      "sunnyvale", "berkeley", "oakland", "san jose",
-    ],
-  },
-  {
-    city: "Boston",
-    state: "Massachusetts",
-    country: "United States",
-    aliases: ["boston", "cambridge, massachusetts", "cambridge, ma", "somerville", "kendall square"],
-  },
-  {
-    city: "New York",
-    state: "New York",
-    country: "United States",
-    aliases: ["new york city", "new york", "manhattan", "brooklyn", "nyc"],
-  },
-  {
-    city: "Seattle",
-    state: "Washington",
-    country: "United States",
-    aliases: ["seattle", "redmond", "bellevue"],
-  },
-  {
-    city: "Austin",
-    state: "Texas",
-    country: "United States",
-    aliases: ["austin, texas", "austin, tx"],
-  },
-  {
-    city: "Los Angeles",
-    state: "California",
-    country: "United States",
-    aliases: ["los angeles", "santa monica", "pasadena"],
-  },
-  {
-    city: "Bengaluru",
-    state: "Karnataka",
-    country: "India",
-    aliases: ["bengaluru", "bangalore"],
-  },
-  {
-    city: "Hyderabad",
-    state: "Telangana",
-    country: "India",
-    aliases: ["hyderabad"],
-  },
-  {
-    city: "Toronto",
-    state: "Ontario",
-    country: "Canada",
-    aliases: ["toronto", "waterloo, ontario", "mississauga"],
-  },
-  {
-    city: "London",
-    state: null,
-    country: "United Kingdom",
-    aliases: ["london"],
-  },
-  {
-    city: "Singapore",
-    state: null,
-    country: "Singapore",
-    aliases: ["singapore"],
-  },
-];
 
 /**
  * Institutions and firms whose location is not in dispute. Weighted below a

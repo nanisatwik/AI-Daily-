@@ -153,6 +153,8 @@ export function getSearchIndex(): SearchDoc[] {
     tags: c.tags,
     publishedAt: c.lastSeenAt,
     sourceCount: new Set(c.articles.map((a) => a.sourceId)).size,
+    cities: c.cities ?? [],
+    score: c.score,
   }));
 }
 

@@ -76,6 +76,12 @@ export function SectionNav({
         </Link>
       ))}
       <Link
+        href="/yours"
+        className="kicker text-[var(--accent)] hover:opacity-60 transition-opacity"
+      >
+        Your edition
+      </Link>
+      <Link
         href="/search"
         className="kicker text-[var(--ink-faint)] hover:text-[var(--accent)] transition-colors"
       >

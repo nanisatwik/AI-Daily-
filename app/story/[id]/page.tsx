@@ -8,6 +8,7 @@ import { OrnateFrame, FleuronRule, PointingHand } from "@/components/Ornament";
 import { PageIn, Reveal, PressIn } from "@/components/motion";
 import { TallyMarks } from "@/components/stories";
 import AiBrief from "@/components/AiBrief";
+import ClipButton from "@/components/ClipButton";
 import {
   getStory,
   getAllStoryIds,
@@ -111,6 +112,10 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             </div>
           </article>
         </PageIn>
+
+        <div className="mt-8 flex justify-center">
+          <ClipButton storyId={story.id} />
+        </div>
 
         <AiBrief brief={getBrief(story.id)} />
 
