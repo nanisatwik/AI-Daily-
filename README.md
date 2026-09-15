@@ -125,6 +125,52 @@ data/                the editions themselves
 
 ---
 
+## Accounts (optional)
+
+Readers can subscribe to carry their desks, cities and clippings between
+devices. **Everything works without this** — leave it unconfigured and
+preferences simply stay on the device, with no account UI shown at all.
+
+To enable it:
+
+1. Create a project at [console.firebase.google.com](https://console.firebase.google.com).
+2. **Authentication → Sign-in method** → enable *Email/Password*, and *Google*
+   if you want the one-tap option.
+3. **Firestore Database → Create database** → start in production mode.
+4. **Project settings → Your apps → Web** → copy the config values into
+   `.env.local` using `.env.example` as the template.
+5. Deploy the rules — this step is not optional, see below:
+
+```bash
+firebase deploy --only firestore:rules
+```
+
+### Why the rules matter more than the keys
+
+The browser talks to Firestore directly; there is no server of ours in
+between. That is what lets accounts exist without giving up free static
+hosting — and it means **`firestore.rules` is the entire security boundary**,
+not a second line of defence behind one. Anything those rules permit, a hostile
+client can do. They restrict every reader to their own document and cap the
+size of what can be written.
+
+The `NEXT_PUBLIC_FIREBASE_*` values are **not secrets**. A Firebase web API key
+identifies the project; it does not grant access to it, and Google ships it in
+every Firebase web app's bundle. Real `.env` files stay out of git;
+`.env.example` is committed deliberately.
+
+### How syncing behaves
+
+Device-first. Preferences are written to `localStorage` immediately, so the app
+never waits on the network and works offline. When signed in they also sync:
+
+- Signing in on a **new device** adopts the account's preferences.
+- Signing in on the **first** device seeds the account from what is already there.
+- Changes on one device appear on the others through a live subscription.
+- Writes are coalesced, so toggling five chips is one write rather than five.
+
+---
+
 ## Deploying
 
 Vercel's free tier, connected to the repository. The GitHub Action commits a new

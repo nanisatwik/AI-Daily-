@@ -9,6 +9,7 @@ import { SECTIONS } from "@/lib/types";
 import { HUB_CITIES } from "@/lib/hubs";
 import { TallyMarks } from "./stories";
 import ClipButton from "./ClipButton";
+import AccountPanel from "./AccountPanel";
 import { FleuronRule } from "./Ornament";
 
 export default function YourEdition({ docs }: { docs: SearchDoc[] }) {
@@ -40,6 +41,10 @@ export default function YourEdition({ docs }: { docs: SearchDoc[] }) {
           ? "The same edition, re-ordered around the desks and cities you follow. Nothing is hidden — a major story still rises even if it matches nothing you picked."
           : "Choose a desk or a city below and this edition re-orders itself around them. Your choices stay on this device."}
       </p>
+
+      <div className="mb-7">
+        <AccountPanel />
+      </div>
 
       {/* --- preferences ------------------------------------------------ */}
       <div className="border border-[var(--rule)] p-4 sm:p-5">

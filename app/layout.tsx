@@ -8,6 +8,7 @@ import {
 import "./globals.css";
 import PaperTexture from "@/components/PaperTexture";
 import ServiceWorker from "@/components/ServiceWorker";
+import { AccountProvider } from "@/components/Account";
 import { PreferencesProvider } from "@/components/Preferences";
 import Onboarding from "@/components/Onboarding";
 
@@ -91,10 +92,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full">
         <PaperTexture />
-        <PreferencesProvider>
-          {children}
-          <Onboarding />
-        </PreferencesProvider>
+        {/* Account first: preferences need to know who is signed in before
+            they can decide whether to sync. */}
+        <AccountProvider>
+          <PreferencesProvider>
+            {children}
+            <Onboarding />
+          </PreferencesProvider>
+        </AccountProvider>
         <ServiceWorker />
       </body>
     </html>

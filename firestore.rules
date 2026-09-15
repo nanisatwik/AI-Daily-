@@ -1,0 +1,50 @@
+rules_version = '2';
+
+// Security rules for The AI Daily.
+//
+// There is no server of ours between the browser and Firestore, so this file
+// IS the security boundary — not a second line of defence behind one. Anything
+// these rules permit, a hostile client can do. Read it as the API contract.
+//
+// Deploy with:  firebase deploy --only firestore:rules
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // One document per reader, named by their auth uid.
+    match /readers/{uid} {
+
+      // A reader may only ever touch their own document. `request.auth.uid`
+      // is set by Firebase from a verified token — it cannot be spoofed by the
+      // client, which is what makes this check meaningful.
+      function isOwner() {
+        return request.auth != null && request.auth.uid == uid;
+      }
+
+      // Without a server, these rules are also the only input validation.
+      // Caps are generous for a reader and small enough that a hostile client
+      // cannot use the free tier as free storage.
+      function wellFormed() {
+        let d = request.resource.data;
+        return d.keys().hasOnly(
+                 ['topics','cities','briefingTime','clippings','read']
+               )
+          && (!('topics' in d)       || (d.topics is list       && d.topics.size() <= 30))
+          && (!('cities' in d)       || (d.cities is list       && d.cities.size() <= 30))
+          && (!('clippings' in d)    || (d.clippings is list    && d.clippings.size() <= 500))
+          && (!('read' in d)         || (d.read is list         && d.read.size() <= 500))
+          && (!('briefingTime' in d) || (d.briefingTime is string && d.briefingTime.size() <= 5));
+      }
+
+      allow get, list: if isOwner();
+      allow create, update: if isOwner() && wellFormed();
+      allow delete: if isOwner();
+    }
+
+    // Everything else is closed. New collections must opt in above,
+    // deliberately, rather than inheriting access by accident.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
