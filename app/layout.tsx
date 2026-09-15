@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   UnifrakturMaguntia,
   Libre_Caslon_Display,
@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import PaperTexture from "@/components/PaperTexture";
+import ServiceWorker from "@/components/ServiceWorker";
 
 /** Nameplate. Blackletter, as on the Times, the Telegraph and the Tribune. */
 const mast = UnifrakturMaguntia({
@@ -45,6 +46,27 @@ export const metadata: Metadata = {
   title: "The AI Daily — Two Cents Edition",
   description:
     "One edition a day. Everything that mattered in artificial intelligence, deduplicated and set in type.",
+  applicationName: "The AI Daily",
+  manifest: "/manifest.webmanifest",
+  // iOS ignores the web manifest and reads these instead.
+  appleWebApp: {
+    capable: true,
+    title: "AI Daily",
+    statusBarStyle: "default",
+  },
+  icons: {
+    icon: "/icons/icon-192.png",
+    apple: "/icons/apple-touch-icon.png",
+  },
+};
+
+export const viewport: Viewport = {
+  // Matches the ink, so the status bar reads as part of the masthead.
+  themeColor: "#2b1f12",
+  // Lets the paper run under the notch rather than being letterboxed by it.
+  viewportFit: "cover",
+  width: "device-width",
+  initialScale: 1,
 };
 
 const themeInit = `
@@ -68,6 +90,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full">
         <PaperTexture />
         {children}
+        <ServiceWorker />
       </body>
     </html>
   );
