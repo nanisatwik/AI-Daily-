@@ -34,6 +34,11 @@ yarn-error.log*
 .env*
 !.env.example
 
+# Intermediate audio from services/ai/voice.ts. The committed artefact is the
+# mp3; a WAV only survives on a machine without ffmpeg, and at ~14MB per voice
+# it must never reach the repository.
+/public/briefing/*.wav
+
 # vercel
 .vercel
 

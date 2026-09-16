@@ -8,12 +8,14 @@
     "start": "next start",
     "ingest": "node services/ingestion/run.ts",
     "brief": "node services/ai/extractive.ts",
-    "edition": "npm run ingest && npm run brief",
-    "enrich": "node services/ai/enrich.ts"
+    "edition": "npm run ingest && npm run brief && npm run voice",
+    "enrich": "node services/ai/enrich.ts",
+    "voice": "node services/ai/voice.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.125.0",
     "firebase": "^12.19.0",
+    "kokoro-js": "^1.2.1",
     "motion": "^13.2.0",
     "next": "16.3.4",
     "react": "19.2.8",

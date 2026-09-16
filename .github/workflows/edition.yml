@@ -37,6 +37,19 @@ jobs:
       - name: Compile the briefs
         run: node services/ai/extractive.ts
 
+      # Neural speech runs at roughly a second of computation per second of
+      # audio, so it cannot be done in the reader's browser while they wait —
+      # measured at a real-time factor of 1.01 to 1.10 on a sixteen-core
+      # machine with WebGPU. The edition is identical for everyone and changes
+      # once a day, so it is recorded here instead and served as a file.
+      #
+      # `continue-on-error` is deliberate: the recording is a luxury and the
+      # page falls back to the browser's own voice without it. A Hugging Face
+      # outage must not stop the paper going out.
+      - name: Record the briefing
+        run: node services/ai/voice.ts
+        continue-on-error: true
+
       - name: Check it still builds
         run: npm run build
 
@@ -44,7 +57,7 @@ jobs:
         run: |
           git config user.name  "the-ai-daily-press"
           git config user.email "press@users.noreply.github.com"
-          git add data/
+          git add data/ public/briefing/
           if git diff --staged --quiet; then
             echo "No new stories on the wire; nothing to print."
             exit 0

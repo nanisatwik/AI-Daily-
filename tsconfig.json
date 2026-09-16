@@ -30,6 +30,6 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "//": "services/ is a standalone Node worker run directly by `node` (which strips types and requires .ts specifiers), not bundled by Next.",
-  "exclude": ["node_modules", "services"]
+  "//": "services/ is a standalone Node worker run directly by `node` (which strips types and requires .ts specifiers), not bundled by Next. mobile/ is the React Native client and has its own tsconfig and its own platform types — checking it against `lib: dom` here fails on React Native APIs that genuinely exist there, such as StyleSheet.absoluteFillObject.",
+  "exclude": ["node_modules", "services", "mobile"]
 }
