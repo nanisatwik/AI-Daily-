@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PointingHand } from "./Ornament";
+import { pickVoices, DELIVERY } from "@/lib/voices";
 
 /**
  * The newspaper read aloud — blueprint section 6.
@@ -52,25 +53,46 @@ export default function VoiceReader({ passages }: { passages: Passage[] }) {
   const [paused, setPaused] = useState(false);
   const [mode, setMode] = useState<Mode>("brief");
   const [index, setIndex] = useState(0);
-  const [rate, setRate] = useState(1);
+  // A multiplier on DELIVERY.rate, so "1x" means the broadcast pace rather
+  // than the synthesiser's hurried default.
+  const [rate, setRate] = useState<number>(1);
 
   const lines = useRef<string[]>([]);
   const cursor = useRef(0);
   const stopping = useRef(false);
   const rateRef = useRef(rate);
+  /**
+   * This set no voice at all, so every utterance went to the system default —
+   * Microsoft David on Windows, a twenty-year-old formant synthesiser and the
+   * worst voice on the machine. Ranked selection picks the best the device
+   * actually has; see lib/voices.
+   */
+  const voice = useRef<SpeechSynthesisVoice | null>(null);
 
   useEffect(() => {
     rateRef.current = rate;
   }, [rate]);
 
   useEffect(() => {
-    setSupported(
-      typeof window !== "undefined" && "speechSynthesis" in window
-    );
+    const ok = typeof window !== "undefined" && "speechSynthesis" in window;
+    setSupported(ok);
+    if (!ok) return;
+
+    const synth = window.speechSynthesis;
+    // Chrome answers the first getVoices() with an empty list and fills it in
+    // asynchronously, so one call at mount reliably finds nothing.
+    const pick = () => {
+      const all = synth.getVoices();
+      if (all.length === 0) return;
+      const { lady, gentleman, best } = pickVoices(all);
+      voice.current = lady ?? gentleman ?? best;
+    };
+    pick();
+    synth.addEventListener("voiceschanged", pick);
+
     return () => {
-      if (typeof window !== "undefined" && "speechSynthesis" in window) {
-        window.speechSynthesis.cancel();
-      }
+      synth.removeEventListener("voiceschanged", pick);
+      synth.cancel();
     };
   }, []);
 
@@ -88,11 +110,20 @@ export default function VoiceReader({ passages }: { passages: Passage[] }) {
     setIndex(at);
 
     const utter = new SpeechSynthesisUtterance(lines.current[at]);
-    utter.rate = rateRef.current;
-    utter.pitch = 1;
+    utter.rate = DELIVERY.rate * rateRef.current;
+    utter.pitch = DELIVERY.pitch;
+    if (voice.current) {
+      utter.voice = voice.current;
+      utter.lang = voice.current.lang;
+    }
     utter.onend = () => {
       if (stopping.current) return;
-      speakFrom(cursor.current + 1);
+      // A breath between sentences. The queue otherwise runs them together
+      // with no gap, which is most of what makes a synthesiser sound like one.
+      window.setTimeout(() => {
+        if (stopping.current) return;
+        speakFrom(cursor.current + 1);
+      }, DELIVERY.gapMs);
     };
     utter.onerror = () => {
       if (!stopping.current) speakFrom(cursor.current + 1);
