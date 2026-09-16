@@ -12,10 +12,28 @@ import {
 import { motion, useReducedMotion } from "motion/react";
 import { PointingHand } from "./Ornament";
 import { curlGeometry, BEND_SEGMENTS } from "@/lib/curl";
+import { travelProgress, shouldCommit } from "@/lib/turn";
 
 const PAPER_EASE = [0.22, 1, 0.28, 1] as const;
 /** Past this share of a turn, letting go finishes it. */
-const COMMIT_AT = 0.45;
+/**
+ * How long the hand may pause before a release stops counting as a flick.
+ *
+ * Velocity is smoothed across moves, so without this a reader who dragged
+ * quickly, stopped to think, and then let go would have their stale speed read
+ * as a decisive flick.
+ */
+const FLICK_WINDOW_MS = 90;
+
+/**
+ * Share of the sheet at each side that turns the page when tapped.
+ *
+ * A reader takes a physical sheet by its edge, and until now a tap did nothing
+ * at all — the only way forward was to drag the whole way across, which is
+ * precisely what felt like hard work. Links and controls never reach this
+ * path: onPointerDown declines those presses outright.
+ */
+const TAP_ZONE = 0.16;
 /** Movement before a press becomes a drag, so clicks still work. */
 const SLOP = 8;
 /** A full, uninterrupted turn. */
@@ -57,8 +75,6 @@ function pageEase(t: number) {
   return 0.92 + 0.08 * (1 - Math.pow(1 - u, 3));
 }
 
-const clamp01 = (x: number) => (x < 0 ? 0 : x > 1 ? 1 : x);
-
 export default function Newspaper({ pages, labels }: Props) {
   const reduce = useReducedMotion();
   const [folded, setFolded] = useState(true);
@@ -80,6 +96,17 @@ export default function Newspaper({ pages, labels }: Props) {
   const cursor = useRef(0);
   const grabX = useRef(0);
   const grabY = useRef(-1);
+  /**
+   * How far the free edge can still travel from where the sheet was taken hold
+   * of. Progress is measured against this rather than the sheet's width: the
+   * hand runs out of paper at the spine, so a grab near the spine offers less
+   * travel than the full width and measuring against the width made the turn
+   * unfinishable from the inner half of the sheet.
+   */
+  const travel = useRef(0);
+  /** Smoothed signed px/ms, and when it was last sampled. */
+  const vel = useRef(0);
+  const lastMove = useRef<{ x: number; t: number } | null>(null);
   const amount = useRef(0);
   const sideRef = useRef<Side>("next");
   const targetRef = useRef<number | null>(null);
@@ -260,7 +287,12 @@ export default function Newspaper({ pages, labels }: Props) {
       targetRef.current = target;
       grabX.current = atX;
       grabY.current = atY;
+      // Forwards the edge travels left towards the spine; backwards it travels
+      // right towards the fore-edge. Either way it is bounded by the paper.
+      travel.current = s === "next" ? atX : w - atX;
       amount.current = 0;
+      vel.current = 0;
+      lastMove.current = null;
       // Start at the pose that matches what is already on screen, so taking
       // hold of the sheet never makes it jump.
       cursor.current = s === "next" ? flatAt(w) : turnedAt(w);
@@ -365,18 +397,27 @@ export default function Newspaper({ pages, labels }: Props) {
       if (!dragging.current) return;
       e.preventDefault();
 
+      // Smoothed so a single stuttery frame cannot read as a flick.
+      const t = performance.now();
+      const prev = lastMove.current;
+      if (prev && t > prev.t) {
+        const v = (e.clientX - prev.x) / (t - prev.t);
+        vel.current = vel.current * 0.6 + v * 0.4;
+      }
+      lastMove.current = { x: e.clientX, t };
+
       const { w } = size.current;
       if (sideRef.current === "next") {
         // Forwards the free edge rides under the hand: offset from where the
         // sheet was taken hold of, so it lifts from the point being pulled.
         const pulled = Math.max(grabX.current - lx, 0);
-        amount.current = clamp01(pulled / w);
+        amount.current = travelProgress(pulled, travel.current);
         cursor.current = flatAt(w) - pulled;
       } else {
         // Backwards there is no free edge to hold — the sheet is already over
         // on the left — so the hand's travel drives the turn directly.
         const pushed = Math.max(lx - grabX.current, 0);
-        amount.current = clamp01(pushed / w);
+        amount.current = travelProgress(pushed, travel.current);
         cursor.current =
           turnedAt(w) + amount.current * (flatAt(w) - turnedAt(w));
       }
@@ -386,13 +427,37 @@ export default function Newspaper({ pages, labels }: Props) {
   );
 
   const onPointerUp = useCallback(() => {
+    const tapped = pending.current;
     pending.current = null;
-    if (!dragging.current) return;
+
+    if (!dragging.current) {
+      // Never became a drag, so read it as a tap on the sheet's edge.
+      if (tapped && !reduce) {
+        const { w } = size.current;
+        const zone = w * TAP_ZONE;
+        if (tapped.lx >= w - zone) turn(page + 1);
+        else if (tapped.lx <= zone) turn(page - 1);
+      }
+      return;
+    }
+
     dragging.current = false;
 
     const { w } = size.current;
     const forward = sideRef.current === "next";
-    const done = amount.current >= COMMIT_AT && targetRef.current !== null;
+
+    // A hand that has come to rest is not flicking, whatever it was doing a
+    // moment ago.
+    const stale =
+      !lastMove.current || performance.now() - lastMove.current.t > FLICK_WINDOW_MS;
+
+    const done =
+      targetRef.current !== null &&
+      shouldCommit({
+        progress: amount.current,
+        velocity: stale ? 0 : vel.current,
+        forward,
+      });
 
     // Time what is left of the turn, so a nearly finished page does not crawl
     // and a barely started one does not snap.
@@ -404,7 +469,7 @@ export default function Newspaper({ pages, labels }: Props) {
     } else {
       glide(forward ? flatAt(w) : turnedAt(w), ms, null);
     }
-  }, [glide]);
+  }, [glide, page, reduce, turn]);
 
   const showFold = page === 0 && folded && !reduce;
 
