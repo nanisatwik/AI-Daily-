@@ -199,6 +199,23 @@ export default function Newspaper({ pages, labels }: Props) {
     });
   }, [paint]);
 
+  /**
+   * Take the full-screen paper effects out of the compositing tree while a
+   * sheet is moving.
+   *
+   * `.paper-grain` is fixed at the viewport size, sits above the sheet, and
+   * uses mix-blend-mode, so the compositor cannot treat it as an independent
+   * layer: every frame of a turn invalidates the whole screen and forces a
+   * re-blend against the moving paper. Nobody can see grain on a sheet in
+   * flight, so the cost buys nothing exactly when frames are scarcest. Two
+   * paints to toggle it beats sixty paints carrying it.
+   */
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle("turning", lifting !== null);
+    return () => root.classList.remove("turning");
+  }, [lifting]);
+
   const reset = useCallback(() => {
     targetRef.current = null;
     pending.current = null;

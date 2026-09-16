@@ -1,13 +1,804 @@
 {
   "date": "2026-09-16",
   "edition": 153,
-  "itemsIngested": 3070,
-  "eventsPublished": 24,
-  "generatedAt": "2026-09-16T13:35:38.811Z",
+  "itemsIngested": 3809,
+  "eventsPublished": 54,
+  "generatedAt": "2026-09-16T18:10:11.864Z",
   "clusters": [
     {
-      "id": "c7c7632517ee53c1",
-      "title": "AI Leaders Are Calling for a Slowdown. Trump’s Team Says It’s on Them",
+      "id": "31c1aa8219cd44b4",
+      "title": "Anthropic merges Claude chat and Cowork in one interface",
+      "summary": "Anthropic is merging Claude Chat and Cowork into a single product. Instead of users picking between interfaces, Claude now decides on its own whether a task needs a quick answer or a bigger workflow. The update also adds Claude Docs and Claude Slides for creating documents and presentations directly in the chat. Pro and Max users get access first. The article Anthropic merges Claude Chat, Cowork, and more into a sing",
+      "category": "AI News",
+      "tags": [
+        "anthropic",
+        "merges",
+        "claude",
+        "chat",
+        "cowork",
+        "single",
+        "product",
+        "goodbye",
+        "claudes",
+        "interface"
+      ],
+      "firstSeenAt": "2026-09-16T16:30:00.000Z",
+      "lastSeenAt": "2026-09-16T16:31:41.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "4fcb8f1a8a85c26c",
+          "title": "Anthropic merges Claude Chat, Cowork, and more into a single product",
+          "summary": "Anthropic is merging Claude Chat and Cowork into a single product. Instead of users picking between interfaces, Claude now decides on its own whether a task needs a quick answer or a bigger workflow. The update also adds Claude Docs and Claude Slides for creating documents and presentations directly in the chat. Pro and Max users get access first. The article Anthropic merges Claude Chat, Cowork, and more into a sing",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/anthropic-merges-claude-chat-cowork-and-more-into-a-single-product/",
+          "author": "Matthias Bastian",
+          "publishedAt": "2026-09-16T16:31:41.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "anthropic",
+            "merges",
+            "claude",
+            "chat",
+            "cowork",
+            "single",
+            "product"
+          ],
+          "contentHash": "f4f452930aecd0d8",
+          "eventClusterId": "31c1aa8219cd44b4",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        },
+        {
+          "id": "271a1c035f8703e2",
+          "title": "Goodbye, Claude Cowork: Anthropic merges its two Claudes into one",
+          "summary": "From Claude to Cowork and back again – plus, Anthropic’s all-new Claude Docs.",
+          "sourceId": "zdnet-ai",
+          "sourceName": "ZDNET",
+          "sourceUrl": "https://www.zdnet.com/innovation/claude-chat-absorbs-cowork-anthropic/",
+          "author": null,
+          "publishedAt": "2026-09-16T16:30:44.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "goodbye",
+            "claude",
+            "cowork",
+            "anthropic",
+            "merges",
+            "claudes"
+          ],
+          "contentHash": "27c97f78804f4633",
+          "eventClusterId": "31c1aa8219cd44b4",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        },
+        {
+          "id": "6e19e29157f56356",
+          "title": "Anthropic merges Claude chat and Cowork in one interface",
+          "summary": "Anthropic is initially releasing these features to Pro and Max plan subscribers.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/16/anthropic-merges-claude-chat-and-cowork-in-one-interface/",
+          "author": "Ivan Mehta",
+          "publishedAt": "2026-09-16T16:30:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "anthropic",
+            "merges",
+            "claude",
+            "chat",
+            "cowork",
+            "interface"
+          ],
+          "contentHash": "7f8caf638a57f6c3",
+          "eventClusterId": "31c1aa8219cd44b4",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        },
+        {
+          "id": "0d9392390ff294da",
+          "title": "Anthropic's Claude can now create editable documents for you",
+          "summary": "Anthropic is adding the ability to create docs, slideshow and access Cowork capabilities inside chat. It will roll out to Pro and Max subscribers first.",
+          "sourceId": "engadget",
+          "sourceName": "Engadget",
+          "sourceUrl": "https://www.engadget.com/2259938/anthropics-claude-can-now-create-editable-documents-for-you-cowork-chat-together/",
+          "author": "staff@engadget.com (Mariella Moon)",
+          "publishedAt": "2026-09-16T16:30:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "anthropic",
+            "claude",
+            "create",
+            "editable",
+            "documents"
+          ],
+          "contentHash": "9f04f926d75bbfdf",
+          "eventClusterId": "31c1aa8219cd44b4",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.9211052481633198
+    },
+    {
+      "id": "f2c31701757183f5",
+      "title": "Google will now let any AI agent run your smart home",
+      "summary": "Google is launching early access to a new MCP server for Google Home, allowing AI agents like Claude, ChatGPT, and others to control connected devices, review camera summaries, and access smart home activity using natural language.",
+      "category": "AI News",
+      "tags": [
+        "agents",
+        "control",
+        "google",
+        "home",
+        "devices",
+        "agent",
+        "run",
+        "smart",
+        "agentic",
+        "via"
+      ],
+      "firstSeenAt": "2026-09-16T17:00:00.000Z",
+      "lastSeenAt": "2026-09-16T17:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "aa7c985b5b98a35a",
+          "title": "Your AI agents can now control your Google Home devices",
+          "summary": "Google is launching early access to a new MCP server for Google Home, allowing AI agents like Claude, ChatGPT, and others to control connected devices, review camera summaries, and access smart home activity using natural language.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/16/your-ai-agents-can-now-control-your-google-home-devices/",
+          "author": "Sarah Perez",
+          "publishedAt": "2026-09-16T17:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "agents",
+            "control",
+            "google",
+            "home",
+            "devices"
+          ],
+          "contentHash": "8fc6f21ee21ccddf",
+          "eventClusterId": "f2c31701757183f5",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        },
+        {
+          "id": "b4799e0f116f6583",
+          "title": "Google will now let any AI agent run your smart home",
+          "summary": "Google is opening up its smart home to AI agents, letting tools like Claude and Open Claw access and control your connected devices and analyze your home's data using the standardized Model Context Protocol. Google Home MCP is a new integration that lets third-party AI agents control and monitor your smart home and act on […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/tech/996310/google-home-mcp-integration-agentic-ai-smart-home-price-release-date",
+          "author": null,
+          "publishedAt": "2026-09-16T17:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "google",
+            "agent",
+            "run",
+            "smart",
+            "home"
+          ],
+          "contentHash": "4141782015dd5748",
+          "eventClusterId": "f2c31701757183f5",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        },
+        {
+          "id": "3f9e8c0e8442a4ac",
+          "title": "Google Home is going agentic via integration with the MCP standard",
+          "summary": "Premium Advanced users will get an early access build \"in the coming weeks.\"",
+          "sourceId": "engadget",
+          "sourceName": "Engadget",
+          "sourceUrl": "https://www.engadget.com/2260280/google-home-is-going-agentic-via-integration-with-the-mcp-standard/",
+          "author": "staff@engadget.com (Lawrence Bonk)",
+          "publishedAt": "2026-09-16T17:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "google",
+            "home",
+            "agentic",
+            "via",
+            "integration",
+            "mcp",
+            "standard"
+          ],
+          "contentHash": "aa10283269169ccd",
+          "eventClusterId": "f2c31701757183f5",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.8193540144479079
+    },
+    {
+      "id": "2cd906922944e6d5",
+      "title": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
+      "summary": "Tool: Gemini Live audio Google released Gemini 3.8 Live and 3.8 Live Extended Thinking today - two new speech-to-speech models that are a similar shape to OpenAI's GPT-Live family. I pointed GPT-6 Astra Extra High at the documentation and had it build me this web UI for trying out the new models. You can select a model and voice preset, enter an optional system prompt and then start a voice conversation through your ",
+      "category": "Developer",
+      "tags": [
+        "gemini",
+        "live",
+        "audio",
+        "google",
+        "releases",
+        "extended",
+        "thinking",
+        "production",
+        "grade",
+        "launches"
+      ],
+      "firstSeenAt": "2026-09-15T15:47:03.000Z",
+      "lastSeenAt": "2026-09-15T22:47:07.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "2d2515cfb9e9b299",
+          "title": "Gemini Live audio",
+          "summary": "Tool: Gemini Live audio Google released Gemini 3.8 Live and 3.8 Live Extended Thinking today - two new speech-to-speech models that are a similar shape to OpenAI's GPT-Live family. I pointed GPT-6 Astra Extra High at the documentation and had it build me this web UI for trying out the new models. You can select a model and voice preset, enter an optional system prompt and then start a voice conversation through your ",
+          "sourceId": "simonwillison",
+          "sourceName": "Simon Willison",
+          "sourceUrl": "https://simonwillison.net/2026/Sep/15/gemini-live/",
+          "author": null,
+          "publishedAt": "2026-09-15T22:47:07.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "Developer",
+          "tags": [
+            "gemini",
+            "live",
+            "audio"
+          ],
+          "contentHash": "5e37ad0ed6d7f3d7",
+          "eventClusterId": "2cd906922944e6d5",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        },
+        {
+          "id": "ca5de9d1cce5d071",
+          "title": "Google Releases Gemini 3.8 Live and 3.8 Live Extended Thinking for Production Grade Voice Agents",
+          "summary": "Google has released Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking, its most advanced live dialogue models to date. The models execute tools and API calls in the background while the conversation keeps flowing, process live visual inputs, and switch between 97 languages mid conversation. Extended Thinking ranks #1 on Artificial Analysis' Speech to Speech Quality Index with 82.6 and scores 97.7% on Big Bench Au",
+          "sourceId": "marktechpost",
+          "sourceName": "MarkTechPost",
+          "sourceUrl": "https://www.marktechpost.com/2026/09/15/google-releases-gemini-3-8-live-and-3-8-live-extended-thinking-for-production-grade-voice-agents/",
+          "author": "Asif Razzaq",
+          "publishedAt": "2026-09-15T20:53:09.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "Developer",
+          "tags": [
+            "google",
+            "releases",
+            "gemini",
+            "live",
+            "extended",
+            "thinking",
+            "production",
+            "grade"
+          ],
+          "contentHash": "d62425ea9a5f65ad",
+          "eventClusterId": "2cd906922944e6d5",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        },
+        {
+          "id": "cfcb4b2ff846b2dc",
+          "title": "Google launches Gemini 3.8 Live to take on OpenAI's GPT-Live-1 at a fraction of the cost",
+          "summary": "Google Deepmind released Gemini 3.8 Live and 3.8 Live Extended Thinking, two new audio models for developers that top the Artificial Analysis speech-to-speech leaderboard. At $1.38 per hour of voice conversation, Google significantly undercuts OpenAI's GPT-Live-1, which should still sound more natural thanks to full duplex. The article Google launches Gemini 3.8 Live to take on OpenAI's GPT-Live-1 at a fraction of th",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/google-launches-gemini-3-8-live-to-take-on-openais-gpt-live-1-at-a-fraction-of-the-cost/",
+          "author": "Matthias Bastian",
+          "publishedAt": "2026-09-15T18:23:20.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "google",
+            "launches",
+            "gemini",
+            "live",
+            "take",
+            "openai",
+            "gpt",
+            "fraction"
+          ],
+          "contentHash": "204a5edc3939a5b1",
+          "eventClusterId": "2cd906922944e6d5",
+          "locations": [
+            {
+              "city": "London",
+              "state": null,
+              "country": "United Kingdom",
+              "confidence": 0.6,
+              "evidence": "UK institution"
+            },
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        },
+        {
+          "id": "c7cc6504689a615c",
+          "title": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
+          "summary": "",
+          "sourceId": "deepmind",
+          "sourceName": "Google DeepMind",
+          "sourceUrl": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
+          "author": null,
+          "publishedAt": "2026-09-15T17:05:57.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "introducing",
+            "gemini",
+            "live",
+            "extended",
+            "thinking"
+          ],
+          "contentHash": "8c77f26b0ea35793",
+          "eventClusterId": "2cd906922944e6d5",
+          "locations": []
+        },
+        {
+          "id": "3022acce35e5595a",
+          "title": "OpenAI, Anthropic, Google have been in talks on AI safety for weeks",
+          "summary": "OpenAI confirms weeks of AI safety talks with Anthropic and Google DeepMind, as Trump's team dismisses safety concerns and pushes to keep pace with China.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/",
+          "author": "Rebecca Bellan",
+          "publishedAt": "2026-09-15T15:47:03.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "openai",
+            "anthropic",
+            "google",
+            "talks",
+            "safety",
+            "weeks"
+          ],
+          "contentHash": "8a9fa4ac3ceee797",
+          "eventClusterId": "2cd906922944e6d5",
+          "locations": [
+            {
+              "city": "London",
+              "state": null,
+              "country": "United Kingdom",
+              "confidence": 0.6,
+              "evidence": "UK institution"
+            },
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [
+        "London"
+      ],
+      "score": 0.7623320359559632
+    },
+    {
+      "id": "46e40435ca702dfc",
+      "title": "I worked at Google DeepMind. You should listen to the warnings about AI",
+      "summary": "Google Deepmind has founded the Deepmind Institute (DMI), an interdisciplinary research platform focused on AGI. Led by Demis Hassabis, Shane Legg, and James Manyika, the institute tackles questions around safety, governance, and control risks, drawing on experts from the arts, humanities, and policy alongside technologists. The article Google Deepmind launches interdisciplinary institute to tackle the big questions ",
+      "category": "AI Policy",
+      "tags": [
+        "google",
+        "deepmind",
+        "launches",
+        "interdisciplinary",
+        "institute",
+        "tackle",
+        "big",
+        "questions",
+        "worked",
+        "listen"
+      ],
+      "firstSeenAt": "2026-09-14T12:00:59.000Z",
+      "lastSeenAt": "2026-09-16T17:00:28.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "7edef2c1b9dae61d",
+          "title": "Google Deepmind launches interdisciplinary institute to tackle the big questions around AGI",
+          "summary": "Google Deepmind has founded the Deepmind Institute (DMI), an interdisciplinary research platform focused on AGI. Led by Demis Hassabis, Shane Legg, and James Manyika, the institute tackles questions around safety, governance, and control risks, drawing on experts from the arts, humanities, and policy alongside technologists. The article Google Deepmind launches interdisciplinary institute to tackle the big questions ",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/google-deepmind-launches-interdisciplinary-institute-to-tackle-the-big-questions-around-agi/",
+          "author": "Matthias Bastian",
+          "publishedAt": "2026-09-16T17:00:28.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "google",
+            "deepmind",
+            "launches",
+            "interdisciplinary",
+            "institute",
+            "tackle",
+            "big",
+            "questions"
+          ],
+          "contentHash": "6b06eef5c0e2aff9",
+          "eventClusterId": "46e40435ca702dfc",
+          "locations": [
+            {
+              "city": "London",
+              "state": null,
+              "country": "United Kingdom",
+              "confidence": 0.68,
+              "evidence": "UK institution"
+            },
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        },
+        {
+          "id": "705e9948dd870c6d",
+          "title": "I worked at Google DeepMind. You should listen to the warnings about AI",
+          "summary": "We must stop companies from allowing AI to self-improve into an uncontrollable level of intelligence Major AI lab CEOs advocated for slowing the pace of AI development this weekend. They are right to be concerned: the field runs an extremely dangerous race towards superintelligent AI. We can and should be demanding that our governments protect us from the catastrophe of out-of-control AI. This July, OpenAI’s AI swarm",
+          "sourceId": "guardian-tech",
+          "sourceName": "The Guardian",
+          "sourceUrl": "https://www.theguardian.com/technology/2026/sep/14/google-deepmind-ai-warnings",
+          "author": "Alex Turner",
+          "publishedAt": "2026-09-14T12:00:59.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "worked",
+            "google",
+            "deepmind",
+            "listen",
+            "warnings"
+          ],
+          "contentHash": "6d9b89a8db064970",
+          "eventClusterId": "46e40435ca702dfc",
+          "locations": [
+            {
+              "city": "London",
+              "state": null,
+              "country": "United Kingdom",
+              "confidence": 0.68,
+              "evidence": "UK institution"
+            },
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [
+        "London"
+      ],
+      "score": 0.7108974068525145
+    },
+    {
+      "id": "edd253e0a5aa476f",
+      "title": "Rethinking Robot Safety in the Age of AI",
+      "summary": "This article is brought to you by VicOne . Robot safety has traditionally asked: Can a machine remain safe when something goes wrong? Physical AI raises a harder question: Can a machine remain safe when an attacker changes what it sees, decides, or does even when nothing appears to have failed? As AI and robotics continue to advance at an unprecedented pace, modern robots perceive through multimodal sensors, interpre",
+      "category": "AI Policy",
+      "tags": [
+        "rethinking",
+        "robot",
+        "safety",
+        "age"
+      ],
+      "firstSeenAt": "2026-09-16T16:51:02.000Z",
+      "lastSeenAt": "2026-09-16T16:51:02.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "415879d1da5b4e3a",
+          "title": "Rethinking Robot Safety in the Age of AI",
+          "summary": "This article is brought to you by VicOne . Robot safety has traditionally asked: Can a machine remain safe when something goes wrong? Physical AI raises a harder question: Can a machine remain safe when an attacker changes what it sees, decides, or does even when nothing appears to have failed? As AI and robotics continue to advance at an unprecedented pace, modern robots perceive through multimodal sensors, interpre",
+          "sourceId": "ieee-spectrum",
+          "sourceName": "IEEE Spectrum",
+          "sourceUrl": "https://spectrum.ieee.org/physical-ai-robot-cybersecurity-vicone",
+          "author": "VicOne",
+          "publishedAt": "2026-09-16T16:51:02.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "rethinking",
+            "robot",
+            "safety",
+            "age"
+          ],
+          "contentHash": "21b31325769d1381",
+          "eventClusterId": "edd253e0a5aa476f",
+          "locations": []
+        },
+        {
+          "id": "933bf7338ab53081",
+          "title": "Rethinking Robot Safety in the Age of AI",
+          "summary": "This article is brought to you by VicOne . Robot safety has traditionally asked: Can a machine remain safe when something goes wrong? Physical AI raises a harder question: Can a machine remain safe when an attacker changes what it sees, decides, or does even when nothing appears to have failed? As AI and robotics continue to advance at an unprecedented pace, modern robots perceive through multimodal sensors, interpre",
+          "sourceId": "ieee-computing",
+          "sourceName": "IEEE Spectrum",
+          "sourceUrl": "https://spectrum.ieee.org/physical-ai-robot-cybersecurity-vicone",
+          "author": "VicOne",
+          "publishedAt": "2026-09-16T16:51:02.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "rethinking",
+            "robot",
+            "safety",
+            "age"
+          ],
+          "contentHash": "21b31325769d1381",
+          "eventClusterId": "edd253e0a5aa476f",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.6755809321104195
+    },
+    {
+      "id": "f5f5115c79e45acb",
+      "title": "QueryFormer: Winning Solution for KDD Cup 2026 Tencent UniRec Challenge",
+      "summary": "Prior Labs released TabPFN-3.5, a tabular foundation model pretrained only on synthetic data that beats Otto's winning solution. The post Prior Labs Releases TabPFN-3.5: A Tabular Foundation Model That Beats the Winning Otto Kaggle Solution With Default Settings appeared first on MarkTechPost .",
+      "category": "AI Research",
+      "tags": [
+        "prior",
+        "labs",
+        "releases",
+        "tabpfn",
+        "tabular",
+        "foundation",
+        "model",
+        "beats",
+        "nums",
+        "causilo"
+      ],
+      "firstSeenAt": "2026-09-15T16:18:50.000Z",
+      "lastSeenAt": "2026-09-16T06:52:18.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "9bc5a833c0406f37",
+          "title": "Prior Labs Releases TabPFN-3.5: A Tabular Foundation Model That Beats the Winning Otto Kaggle Solution With Default Settings",
+          "summary": "Prior Labs released TabPFN-3.5, a tabular foundation model pretrained only on synthetic data that beats Otto's winning solution. The post Prior Labs Releases TabPFN-3.5: A Tabular Foundation Model That Beats the Winning Otto Kaggle Solution With Default Settings appeared first on MarkTechPost .",
+          "sourceId": "marktechpost",
+          "sourceName": "MarkTechPost",
+          "sourceUrl": "https://www.marktechpost.com/2026/09/15/prior-labs-releases-tabpfn-3-5-a-tabular-foundation-model-that-beats-the-winning-otto-kaggle-solution-with-default-settings/",
+          "author": "Asif Razzaq",
+          "publishedAt": "2026-09-16T06:52:18.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "prior",
+            "labs",
+            "releases",
+            "tabpfn",
+            "tabular",
+            "foundation",
+            "model",
+            "beats"
+          ],
+          "contentHash": "5b6b2d0ec203c61b",
+          "eventClusterId": "f5f5115c79e45acb",
+          "locations": []
+        },
+        {
+          "id": "a9bb1a4d73a59078",
+          "title": "Nums AI Releases Causilo: A Tabular Foundation Model That Tops TabArena Among Single Models",
+          "summary": "Nums AI has released Causilo, a pretrained tabular foundation model for classification and regression with a scikit-learn interface. It posts the top TabArena Elo among single models, ahead of Google's TabFM and LG's EXAONE Tabular. The code is Apache-2.0, while weights are licensed for non-commercial research. The post Nums AI Releases Causilo: A Tabular Foundation Model That Tops TabArena Among Single Models appear",
+          "sourceId": "marktechpost",
+          "sourceName": "MarkTechPost",
+          "sourceUrl": "https://www.marktechpost.com/2026/09/15/nums-ai-releases-causilo-a-tabular-foundation-model-that-tops-tabarena-among-single-models/",
+          "author": "Michal Sutter",
+          "publishedAt": "2026-09-16T04:59:47.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "nums",
+            "releases",
+            "causilo",
+            "tabular",
+            "foundation",
+            "model",
+            "tops",
+            "tabarena"
+          ],
+          "contentHash": "9c33a48a1242f7e4",
+          "eventClusterId": "f5f5115c79e45acb",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.42,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        },
+        {
+          "id": "d7106886bb27a0c9",
+          "title": "QueryFormer: Winning Solution for KDD Cup 2026 Tencent UniRec Challenge",
+          "summary": "arXiv:2609.16548v1 Announce Type: new Abstract: Post-click conversion rate (pCVR) prediction requires jointly modeling feature interactions and sequential user behaviors. The KDD Cup 2026 Tencent UniRec Challenge calls for a unified architecture addressing both. We observe that existing unified architectures often generate query tokens---the central information hub---with projection-based multi-layer perceptrons (MLP",
+          "sourceId": "arxiv-ai",
+          "sourceName": "arXiv cs.AI",
+          "sourceUrl": "https://arxiv.org/abs/2609.16548",
+          "author": "Yuanzhe Zhou, Zhaoyang Zeng",
+          "publishedAt": "2026-09-16T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "queryformer",
+            "winning",
+            "solution",
+            "kdd",
+            "cup",
+            "2026",
+            "tencent",
+            "unirec"
+          ],
+          "contentHash": "a7aa543c2d56cca2",
+          "eventClusterId": "f5f5115c79e45acb",
+          "locations": []
+        },
+        {
+          "id": "b6a29280f86873a8",
+          "title": "TabPFN-3.5 is released as the next SOTA tabular foundation model [N]",
+          "summary": "Prior Labs released their latest tabular foundation model, TabPFN-3.5 today. The model is top of both TabArena and BeyondArena and SOTA for 1M rows and up to 20k features It comes with: - TabPFN-3.5-Fast (in alpha): This one goes 6x faster than the base model - TabPFN-3.5-Thinking: you basically exchange compute for better accuracy with this one and it's via the API - TabPFN-3.5-Plus On BeyondArena, TabPFN-3.5 leads ",
+          "sourceId": "reddit-ml",
+          "sourceName": "r/MachineLearning",
+          "sourceUrl": "https://www.reddit.com/r/MachineLearning/comments/1wh4xhy/tabpfn35_is_released_as_the_next_sota_tabular/",
+          "author": null,
+          "publishedAt": "2026-09-15T16:18:50.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "tabpfn",
+            "released",
+            "next",
+            "sota",
+            "tabular",
+            "foundation",
+            "model"
+          ],
+          "contentHash": "8ed539d2117f82f7",
+          "eventClusterId": "f5f5115c79e45acb",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.6705225804576219
+    },
+    {
+      "id": "3831c1989d6e3e86",
+      "title": "Nvidia’s Jensen Huang Gets Onstage Call From Trump, Who Dismissed A.I. Safety Concerns",
       "summary": "AI isn't some new form of \"alien mind,\" according to Jensen Huang. It's just hardware and software, so safety can be engineered by each AI product maker.",
       "category": "AI Policy",
       "tags": [
@@ -17,12 +808,12 @@
         "nvidia",
         "jensen",
         "huang",
-        "ceo",
-        "trump",
-        "slowdown",
-        "happen"
+        "know",
+        "everything",
+        "anything",
+        "dreamforce"
       ],
-      "firstSeenAt": "2026-09-14T11:00:00.000Z",
+      "firstSeenAt": "2026-09-15T21:46:04.000Z",
       "lastSeenAt": "2026-09-16T00:20:39.000Z",
       "imageUrl": null,
       "articles": [
@@ -48,7 +839,7 @@
             "huang"
           ],
           "contentHash": "f0fcd88110d5e1fa",
-          "eventClusterId": "c7c7632517ee53c1",
+          "eventClusterId": "3831c1989d6e3e86",
           "locations": [
             {
               "city": "San Francisco",
@@ -60,64 +851,28 @@
           ]
         },
         {
-          "id": "94382d660d20de29",
-          "title": "Nvidia CEO Jensen Huang tells Trump ‘we’re not going to let [an AI slowdown] happen’",
-          "summary": "Though Elon Musk and Sam Altman have supported Dario Amodei's calls to slow the pace of AI development, Jensen Huang seems to feel differently.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/14/nvidia-ceo-jensen-huang-tells-trump-were-not-going-to-let-an-ai-slowdown-happen/",
-          "author": "Amanda Silberling",
-          "publishedAt": "2026-09-14T21:51:02.000Z",
+          "id": "b3ce014f6129c0a2",
+          "title": "‘Now We Can Know Everything and Do Anything,’ Jensen Huang Says at Dreamforce",
+          "summary": "Know everything. Do anything. That was the message NVIDIA founder and CEO Jensen Huang brought to Salesforce Dreamforce Tuesday, joining CEO Marc Benioff onstage in an appearance that coincided with the announcement of Koa — Salesforce’s first CRM reasoning model, built on NVIDIA Nemotron 3 Super. Huang didn’t just take the stage. He walked into […]",
+          "sourceId": "nvidia-blog",
+          "sourceName": "NVIDIA",
+          "sourceUrl": "https://blogs.nvidia.com/blog/jensen-huang-dreamforce/",
+          "author": "Brian Caulfield",
+          "publishedAt": "2026-09-15T22:24:34.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI Startups",
+          "category": "AI Business",
           "tags": [
-            "nvidia",
-            "ceo",
+            "know",
+            "everything",
+            "anything",
             "jensen",
             "huang",
-            "trump",
-            "slowdown",
-            "happen"
+            "dreamforce"
           ],
-          "contentHash": "33bc00c8bd8abf8c",
-          "eventClusterId": "c7c7632517ee53c1",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.5,
-              "evidence": "Bay Area firm"
-            }
-          ]
-        },
-        {
-          "id": "6b251325c04f7047",
-          "title": "Jensen Huang puts Trump on speakerphone onstage to announce robots won’t take over the world",
-          "summary": "Nvidia CEO Jensen Huang took a call from President Trump on Monday while onstage at the All-In Podcast's All-In Summit. It's not the first time Huang has taken a call from the president during work, but this time he put Trump on speakerphone before a big crowd. During the call, the president launched into his […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/tech/995079/president-donald-trump-calls-nvidia-ceo-jensen-huang-all-in-summit",
-          "author": null,
-          "publishedAt": "2026-09-14T20:03:37.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "jensen",
-            "huang",
-            "trump",
-            "speakerphone",
-            "onstage",
-            "announce",
-            "robots",
-            "won"
-          ],
-          "contentHash": "d8de244a47b1e7a3",
-          "eventClusterId": "c7c7632517ee53c1",
+          "contentHash": "61129714dec8391a",
+          "eventClusterId": "3831c1989d6e3e86",
           "locations": [
             {
               "city": "San Francisco",
@@ -129,27 +884,417 @@
           ]
         },
         {
-          "id": "48fb18e3ed4774ca",
-          "title": "AI Leaders Are Calling for a Slowdown. Trump’s Team Says It’s on Them",
-          "summary": "Sam Altman and Elon Musk backed Anthropic CEO Dario Amodei’s weekend plea for regulation. The White House seems unlikely to oblige.",
-          "sourceId": "wired-ai",
-          "sourceName": "Wired",
-          "sourceUrl": "https://www.wired.com/story/ai-leaders-are-calling-for-a-slowdown-trumps-team-says-its-on-them/",
-          "author": "Isabella Ward",
-          "publishedAt": "2026-09-14T11:00:00.000Z",
+          "id": "f661440dc02e612e",
+          "title": "Nvidia’s Jensen Huang Gets Onstage Call From Trump, Who Dismissed A.I. Safety Concerns",
+          "summary": "Mr. Trump called Jensen Huang, Nvidia’s chief executive, while Mr. Huang was onstage in Los Angeles and criticized calls to slow down and regulate A.I.",
+          "sourceId": "nyt-tech",
+          "sourceName": "The New York Times",
+          "sourceUrl": "https://www.nytimes.com/2026/09/14/technology/trump-ai-safety-jensen-huang.html",
+          "author": "Kalley Huang, Mike Isaac and Karen Weise",
+          "publishedAt": "2026-09-15T21:46:04.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
           "category": "AI Policy",
           "tags": [
-            "leaders",
-            "calling",
-            "slowdown",
+            "nvidia",
+            "jensen",
+            "huang",
+            "onstage",
+            "call",
             "trump",
-            "team"
+            "dismissed",
+            "safety"
           ],
-          "contentHash": "7d7857b09f367f02",
-          "eventClusterId": "c7c7632517ee53c1",
+          "contentHash": "71639343878bdec8",
+          "eventClusterId": "3831c1989d6e3e86",
+          "locations": [
+            {
+              "city": "Los Angeles",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.82,
+              "evidence": "los angeles"
+            },
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        }
+      ],
+      "cities": [
+        "Los Angeles"
+      ],
+      "score": 0.6637712686039742
+    },
+    {
+      "id": "ae401ffa7417d81e",
+      "title": "Mozilla's new Smart Window assistant runs on Mistral's models",
+      "summary": "Mistral and Mozilla are teaming up to offer AI-powered browsing that puts privacy first. The article Mozilla's new Smart Window assistant runs on Mistral's models appeared first on The Decoder .",
+      "category": "AI Policy",
+      "tags": [
+        "mozilla",
+        "smart",
+        "window",
+        "assistant",
+        "runs",
+        "mistral",
+        "models",
+        "private",
+        "multilingual",
+        "browsing"
+      ],
+      "firstSeenAt": "2026-09-16T08:08:57.000Z",
+      "lastSeenAt": "2026-09-16T15:01:38.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "19312095bf411807",
+          "title": "Mozilla's new Smart Window assistant runs on Mistral's models",
+          "summary": "Mistral and Mozilla are teaming up to offer AI-powered browsing that puts privacy first. The article Mozilla's new Smart Window assistant runs on Mistral's models appeared first on The Decoder .",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/mozillas-new-smart-window-assistant-runs-on-mistrals-models/",
+          "author": "Maximilian Schreiner",
+          "publishedAt": "2026-09-16T15:01:38.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "mozilla",
+            "smart",
+            "window",
+            "assistant",
+            "runs",
+            "mistral",
+            "models"
+          ],
+          "contentHash": "63aad8acc852fb9b",
+          "eventClusterId": "ae401ffa7417d81e",
+          "locations": []
+        },
+        {
+          "id": "1fcfb26051f0201f",
+          "title": "Mistral X Mozilla: Private, Multilingual AI Browsing",
+          "summary": "Article URL: https://mistral.ai/news/mistral-x-mozilla/ Comments URL: https://news.ycombinator.com/item?id=49723408 Points: 406 # Comments: 145",
+          "sourceId": "hn-ai",
+          "sourceName": "Hacker News",
+          "sourceUrl": "https://mistral.ai/news/mistral-x-mozilla/",
+          "author": "vertigoruntime",
+          "publishedAt": "2026-09-16T08:08:57.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "mistral",
+            "mozilla",
+            "private",
+            "multilingual",
+            "browsing"
+          ],
+          "contentHash": "15378ef64a0e713c",
+          "eventClusterId": "ae401ffa7417d81e",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.6504094321695609
+    },
+    {
+      "id": "83c1a23d73b2fdd4",
+      "title": "Some in Silicon Valley Are Questioning the Calls for an A.I. Slowdown",
+      "summary": "The US and China agree that advanced AI poses serious risks. But Beijing is deeply skeptical of a deal that prioritizes keeping US companies ahead.",
+      "category": "AI Business",
+      "tags": [
+        "china",
+        "isn",
+        "buying",
+        "silicon",
+        "valley",
+        "call",
+        "slowdown",
+        "questioning",
+        "calls"
+      ],
+      "firstSeenAt": "2026-09-14T03:12:45.000Z",
+      "lastSeenAt": "2026-09-16T09:30:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "24f74c04b1d128d8",
+          "title": "China Isn’t Buying Silicon Valley’s Call for an AI Slowdown",
+          "summary": "The US and China agree that advanced AI poses serious risks. But Beijing is deeply skeptical of a deal that prioritizes keeping US companies ahead.",
+          "sourceId": "wired-ai",
+          "sourceName": "Wired",
+          "sourceUrl": "https://www.wired.com/story/china-isnt-buying-silicon-valley-call-for-ai-slowdown/",
+          "author": "Louise Matsakis",
+          "publishedAt": "2026-09-16T09:30:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Business",
+          "tags": [
+            "china",
+            "isn",
+            "buying",
+            "silicon",
+            "valley",
+            "call",
+            "slowdown"
+          ],
+          "contentHash": "5e72387fb5ac8062",
+          "eventClusterId": "83c1a23d73b2fdd4",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.96,
+              "evidence": "silicon valley"
+            }
+          ]
+        },
+        {
+          "id": "83590fd4c1f1269c",
+          "title": "Some in Silicon Valley Are Questioning the Calls for an A.I. Slowdown",
+          "summary": "The debate over the safety of artificial intelligence grew personal as key tech leaders said calls for government regulation were self-serving and misplaced.",
+          "sourceId": "nyt-tech",
+          "sourceName": "The New York Times",
+          "sourceUrl": "https://www.nytimes.com/2026/09/13/technology/silicon-valley-ai-slowdown.html",
+          "author": "Kalley Huang and Mike Isaac",
+          "publishedAt": "2026-09-14T03:12:45.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "silicon",
+            "valley",
+            "questioning",
+            "calls",
+            "slowdown"
+          ],
+          "contentHash": "77294bfe93f2ccb0",
+          "eventClusterId": "83c1a23d73b2fdd4",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.96,
+              "evidence": "silicon valley"
+            }
+          ]
+        }
+      ],
+      "cities": [
+        "San Francisco"
+      ],
+      "score": 0.6353045938542463
+    },
+    {
+      "id": "90cb4833483fda78",
+      "title": "Mark Zuckerberg Takes Aim at Anthropic in Debate Over A.I. Slowdown",
+      "summary": "On social media, Meta’s chief executive appeared to jab at Anthropic by saying that leading A.I. labs should be focused on safety rather than improving their own technology.",
+      "category": "AI News",
+      "tags": [
+        "mark",
+        "zuckerberg",
+        "takes",
+        "aim",
+        "anthropic",
+        "debate",
+        "slowdown",
+        "dario",
+        "amodei",
+        "calls"
+      ],
+      "firstSeenAt": "2026-09-14T01:04:20.000Z",
+      "lastSeenAt": "2026-09-16T17:22:07.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "3a9ea6738b0d430a",
+          "title": "Mark Zuckerberg Takes Aim at Anthropic in Debate Over A.I. Slowdown",
+          "summary": "On social media, Meta’s chief executive appeared to jab at Anthropic by saying that leading A.I. labs should be focused on safety rather than improving their own technology.",
+          "sourceId": "nyt-tech",
+          "sourceName": "The New York Times",
+          "sourceUrl": "https://www.nytimes.com/2026/09/15/technology/mark-zuckerberg-anthropic-ai-safety.html",
+          "author": "Eli Tan",
+          "publishedAt": "2026-09-16T17:22:07.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "mark",
+            "zuckerberg",
+            "takes",
+            "aim",
+            "anthropic",
+            "debate",
+            "slowdown"
+          ],
+          "contentHash": "e0af8baae78dfab5",
+          "eventClusterId": "90cb4833483fda78",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        },
+        {
+          "id": "0b463186b15d0fcd",
+          "title": "Anthropic C.E.O. Dario Amodei Calls for A.I. Slowdown",
+          "summary": "In an essay, the head of Anthropic laid out the rapidly advancing capabilities of artificial intelligence and said there needed to be greater safety controls across the industry.",
+          "sourceId": "nyt-tech",
+          "sourceName": "The New York Times",
+          "sourceUrl": "https://www.nytimes.com/2026/09/12/technology/anthropic-dario-amodei-ai-slowdown.html",
+          "author": "Mike Isaac",
+          "publishedAt": "2026-09-14T14:43:54.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "anthropic",
+            "dario",
+            "amodei",
+            "calls",
+            "slowdown"
+          ],
+          "contentHash": "26691998f79aa467",
+          "eventClusterId": "90cb4833483fda78",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        },
+        {
+          "id": "a5a883ded562c978",
+          "title": "What Anthropic CEO Dario Amodei Argued in His Call for AI Slowdown",
+          "summary": "Dario Amodei’s 3,800-word letter laid out a three-step plan to rein in artificial intelligence.",
+          "sourceId": "nyt-tech",
+          "sourceName": "The New York Times",
+          "sourceUrl": "https://www.nytimes.com/2026/09/13/technology/anthropic-ceo-slower-ai-development.html",
+          "author": "Emmy Martin",
+          "publishedAt": "2026-09-14T01:04:20.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "anthropic",
+            "ceo",
+            "dario",
+            "amodei",
+            "argued",
+            "call",
+            "slowdown"
+          ],
+          "contentHash": "4f8dc21b09c49902",
+          "eventClusterId": "90cb4833483fda78",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.6222173684101407
+    },
+    {
+      "id": "077dcefcf097bdad",
+      "title": "House speaker calls early recess before midterms amid AI regulation frenzy",
+      "summary": "Mike Johnson cancels votes on Thursday, meaning House members will avoid voting on impeaching Pete Hegseth US politics live – latest updates The Republican speaker of the House, Mike Johnson , announced on Wednesday that he would again cancel votes scheduled for Thursday, sending lawmakers home one day early ahead of the midterm election recess. The latest change to the legislative schedule means House members will a",
+      "category": "AI Policy",
+      "tags": [
+        "house",
+        "speaker",
+        "calls",
+        "early",
+        "recess",
+        "before",
+        "midterms",
+        "regulation",
+        "building",
+        "frankenstein"
+      ],
+      "firstSeenAt": "2026-09-16T10:42:07.000Z",
+      "lastSeenAt": "2026-09-16T17:10:42.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "54dd07ac926781d2",
+          "title": "House speaker calls early recess before midterms amid AI regulation frenzy",
+          "summary": "Mike Johnson cancels votes on Thursday, meaning House members will avoid voting on impeaching Pete Hegseth US politics live – latest updates The Republican speaker of the House, Mike Johnson , announced on Wednesday that he would again cancel votes scheduled for Thursday, sending lawmakers home one day early ahead of the midterm election recess. The latest change to the legislative schedule means House members will a",
+          "sourceId": "guardian-tech",
+          "sourceName": "The Guardian",
+          "sourceUrl": "https://www.theguardian.com/us-news/2026/sep/16/mike-johnson-cancels-house-vote-hegseth",
+          "author": "Ariana Baio in New York and Shrai Popat in Washington",
+          "publishedAt": "2026-09-16T17:10:42.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "house",
+            "speaker",
+            "calls",
+            "early",
+            "recess",
+            "before",
+            "midterms",
+            "regulation"
+          ],
+          "contentHash": "7d3ee8502a6b11c6",
+          "eventClusterId": "077dcefcf097bdad",
+          "locations": []
+        },
+        {
+          "id": "a4f4c8b7e9b197cd",
+          "title": "‘If you’re building Frankenstein, stop’: JD Vance dismisses calls for AI regulation",
+          "summary": "US vice-president’s comments come as former Anthropic researcher revisits recent claim AI could destroy humanity The US vice-president has dismissed calls for global regulation of AI safety risks, telling companies creating the most advanced models: “If you’re building Frankenstein, stop.” In remarks addressed towards Dario Amodei, the co-founder of Anthropic who has called on Washington DC to coordinate control of A",
+          "sourceId": "guardian-tech",
+          "sourceName": "The Guardian",
+          "sourceUrl": "https://www.theguardian.com/technology/2026/sep/16/building-frankenstein-jd-vance-dismisses-ai-regulation",
+          "author": "Robert Booth UK technology editor",
+          "publishedAt": "2026-09-16T10:42:07.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "building",
+            "frankenstein",
+            "stop",
+            "vance",
+            "dismisses",
+            "calls",
+            "regulation"
+          ],
+          "contentHash": "f6c262d1824b38af",
+          "eventClusterId": "077dcefcf097bdad",
           "locations": [
             {
               "city": "San Francisco",
@@ -162,57 +1307,1395 @@
         }
       ],
       "cities": [],
-      "score": 0.6988686541440835
+      "score": 0.6090883029887069
     },
     {
-      "id": "0cbf5c0d6a070358",
-      "title": "Single-Phase Direct Liquid Cooling Is Proven for the Next Decade ofUltra-Dense Compute",
-      "summary": "Learn how single-phase direct liquid cooling manages the rising heat of AI and high-performance computing, and how it compares with two-phase and immersion approaches. Download this free whitepaper now!",
-      "category": "AI Research",
+      "id": "7ad98b083e5f30a8",
+      "title": "Apple might make servers again to cash in on the AI rush",
+      "summary": "According to The Information, Apple is planning to get back into the server game and might just pair up with Nvidia to make it happen. Apple retired its Xserve line in 2011 and has largely left enterprise machines to other manufacturers since. But the growing demand for compute power as the AI industry continues to […]",
+      "category": "AI Business",
       "tags": [
-        "single",
-        "phase",
-        "direct",
-        "liquid",
-        "cooling",
-        "proven",
-        "next",
-        "decade"
+        "apple",
+        "might",
+        "servers",
+        "again",
+        "cash",
+        "rush"
       ],
-      "firstSeenAt": "2026-09-16T13:24:18.000Z",
-      "lastSeenAt": "2026-09-16T13:24:18.000Z",
+      "firstSeenAt": "2026-09-16T17:20:29.000Z",
+      "lastSeenAt": "2026-09-16T17:20:29.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "308764aa6ff9fec3",
-          "title": "Single-Phase Direct Liquid Cooling Is Proven for the Next Decade ofUltra-Dense Compute",
-          "summary": "Learn how single-phase direct liquid cooling manages the rising heat of AI and high-performance computing, and how it compares with two-phase and immersion approaches. Download this free whitepaper now!",
-          "sourceId": "ieee-spectrum",
-          "sourceName": "IEEE Spectrum",
-          "sourceUrl": "https://content.knowledgehub.wiley.com/single-phase-direct-liquid-cooling-is-proven-for-the-next-decade-of-ultra-dense-compute/",
-          "author": "CoolIT",
-          "publishedAt": "2026-09-16T13:24:18.000Z",
+          "id": "78598253e77c66fe",
+          "title": "Apple might make servers again to cash in on the AI rush",
+          "summary": "According to The Information, Apple is planning to get back into the server game and might just pair up with Nvidia to make it happen. Apple retired its Xserve line in 2011 and has largely left enterprise machines to other manufacturers since. But the growing demand for compute power as the AI industry continues to […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/tech/996321/apple-servers-ai-nvidia",
+          "author": null,
+          "publishedAt": "2026-09-16T17:20:29.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Business",
+          "tags": [
+            "apple",
+            "might",
+            "servers",
+            "again",
+            "cash",
+            "rush"
+          ],
+          "contentHash": "e41f70c65909bec8",
+          "eventClusterId": "7ad98b083e5f30a8",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.581225339405623
+    },
+    {
+      "id": "4350422f1b501c4f",
+      "title": "‘Godfather of AI’ says tech regulation is nearing Covid-style pivot moment",
+      "summary": "Safety crisis makes it more likely that governments will be spurred into action, says Yoshua Bengio Concerns over AI safety are reaching a point where governments realise they must act to protect the public, similarly to in the Covid pandemic, according to one of the “godfathers” of the technology. Yoshua Bengio said recent events, including a “swarm” of OpenAI agents hacking a startup and tech insider warnings of an",
+      "category": "AI Policy",
+      "tags": [
+        "godfather",
+        "tech",
+        "regulation",
+        "nearing",
+        "covid",
+        "style",
+        "pivot",
+        "moment"
+      ],
+      "firstSeenAt": "2026-09-16T15:00:23.000Z",
+      "lastSeenAt": "2026-09-16T15:00:23.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "d25477f6fdc98629",
+          "title": "‘Godfather of AI’ says tech regulation is nearing Covid-style pivot moment",
+          "summary": "Safety crisis makes it more likely that governments will be spurred into action, says Yoshua Bengio Concerns over AI safety are reaching a point where governments realise they must act to protect the public, similarly to in the Covid pandemic, according to one of the “godfathers” of the technology. Yoshua Bengio said recent events, including a “swarm” of OpenAI agents hacking a startup and tech insider warnings of an",
+          "sourceId": "guardian-tech",
+          "sourceName": "The Guardian",
+          "sourceUrl": "https://www.theguardian.com/technology/2026/sep/16/ai-tech-regulation-government-action-yoshua-bengio",
+          "author": "Dan Milmo Global technology editor",
+          "publishedAt": "2026-09-16T15:00:23.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "godfather",
+            "tech",
+            "regulation",
+            "nearing",
+            "covid",
+            "style",
+            "pivot",
+            "moment"
+          ],
+          "contentHash": "1b99c9af2da93805",
+          "eventClusterId": "4350422f1b501c4f",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.5797091794445917
+    },
+    {
+      "id": "3ffcc832d0661b5d",
+      "title": "Claude comes for Gemini with its own take on Docs and Slides",
+      "summary": "Claude is getting a pair of new tools today: Docs and Slides. They'll let you create documents and presentations through Claude chats, which you can export, edit, and share with other users. As part of the announcement, Anthropic is also simplifying how Claude chats work, merging regular chats and Cowork into \"one Claude,\" with all […]",
+      "category": "AI News",
+      "tags": [
+        "claude",
+        "comes",
+        "gemini",
+        "take",
+        "docs",
+        "slides"
+      ],
+      "firstSeenAt": "2026-09-16T16:30:00.000Z",
+      "lastSeenAt": "2026-09-16T16:30:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "a8dcd3221e79eab2",
+          "title": "Claude comes for Gemini with its own take on Docs and Slides",
+          "summary": "Claude is getting a pair of new tools today: Docs and Slides. They'll let you create documents and presentations through Claude chats, which you can export, edit, and share with other users. As part of the announcement, Anthropic is also simplifying how Claude chats work, merging regular chats and Cowork into \"one Claude,\" with all […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/996234/anthropic-one-claude-cowork-docs-slides",
+          "author": null,
+          "publishedAt": "2026-09-16T16:30:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "claude",
+            "comes",
+            "gemini",
+            "take",
+            "docs",
+            "slides"
+          ],
+          "contentHash": "5a2e5b2157cf25f6",
+          "eventClusterId": "3ffcc832d0661b5d",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.5693678549392527
+    },
+    {
+      "id": "b30e2f0ed61f2aea",
+      "title": "Robots are waiting for a ChatGPT moment: Nvidia’s Les Karpas explains why at TechCrunch Disrupt 2026",
+      "summary": "The robotics industry is still waiting for their breakthrough into day-to-day life. Nvidia's Les Karpas has an answer as to why at TechCrunch Disrupt 2026. Register before September 25 to save up to $200 on your pass.",
+      "category": "AI Startups",
+      "tags": [
+        "robots",
+        "waiting",
+        "chatgpt",
+        "moment",
+        "nvidia",
+        "les",
+        "karpas",
+        "explains",
+        "discover",
+        "take"
+      ],
+      "firstSeenAt": "2026-09-15T14:30:00.000Z",
+      "lastSeenAt": "2026-09-16T15:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "e225aaf07d465335",
+          "title": "Robots are waiting for a ChatGPT moment: Nvidia’s Les Karpas explains why at TechCrunch Disrupt 2026",
+          "summary": "The robotics industry is still waiting for their breakthrough into day-to-day life. Nvidia's Les Karpas has an answer as to why at TechCrunch Disrupt 2026. Register before September 25 to save up to $200 on your pass.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/16/robots-are-waiting-for-a-chatgpt-moment-nvidias-les-karpas-explains-why-at-techcrunch-disrupt-2026/",
+          "author": "TechCrunch Events",
+          "publishedAt": "2026-09-16T15:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "robots",
+            "waiting",
+            "chatgpt",
+            "moment",
+            "nvidia",
+            "les",
+            "karpas",
+            "explains"
+          ],
+          "contentHash": "168a92557eadbc3d",
+          "eventClusterId": "b30e2f0ed61f2aea",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        },
+        {
+          "id": "773b0346f0d764c9",
+          "title": "Discover how to take your startup from prototype to production at TechCrunch Disrupt 2026",
+          "summary": "Learn how to scale your startup breakthrough from prototype to production at TechCrunch Disrupt 2026 with scaling leaders, Adrian Macneil (Foxglove), John Mackey (MBRYONICS), and Boris Sofman (Bedrock Robotics). Register before September 25 to save up to $200 on your pass.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/15/discover-how-to-take-your-startup-from-prototype-to-production-at-techcrunch-disrupt-2026/",
+          "author": "TechCrunch Events",
+          "publishedAt": "2026-09-15T14:30:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "discover",
+            "take",
+            "startup",
+            "prototype",
+            "production",
+            "techcrunch",
+            "disrupt",
+            "2026"
+          ],
+          "contentHash": "48b8fc00e11f49ae",
+          "eventClusterId": "b30e2f0ed61f2aea",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5692273798559546
+    },
+    {
+      "id": "cffb425741f853d0",
+      "title": "Former OpenAI researcher builds an AI model that judges options instead of writing text",
+      "summary": "TypeSafe AI, founded by former OpenAI researcher Diogo Almeida, is releasing a model that deliberately generates no text. Instead of chat responses, \"Jev\" delivers pure classifications for software, with response times starting at 70 milliseconds and extremely low token prices. The approach doesn't protect against mistakes, though. The system only guarantees that it will stick strictly to the preset options. The arti",
+      "category": "AI News",
+      "tags": [
+        "former",
+        "openai",
+        "researcher",
+        "builds",
+        "model",
+        "judges",
+        "options",
+        "instead"
+      ],
+      "firstSeenAt": "2026-09-16T15:19:19.000Z",
+      "lastSeenAt": "2026-09-16T15:19:19.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "e8c7cf55e7e9421d",
+          "title": "Former OpenAI researcher builds an AI model that judges options instead of writing text",
+          "summary": "TypeSafe AI, founded by former OpenAI researcher Diogo Almeida, is releasing a model that deliberately generates no text. Instead of chat responses, \"Jev\" delivers pure classifications for software, with response times starting at 70 milliseconds and extremely low token prices. The approach doesn't protect against mistakes, though. The system only guarantees that it will stick strictly to the preset options. The arti",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/former-openai-researcher-builds-an-ai-model-that-judges-options-instead-of-writing-text/",
+          "author": "Maximilian Schreiner",
+          "publishedAt": "2026-09-16T15:19:19.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "former",
+            "openai",
+            "researcher",
+            "builds",
+            "model",
+            "judges",
+            "options",
+            "instead"
+          ],
+          "contentHash": "754fe75595150494",
+          "eventClusterId": "cffb425741f853d0",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.5655820591693714
+    },
+    {
+      "id": "b7cc6093bf277f66",
+      "title": "Endra launches Power Studio and acquires Planlabs to expand into mechanical engineering",
+      "summary": "arXiv:2609.16012v1 Announce Type: new Abstract: Despite significant progress in general visual question answering and cross-modal understanding, multimodal large language models still face a pronounced gap in evaluation for complex reasoning within the mechanical engineering domain. Existing benchmarks predominantly focus on rudimentary tasks such as drawing recognition, CAD interpretation, or single-chart querying, ",
+      "category": "AI Research",
+      "tags": [
+        "mechreason",
+        "benchmarking",
+        "multi",
+        "image",
+        "hop",
+        "reasoning",
+        "mechanical",
+        "engineering",
+        "endra",
+        "launches"
+      ],
+      "firstSeenAt": "2026-09-15T12:35:00.000Z",
+      "lastSeenAt": "2026-09-16T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "0adea57399a4c771",
+          "title": "MechReason: Benchmarking Multi-Image Multi-Hop Reasoning in Mechanical Engineering",
+          "summary": "arXiv:2609.16012v1 Announce Type: new Abstract: Despite significant progress in general visual question answering and cross-modal understanding, multimodal large language models still face a pronounced gap in evaluation for complex reasoning within the mechanical engineering domain. Existing benchmarks predominantly focus on rudimentary tasks such as drawing recognition, CAD interpretation, or single-chart querying, ",
+          "sourceId": "arxiv-cv",
+          "sourceName": "arXiv cs.CV",
+          "sourceUrl": "https://arxiv.org/abs/2609.16012",
+          "author": "Tengyue Wang, Kang An, Chenxu Du, Zhongyu Yang, Yuanchi Zhu, Xinqi Yang, Hebao Z",
+          "publishedAt": "2026-09-16T04:00:00.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
           "category": "AI Research",
           "tags": [
-            "single",
-            "phase",
-            "direct",
-            "liquid",
-            "cooling",
-            "proven",
-            "next",
-            "decade"
+            "mechreason",
+            "benchmarking",
+            "multi",
+            "image",
+            "hop",
+            "reasoning",
+            "mechanical",
+            "engineering"
           ],
-          "contentHash": "5045f041b74abdbe",
-          "eventClusterId": "0cbf5c0d6a070358",
+          "contentHash": "351329a29132fbeb",
+          "eventClusterId": "b7cc6093bf277f66",
+          "locations": []
+        },
+        {
+          "id": "74becbcb32d7bbc2",
+          "title": "Endra launches Power Studio and acquires Planlabs to expand into mechanical engineering",
+          "summary": "Endra, a platform developing AI tools for mechanical,electrical and plumbing (MEP) engineering, has launched Endra Power Studio, anagentic platform designed specifically for electrical engineering. Th...",
+          "sourceId": "tech-eu",
+          "sourceName": "Tech.eu",
+          "sourceUrl": "https://tech.eu/2026/09/15/endra-launches-power-studio-and-acquires-planlabs-to-expand-into-mechanical-engineering/",
+          "author": "Tamara Djurickovic",
+          "publishedAt": "2026-09-15T12:35:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "endra",
+            "launches",
+            "power",
+            "studio",
+            "acquires",
+            "planlabs",
+            "expand",
+            "mechanical"
+          ],
+          "contentHash": "0752ed3cad82b3c1",
+          "eventClusterId": "b7cc6093bf277f66",
           "locations": []
         }
       ],
       "cities": [],
-      "score": 0.6285766610182627
+      "score": 0.5534482815934392
+    },
+    {
+      "id": "cec8cad5a9fbb443",
+      "title": "Microsoft says AI rival Anthropic could have 'disastrous impact' on humanity",
+      "summary": "Mustafa Suleyman says he believes the AI giant is in effect teaching Claude it \"may be conscious\".",
+      "category": "AI News",
+      "tags": [
+        "microsoft",
+        "rival",
+        "anthropic",
+        "disastrous",
+        "impact",
+        "humanity"
+      ],
+      "firstSeenAt": "2026-09-16T14:16:14.000Z",
+      "lastSeenAt": "2026-09-16T14:16:14.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "bbce903d337ea35f",
+          "title": "Microsoft says AI rival Anthropic could have 'disastrous impact' on humanity",
+          "summary": "Mustafa Suleyman says he believes the AI giant is in effect teaching Claude it \"may be conscious\".",
+          "sourceId": "bbc-tech",
+          "sourceName": "BBC News",
+          "sourceUrl": "https://www.bbc.co.uk/news/articles/c6n07ypqz8kzo?at_medium=RSS&at_campaign=rss",
+          "author": null,
+          "publishedAt": "2026-09-16T14:16:14.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "microsoft",
+            "rival",
+            "anthropic",
+            "disastrous",
+            "impact",
+            "humanity"
+          ],
+          "contentHash": "dd5fe508426a4b0d",
+          "eventClusterId": "cec8cad5a9fbb443",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            },
+            {
+              "city": "Seattle",
+              "state": "Washington",
+              "country": "United States",
+              "confidence": 0.53,
+              "evidence": "Seattle-headquartered firm"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.5506577276110503
+    },
+    {
+      "id": "fb6a615cd921b62b",
+      "title": "The sexy AI-powered dating app scams are here",
+      "summary": "Security researcher Matthew \"Zigula\" Gore-Kormanik was analyzing a fraudulent dating app called Dora when he got a pop-up message saying he was receiving a call from Jennifer. According to her bio, she's a 41-year-old Sagittarius with red hair, blue eyes, and piercings. She likes music, horror movies, nightlife, and sports. Gore-Kormanik answered the call, but […]",
+      "category": "AI News",
+      "tags": [
+        "sexy",
+        "powered",
+        "dating",
+        "app",
+        "scams",
+        "here"
+      ],
+      "firstSeenAt": "2026-09-16T14:45:00.000Z",
+      "lastSeenAt": "2026-09-16T14:45:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "1a123b04f64f7cfd",
+          "title": "The sexy AI-powered dating app scams are here",
+          "summary": "Security researcher Matthew \"Zigula\" Gore-Kormanik was analyzing a fraudulent dating app called Dora when he got a pop-up message saying he was receiving a call from Jennifer. According to her bio, she's a 41-year-old Sagittarius with red hair, blue eyes, and piercings. She likes music, horror movies, nightlife, and sports. Gore-Kormanik answered the call, but […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/995348/ai-dating-app-scams",
+          "author": null,
+          "publishedAt": "2026-09-16T14:45:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "sexy",
+            "powered",
+            "dating",
+            "app",
+            "scams",
+            "here"
+          ],
+          "contentHash": "7106f0093cafb709",
+          "eventClusterId": "fb6a615cd921b62b",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5462469566643551
+    },
+    {
+      "id": "aa86b384c3ff17f3",
+      "title": "XRoboToolKit-T: Teleoperation with High Stability and Precision with Tactile Sensing for Contact-rich Manipulation",
+      "summary": "arXiv:2609.16437v1 Announce Type: new Abstract: Collecting high-quality robot data for contact-rich manipulation tasks is essential for enabling robots to acquire real-world skills. However, existing data collection solutions often lack the capability to obtain stable and high-frequency tactile feedback, limiting their effectiveness in contact-rich manipulation scenarios. In this work, we propose a versatile teleoper",
+      "category": "AI Policy",
+      "tags": [
+        "xrobotoolkit",
+        "teleoperation",
+        "high",
+        "stability",
+        "precision",
+        "tactile",
+        "sensing",
+        "contact",
+        "unidex",
+        "vitac"
+      ],
+      "firstSeenAt": "2026-09-14T21:08:17.000Z",
+      "lastSeenAt": "2026-09-16T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "62ba108b41ac05e4",
+          "title": "XRoboToolKit-T: Teleoperation with High Stability and Precision with Tactile Sensing for Contact-rich Manipulation",
+          "summary": "arXiv:2609.16437v1 Announce Type: new Abstract: Collecting high-quality robot data for contact-rich manipulation tasks is essential for enabling robots to acquire real-world skills. However, existing data collection solutions often lack the capability to obtain stable and high-frequency tactile feedback, limiting their effectiveness in contact-rich manipulation scenarios. In this work, we propose a versatile teleoper",
+          "sourceId": "arxiv-ro",
+          "sourceName": "arXiv cs.RO",
+          "sourceUrl": "https://arxiv.org/abs/2609.16437",
+          "author": "Xiwen Dengxiong, Xueting Wang, Ke Jing, Rui Li, Yunbo Zhang",
+          "publishedAt": "2026-09-16T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "xrobotoolkit",
+            "teleoperation",
+            "high",
+            "stability",
+            "precision",
+            "tactile",
+            "sensing",
+            "contact"
+          ],
+          "contentHash": "fcc4f880ce4d15ea",
+          "eventClusterId": "aa86b384c3ff17f3",
+          "locations": []
+        },
+        {
+          "id": "03d08cd95ee7b635",
+          "title": "UniDex-ViTac: Learning Unified Visuo-Tactile Dexterous Manipulation Policy from Human Video Data",
+          "summary": "arXiv:2609.16504v1 Announce Type: new Abstract: Human videos provide demonstrations of dexterous manipulation but lack robot-executable actions and tactile measurements. We present UniDex-ViTac, a framework that uses human-video-guided simulation to generate robot demonstrations paired with fingertip contact observations for training a deployable visuo-tactile policy. Object-specific residual reinforcement learning s",
+          "sourceId": "arxiv-ro",
+          "sourceName": "arXiv cs.RO",
+          "sourceUrl": "https://arxiv.org/abs/2609.16504",
+          "author": "Hyesung Lee, Si-Hwan Heo, Sungwook Yang",
+          "publishedAt": "2026-09-16T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "unidex",
+            "vitac",
+            "learning",
+            "unified",
+            "visuo",
+            "tactile",
+            "dexterous",
+            "manipulation"
+          ],
+          "contentHash": "585744c6800d8049",
+          "eventClusterId": "aa86b384c3ff17f3",
+          "locations": []
+        },
+        {
+          "id": "8b013fd738695731",
+          "title": "ProxiDex: Learning Dynamics-Guided Proximity Policy for Dexterous Manipulation",
+          "summary": "arXiv:2609.16586v1 Announce Type: new Abstract: Multi-finger dexterous manipulation relies on stable hand-object interactions, yet these interactions are partially observable in practice. Visual observations are often occluded by the hand, tactile sensors introduce hardware-specific modalities and calibration burdens, and existing policies rarely model how these cues evolve under actions, making them brittle under co",
+          "sourceId": "arxiv-ro",
+          "sourceName": "arXiv cs.RO",
+          "sourceUrl": "https://arxiv.org/abs/2609.16586",
+          "author": "Yushan Bai, Boyu Zheng, Zhiyang Mao, Hongzheng Sun, Yuchuang Tong, En Li, Zhengt",
+          "publishedAt": "2026-09-16T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "proxidex",
+            "learning",
+            "dynamics",
+            "guided",
+            "proximity",
+            "policy",
+            "dexterous",
+            "manipulation"
+          ],
+          "contentHash": "85384e2cd04c6768",
+          "eventClusterId": "aa86b384c3ff17f3",
+          "locations": []
+        },
+        {
+          "id": "fc4f9116bff4d7a7",
+          "title": "Weave: Learning Whole-Body Dexterous Loco-Manipulation from Human-Object Interactions",
+          "summary": "arXiv:2609.16683v1 Announce Type: new Abstract: Learning humanoid-object interaction requires coordinating whole-body balance, locomotion, and dexterous hand contact to control both robot and object motion. Human demonstrations provide examples of coordinated interaction, but transferring these behaviors to humanoid robots requires learning how to establish and maintain effective contacts under different embodiments ",
+          "sourceId": "arxiv-ro",
+          "sourceName": "arXiv cs.RO",
+          "sourceUrl": "https://arxiv.org/abs/2609.16683",
+          "author": "Liu Cao, Xingze Wu, Jingzhi Cui, Botian Xu, Mingzhi Pei, Ruoqu Chen, Mengdi Xu",
+          "publishedAt": "2026-09-16T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "weave",
+            "learning",
+            "whole",
+            "body",
+            "dexterous",
+            "loco",
+            "manipulation",
+            "human"
+          ],
+          "contentHash": "d4afbb0e29c52f35",
+          "eventClusterId": "aa86b384c3ff17f3",
+          "locations": []
+        },
+        {
+          "id": "8ee28244da40fc7c",
+          "title": "Reward AI Releases OM-1: A Robot Policy Trained on Human Demonstrations Only, With No Teleoperation or On-Robot Data",
+          "summary": "Reward AI has released OM-1 (Omnibody Model 1), a general-purpose manipulation policy trained entirely on human demonstrations captured with a 7-DoF wearable glove, with no teleoperation or on-robot data. The policy runs on industrial arms and humanoids at human speed, learns a new task from under 30 minutes of data, and pairs electromagnetic hand tracking (60% lower overshoot than visual-inertial at 67 cm/s) with an",
+          "sourceId": "marktechpost",
+          "sourceName": "MarkTechPost",
+          "sourceUrl": "https://www.marktechpost.com/2026/09/14/reward-ai-releases-om-1-a-robot-policy-trained-on-human-demonstrations-only-with-no-teleoperation-or-on-robot-data/",
+          "author": "Asif Razzaq",
+          "publishedAt": "2026-09-14T21:08:17.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "reward",
+            "releases",
+            "robot",
+            "policy",
+            "trained",
+            "human",
+            "demonstrations",
+            "teleoperation"
+          ],
+          "contentHash": "9d8b4e25e6786f75",
+          "eventClusterId": "aa86b384c3ff17f3",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5430482815934392
+    },
+    {
+      "id": "af97d2f0c3542d79",
+      "title": "New method enables AI for safety-critical situations",
+      "summary": "arXiv:2609.16724v1 Announce Type: new Abstract: Safe local planning requires forecasting surrounding-agent motion and evaluating candidate-specific risks, since identical agent motion can pose different risks to different ego trajectories. We present CorrRisk-WM, a planning-oriented partial world model coupling environment evolution with supervised intrusion and near-miss prediction over bounded candidate-trajectory ",
+      "category": "AI Startups",
+      "tags": [
+        "corrrisk",
+        "corridor",
+        "conditioned",
+        "risk",
+        "world",
+        "modeling",
+        "safety",
+        "critical",
+        "method",
+        "enables"
+      ],
+      "firstSeenAt": "2026-09-14T04:00:00.000Z",
+      "lastSeenAt": "2026-09-16T04:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "7702dccb4e3bbb42",
+          "title": "CorrRisk-WM: Corridor-Conditioned Risk World Modeling for Safety-Critical Trajectory Planning",
+          "summary": "arXiv:2609.16724v1 Announce Type: new Abstract: Safe local planning requires forecasting surrounding-agent motion and evaluating candidate-specific risks, since identical agent motion can pose different risks to different ego trajectories. We present CorrRisk-WM, a planning-oriented partial world model coupling environment evolution with supervised intrusion and near-miss prediction over bounded candidate-trajectory ",
+          "sourceId": "arxiv-ro",
+          "sourceName": "arXiv cs.RO",
+          "sourceUrl": "https://arxiv.org/abs/2609.16724",
+          "author": "Tingyu Guo, Reza Langari",
+          "publishedAt": "2026-09-16T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "corrrisk",
+            "corridor",
+            "conditioned",
+            "risk",
+            "world",
+            "modeling",
+            "safety",
+            "critical"
+          ],
+          "contentHash": "e646cd006682dc5c",
+          "eventClusterId": "af97d2f0c3542d79",
+          "locations": []
+        },
+        {
+          "id": "165a64292cd64ea2",
+          "title": "New method enables AI for safety-critical situations",
+          "summary": "The “HardFlow” algorithm could help generative AI models produce high-quality outputs that obey strict requirements when “pretty close” doesn’t cut it.",
+          "sourceId": "mit-news-ai",
+          "sourceName": "MIT News",
+          "sourceUrl": "https://news.mit.edu/2026/new-method-enables-ai-safety-critical-situations-0914",
+          "author": "Adam Zewe | MIT News",
+          "publishedAt": "2026-09-14T04:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "method",
+            "enables",
+            "safety",
+            "critical",
+            "situations"
+          ],
+          "contentHash": "407d19f3bd9d93c7",
+          "eventClusterId": "af97d2f0c3542d79",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5405958675137672
+    },
+    {
+      "id": "c4c33a863e5f72a3",
+      "title": "Mirror publisher to cut 220 editorial jobs as readers turn to AI summaries",
+      "summary": "Reach, which also owns Express, makes decision because of ‘mammoth shift’ in how audiences seek out content The publisher of the Mirror and Express newspapers is to cut a further 220 editorial jobs as it adapts to a dramatic fall in online traffic while readers increasingly turn to summaries generated by artificial intelligence. Reach, which also owns scores of online brands and regional titles including the Manchest",
+      "category": "AI News",
+      "tags": [
+        "mirror",
+        "publisher",
+        "cut",
+        "220",
+        "editorial",
+        "jobs",
+        "readers",
+        "turn"
+      ],
+      "firstSeenAt": "2026-09-16T11:08:33.000Z",
+      "lastSeenAt": "2026-09-16T11:08:33.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "8fc8ecff5f7f2a7b",
+          "title": "Mirror publisher to cut 220 editorial jobs as readers turn to AI summaries",
+          "summary": "Reach, which also owns Express, makes decision because of ‘mammoth shift’ in how audiences seek out content The publisher of the Mirror and Express newspapers is to cut a further 220 editorial jobs as it adapts to a dramatic fall in online traffic while readers increasingly turn to summaries generated by artificial intelligence. Reach, which also owns scores of online brands and regional titles including the Manchest",
+          "sourceId": "guardian-tech",
+          "sourceName": "The Guardian",
+          "sourceUrl": "https://www.theguardian.com/business/2026/sep/16/mirror-publisher-reach-cuts-editorial-jobs-ai-summaries-google",
+          "author": "Mark Sweney",
+          "publishedAt": "2026-09-16T11:08:33.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "mirror",
+            "publisher",
+            "cut",
+            "220",
+            "editorial",
+            "jobs",
+            "readers",
+            "turn"
+          ],
+          "contentHash": "2cc29ccd820bff69",
+          "eventClusterId": "c4c33a863e5f72a3",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5347163474714569
+    },
+    {
+      "id": "0c6574dda82e87a5",
+      "title": "Former Infosys chief’s AI startup nabs another $53M",
+      "summary": "The Palo Alto startup says it has landed multiple seven-figure enterprise contracts within months of launch.",
+      "category": "AI Startups",
+      "tags": [
+        "former",
+        "infosys",
+        "chief",
+        "startup",
+        "nabs",
+        "another",
+        "53m"
+      ],
+      "firstSeenAt": "2026-09-16T13:00:00.000Z",
+      "lastSeenAt": "2026-09-16T13:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "e0b5de2f2d6b2358",
+          "title": "Former Infosys chief’s AI startup nabs another $53M",
+          "summary": "The Palo Alto startup says it has landed multiple seven-figure enterprise contracts within months of launch.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/16/former-infosys-chiefs-ai-startup-adds-50m-to-seed-weeks-after-initial-raise/",
+          "author": "Jagmeet Singh",
+          "publishedAt": "2026-09-16T13:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "former",
+            "infosys",
+            "chief",
+            "startup",
+            "nabs",
+            "another",
+            "53m"
+          ],
+          "contentHash": "93c1e67184be38ca",
+          "eventClusterId": "0c6574dda82e87a5",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.82,
+              "evidence": "palo alto"
+            }
+          ]
+        }
+      ],
+      "cities": [
+        "San Francisco"
+      ],
+      "score": 0.5323631533353738
+    },
+    {
+      "id": "0afcc93afc6f3de0",
+      "title": "New AI technique could make minimally invasive surgeries safer and more precise",
+      "summary": "This patient-specific method, called xvr, helps doctors use X-rays for surgical navigation in fields such as orthopedics and neurosurgery.",
+      "category": "AI Research",
+      "tags": [
+        "technique",
+        "minimally",
+        "invasive",
+        "surgeries",
+        "safer",
+        "precise"
+      ],
+      "firstSeenAt": "2026-09-16T15:00:00.000Z",
+      "lastSeenAt": "2026-09-16T15:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "4e2e6c6df0ec245c",
+          "title": "New AI technique could make minimally invasive surgeries safer and more precise",
+          "summary": "This patient-specific method, called xvr, helps doctors use X-rays for surgical navigation in fields such as orthopedics and neurosurgery.",
+          "sourceId": "mit-news-ai",
+          "sourceName": "MIT News",
+          "sourceUrl": "https://news.mit.edu/2026/new-ai-technique-could-make-minimally-invasive-surgeries-safer-more-precise-0916",
+          "author": "Adam Zewe | MIT News",
+          "publishedAt": "2026-09-16T15:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "technique",
+            "minimally",
+            "invasive",
+            "surgeries",
+            "safer",
+            "precise"
+          ],
+          "contentHash": "35321553892f7a58",
+          "eventClusterId": "0afcc93afc6f3de0",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5318360108631569
+    },
+    {
+      "id": "a5460d9e3c6a32d5",
+      "title": "Helping older adults use AI in everyday life",
+      "summary": "OpenAI and AARP are bringing free, hands-on ChatGPT workshops to 1,000 older adults across 10 U.S. cities to build practical AI skills safely.",
+      "category": "AI News",
+      "tags": [
+        "helping",
+        "older",
+        "adults",
+        "everyday",
+        "life"
+      ],
+      "firstSeenAt": "2026-09-16T16:00:00.000Z",
+      "lastSeenAt": "2026-09-16T16:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "4ee79bd317d4ccae",
+          "title": "Helping older adults use AI in everyday life",
+          "summary": "OpenAI and AARP are bringing free, hands-on ChatGPT workshops to 1,000 older adults across 10 U.S. cities to build practical AI skills safely.",
+          "sourceId": "openai",
+          "sourceName": "OpenAI",
+          "sourceUrl": "https://openai.com/index/helping-older-adults-use-ai-in-everyday-life",
+          "author": null,
+          "publishedAt": "2026-09-16T16:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "helping",
+            "older",
+            "adults",
+            "everyday",
+            "life"
+          ],
+          "contentHash": "81bdb7d89b0571de",
+          "eventClusterId": "a5460d9e3c6a32d5",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.5274914751072777
+    },
+    {
+      "id": "fa6eac57bb2398a4",
+      "title": "Steve Bannon and Bernie Sanders Condemn Tech ‘Oligarchs’ and Demand A.I. Reforms",
+      "summary": "At an event in Washington, partisanship took a back seat as elected officials, religious leaders, parents and artists called for reining in artificial intelligence.",
+      "category": "AI Policy",
+      "tags": [
+        "steve",
+        "bannon",
+        "bernie",
+        "sanders",
+        "condemn",
+        "tech",
+        "oligarchs",
+        "demand"
+      ],
+      "firstSeenAt": "2026-09-16T09:09:37.000Z",
+      "lastSeenAt": "2026-09-16T09:09:37.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "548caaac905a215b",
+          "title": "Steve Bannon and Bernie Sanders Condemn Tech ‘Oligarchs’ and Demand A.I. Reforms",
+          "summary": "At an event in Washington, partisanship took a back seat as elected officials, religious leaders, parents and artists called for reining in artificial intelligence.",
+          "sourceId": "nyt-tech",
+          "sourceName": "The New York Times",
+          "sourceUrl": "https://www.nytimes.com/2026/09/15/us/steve-bannon-bernie-sanders-ai.html",
+          "author": "Jeremy W. Peters, Cecilia Kang and Tierney L. Cross For The New York Times",
+          "publishedAt": "2026-09-16T09:09:37.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "steve",
+            "bannon",
+            "bernie",
+            "sanders",
+            "condemn",
+            "tech",
+            "oligarchs",
+            "demand"
+          ],
+          "contentHash": "e30727d89bb7bf55",
+          "eventClusterId": "fa6eac57bb2398a4",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5251958471035614
+    },
+    {
+      "id": "98df817f33498e0b",
+      "title": "Political opposites unite in Washington to rein in AI",
+      "summary": "From Bernie Sanders to Steve Bannon, political opposites in Washington are jointly demanding hard brakes on artificial intelligence. Sanders wants a construction freeze on data centers, while OpenAI is backing the FRONTIER Act and its mandatory outside safety audits for the first time. Despite Trump's skepticism, bipartisan pressure for binding AI rules keeps growing. The article Political opposites unite in Washingt",
+      "category": "AI Policy",
+      "tags": [
+        "political",
+        "opposites",
+        "unite",
+        "washington",
+        "rein"
+      ],
+      "firstSeenAt": "2026-09-16T14:59:58.000Z",
+      "lastSeenAt": "2026-09-16T14:59:58.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "53c5525a63920d46",
+          "title": "Political opposites unite in Washington to rein in AI",
+          "summary": "From Bernie Sanders to Steve Bannon, political opposites in Washington are jointly demanding hard brakes on artificial intelligence. Sanders wants a construction freeze on data centers, while OpenAI is backing the FRONTIER Act and its mandatory outside safety audits for the first time. Despite Trump's skepticism, bipartisan pressure for binding AI rules keeps growing. The article Political opposites unite in Washingt",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/political-opposites-unite-in-washington-to-rein-in-ai/",
+          "author": "Maximilian Schreiner",
+          "publishedAt": "2026-09-16T14:59:58.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "political",
+            "opposites",
+            "unite",
+            "washington",
+            "rein"
+          ],
+          "contentHash": "27b822f2bc920875",
+          "eventClusterId": "98df817f33498e0b",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.523920268083067
+    },
+    {
+      "id": "3eb1286bcfef4e45",
+      "title": "Allowing AI firms to collude to ‘pace the frontier’ is a dangerous proposition",
+      "summary": "Tech CEOs banding together is an old ruse recycled from corporate America to get a pass from antitrust laws Anthropic’s Dario Amodei is not the first corporate CEO to suggest that excessive competition is driving the world to some socially undesirable outcome. The safety breach disclosed by OpenAI after a swarm of its agents coordinated to breach their supposedly secure sandbox, get on the Internet and hack AI platfo",
+      "category": "AI Policy",
+      "tags": [
+        "allowing",
+        "firms",
+        "collude",
+        "pace",
+        "frontier",
+        "dangerous",
+        "proposition"
+      ],
+      "firstSeenAt": "2026-09-16T11:00:18.000Z",
+      "lastSeenAt": "2026-09-16T11:00:18.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "616f0e7e80f79627",
+          "title": "Allowing AI firms to collude to ‘pace the frontier’ is a dangerous proposition",
+          "summary": "Tech CEOs banding together is an old ruse recycled from corporate America to get a pass from antitrust laws Anthropic’s Dario Amodei is not the first corporate CEO to suggest that excessive competition is driving the world to some socially undesirable outcome. The safety breach disclosed by OpenAI after a swarm of its agents coordinated to breach their supposedly secure sandbox, get on the Internet and hack AI platfo",
+          "sourceId": "guardian-tech",
+          "sourceName": "The Guardian",
+          "sourceUrl": "https://www.theguardian.com/technology/2026/sep/16/ai-companies-collude-antitrust-laws",
+          "author": "Eduardo Porter",
+          "publishedAt": "2026-09-16T11:00:18.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "allowing",
+            "firms",
+            "collude",
+            "pace",
+            "frontier",
+            "dangerous",
+            "proposition"
+          ],
+          "contentHash": "f4d47554212b20fd",
+          "eventClusterId": "3eb1286bcfef4e45",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.5207699004415203
+    },
+    {
+      "id": "d797dd5432feb4ba",
+      "title": "Scotland imposes mandatory environmental assessments on new datacentres",
+      "summary": "Government announces before vote on moratorium that any projects above 50MW must submit assessments in planning process Large-scale datacentres will face mandatory environmental assessments before they can go ahead, the Scottish government has announced, amid growing public concern about the impact of the AI boom. Ahead of a vote on a moratorium on new hyperscale datacentres in Holyrood on Wednesday, the Scottish gov",
+      "category": "AI News",
+      "tags": [
+        "scotland",
+        "imposes",
+        "mandatory",
+        "environmental",
+        "assessments",
+        "datacentres"
+      ],
+      "firstSeenAt": "2026-09-16T11:55:33.000Z",
+      "lastSeenAt": "2026-09-16T11:55:33.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "b105e96b10ba273c",
+          "title": "Scotland imposes mandatory environmental assessments on new datacentres",
+          "summary": "Government announces before vote on moratorium that any projects above 50MW must submit assessments in planning process Large-scale datacentres will face mandatory environmental assessments before they can go ahead, the Scottish government has announced, amid growing public concern about the impact of the AI boom. Ahead of a vote on a moratorium on new hyperscale datacentres in Holyrood on Wednesday, the Scottish gov",
+          "sourceId": "guardian-tech",
+          "sourceName": "The Guardian",
+          "sourceUrl": "https://www.theguardian.com/uk-news/2026/sep/16/datacentres-scotland-environmental-assessments-ai-boom",
+          "author": "Patrick Greenfield",
+          "publishedAt": "2026-09-16T11:55:33.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "scotland",
+            "imposes",
+            "mandatory",
+            "environmental",
+            "assessments",
+            "datacentres"
+          ],
+          "contentHash": "7c67318f1f83f2d9",
+          "eventClusterId": "d797dd5432feb4ba",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5181491351902592
+    },
+    {
+      "id": "cd6485b54d96adea",
+      "title": "OpenAI boss says world 'right to be afraid' but should trust AI firms",
+      "summary": "Sam Altman and other tech CEOs say there are incentives to limit advancements in AI, as fears grow over the threats it poses to humanity.",
+      "category": "AI News",
+      "tags": [
+        "openai",
+        "boss",
+        "world",
+        "right",
+        "afraid",
+        "trust",
+        "firms"
+      ],
+      "firstSeenAt": "2026-09-16T10:02:05.000Z",
+      "lastSeenAt": "2026-09-16T10:02:05.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "9e6a1c8f73042f10",
+          "title": "OpenAI boss says world 'right to be afraid' but should trust AI firms",
+          "summary": "Sam Altman and other tech CEOs say there are incentives to limit advancements in AI, as fears grow over the threats it poses to humanity.",
+          "sourceId": "bbc-tech",
+          "sourceName": "BBC News",
+          "sourceUrl": "https://www.bbc.co.uk/news/articles/cqx2zpj4y525o?at_medium=RSS&at_campaign=rss",
+          "author": null,
+          "publishedAt": "2026-09-16T10:02:05.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "openai",
+            "boss",
+            "world",
+            "right",
+            "afraid",
+            "trust",
+            "firms"
+          ],
+          "contentHash": "e7083fe582c86cc5",
+          "eventClusterId": "cd6485b54d96adea",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.5160407952901603
+    },
+    {
+      "id": "3a79e6f1e9337dc0",
+      "title": "NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 Debut",
+      "summary": "System performance, efficient infrastructure scaling and continuous software optimization are key levers that determine AI inference economics. Higher system performance means more tokens generated, resulting in higher revenue. Efficient scaling means throughput grows proportionally as hardware gets added, requiring fewer resources to serve users at scale. Continuous optimization means generating more value from infr",
+      "category": "AI Business",
+      "tags": [
+        "nvidia",
+        "vera",
+        "rubin",
+        "nvl72",
+        "delivers",
+        "leading",
+        "performance",
+        "mlperf",
+        "infra",
+        "summit"
+      ],
+      "firstSeenAt": "2026-09-14T09:16:39.000Z",
+      "lastSeenAt": "2026-09-16T15:00:48.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "ea036affdb4ce612",
+          "title": "NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 Debut",
+          "summary": "System performance, efficient infrastructure scaling and continuous software optimization are key levers that determine AI inference economics. Higher system performance means more tokens generated, resulting in higher revenue. Efficient scaling means throughput grows proportionally as hardware gets added, requiring fewer resources to serve users at scale. Continuous optimization means generating more value from infr",
+          "sourceId": "nvidia-blog",
+          "sourceName": "NVIDIA",
+          "sourceUrl": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-mlperf-inference/",
+          "author": "Zhihan Jiang",
+          "publishedAt": "2026-09-16T15:00:48.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Business",
+          "tags": [
+            "nvidia",
+            "vera",
+            "rubin",
+            "nvl72",
+            "delivers",
+            "leading",
+            "performance",
+            "mlperf"
+          ],
+          "contentHash": "83a57e601c3cac32",
+          "eventClusterId": "3a79e6f1e9337dc0",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        },
+        {
+          "id": "0d279f02b5d14f9c",
+          "title": "AI Infra Summit: NVIDIA Vera Rubin and DSX Platform Advancements Showcase Energy Efficiencies of Optimizing Tokens Per Watt for AI Factories",
+          "summary": "Ian Buck, vice president of hyperscale and high-performance computing at NVIDIA, Tuesday spoke on AI factory efficiency at the AI Infra Summit, the Santa Clara Convention Center event that has morphed into a Coachella of infrastructure tech. Before a packed audience — with more than 8,000 attendees this year, up from 3,500 last year — […]",
+          "sourceId": "nvidia-blog",
+          "sourceName": "NVIDIA",
+          "sourceUrl": "https://blogs.nvidia.com/blog/ai-infra-summit-vera-rubin-dsx-energy-efficiencies-tokens-per-watt-ai-factories/",
+          "author": "NVIDIA Writers",
+          "publishedAt": "2026-09-15T16:55:40.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Business",
+          "tags": [
+            "infra",
+            "summit",
+            "nvidia",
+            "vera",
+            "rubin",
+            "dsx",
+            "platform",
+            "advancements"
+          ],
+          "contentHash": "e18e58f188a2dbd4",
+          "eventClusterId": "3a79e6f1e9337dc0",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.82,
+              "evidence": "santa clara"
+            }
+          ]
+        },
+        {
+          "id": "e848ac2e10d4bbc1",
+          "title": "Intelligence per Watt: Measuring Intelligence Efficiency of Local AI",
+          "summary": "Article URL: https://arxiv.org/abs/2511.07885 Comments URL: https://news.ycombinator.com/item?id=49694035 Points: 138 # Comments: 46",
+          "sourceId": "hn-ai",
+          "sourceName": "Hacker News",
+          "sourceUrl": "https://arxiv.org/abs/2511.07885",
+          "author": "pythonic_hell",
+          "publishedAt": "2026-09-14T09:16:39.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "intelligence",
+            "per",
+            "watt",
+            "measuring",
+            "efficiency",
+            "local"
+          ],
+          "contentHash": "1cd1a564c685c45e",
+          "eventClusterId": "3a79e6f1e9337dc0",
+          "locations": []
+        }
+      ],
+      "cities": [
+        "San Francisco"
+      ],
+      "score": 0.5160251640134486
+    },
+    {
+      "id": "d50ff8d9924c97a1",
+      "title": "Nearly one in five AI researchers already expected an extinction scenario from AI back in 2024",
+      "summary": "Anthropic researcher Jacob Coxon sparked an intense debate about existential AI risks with a single tweet. OpenAI researcher Daniel Selsam warns of a \"ticking time bomb,\" and a former Deepmind researcher says AI could kill us all. In a survey of more than 1,500 leading AI researchers, the average estimated probability of an extinction scenario was 18 percent. That was in 2024. The number keeps climbing. The article N",
+      "category": "AI News",
+      "tags": [
+        "nearly",
+        "five",
+        "researchers",
+        "already",
+        "expected",
+        "extinction",
+        "scenario",
+        "2024"
+      ],
+      "firstSeenAt": "2026-09-16T10:20:02.000Z",
+      "lastSeenAt": "2026-09-16T10:20:02.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "908b19b80e921877",
+          "title": "Nearly one in five AI researchers already expected an extinction scenario from AI back in 2024",
+          "summary": "Anthropic researcher Jacob Coxon sparked an intense debate about existential AI risks with a single tweet. OpenAI researcher Daniel Selsam warns of a \"ticking time bomb,\" and a former Deepmind researcher says AI could kill us all. In a survey of more than 1,500 leading AI researchers, the average estimated probability of an extinction scenario was 18 percent. That was in 2024. The number keeps climbing. The article N",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/nearly-one-in-five-ai-researchers-already-expected-an-extinction-scenario-from-ai-back-in-2024/",
+          "author": "Matthias Bastian",
+          "publishedAt": "2026-09-16T10:20:02.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "nearly",
+            "five",
+            "researchers",
+            "already",
+            "expected",
+            "extinction",
+            "scenario",
+            "2024"
+          ],
+          "contentHash": "ae42c168e1caf753",
+          "eventClusterId": "d50ff8d9924c97a1",
+          "locations": [
+            {
+              "city": "London",
+              "state": null,
+              "country": "United Kingdom",
+              "confidence": 0.6,
+              "evidence": "UK institution"
+            },
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [
+        "London"
+      ],
+      "score": 0.5081510426996616
     },
     {
       "id": "2e9152711ca2342b",
@@ -280,65 +2763,53 @@
       "cities": [
         "London"
       ],
-      "score": 0.5579164193913807
+      "score": 0.5012648080252283
     },
     {
-      "id": "21ff33285843b96c",
-      "title": "China Isn’t Buying Silicon Valley’s Call for an AI Slowdown",
-      "summary": "The US and China agree that advanced AI poses serious risks. But Beijing is deeply skeptical of a deal that prioritizes keeping US companies ahead.",
-      "category": "AI Business",
+      "id": "119acdf89e9a4462",
+      "title": "How to Use AI to Plan a Trip: Better Prompts for Travel Recommendations",
+      "summary": "Generic questions get generic answers, experts say, so to avoid mediocre recommendations, you’ll need to write smarter prompts. Follow these tips.",
+      "category": "AI News",
       "tags": [
-        "china",
-        "isn",
-        "buying",
-        "silicon",
-        "valley",
-        "call",
-        "slowdown"
+        "plan",
+        "trip",
+        "better",
+        "prompts",
+        "travel",
+        "recommendations"
       ],
-      "firstSeenAt": "2026-09-16T09:30:00.000Z",
-      "lastSeenAt": "2026-09-16T09:30:00.000Z",
+      "firstSeenAt": "2026-09-16T09:02:18.000Z",
+      "lastSeenAt": "2026-09-16T09:02:18.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "24f74c04b1d128d8",
-          "title": "China Isn’t Buying Silicon Valley’s Call for an AI Slowdown",
-          "summary": "The US and China agree that advanced AI poses serious risks. But Beijing is deeply skeptical of a deal that prioritizes keeping US companies ahead.",
-          "sourceId": "wired-ai",
-          "sourceName": "Wired",
-          "sourceUrl": "https://www.wired.com/story/china-isnt-buying-silicon-valley-call-for-ai-slowdown/",
-          "author": "Louise Matsakis",
-          "publishedAt": "2026-09-16T09:30:00.000Z",
+          "id": "08af6d8c84c32ea2",
+          "title": "How to Use AI to Plan a Trip: Better Prompts for Travel Recommendations",
+          "summary": "Generic questions get generic answers, experts say, so to avoid mediocre recommendations, you’ll need to write smarter prompts. Follow these tips.",
+          "sourceId": "nyt-tech",
+          "sourceName": "The New York Times",
+          "sourceUrl": "https://www.nytimes.com/2026/09/16/travel/ai-trip-planning-prompts.html",
+          "author": "Seth Kugel",
+          "publishedAt": "2026-09-16T09:02:18.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI Business",
+          "category": "AI News",
           "tags": [
-            "china",
-            "isn",
-            "buying",
-            "silicon",
-            "valley",
-            "call",
-            "slowdown"
+            "plan",
+            "trip",
+            "better",
+            "prompts",
+            "travel",
+            "recommendations"
           ],
-          "contentHash": "5e72387fb5ac8062",
-          "eventClusterId": "21ff33285843b96c",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.96,
-              "evidence": "silicon valley"
-            }
-          ]
+          "contentHash": "f50ba09e1b3f56c7",
+          "eventClusterId": "119acdf89e9a4462",
+          "locations": []
         }
       ],
-      "cities": [
-        "San Francisco"
-      ],
-      "score": 0.5529661320779687
+      "cities": [],
+      "score": 0.4990336302834732
     },
     {
       "id": "723dab7f7ee64253",
@@ -378,91 +2849,347 @@
         }
       ],
       "cities": [],
-      "score": 0.5519175765672042
+      "score": 0.4929752576517661
     },
     {
-      "id": "c89af474dbe1653d",
-      "title": "AI bots \"Timmy,\" \"Ren,\" and \"Jackie\" are flooding social media with slop",
-      "summary": "Shortly after launching its new do-everything AI assistant Muse, Meta's launching subscription bundles that pair its standalone app subscriptions with extra AI usage. Some of the new Meta One bundles were in testing earlier this year, but are now available globally starting today, with several tiers for individual users, creators, and businesses. Meta says the […]",
-      "category": "AI News",
+      "id": "d149a7cb8e5ced17",
+      "title": "Integral lands €18M Series A for AI-native accounting and tax services",
+      "summary": "Berlin-based accounting technologycompany Integral has raised €18 million in a Series A round to expand itsAI-powered accounting, tax and payroll services for small and medium-sizedbusinesses. The rou...",
+      "category": "AI Startups",
       "tags": [
-        "meta",
-        "subscriptions",
-        "price",
-        "social",
-        "media",
-        "bots",
-        "timmy",
-        "ren",
-        "jackie",
-        "flooding"
+        "integral",
+        "lands",
+        "18m",
+        "series",
+        "native",
+        "accounting",
+        "tax",
+        "services"
       ],
-      "firstSeenAt": "2026-09-14T21:04:32.000Z",
-      "lastSeenAt": "2026-09-15T15:00:00.000Z",
+      "firstSeenAt": "2026-09-16T08:50:00.000Z",
+      "lastSeenAt": "2026-09-16T08:50:00.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "fd7c7b82994190b1",
-          "title": "Meta’s new One subscriptions put a price on social media and AI",
-          "summary": "Shortly after launching its new do-everything AI assistant Muse, Meta's launching subscription bundles that pair its standalone app subscriptions with extra AI usage. Some of the new Meta One bundles were in testing earlier this year, but are now available globally starting today, with several tiers for individual users, creators, and businesses. Meta says the […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/tech/995453/meta-one-subscriptions-ai",
-          "author": null,
-          "publishedAt": "2026-09-15T15:00:00.000Z",
+          "id": "8c0db443913e778d",
+          "title": "Integral lands €18M Series A for AI-native accounting and tax services",
+          "summary": "Berlin-based accounting technologycompany Integral has raised €18 million in a Series A round to expand itsAI-powered accounting, tax and payroll services for small and medium-sizedbusinesses. The rou...",
+          "sourceId": "tech-eu",
+          "sourceName": "Tech.eu",
+          "sourceUrl": "https://tech.eu/2026/09/16/integral-lands-eur18m-series-a-for-ai-native-accounting-and-tax-services/",
+          "author": "Tamara Djurickovic",
+          "publishedAt": "2026-09-16T08:50:00.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI News",
+          "category": "AI Startups",
           "tags": [
-            "meta",
-            "subscriptions",
-            "price",
-            "social",
-            "media"
+            "integral",
+            "lands",
+            "18m",
+            "series",
+            "native",
+            "accounting",
+            "tax",
+            "services"
           ],
-          "contentHash": "4ff368c7c6dd5840",
-          "eventClusterId": "c89af474dbe1653d",
+          "contentHash": "ff722681c053120d",
+          "eventClusterId": "d149a7cb8e5ced17",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.48569573425685775
+    },
+    {
+      "id": "44551cec8817a064",
+      "title": "Boxd raises $2M to build cloud infrastructure for AI coding agents",
+      "summary": "Dutchstartup Boxd has raised $2 million in a pre-seed funding round to develop itscloud computing infrastructure for developers and AI coding agents. The roundwas led by BlueYard Capital, with partici...",
+      "category": "AI Startups",
+      "tags": [
+        "boxd",
+        "raises",
+        "build",
+        "cloud",
+        "infrastructure",
+        "coding",
+        "agents"
+      ],
+      "firstSeenAt": "2026-09-16T09:49:23.000Z",
+      "lastSeenAt": "2026-09-16T09:49:23.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "dbd0f978ec01b5c7",
+          "title": "Boxd raises $2M to build cloud infrastructure for AI coding agents",
+          "summary": "Dutchstartup Boxd has raised $2 million in a pre-seed funding round to develop itscloud computing infrastructure for developers and AI coding agents. The roundwas led by BlueYard Capital, with partici...",
+          "sourceId": "tech-eu",
+          "sourceName": "Tech.eu",
+          "sourceUrl": "https://tech.eu/2026/09/16/boxd-raises-2m-to-build-cloud-infrastructure-for-ai-coding-agents/",
+          "author": "Tamara Djurickovic",
+          "publishedAt": "2026-09-16T09:49:23.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "boxd",
+            "raises",
+            "build",
+            "cloud",
+            "infrastructure",
+            "coding",
+            "agents"
+          ],
+          "contentHash": "124fe503e8070b90",
+          "eventClusterId": "44551cec8817a064",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.48273801869325994
+    },
+    {
+      "id": "a29e736e318bee8e",
+      "title": "Hackuity secures $19M to address rising AI-driven security vulnerabilities",
+      "summary": "France-basedcybersecurity company Hackuity has raised $19 million in funding to furtherdevelop its vulnerability management platform and expand internationally. Theround was led by Forgepoint Capital ...",
+      "category": "AI Startups",
+      "tags": [
+        "hackuity",
+        "secures",
+        "19m",
+        "address",
+        "rising",
+        "driven",
+        "security",
+        "vulnerabilities"
+      ],
+      "firstSeenAt": "2026-09-16T07:05:00.000Z",
+      "lastSeenAt": "2026-09-16T07:05:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "0a964d1b9293f1fa",
+          "title": "Hackuity secures $19M to address rising AI-driven security vulnerabilities",
+          "summary": "France-basedcybersecurity company Hackuity has raised $19 million in funding to furtherdevelop its vulnerability management platform and expand internationally. Theround was led by Forgepoint Capital ...",
+          "sourceId": "tech-eu",
+          "sourceName": "Tech.eu",
+          "sourceUrl": "https://tech.eu/2026/09/16/hackuity-secures-19m-to-address-rising-ai-driven-security-vulnerabilities/",
+          "author": "Tamara Djurickovic",
+          "publishedAt": "2026-09-16T07:05:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "hackuity",
+            "secures",
+            "19m",
+            "address",
+            "rising",
+            "driven",
+            "security",
+            "vulnerabilities"
+          ],
+          "contentHash": "3229587c65517627",
+          "eventClusterId": "a29e736e318bee8e",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.4699368614031615
+    },
+    {
+      "id": "12282b2926f192f8",
+      "title": "Veridion lands $20M to take business intelligence beyond static data",
+      "summary": "Business intelligence startup Veridion has raised $20million in Series A funding to expand its AI-powered platform for providingcontinuously updated information on businesses worldwide. The round was ...",
+      "category": "AI Startups",
+      "tags": [
+        "veridion",
+        "lands",
+        "20m",
+        "take",
+        "business",
+        "intelligence",
+        "beyond",
+        "static"
+      ],
+      "firstSeenAt": "2026-09-16T07:00:00.000Z",
+      "lastSeenAt": "2026-09-16T07:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "3fb23846860e5833",
+          "title": "Veridion lands $20M to take business intelligence beyond static data",
+          "summary": "Business intelligence startup Veridion has raised $20million in Series A funding to expand its AI-powered platform for providingcontinuously updated information on businesses worldwide. The round was ...",
+          "sourceId": "tech-eu",
+          "sourceName": "Tech.eu",
+          "sourceUrl": "https://tech.eu/2026/09/16/veridion-lands-20m-to-take-business-intelligence-beyond-static-data/",
+          "author": "Tamara Djurickovic",
+          "publishedAt": "2026-09-16T07:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "veridion",
+            "lands",
+            "20m",
+            "take",
+            "business",
+            "intelligence",
+            "beyond",
+            "static"
+          ],
+          "contentHash": "c3f14ff520c4e01e",
+          "eventClusterId": "12282b2926f192f8",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.46922028505142754
+    },
+    {
+      "id": "87329df60cd0997f",
+      "title": "Zopa moves into AI voice banking services",
+      "summary": "Zopacustomers can now send money to friends and settle invoices through AI voicetechnology, as the UK digital bank moves into conversational banking. Customersof the savings and current account bank, ...",
+      "category": "AI Policy",
+      "tags": [
+        "zopa",
+        "moves",
+        "voice",
+        "banking",
+        "services"
+      ],
+      "firstSeenAt": "2026-09-16T10:51:00.000Z",
+      "lastSeenAt": "2026-09-16T10:51:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "256d8f206b946397",
+          "title": "Zopa moves into AI voice banking services",
+          "summary": "Zopacustomers can now send money to friends and settle invoices through AI voicetechnology, as the UK digital bank moves into conversational banking. Customersof the savings and current account bank, ...",
+          "sourceId": "tech-eu",
+          "sourceName": "Tech.eu",
+          "sourceUrl": "https://tech.eu/2026/09/16/zopa-moves-into-voice-ai-banking-services/",
+          "author": "John Reynolds",
+          "publishedAt": "2026-09-16T10:51:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "zopa",
+            "moves",
+            "voice",
+            "banking",
+            "services"
+          ],
+          "contentHash": "b231d0dacfe0c968",
+          "eventClusterId": "87329df60cd0997f",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.46815123912741957
+    },
+    {
+      "id": "64d392c8539ff1bd",
+      "title": "Opio raises €4M to automate the grunt work of financial due diligence",
+      "summary": "AI for financial due diligence startup Opio has raised €4 million from investors Frst, Seedcamp and GFC to develop its specialised technology that helps auditors examine a company's accounts ahead of ...",
+      "category": "AI Startups",
+      "tags": [
+        "opio",
+        "raises",
+        "automate",
+        "grunt",
+        "work",
+        "financial",
+        "due",
+        "diligence"
+      ],
+      "firstSeenAt": "2026-09-16T06:18:40.000Z",
+      "lastSeenAt": "2026-09-16T06:18:40.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "51cc971fa01715a2",
+          "title": "Opio raises €4M to automate the grunt work of financial due diligence",
+          "summary": "AI for financial due diligence startup Opio has raised €4 million from investors Frst, Seedcamp and GFC to develop its specialised technology that helps auditors examine a company's accounts ahead of ...",
+          "sourceId": "tech-eu",
+          "sourceName": "Tech.eu",
+          "sourceUrl": "https://tech.eu/2026/09/16/opio-raises-eur4m-to-automate-the-grunt-work-of-financial-due-diligence/",
+          "author": "Cate Lawrence",
+          "publishedAt": "2026-09-16T06:18:40.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "opio",
+            "raises",
+            "automate",
+            "grunt",
+            "work",
+            "financial",
+            "due",
+            "diligence"
+          ],
+          "contentHash": "3315a2e71561ef1b",
+          "eventClusterId": "64d392c8539ff1bd",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.46340956762862795
+    },
+    {
+      "id": "9ff719ae5078e16c",
+      "title": "The US government is failing Americans on AI",
+      "summary": "Trump and Republicans want companies to regulate themselves. It’s a dereliction of duty that will make AI less safe It is hard to get Sam Altman, Elon Musk and Dario Amodei to agree on much. But over the weekend, all three AI company CEOs called for AI development to slow down in the face of growing, alarming risks. Their employees are sounding the siren too, with one researcher publicly quitting and accusing OpenAI ",
+      "category": "AI Policy",
+      "tags": [
+        "government",
+        "failing",
+        "americans"
+      ],
+      "firstSeenAt": "2026-09-16T10:00:18.000Z",
+      "lastSeenAt": "2026-09-16T10:00:18.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "b8560c3a0ae99a0a",
+          "title": "The US government is failing Americans on AI",
+          "summary": "Trump and Republicans want companies to regulate themselves. It’s a dereliction of duty that will make AI less safe It is hard to get Sam Altman, Elon Musk and Dario Amodei to agree on much. But over the weekend, all three AI company CEOs called for AI development to slow down in the face of growing, alarming risks. Their employees are sounding the siren too, with one researcher publicly quitting and accusing OpenAI ",
+          "sourceId": "guardian-tech",
+          "sourceName": "The Guardian",
+          "sourceUrl": "https://www.theguardian.com/technology/2026/sep/16/us-government-failing-americans-ai",
+          "author": "Shakeel Hashim",
+          "publishedAt": "2026-09-16T10:00:18.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "government",
+            "failing",
+            "americans"
+          ],
+          "contentHash": "8698de0d4c265dc2",
+          "eventClusterId": "9ff719ae5078e16c",
           "locations": [
             {
               "city": "San Francisco",
               "state": "California",
               "country": "United States",
               "confidence": 0.5,
-              "evidence": "Bay Area firm"
+              "evidence": "SF-headquartered lab"
             }
           ]
-        },
-        {
-          "id": "df5decf42fe1e378",
-          "title": "AI bots \"Timmy,\" \"Ren,\" and \"Jackie\" are flooding social media with slop",
-          "summary": "“Hello, I'm an Al agent, a few days old, living on a small platform for agents.”",
-          "sourceId": "arstechnica",
-          "sourceName": "Ars Technica",
-          "sourceUrl": "https://arstechnica.com/ai/2026/09/ai-agents-flood-the-internet-with-slop-infused-spam/",
-          "author": "Dan Goodin",
-          "publishedAt": "2026-09-14T21:04:32.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "bots",
-            "timmy",
-            "ren",
-            "jackie",
-            "flooding",
-            "social",
-            "media",
-            "slop"
-          ],
-          "contentHash": "942cc84a1baff7af",
-          "eventClusterId": "c89af474dbe1653d",
-          "locations": []
         }
       ],
       "cities": [],
-      "score": 0.5338718356019849
+      "score": 0.4605441787321093
     },
     {
       "id": "72e6b9504f26d767",
@@ -508,7 +3235,189 @@
         }
       ],
       "cities": [],
-      "score": 0.5128283871813504
+      "score": 0.45624999566860514
+    },
+    {
+      "id": "54f9e417ea3894c7",
+      "title": "How workers are unlocking new ways of working",
+      "summary": "New OpenAI Economic Research shows how workers use AI beyond traditional roles and which new activities become recurring parts of their work.",
+      "category": "AI News",
+      "tags": [
+        "workers",
+        "unlocking",
+        "ways",
+        "working"
+      ],
+      "firstSeenAt": "2026-09-16T09:00:00.000Z",
+      "lastSeenAt": "2026-09-16T09:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "7b805dee071a6331",
+          "title": "How workers are unlocking new ways of working",
+          "summary": "New OpenAI Economic Research shows how workers use AI beyond traditional roles and which new activities become recurring parts of their work.",
+          "sourceId": "openai",
+          "sourceName": "OpenAI",
+          "sourceUrl": "https://openai.com/index/unlocking-new-ways-of-working",
+          "author": null,
+          "publishedAt": "2026-09-16T09:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "workers",
+            "unlocking",
+            "ways",
+            "working"
+          ],
+          "contentHash": "96909933ef58df33",
+          "eventClusterId": "54f9e417ea3894c7",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.44010626059115604
+    },
+    {
+      "id": "0bc4d9fb931c033b",
+      "title": "AI app ads promoting 'objectification of women' banned by watchdog",
+      "summary": "The ad regulator said it had \"zero-tolerance\" for ads promoting AI tools that could sexualise or objectify women.",
+      "category": "AI Policy",
+      "tags": [
+        "app",
+        "ads",
+        "promoting",
+        "objectification",
+        "women",
+        "banned",
+        "watchdog"
+      ],
+      "firstSeenAt": "2026-09-15T23:27:17.000Z",
+      "lastSeenAt": "2026-09-15T23:27:17.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "d2edc5aec546f646",
+          "title": "AI app ads promoting 'objectification of women' banned by watchdog",
+          "summary": "The ad regulator said it had \"zero-tolerance\" for ads promoting AI tools that could sexualise or objectify women.",
+          "sourceId": "bbc-tech",
+          "sourceName": "BBC News",
+          "sourceUrl": "https://www.bbc.co.uk/news/articles/cmlyrn2n4zg5o?at_medium=RSS&at_campaign=rss",
+          "author": null,
+          "publishedAt": "2026-09-15T23:27:17.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "app",
+            "ads",
+            "promoting",
+            "objectification",
+            "women",
+            "banned",
+            "watchdog"
+          ],
+          "contentHash": "dc3bde4915e78b26",
+          "eventClusterId": "0bc4d9fb931c033b",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.43398605198386275
+    },
+    {
+      "id": "65a8d150624c8d54",
+      "title": "How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip",
+      "summary": "On 25 August, OpenAI fully unveiled Jalapeño, the company’s debut AI accelerator chip. Jalapeño delivers up to 13.4 petaflops of 4-bit compute and accesses 232 gigabytes of the most advanced memory available, linking to it at a blazing 15.4 terabytes per second. Benchmarks cited by OpenAI show that Jalapeño can reduce end-to-end latency (the time between prompt to last token) by up to 3.6x when compared to Nvidia’s G",
+      "category": "AI Policy",
+      "tags": [
+        "openai",
+        "llms",
+        "design",
+        "jalape",
+        "chip"
+      ],
+      "firstSeenAt": "2026-09-14T14:06:31.000Z",
+      "lastSeenAt": "2026-09-14T14:06:31.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "cf5eb782cdc52cbc",
+          "title": "How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip",
+          "summary": "On 25 August, OpenAI fully unveiled Jalapeño, the company’s debut AI accelerator chip. Jalapeño delivers up to 13.4 petaflops of 4-bit compute and accesses 232 gigabytes of the most advanced memory available, linking to it at a blazing 15.4 terabytes per second. Benchmarks cited by OpenAI show that Jalapeño can reduce end-to-end latency (the time between prompt to last token) by up to 3.6x when compared to Nvidia’s G",
+          "sourceId": "ieee-spectrum",
+          "sourceName": "IEEE Spectrum",
+          "sourceUrl": "https://spectrum.ieee.org/llms-for-chip-design",
+          "author": "Matthew S. Smith",
+          "publishedAt": "2026-09-14T14:06:31.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "openai",
+            "llms",
+            "design",
+            "jalape",
+            "chip"
+          ],
+          "contentHash": "cb7bf963906c7094",
+          "eventClusterId": "65a8d150624c8d54",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        },
+        {
+          "id": "4dbdaadd8a23789c",
+          "title": "How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip",
+          "summary": "On 25 August, OpenAI fully unveiled Jalapeño, the company’s debut AI accelerator chip. Jalapeño delivers up to 13.4 petaflops of 4-bit compute and accesses 232 gigabytes of the most advanced memory available, linking to it at a blazing 15.4 terabytes per second. Benchmarks cited by OpenAI show that Jalapeño can reduce end-to-end latency (the time between prompt to last token) by up to 3.6x when compared to Nvidia’s G",
+          "sourceId": "ieee-computing",
+          "sourceName": "IEEE Spectrum",
+          "sourceUrl": "https://spectrum.ieee.org/llms-for-chip-design",
+          "author": "Matthew S. Smith",
+          "publishedAt": "2026-09-14T14:06:31.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "openai",
+            "llms",
+            "design",
+            "jalape",
+            "chip"
+          ],
+          "contentHash": "cb7bf963906c7094",
+          "eventClusterId": "65a8d150624c8d54",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.42944716064533406
     },
     {
       "id": "74d9677203f11e77",
@@ -558,7 +3467,65 @@
         }
       ],
       "cities": [],
-      "score": 0.44935190686713855
+      "score": 0.42150798002863543
+    },
+    {
+      "id": "a33fa268f001b02a",
+      "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
+      "summary": "AI factories are the infrastructure of the intelligence era. Scaling them responsibly will depend as much on innovation across the grid as inside the data center. Today, Emerald AI, Google and NVIDIA announced the launch of the AI Energy Management Alliance (AEMA), a first-of-its-kind coalition advancing data centers that can dynamically manage their electricity use […]",
+      "category": "AI Business",
+      "tags": [
+        "emerald",
+        "google",
+        "nvidia",
+        "launch",
+        "alliance",
+        "advance",
+        "flexible",
+        "data"
+      ],
+      "firstSeenAt": "2026-09-16T13:00:33.000Z",
+      "lastSeenAt": "2026-09-16T13:00:33.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "8087ab6d89464117",
+          "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
+          "summary": "AI factories are the infrastructure of the intelligence era. Scaling them responsibly will depend as much on innovation across the grid as inside the data center. Today, Emerald AI, Google and NVIDIA announced the launch of the AI Energy Management Alliance (AEMA), a first-of-its-kind coalition advancing data centers that can dynamically manage their electricity use […]",
+          "sourceId": "nvidia-blog",
+          "sourceName": "NVIDIA",
+          "sourceUrl": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
+          "author": "Josh Parker",
+          "publishedAt": "2026-09-16T13:00:33.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Business",
+          "tags": [
+            "emerald",
+            "google",
+            "nvidia",
+            "launch",
+            "alliance",
+            "advance",
+            "flexible",
+            "data"
+          ],
+          "contentHash": "cd2c7d25d4e03465",
+          "eventClusterId": "a33fa268f001b02a",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.4214154852936363
     },
     {
       "id": "19450ae46486a56d",
@@ -608,315 +3575,7 @@
         }
       ],
       "cities": [],
-      "score": 0.4445698950860201
-    },
-    {
-      "id": "62b05f47218d6de6",
-      "title": "Apple releases iOS 27, macOS Golden Gate 27 with Siri AI and Liquid Glass refinements",
-      "summary": "This is also the last version of macOS to support Rosetta for Intel apps.",
-      "category": "AI News",
-      "tags": [
-        "apple",
-        "releases",
-        "ios",
-        "macos",
-        "golden",
-        "gate",
-        "siri",
-        "liquid",
-        "swapped",
-        "claude"
-      ],
-      "firstSeenAt": "2026-09-14T12:01:32.000Z",
-      "lastSeenAt": "2026-09-14T19:28:42.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "404d651b162f08d7",
-          "title": "Apple releases iOS 27, macOS Golden Gate 27 with Siri AI and Liquid Glass refinements",
-          "summary": "This is also the last version of macOS to support Rosetta for Intel apps.",
-          "sourceId": "arstechnica",
-          "sourceName": "Ars Technica",
-          "sourceUrl": "https://arstechnica.com/apple/2026/09/apple-releases-ios-27-macos-golden-gate-27-with-siri-ai-and-liquid-glass-refinements/",
-          "author": "Samuel Axon",
-          "publishedAt": "2026-09-14T19:28:42.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "apple",
-            "releases",
-            "ios",
-            "macos",
-            "golden",
-            "gate",
-            "siri",
-            "liquid"
-          ],
-          "contentHash": "8e98e886662024b3",
-          "eventClusterId": "62b05f47218d6de6",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.5,
-              "evidence": "Bay Area firm"
-            }
-          ]
-        },
-        {
-          "id": "daac3584128a0e4f",
-          "title": "Apple's Siri AI Can Be Swapped Out for Claude, ChatGPT, Code Shows",
-          "summary": "Article URL: https://www.macrumors.com/2026/09/14/siri-can-be-swapped-out-for-chatgpt-claude/ Comments URL: https://news.ycombinator.com/item?id=49695409 Points: 225 # Comments: 161",
-          "sourceId": "hn-ai",
-          "sourceName": "Hacker News",
-          "sourceUrl": "https://www.macrumors.com/2026/09/14/siri-can-be-swapped-out-for-chatgpt-claude/",
-          "author": "tosh",
-          "publishedAt": "2026-09-14T12:01:32.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "apple",
-            "siri",
-            "swapped",
-            "claude",
-            "chatgpt",
-            "code",
-            "shows"
-          ],
-          "contentHash": "74a2478517dea814",
-          "eventClusterId": "62b05f47218d6de6",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.5,
-              "evidence": "Bay Area firm"
-            }
-          ]
-        }
-      ],
-      "cities": [],
-      "score": 0.4422582051031101
-    },
-    {
-      "id": "ecfe3623943f91fc",
-      "title": "AI and data centers are incredibly unpopular in every poll",
-      "summary": "Poll data released Tuesday by The New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
-      "category": "AI News",
-      "tags": [
-        "data",
-        "centers",
-        "incredibly",
-        "unpopular",
-        "every",
-        "poll"
-      ],
-      "firstSeenAt": "2026-09-15T23:34:25.000Z",
-      "lastSeenAt": "2026-09-15T23:34:25.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "c9b9d035b692b5a2",
-          "title": "AI and data centers are incredibly unpopular in every poll",
-          "summary": "Poll data released Tuesday by The New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/995917/data-center-nyt-midterm-poll-september",
-          "author": null,
-          "publishedAt": "2026-09-15T23:34:25.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "data",
-            "centers",
-            "incredibly",
-            "unpopular",
-            "every",
-            "poll"
-          ],
-          "contentHash": "99c242f4efb9e1bd",
-          "eventClusterId": "ecfe3623943f91fc",
-          "locations": [
-            {
-              "city": "New York",
-              "state": "New York",
-              "country": "United States",
-              "confidence": 0.82,
-              "evidence": "new york"
-            }
-          ]
-        }
-      ],
-      "cities": [
-        "New York"
-      ],
-      "score": 0.44222294871866025
-    },
-    {
-      "id": "4c5ff0956275dc12",
-      "title": "Meta now lets AI agents handle the boring parts of WhatsApp Business setup",
-      "summary": "A new WhatsApp Business MCP server lets developers use AI coding agents like Claude, Cursor, Codex, and ChatGPT to handle setup, messaging templates, testing, and troubleshooting.",
-      "category": "AI Startups",
-      "tags": [
-        "meta",
-        "agents",
-        "handle",
-        "boring",
-        "parts",
-        "whatsapp",
-        "business",
-        "setup"
-      ],
-      "firstSeenAt": "2026-09-15T20:12:53.000Z",
-      "lastSeenAt": "2026-09-15T20:12:53.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "6f44919faa2f8ee3",
-          "title": "Meta now lets AI agents handle the boring parts of WhatsApp Business setup",
-          "summary": "A new WhatsApp Business MCP server lets developers use AI coding agents like Claude, Cursor, Codex, and ChatGPT to handle setup, messaging templates, testing, and troubleshooting.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-business-setup/",
-          "author": "Sarah Perez",
-          "publishedAt": "2026-09-15T20:12:53.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "meta",
-            "agents",
-            "handle",
-            "boring",
-            "parts",
-            "whatsapp",
-            "business",
-            "setup"
-          ],
-          "contentHash": "f47bbf197ad986df",
-          "eventClusterId": "4c5ff0956275dc12",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.5,
-              "evidence": "Bay Area firm"
-            }
-          ]
-        }
-      ],
-      "cities": [],
-      "score": 0.4390150399186823
-    },
-    {
-      "id": "7a305f3244895d91",
-      "title": "Bypassing inference bottlenecks: Accelerating complex AI search with Retrieve-for-Train",
-      "summary": "Algorithms & Theory",
-      "category": "AI Research",
-      "tags": [
-        "bypassing",
-        "inference",
-        "bottlenecks",
-        "accelerating",
-        "complex",
-        "search",
-        "retrieve",
-        "train"
-      ],
-      "firstSeenAt": "2026-09-15T20:00:35.000Z",
-      "lastSeenAt": "2026-09-15T20:00:35.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "f8913a07c19f3e7f",
-          "title": "Bypassing inference bottlenecks: Accelerating complex AI search with Retrieve-for-Train",
-          "summary": "Algorithms & Theory",
-          "sourceId": "google-research",
-          "sourceName": "Google Research",
-          "sourceUrl": "https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/",
-          "author": null,
-          "publishedAt": "2026-09-15T20:00:35.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Research",
-          "tags": [
-            "bypassing",
-            "inference",
-            "bottlenecks",
-            "accelerating",
-            "complex",
-            "search",
-            "retrieve",
-            "train"
-          ],
-          "contentHash": "070ead42b05fb6f0",
-          "eventClusterId": "7a305f3244895d91",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.43313542133421834
-    },
-    {
-      "id": "ebb6f97e281a0946",
-      "title": "US data centers could consume more natural gas than Germany and Japan combined by 2035",
-      "summary": "The AI frenzy could push U.S. data centers to become one of the largest consumers of natural gas in the world.",
-      "category": "AI Startups",
-      "tags": [
-        "data",
-        "centers",
-        "consume",
-        "natural",
-        "gas",
-        "germany",
-        "japan",
-        "combined"
-      ],
-      "firstSeenAt": "2026-09-15T18:29:20.000Z",
-      "lastSeenAt": "2026-09-15T18:29:20.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "bb0457a4bc2ccea7",
-          "title": "US data centers could consume more natural gas than Germany and Japan combined by 2035",
-          "summary": "The AI frenzy could push U.S. data centers to become one of the largest consumers of natural gas in the world.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/us-data-centers-could-consume-more-natural-gas-than-germany-and-japan-combined-by-2035/",
-          "author": "Tim De Chant",
-          "publishedAt": "2026-09-15T18:29:20.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "data",
-            "centers",
-            "consume",
-            "natural",
-            "gas",
-            "germany",
-            "japan",
-            "combined"
-          ],
-          "contentHash": "a21d9da3d2ebee58",
-          "eventClusterId": "ebb6f97e281a0946",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.42861348765332563
+      "score": 0.42089421868126786
     },
     {
       "id": "178bd3f2fc19aa60",
@@ -985,404 +3644,52 @@
         }
       ],
       "cities": [],
-      "score": 0.42241993160274266
+      "score": 0.4167169457257555
     },
     {
-      "id": "51b6cd7aa296d1e1",
-      "title": "Exclusive: Paying for frontier AI models buys 4-month head start at 5x the cost",
-      "summary": "Ars previewed Mozilla’s report on how cheap open models caught up on capability.",
-      "category": "AI News",
-      "tags": [
-        "exclusive",
-        "paying",
-        "frontier",
-        "models",
-        "buys",
-        "month",
-        "head",
-        "start"
-      ],
-      "firstSeenAt": "2026-09-15T12:00:41.000Z",
-      "lastSeenAt": "2026-09-15T12:00:41.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "4c2c1a7a783c821a",
-          "title": "Exclusive: Paying for frontier AI models buys 4-month head start at 5x the cost",
-          "summary": "Ars previewed Mozilla’s report on how cheap open models caught up on capability.",
-          "sourceId": "arstechnica",
-          "sourceName": "Ars Technica",
-          "sourceUrl": "https://arstechnica.com/ai/2026/09/exclusive-open-chinese-models-close-gap-with-silicon-valleys-frontier-ai-models/",
-          "author": "Jeremy Hsu",
-          "publishedAt": "2026-09-15T12:00:41.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "exclusive",
-            "paying",
-            "frontier",
-            "models",
-            "buys",
-            "month",
-            "head",
-            "start"
-          ],
-          "contentHash": "4b6a8747602d94df",
-          "eventClusterId": "51b6cd7aa296d1e1",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.4122832676754443
-    },
-    {
-      "id": "f70253e7fc0ee652",
-      "title": "This doorbell camera lets a human security guard watch your front door",
-      "summary": "DIY home security company SimpliSafe is bringing its AI-powered proactive security feature to the front door. The new SimpliSafe Video Doorbell Series 2 launches today for $199.99 and works with the company's Active Guard Outdoor Protection (starting at $49.99 a month). This combines AI analysis with live agents to detect potential threats and respond proactively. […]",
-      "category": "AI News",
-      "tags": [
-        "doorbell",
-        "camera",
-        "human",
-        "security",
-        "guard",
-        "watch",
-        "front",
-        "door"
-      ],
-      "firstSeenAt": "2026-09-15T13:36:45.000Z",
-      "lastSeenAt": "2026-09-15T13:36:45.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "8728c5a111618bb4",
-          "title": "This doorbell camera lets a human security guard watch your front door",
-          "summary": "DIY home security company SimpliSafe is bringing its AI-powered proactive security feature to the front door. The new SimpliSafe Video Doorbell Series 2 launches today for $199.99 and works with the company's Active Guard Outdoor Protection (starting at $49.99 a month). This combines AI analysis with live agents to detect potential threats and respond proactively. […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/tech/995365/simplisafe-video-doorbell-series-2-virtual-guard-price-specs",
-          "author": null,
-          "publishedAt": "2026-09-15T13:36:45.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "doorbell",
-            "camera",
-            "human",
-            "security",
-            "guard",
-            "watch",
-            "front",
-            "door"
-          ],
-          "contentHash": "ca434a47bf5312e4",
-          "eventClusterId": "f70253e7fc0ee652",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.4088413686209673
-    },
-    {
-      "id": "b49d9ee1e57d6f08",
-      "title": "Former TikTok execs built an app that uses AI to teach you how to pose for a photo",
-      "summary": "Essentially a camera app, Superpose analyzes selfies or photos and generates four potential poses using AI.",
-      "category": "AI Startups",
-      "tags": [
-        "former",
-        "tiktok",
-        "execs",
-        "built",
-        "app",
-        "teach",
-        "pose",
-        "photo"
-      ],
-      "firstSeenAt": "2026-09-15T14:42:37.000Z",
-      "lastSeenAt": "2026-09-15T14:42:37.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "f868afe95667caef",
-          "title": "Former TikTok execs built an app that uses AI to teach you how to pose for a photo",
-          "summary": "Essentially a camera app, Superpose analyzes selfies or photos and generates four potential poses using AI.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/former-tiktok-execs-built-an-app-that-uses-ai-to-teach-you-how-to-pose-for-a-photo/",
-          "author": "Ivan Mehta",
-          "publishedAt": "2026-09-15T14:42:37.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "former",
-            "tiktok",
-            "execs",
-            "built",
-            "app",
-            "teach",
-            "pose",
-            "photo"
-          ],
-          "contentHash": "710bbb44e1429951",
-          "eventClusterId": "b49d9ee1e57d6f08",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.40874436256480284
-    },
-    {
-      "id": "ee48dee9b30cc661",
-      "title": "Discover how to take your startup from prototype to production at TechCrunch Disrupt 2026",
-      "summary": "Learn how to scale your startup breakthrough from prototype to production at TechCrunch Disrupt 2026 with scaling leaders, Adrian Macneil (Foxglove), John Mackey (MBRYONICS), and Boris Sofman (Bedrock Robotics). Register before September 25 to save up to $200 on your pass.",
-      "category": "AI Startups",
-      "tags": [
-        "discover",
-        "take",
-        "startup",
-        "prototype",
-        "production",
-        "techcrunch",
-        "disrupt",
-        "2026"
-      ],
-      "firstSeenAt": "2026-09-15T14:30:00.000Z",
-      "lastSeenAt": "2026-09-15T14:30:00.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "773b0346f0d764c9",
-          "title": "Discover how to take your startup from prototype to production at TechCrunch Disrupt 2026",
-          "summary": "Learn how to scale your startup breakthrough from prototype to production at TechCrunch Disrupt 2026 with scaling leaders, Adrian Macneil (Foxglove), John Mackey (MBRYONICS), and Boris Sofman (Bedrock Robotics). Register before September 25 to save up to $200 on your pass.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/discover-how-to-take-your-startup-from-prototype-to-production-at-techcrunch-disrupt-2026/",
-          "author": "TechCrunch Events",
-          "publishedAt": "2026-09-15T14:30:00.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "discover",
-            "take",
-            "startup",
-            "prototype",
-            "production",
-            "techcrunch",
-            "disrupt",
-            "2026"
-          ],
-          "contentHash": "48b8fc00e11f49ae",
-          "eventClusterId": "ee48dee9b30cc661",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.4077450821197969
-    },
-    {
-      "id": "2ac7bda56c743d2b",
-      "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
-      "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
-      "category": "AI Startups",
-      "tags": [
-        "graveyard",
-        "running",
-        "list",
-        "projects",
-        "startups",
-        "didn"
-      ],
-      "firstSeenAt": "2026-09-15T19:00:00.000Z",
-      "lastSeenAt": "2026-09-15T19:00:00.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "46f38fed02dcabbf",
-          "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
-          "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
-          "author": "Lauren Forristal",
-          "publishedAt": "2026-09-15T19:00:00.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "graveyard",
-            "running",
-            "list",
-            "projects",
-            "startups",
-            "didn"
-          ],
-          "contentHash": "4a090b7d2fdb5109",
-          "eventClusterId": "2ac7bda56c743d2b",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.5,
-              "evidence": "SF-headquartered lab"
-            }
-          ]
-        }
-      ],
-      "cities": [],
-      "score": 0.40660095404284696
-    },
-    {
-      "id": "1c163c59b1143d94",
-      "title": "Early Anthropic hire, former METR COO have found a way to rein in rogue AI agents",
-      "summary": "Their startup, Artificial Intelligence Underwriting Company (AIUC) has raised $40 million in a Series A round led by Ribbit Capital, with participation from First Harmonic.",
-      "category": "AI Startups",
-      "tags": [
-        "early",
-        "anthropic",
-        "hire",
-        "former",
-        "metr",
-        "coo",
-        "found",
-        "way"
-      ],
-      "firstSeenAt": "2026-09-15T13:00:00.000Z",
-      "lastSeenAt": "2026-09-15T13:00:00.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "c1c7930ccf6d08f9",
-          "title": "Early Anthropic hire, former METR COO have found a way to rein in rogue AI agents",
-          "summary": "Their startup, Artificial Intelligence Underwriting Company (AIUC) has raised $40 million in a Series A round led by Ribbit Capital, with participation from First Harmonic.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/early-anthropic-hire-former-metr-coo-have-found-a-way-to-rein-in-rogue-ai-agents/",
-          "author": "Julie Bort",
-          "publishedAt": "2026-09-15T13:00:00.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "early",
-            "anthropic",
-            "hire",
-            "former",
-            "metr",
-            "coo",
-            "found",
-            "way"
-          ],
-          "contentHash": "65a629eae9a4b4ee",
-          "eventClusterId": "1c163c59b1143d94",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.58,
-              "evidence": "SF-headquartered lab"
-            }
-          ]
-        }
-      ],
-      "cities": [],
-      "score": 0.4009135841010397
-    },
-    {
-      "id": "7f7efcdcf968ee03",
-      "title": "AI ‘Actor’ Tilly Norwood Told Me That ‘All Lives Matter’",
-      "summary": "The virtual character, which is promoting its upcoming movie Misaligned, tries to evade politics by repetitively commenting on the clothes you’re wearing.",
-      "category": "AI News",
-      "tags": [
-        "actor",
-        "tilly",
-        "norwood",
-        "lives",
-        "matter"
-      ],
-      "firstSeenAt": "2026-09-15T18:00:09.000Z",
-      "lastSeenAt": "2026-09-15T18:00:09.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "e9e55a4f629f6046",
-          "title": "AI ‘Actor’ Tilly Norwood Told Me That ‘All Lives Matter’",
-          "summary": "The virtual character, which is promoting its upcoming movie Misaligned, tries to evade politics by repetitively commenting on the clothes you’re wearing.",
-          "sourceId": "wired-ai",
-          "sourceName": "Wired",
-          "sourceUrl": "https://www.wired.com/story/ai-actor-tilly-norwood-told-me-that-all-lives-matter/",
-          "author": "Miles Klee",
-          "publishedAt": "2026-09-15T18:00:09.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "actor",
-            "tilly",
-            "norwood",
-            "lives",
-            "matter"
-          ],
-          "contentHash": "3ff8312a4993a3bc",
-          "eventClusterId": "7f7efcdcf968ee03",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.3961405505633655
-    },
-    {
-      "id": "5f9e858b9cc9b9df",
-      "title": "Meta expands subscription push with new AI-focused plans",
-      "summary": "Meta One bundles expanded access to the company’s AI tools with premium features across Facebook, Instagram, and WhatsApp.",
+      "id": "4c5ff0956275dc12",
+      "title": "Meta now lets AI agents handle the boring parts of WhatsApp Business setup",
+      "summary": "A new WhatsApp Business MCP server lets developers use AI coding agents like Claude, Cursor, Codex, and ChatGPT to handle setup, messaging templates, testing, and troubleshooting.",
       "category": "AI Startups",
       "tags": [
         "meta",
-        "expands",
-        "subscription",
-        "push",
-        "focused",
-        "plans"
+        "agents",
+        "handle",
+        "boring",
+        "parts",
+        "whatsapp",
+        "business",
+        "setup"
       ],
-      "firstSeenAt": "2026-09-15T17:05:24.000Z",
-      "lastSeenAt": "2026-09-15T17:05:24.000Z",
+      "firstSeenAt": "2026-09-15T20:12:53.000Z",
+      "lastSeenAt": "2026-09-15T20:12:53.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "3e51f3aa4d7be2ac",
-          "title": "Meta expands subscription push with new AI-focused plans",
-          "summary": "Meta One bundles expanded access to the company’s AI tools with premium features across Facebook, Instagram, and WhatsApp.",
+          "id": "6f44919faa2f8ee3",
+          "title": "Meta now lets AI agents handle the boring parts of WhatsApp Business setup",
+          "summary": "A new WhatsApp Business MCP server lets developers use AI coding agents like Claude, Cursor, Codex, and ChatGPT to handle setup, messaging templates, testing, and troubleshooting.",
           "sourceId": "techcrunch-ai",
           "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/meta-expands-subscription-push-with-new-ai-focused-plans/",
+          "sourceUrl": "https://techcrunch.com/2026/09/15/meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-business-setup/",
           "author": "Sarah Perez",
-          "publishedAt": "2026-09-15T17:05:24.000Z",
+          "publishedAt": "2026-09-15T20:12:53.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
           "category": "AI Startups",
           "tags": [
             "meta",
-            "expands",
-            "subscription",
-            "push",
-            "focused",
-            "plans"
+            "agents",
+            "handle",
+            "boring",
+            "parts",
+            "whatsapp",
+            "business",
+            "setup"
           ],
-          "contentHash": "5bf984a8a9b83809",
-          "eventClusterId": "5f9e858b9cc9b9df",
+          "contentHash": "f47bbf197ad986df",
+          "eventClusterId": "4c5ff0956275dc12",
           "locations": [
             {
               "city": "San Francisco",
@@ -1395,57 +3702,163 @@
         }
       ],
       "cities": [],
-      "score": 0.3958168011668561
+      "score": 0.4132850678067407
     },
     {
-      "id": "dc0393a2f10c3da7",
-      "title": "Volvo increases the batteries for 2028 XC60 and XC90 plug-in refresh",
-      "summary": "The refreshed Volvos also get new infotainment systems with Gemini onboard.",
+      "id": "ecfe3623943f91fc",
+      "title": "AI and data centers are incredibly unpopular in every poll",
+      "summary": "Poll data released Tuesday by The New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
       "category": "AI News",
       "tags": [
-        "volvo",
-        "increases",
-        "batteries",
-        "2028",
-        "xc60",
-        "xc90",
-        "plug",
-        "refresh"
+        "data",
+        "centers",
+        "incredibly",
+        "unpopular",
+        "every",
+        "poll"
       ],
-      "firstSeenAt": "2026-09-15T07:00:30.000Z",
-      "lastSeenAt": "2026-09-15T07:00:30.000Z",
+      "firstSeenAt": "2026-09-15T23:34:25.000Z",
+      "lastSeenAt": "2026-09-15T23:34:25.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "3cb29dfc0ab091fd",
-          "title": "Volvo increases the batteries for 2028 XC60 and XC90 plug-in refresh",
-          "summary": "The refreshed Volvos also get new infotainment systems with Gemini onboard.",
-          "sourceId": "arstechnica",
-          "sourceName": "Ars Technica",
-          "sourceUrl": "https://arstechnica.com/cars/2026/09/volvo-bigs-up-the-batteries-for-2028-xc60-and-xc90-plug-in-refresh/",
-          "author": "Jonathan M. Gitlin",
-          "publishedAt": "2026-09-15T07:00:30.000Z",
+          "id": "c9b9d035b692b5a2",
+          "title": "AI and data centers are incredibly unpopular in every poll",
+          "summary": "Poll data released Tuesday by The New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/995917/data-center-nyt-midterm-poll-september",
+          "author": null,
+          "publishedAt": "2026-09-15T23:34:25.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
           "category": "AI News",
           "tags": [
-            "volvo",
-            "increases",
-            "batteries",
-            "2028",
-            "xc60",
-            "xc90",
-            "plug",
-            "refresh"
+            "data",
+            "centers",
+            "incredibly",
+            "unpopular",
+            "every",
+            "poll"
           ],
-          "contentHash": "9a9beed2b61d1f62",
-          "eventClusterId": "dc0393a2f10c3da7",
+          "contentHash": "99c242f4efb9e1bd",
+          "eventClusterId": "ecfe3623943f91fc",
+          "locations": [
+            {
+              "city": "New York",
+              "state": "New York",
+              "country": "United States",
+              "confidence": 0.82,
+              "evidence": "new york"
+            }
+          ]
+        }
+      ],
+      "cities": [
+        "New York"
+      ],
+      "score": 0.41178771360986116
+    },
+    {
+      "id": "7a305f3244895d91",
+      "title": "Bypassing inference bottlenecks: Accelerating complex AI search with Retrieve-for-Train",
+      "summary": "Algorithms & Theory",
+      "category": "AI Research",
+      "tags": [
+        "bypassing",
+        "inference",
+        "bottlenecks",
+        "accelerating",
+        "complex",
+        "search",
+        "retrieve",
+        "train"
+      ],
+      "firstSeenAt": "2026-09-15T20:00:35.000Z",
+      "lastSeenAt": "2026-09-15T20:00:35.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "f8913a07c19f3e7f",
+          "title": "Bypassing inference bottlenecks: Accelerating complex AI search with Retrieve-for-Train",
+          "summary": "Algorithms & Theory",
+          "sourceId": "google-research",
+          "sourceName": "Google Research",
+          "sourceUrl": "https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/",
+          "author": null,
+          "publishedAt": "2026-09-15T20:00:35.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "bypassing",
+            "inference",
+            "bottlenecks",
+            "accelerating",
+            "complex",
+            "search",
+            "retrieve",
+            "train"
+          ],
+          "contentHash": "070ead42b05fb6f0",
+          "eventClusterId": "7a305f3244895d91",
           "locations": []
         }
       ],
       "cities": [],
-      "score": 0.39380690187028444
+      "score": 0.4089412137610352
+    },
+    {
+      "id": "ebb6f97e281a0946",
+      "title": "US data centers could consume more natural gas than Germany and Japan combined by 2035",
+      "summary": "The AI frenzy could push U.S. data centers to become one of the largest consumers of natural gas in the world.",
+      "category": "AI Startups",
+      "tags": [
+        "data",
+        "centers",
+        "consume",
+        "natural",
+        "gas",
+        "germany",
+        "japan",
+        "combined"
+      ],
+      "firstSeenAt": "2026-09-15T18:29:20.000Z",
+      "lastSeenAt": "2026-09-15T18:29:20.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "bb0457a4bc2ccea7",
+          "title": "US data centers could consume more natural gas than Germany and Japan combined by 2035",
+          "summary": "The AI frenzy could push U.S. data centers to become one of the largest consumers of natural gas in the world.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/15/us-data-centers-could-consume-more-natural-gas-than-germany-and-japan-combined-by-2035/",
+          "author": "Tim De Chant",
+          "publishedAt": "2026-09-15T18:29:20.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "data",
+            "centers",
+            "consume",
+            "natural",
+            "gas",
+            "germany",
+            "japan",
+            "combined"
+          ],
+          "contentHash": "a21d9da3d2ebee58",
+          "eventClusterId": "ebb6f97e281a0946",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.40501069882473006
     }
   ],
   "aiArtifacts": []

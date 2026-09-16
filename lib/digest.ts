@@ -100,8 +100,19 @@ export function getSecondaryStories(): Story[] {
   return stories.slice(1, 5);
 }
 
+/**
+ * The "more from the wire" strip under the fold.
+ *
+ * This returned `slice(5, 9)` — four stories — so the front page showed nine
+ * of however many were published and the rest appeared nowhere on it. The
+ * front page also has to reach roughly the same depth as the inner sheets,
+ * since the tallest sheet sets the height for all three and the shortfall is
+ * printed as blank paper: at nine stories it ran 1900px short.
+ *
+ * Eighteen fills the three-column strip six rows deep.
+ */
 export function getRemainingStories(): Story[] {
-  return stories.slice(5, 9);
+  return stories.slice(5, 23);
 }
 
 /** Stories in the given sections, excluding the front-page lead. */
@@ -110,6 +121,56 @@ export function getStoriesInSections(sections: string[]): Story[] {
   return stories.filter(
     (s) => s.id !== leadId && sections.includes(s.section)
   );
+}
+
+export type InnerSheet = { label: string; stories: Story[] };
+
+/**
+ * The inner sheets, balanced by length.
+ *
+ * Every sheet is the same physical page, so the tallest one sets the height of
+ * all of them and any imbalance is printed as white space on the others. Fixed
+ * section lists could not hold that balance: section sizes swing daily, and
+ * "AI News" alone is routinely a third of the edition, so whichever list
+ * contained it ran long while the other ran short. Measured on one edition,
+ * that was 4802px of copy against 3649px — nearly 1500px of blank paper.
+ *
+ * Sections are still kept together, because a sheet that jumps between desks
+ * reads like a feed rather than a page. They are laid down largest-first so
+ * the split falls inside a big section rather than stranding a small one on a
+ * sheet of its own, and each sheet is named after what actually landed on it.
+ */
+export function getInnerSheets(sheets = 2): InnerSheet[] {
+  const leadId = stories[0]?.id;
+  const inner = stories.filter((s) => s.id !== leadId);
+
+  const bySection = new Map<string, Story[]>();
+  for (const s of inner) {
+    const list = bySection.get(s.section) ?? [];
+    list.push(s);
+    bySection.set(s.section, list);
+  }
+
+  const ordered = [...bySection.values()]
+    .sort((a, b) => b.length - a.length)
+    .flat();
+
+  const per = Math.ceil(ordered.length / sheets);
+
+  return Array.from({ length: sheets }, (_, i) => {
+    const slice = ordered.slice(i * per, (i + 1) * per);
+    const counts = new Map<string, number>();
+    for (const s of slice)
+      counts.set(s.section, (counts.get(s.section) ?? 0) + 1);
+    const named = [...counts.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 2)
+      .map(([section]) => section.replace(/^AI /, ""));
+    return {
+      label: named.length ? named.join(" and ") : "The wire",
+      stories: slice,
+    };
+  });
 }
 
 export function getStory(id: string): Story | undefined {

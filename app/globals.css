@@ -144,19 +144,49 @@ body {
   }
 }
 
+/*
+ * Paper grain, as one rasterised tile repeated.
+ *
+ * This was an <svg> the size of the viewport running a live feTurbulence
+ * filter — per-pixel Perlin noise across roughly two million pixels, sitting
+ * above the paper with a blend mode. The same noise as a 180px tile is
+ * rasterised once over 32,400 pixels and then repeated by the compositor, so
+ * the filter runs about sixty times less work and never re-runs on scroll or
+ * animation.
+ */
 .paper-grain {
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
   pointer-events: none;
   z-index: 60;
   opacity: var(--grain);
   mix-blend-mode: multiply;
+  background-repeat: repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
 }
 
 .night .paper-grain {
   mix-blend-mode: screen;
+}
+
+/*
+ * A sheet in motion gets the frame budget to itself.
+ *
+ * Grain and vignette are viewport-sized fixed layers above the paper, and the
+ * grain blends, so the compositor must re-blend the whole screen on every
+ * frame of a turn. The ragged page edges run a displacement filter on six
+ * pseudo-elements that re-rasterise as the sheet transforms. None of it is
+ * perceptible on paper that is mid-flip, so all of it is suspended for the
+ * duration — two paints to toggle, rather than sixty paints carrying it.
+ */
+.turning .paper-grain,
+.turning .paper-vignette {
+  display: none;
+}
+
+.turning .page-edges::before,
+.turning .page-edges::after {
+  filter: none;
 }
 
 .paper-vignette {

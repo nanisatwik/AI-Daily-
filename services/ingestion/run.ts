@@ -24,7 +24,15 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DATA_DIR = join(ROOT, "data");
 /** Anything older than this is not today's news. */
 const MAX_AGE_HOURS = 72;
-const MAX_EVENTS = 24;
+/**
+ * Events printed per edition.
+ *
+ * Was 24, which left three broadsheet sheets visibly half-empty: the front
+ * page template draws at most seventeen and the two inner pages divide what is
+ * left by section, so a thin section produced a page with three stories on it.
+ * A broadsheet that prints white space reads as broken rather than spacious.
+ */
+const MAX_EVENTS = 54;
 /**
  * No single publisher may dominate an edition. arXiv alone files hundreds of
  * preprints a day; left uncapped it buries every other source and leaves

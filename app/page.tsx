@@ -7,28 +7,18 @@ import {
   getLeadStory,
   getSecondaryStories,
   getRemainingStories,
-  getStoriesInSections,
+  getInnerSheets,
 } from "@/lib/digest";
-
-const LABELS = [
-  "Front page",
-  "Research and policy",
-  "Industry and open source",
-];
 
 export default function Home() {
   const lead = getLeadStory();
   const rail = getSecondaryStories();
   const strip = getRemainingStories();
 
-  const researchPolicy = getStoriesInSections(["AI Research", "AI Policy"]);
-  const industryOpen = getStoriesInSections([
-    "AI Business",
-    "AI Startups",
-    "Developer",
-    "Robotics",
-  ]);
-
+  // Named from what actually lands on each sheet, because the split is by
+  // length rather than by a fixed list of sections — see getInnerSheets.
+  const inner = getInnerSheets(2);
+  const LABELS = ["Front page", ...inner.map((s) => s.label)];
   const total = LABELS.length;
 
   const pages = [
@@ -42,13 +32,20 @@ export default function Home() {
       <FrontPage lead={lead} rail={rail} strip={strip} />
     </PageSheet>,
 
-    <PageSheet key="research" pageNumber={2} total={total} label={LABELS[1]}>
-      <InnerPage title={LABELS[1]} stories={researchPolicy} />
-    </PageSheet>,
-
-    <PageSheet key="industry" pageNumber={3} total={total} label={LABELS[2]}>
-      <InnerPage title={LABELS[2]} stories={industryOpen} closing />
-    </PageSheet>,
+    ...inner.map((sheet, i) => (
+      <PageSheet
+        key={`inner-${i}`}
+        pageNumber={i + 2}
+        total={total}
+        label={sheet.label}
+      >
+        <InnerPage
+          title={sheet.label}
+          stories={sheet.stories}
+          closing={i === inner.length - 1}
+        />
+      </PageSheet>
+    )),
   ];
 
   return (

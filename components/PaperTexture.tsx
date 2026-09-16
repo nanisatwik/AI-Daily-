@@ -31,18 +31,13 @@ export default function PaperTexture() {
         </defs>
       </svg>
 
-      <svg className="paper-grain" width="100%" height="100%" aria-hidden="true">
-        <filter id="grain">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.85"
-            numOctaves="4"
-            stitchTiles="stitch"
-          />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#grain)" />
-      </svg>
+      {/*
+        The grain is a repeated tile declared in CSS, not a live filter over the
+        whole viewport. A plain div also honours `inset: 0`, which an <svg> does
+        not — SVG's intrinsic sizing wins and needed 100vw/100vh to compensate,
+        and 100vw counts the scrollbar.
+      */}
+      <div className="paper-grain" aria-hidden="true" />
 
       <div className="paper-vignette" aria-hidden="true" />
     </>

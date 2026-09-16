@@ -184,6 +184,203 @@ export const FEEDS: Feed[] = [
     url: "https://www.technologyreview.com/topic/artificial-intelligence/feed",
     defaultCategory: "AI News",
   },
+
+  /* ------------------------------------------------------------------ *
+   * Widened wire. Every feed below was fetched once before being added
+   * here and reported a parseable item from the last 24 hours — an
+   * unverified feed is a guaranteed failure line in every daily run,
+   * which is why VentureBeat is commented out above rather than present.
+   *
+   * Sixteen of these were promoted from thirty-seven candidates. Notably
+   * NOT promoted: Techmeme, which aggregates other outlets' headlines and
+   * would therefore manufacture corroboration — its copy of a TechCrunch
+   * headline would read as a second independent outlet and inflate the
+   * tally marks. Anthropic, Meta AI, Mistral, AllenAI and Microsoft AI all
+   * answer 404/410 and have no working public feed. Synced Review,
+   * SemiAnalysis and Import AI answer but are months stale.
+   * ------------------------------------------------------------------ */
+
+  {
+    source: {
+      id: "the-decoder",
+      name: "The Decoder",
+      url: "https://the-decoder.com",
+      publisherType: "publication",
+      trust: 0.79,
+    },
+    url: "https://the-decoder.com/feed/",
+    defaultCategory: "AI News",
+  },
+  {
+    source: {
+      id: "zdnet-ai",
+      name: "ZDNET",
+      url: "https://www.zdnet.com",
+      publisherType: "publication",
+      trust: 0.78,
+    },
+    url: "https://www.zdnet.com/topic/artificial-intelligence/rss.xml",
+    defaultCategory: "AI News",
+  },
+  {
+    source: {
+      id: "nyt-tech",
+      name: "The New York Times",
+      url: "https://www.nytimes.com",
+      publisherType: "publication",
+      trust: 0.9,
+    },
+    url: "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+    defaultCategory: "AI News",
+  },
+  {
+    source: {
+      id: "guardian-tech",
+      name: "The Guardian",
+      url: "https://www.theguardian.com",
+      publisherType: "publication",
+      trust: 0.86,
+    },
+    url: "https://www.theguardian.com/technology/rss",
+    defaultCategory: "AI News",
+  },
+  {
+    source: {
+      id: "bbc-tech",
+      name: "BBC News",
+      url: "https://www.bbc.co.uk/news",
+      publisherType: "publication",
+      trust: 0.88,
+    },
+    url: "https://feeds.bbci.co.uk/news/technology/rss.xml",
+    defaultCategory: "AI News",
+  },
+  {
+    source: {
+      id: "engadget",
+      name: "Engadget",
+      url: "https://www.engadget.com",
+      publisherType: "publication",
+      trust: 0.76,
+    },
+    url: "https://www.engadget.com/rss.xml",
+    defaultCategory: "AI News",
+  },
+  {
+    source: {
+      id: "ieee-computing",
+      name: "IEEE Spectrum",
+      url: "https://spectrum.ieee.org",
+      publisherType: "publication",
+      trust: 0.89,
+    },
+    url: "https://spectrum.ieee.org/feeds/topic/computing.rss",
+    defaultCategory: "AI Research",
+  },
+  {
+    source: {
+      id: "marktechpost",
+      name: "MarkTechPost",
+      url: "https://www.marktechpost.com",
+      publisherType: "publication",
+      trust: 0.68,
+    },
+    url: "https://www.marktechpost.com/feed/",
+    defaultCategory: "AI Research",
+  },
+  // European desks. The LOCAL pillar tags only three stories in twenty-four
+  // because US wire copy rarely names a city; regional press names one in
+  // almost every piece.
+  {
+    source: {
+      id: "sifted",
+      name: "Sifted",
+      url: "https://sifted.eu",
+      publisherType: "publication",
+      trust: 0.78,
+    },
+    url: "https://sifted.eu/feed",
+    defaultCategory: "AI Startups",
+  },
+  {
+    source: {
+      id: "tech-eu",
+      name: "Tech.eu",
+      url: "https://tech.eu",
+      publisherType: "publication",
+      trust: 0.76,
+    },
+    url: "https://tech.eu/feed/",
+    defaultCategory: "AI Startups",
+  },
+  {
+    source: {
+      id: "nvidia-blog",
+      name: "NVIDIA",
+      url: "https://blogs.nvidia.com",
+      publisherType: "vendor",
+      trust: 0.75,
+    },
+    url: "https://blogs.nvidia.com/feed/",
+    defaultCategory: "AI Business",
+  },
+  {
+    source: {
+      id: "simonwillison",
+      name: "Simon Willison",
+      url: "https://simonwillison.net",
+      publisherType: "community",
+      trust: 0.82,
+    },
+    url: "https://simonwillison.net/atom/everything/",
+    defaultCategory: "Developer",
+  },
+  {
+    source: {
+      id: "reddit-ml",
+      name: "r/MachineLearning",
+      url: "https://www.reddit.com/r/MachineLearning",
+      publisherType: "community",
+      trust: 0.6,
+    },
+    url: "https://www.reddit.com/r/MachineLearning/.rss",
+    defaultCategory: "AI Research",
+  },
+  // The three arXiv sections that were missing. cs.CL is where language-model
+  // work is actually filed, and cs.RO is the only real supply of robotics.
+  {
+    source: {
+      id: "arxiv-cl",
+      name: "arXiv cs.CL",
+      url: "https://arxiv.org",
+      publisherType: "preprint",
+      trust: 0.72,
+    },
+    url: "https://export.arxiv.org/rss/cs.CL",
+    defaultCategory: "AI Research",
+  },
+  {
+    source: {
+      id: "arxiv-cv",
+      name: "arXiv cs.CV",
+      url: "https://arxiv.org",
+      publisherType: "preprint",
+      trust: 0.72,
+    },
+    url: "https://export.arxiv.org/rss/cs.CV",
+    defaultCategory: "AI Research",
+  },
+  {
+    source: {
+      id: "arxiv-ro",
+      name: "arXiv cs.RO",
+      url: "https://arxiv.org",
+      publisherType: "preprint",
+      trust: 0.72,
+    },
+    url: "https://export.arxiv.org/rss/cs.RO",
+    defaultCategory: "Robotics",
+  },
 ];
 
 /**
