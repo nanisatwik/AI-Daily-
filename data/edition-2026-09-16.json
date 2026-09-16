@@ -1,10 +1,287 @@
 {
   "date": "2026-09-16",
   "edition": 153,
-  "itemsIngested": 3069,
+  "itemsIngested": 3070,
   "eventsPublished": 24,
-  "generatedAt": "2026-09-16T09:53:18.521Z",
+  "generatedAt": "2026-09-16T13:35:38.811Z",
   "clusters": [
+    {
+      "id": "c7c7632517ee53c1",
+      "title": "AI Leaders Are Calling for a Slowdown. Trump’s Team Says It’s on Them",
+      "summary": "AI isn't some new form of \"alien mind,\" according to Jensen Huang. It's just hardware and software, so safety can be engineered by each AI product maker.",
+      "category": "AI Policy",
+      "tags": [
+        "regulation",
+        "leave",
+        "safety",
+        "nvidia",
+        "jensen",
+        "huang",
+        "ceo",
+        "trump",
+        "slowdown",
+        "happen"
+      ],
+      "firstSeenAt": "2026-09-14T11:00:00.000Z",
+      "lastSeenAt": "2026-09-16T00:20:39.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "051ea7838e78143a",
+          "title": "We don’t need AI regulation — leave safety to us, Nvidia’s Jensen Huang says",
+          "summary": "AI isn't some new form of \"alien mind,\" according to Jensen Huang. It's just hardware and software, so safety can be engineered by each AI product maker.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/15/we-dont-need-ai-regulation-leave-safety-to-us-nvidias-jensen-huang-says/",
+          "author": "Julie Bort",
+          "publishedAt": "2026-09-16T00:20:39.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "regulation",
+            "leave",
+            "safety",
+            "nvidia",
+            "jensen",
+            "huang"
+          ],
+          "contentHash": "f0fcd88110d5e1fa",
+          "eventClusterId": "c7c7632517ee53c1",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        },
+        {
+          "id": "94382d660d20de29",
+          "title": "Nvidia CEO Jensen Huang tells Trump ‘we’re not going to let [an AI slowdown] happen’",
+          "summary": "Though Elon Musk and Sam Altman have supported Dario Amodei's calls to slow the pace of AI development, Jensen Huang seems to feel differently.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/14/nvidia-ceo-jensen-huang-tells-trump-were-not-going-to-let-an-ai-slowdown-happen/",
+          "author": "Amanda Silberling",
+          "publishedAt": "2026-09-14T21:51:02.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "nvidia",
+            "ceo",
+            "jensen",
+            "huang",
+            "trump",
+            "slowdown",
+            "happen"
+          ],
+          "contentHash": "33bc00c8bd8abf8c",
+          "eventClusterId": "c7c7632517ee53c1",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        },
+        {
+          "id": "6b251325c04f7047",
+          "title": "Jensen Huang puts Trump on speakerphone onstage to announce robots won’t take over the world",
+          "summary": "Nvidia CEO Jensen Huang took a call from President Trump on Monday while onstage at the All-In Podcast's All-In Summit. It's not the first time Huang has taken a call from the president during work, but this time he put Trump on speakerphone before a big crowd. During the call, the president launched into his […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/tech/995079/president-donald-trump-calls-nvidia-ceo-jensen-huang-all-in-summit",
+          "author": null,
+          "publishedAt": "2026-09-14T20:03:37.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "jensen",
+            "huang",
+            "trump",
+            "speakerphone",
+            "onstage",
+            "announce",
+            "robots",
+            "won"
+          ],
+          "contentHash": "d8de244a47b1e7a3",
+          "eventClusterId": "c7c7632517ee53c1",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.42,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        },
+        {
+          "id": "48fb18e3ed4774ca",
+          "title": "AI Leaders Are Calling for a Slowdown. Trump’s Team Says It’s on Them",
+          "summary": "Sam Altman and Elon Musk backed Anthropic CEO Dario Amodei’s weekend plea for regulation. The White House seems unlikely to oblige.",
+          "sourceId": "wired-ai",
+          "sourceName": "Wired",
+          "sourceUrl": "https://www.wired.com/story/ai-leaders-are-calling-for-a-slowdown-trumps-team-says-its-on-them/",
+          "author": "Isabella Ward",
+          "publishedAt": "2026-09-14T11:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "leaders",
+            "calling",
+            "slowdown",
+            "trump",
+            "team"
+          ],
+          "contentHash": "7d7857b09f367f02",
+          "eventClusterId": "c7c7632517ee53c1",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.6988686541440835
+    },
+    {
+      "id": "0cbf5c0d6a070358",
+      "title": "Single-Phase Direct Liquid Cooling Is Proven for the Next Decade ofUltra-Dense Compute",
+      "summary": "Learn how single-phase direct liquid cooling manages the rising heat of AI and high-performance computing, and how it compares with two-phase and immersion approaches. Download this free whitepaper now!",
+      "category": "AI Research",
+      "tags": [
+        "single",
+        "phase",
+        "direct",
+        "liquid",
+        "cooling",
+        "proven",
+        "next",
+        "decade"
+      ],
+      "firstSeenAt": "2026-09-16T13:24:18.000Z",
+      "lastSeenAt": "2026-09-16T13:24:18.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "308764aa6ff9fec3",
+          "title": "Single-Phase Direct Liquid Cooling Is Proven for the Next Decade ofUltra-Dense Compute",
+          "summary": "Learn how single-phase direct liquid cooling manages the rising heat of AI and high-performance computing, and how it compares with two-phase and immersion approaches. Download this free whitepaper now!",
+          "sourceId": "ieee-spectrum",
+          "sourceName": "IEEE Spectrum",
+          "sourceUrl": "https://content.knowledgehub.wiley.com/single-phase-direct-liquid-cooling-is-proven-for-the-next-decade-of-ultra-dense-compute/",
+          "author": "CoolIT",
+          "publishedAt": "2026-09-16T13:24:18.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Research",
+          "tags": [
+            "single",
+            "phase",
+            "direct",
+            "liquid",
+            "cooling",
+            "proven",
+            "next",
+            "decade"
+          ],
+          "contentHash": "5045f041b74abdbe",
+          "eventClusterId": "0cbf5c0d6a070358",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.6285766610182627
+    },
+    {
+      "id": "2e9152711ca2342b",
+      "title": "A brief history of AI executives calling for regulation",
+      "summary": "Over the past few days, a lot of people who stand to make a lot of money from AI all publicly agreed that it's time to make everyone slow down before we lose control - including OpenAI CEO Sam Altman, Anthropic CEO Dario Amodei, Google DeepMind cofounder Demis Hassabis, Microsoft CEO Satya Nadella, and X […]",
+      "category": "AI Policy",
+      "tags": [
+        "brief",
+        "history",
+        "executives",
+        "calling",
+        "regulation"
+      ],
+      "firstSeenAt": "2026-09-16T12:00:00.000Z",
+      "lastSeenAt": "2026-09-16T12:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "040ac4b8c02df994",
+          "title": "A brief history of AI executives calling for regulation",
+          "summary": "Over the past few days, a lot of people who stand to make a lot of money from AI all publicly agreed that it's time to make everyone slow down before we lose control - including OpenAI CEO Sam Altman, Anthropic CEO Dario Amodei, Google DeepMind cofounder Demis Hassabis, Microsoft CEO Satya Nadella, and X […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/policy/995534/a-brief-history-of-ai-executives-calling-for-regulation",
+          "author": null,
+          "publishedAt": "2026-09-16T12:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "brief",
+            "history",
+            "executives",
+            "calling",
+            "regulation"
+          ],
+          "contentHash": "672ddca0072e5697",
+          "eventClusterId": "2e9152711ca2342b",
+          "locations": [
+            {
+              "city": "London",
+              "state": null,
+              "country": "United Kingdom",
+              "confidence": 0.6,
+              "evidence": "UK institution"
+            },
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            },
+            {
+              "city": "Seattle",
+              "state": "Washington",
+              "country": "United States",
+              "confidence": 0.45,
+              "evidence": "Seattle-headquartered firm"
+            }
+          ]
+        }
+      ],
+      "cities": [
+        "London"
+      ],
+      "score": 0.5579164193913807
+    },
     {
       "id": "21ff33285843b96c",
       "title": "China Isn’t Buying Silicon Valley’s Call for an AI Slowdown",
@@ -61,52 +338,91 @@
       "cities": [
         "San Francisco"
       ],
-      "score": 0.6707290658917315
+      "score": 0.5529661320779687
     },
     {
-      "id": "2663b7c77db5234a",
-      "title": "We don’t need AI regulation — leave safety to us, Nvidia’s Jensen Huang says",
-      "summary": "AI isn't some new form of \"alien mind,\" according to Jensen Huang. It's just hardware and software, so safety can be engineered by each AI product maker.",
-      "category": "AI Policy",
+      "id": "723dab7f7ee64253",
+      "title": "Building the materials foundation for AI",
+      "summary": "The AI boom is becoming a materials challenge. As AI pushes computing into new territory, the materials behind that infrastructure are becoming just as crucial as the algorithms running on it. Semiconductors and data centers are approaching physical limits around performance, thermal management, electrical efficiency, and reliability, creating new demands for materials that can do…",
+      "category": "AI News",
       "tags": [
-        "don",
-        "need",
-        "regulation",
-        "leave",
-        "safety",
-        "nvidia",
-        "jensen",
-        "huang"
+        "building",
+        "materials",
+        "foundation"
       ],
-      "firstSeenAt": "2026-09-16T00:20:39.000Z",
-      "lastSeenAt": "2026-09-16T00:20:39.000Z",
+      "firstSeenAt": "2026-09-16T12:47:34.000Z",
+      "lastSeenAt": "2026-09-16T12:47:34.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "051ea7838e78143a",
-          "title": "We don’t need AI regulation — leave safety to us, Nvidia’s Jensen Huang says",
-          "summary": "AI isn't some new form of \"alien mind,\" according to Jensen Huang. It's just hardware and software, so safety can be engineered by each AI product maker.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/we-dont-need-ai-regulation-leave-safety-to-us-nvidias-jensen-huang-says/",
-          "author": "Julie Bort",
-          "publishedAt": "2026-09-16T00:20:39.000Z",
+          "id": "192aa026834fe44f",
+          "title": "Building the materials foundation for AI",
+          "summary": "The AI boom is becoming a materials challenge. As AI pushes computing into new territory, the materials behind that infrastructure are becoming just as crucial as the algorithms running on it. Semiconductors and data centers are approaching physical limits around performance, thermal management, electrical efficiency, and reliability, creating new demands for materials that can do…",
+          "sourceId": "mit-tr",
+          "sourceName": "MIT Technology Review",
+          "sourceUrl": "https://www.technologyreview.com/2026/09/16/1144014/building-the-materials-foundation-for-ai/",
+          "author": "MIT Technology Review Insights",
+          "publishedAt": "2026-09-16T12:47:34.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI Policy",
+          "category": "AI News",
           "tags": [
-            "don",
-            "need",
-            "regulation",
-            "leave",
-            "safety",
-            "nvidia",
-            "jensen",
-            "huang"
+            "building",
+            "materials",
+            "foundation"
           ],
-          "contentHash": "f0fcd88110d5e1fa",
-          "eventClusterId": "2663b7c77db5234a",
+          "contentHash": "2b6de998df801157",
+          "eventClusterId": "723dab7f7ee64253",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5519175765672042
+    },
+    {
+      "id": "c89af474dbe1653d",
+      "title": "AI bots \"Timmy,\" \"Ren,\" and \"Jackie\" are flooding social media with slop",
+      "summary": "Shortly after launching its new do-everything AI assistant Muse, Meta's launching subscription bundles that pair its standalone app subscriptions with extra AI usage. Some of the new Meta One bundles were in testing earlier this year, but are now available globally starting today, with several tiers for individual users, creators, and businesses. Meta says the […]",
+      "category": "AI News",
+      "tags": [
+        "meta",
+        "subscriptions",
+        "price",
+        "social",
+        "media",
+        "bots",
+        "timmy",
+        "ren",
+        "jackie",
+        "flooding"
+      ],
+      "firstSeenAt": "2026-09-14T21:04:32.000Z",
+      "lastSeenAt": "2026-09-15T15:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "fd7c7b82994190b1",
+          "title": "Meta’s new One subscriptions put a price on social media and AI",
+          "summary": "Shortly after launching its new do-everything AI assistant Muse, Meta's launching subscription bundles that pair its standalone app subscriptions with extra AI usage. Some of the new Meta One bundles were in testing earlier this year, but are now available globally starting today, with several tiers for individual users, creators, and businesses. Meta says the […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/tech/995453/meta-one-subscriptions-ai",
+          "author": null,
+          "publishedAt": "2026-09-15T15:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "meta",
+            "subscriptions",
+            "price",
+            "social",
+            "media"
+          ],
+          "contentHash": "4ff368c7c6dd5840",
+          "eventClusterId": "c89af474dbe1653d",
           "locations": [
             {
               "city": "San Francisco",
@@ -116,10 +432,83 @@
               "evidence": "Bay Area firm"
             }
           ]
+        },
+        {
+          "id": "df5decf42fe1e378",
+          "title": "AI bots \"Timmy,\" \"Ren,\" and \"Jackie\" are flooding social media with slop",
+          "summary": "“Hello, I'm an Al agent, a few days old, living on a small platform for agents.”",
+          "sourceId": "arstechnica",
+          "sourceName": "Ars Technica",
+          "sourceUrl": "https://arstechnica.com/ai/2026/09/ai-agents-flood-the-internet-with-slop-infused-spam/",
+          "author": "Dan Goodin",
+          "publishedAt": "2026-09-14T21:04:32.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "bots",
+            "timmy",
+            "ren",
+            "jackie",
+            "flooding",
+            "social",
+            "media",
+            "slop"
+          ],
+          "contentHash": "942cc84a1baff7af",
+          "eventClusterId": "c89af474dbe1653d",
+          "locations": []
         }
       ],
       "cities": [],
-      "score": 0.5673526308152612
+      "score": 0.5338718356019849
+    },
+    {
+      "id": "72e6b9504f26d767",
+      "title": "Reimagining advertising with AI",
+      "summary": "Explore new AI-powered advertising experiences from OpenAI, including Sponsored Agents, tools for marketers, and integrations with HubSpot and Shopify.",
+      "category": "AI News",
+      "tags": [
+        "reimagining",
+        "advertising"
+      ],
+      "firstSeenAt": "2026-09-16T13:00:00.000Z",
+      "lastSeenAt": "2026-09-16T13:00:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "73a7fe2005b14779",
+          "title": "Reimagining advertising with AI",
+          "summary": "Explore new AI-powered advertising experiences from OpenAI, including Sponsored Agents, tools for marketers, and integrations with HubSpot and Shopify.",
+          "sourceId": "openai",
+          "sourceName": "OpenAI",
+          "sourceUrl": "https://openai.com/index/reimagining-advertising-with-ai",
+          "author": null,
+          "publishedAt": "2026-09-16T13:00:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "reimagining",
+            "advertising"
+          ],
+          "contentHash": "dde479888e2f8da1",
+          "eventClusterId": "72e6b9504f26d767",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.5128283871813504
     },
     {
       "id": "74d9677203f11e77",
@@ -169,63 +558,7 @@
         }
       ],
       "cities": [],
-      "score": 0.5450666593052641
-    },
-    {
-      "id": "ecfe3623943f91fc",
-      "title": "AI and data centers are incredibly unpopular in every poll",
-      "summary": "Poll data released Tuesday by the New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
-      "category": "AI News",
-      "tags": [
-        "data",
-        "centers",
-        "incredibly",
-        "unpopular",
-        "every",
-        "poll"
-      ],
-      "firstSeenAt": "2026-09-15T23:34:25.000Z",
-      "lastSeenAt": "2026-09-15T23:34:25.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "c9b9d035b692b5a2",
-          "title": "AI and data centers are incredibly unpopular in every poll",
-          "summary": "Poll data released Tuesday by the New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/995917/data-center-nyt-midterm-poll-september",
-          "author": null,
-          "publishedAt": "2026-09-15T23:34:25.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "data",
-            "centers",
-            "incredibly",
-            "unpopular",
-            "every",
-            "poll"
-          ],
-          "contentHash": "99c242f4efb9e1bd",
-          "eventClusterId": "ecfe3623943f91fc",
-          "locations": [
-            {
-              "city": "New York",
-              "state": "New York",
-              "country": "United States",
-              "confidence": 0.82,
-              "evidence": "new york"
-            }
-          ]
-        }
-      ],
-      "cities": [
-        "New York"
-      ],
-      "score": 0.5405169877501843
+      "score": 0.44935190686713855
     },
     {
       "id": "19450ae46486a56d",
@@ -275,7 +608,157 @@
         }
       ],
       "cities": [],
-      "score": 0.5361357345657991
+      "score": 0.4445698950860201
+    },
+    {
+      "id": "62b05f47218d6de6",
+      "title": "Apple releases iOS 27, macOS Golden Gate 27 with Siri AI and Liquid Glass refinements",
+      "summary": "This is also the last version of macOS to support Rosetta for Intel apps.",
+      "category": "AI News",
+      "tags": [
+        "apple",
+        "releases",
+        "ios",
+        "macos",
+        "golden",
+        "gate",
+        "siri",
+        "liquid",
+        "swapped",
+        "claude"
+      ],
+      "firstSeenAt": "2026-09-14T12:01:32.000Z",
+      "lastSeenAt": "2026-09-14T19:28:42.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "404d651b162f08d7",
+          "title": "Apple releases iOS 27, macOS Golden Gate 27 with Siri AI and Liquid Glass refinements",
+          "summary": "This is also the last version of macOS to support Rosetta for Intel apps.",
+          "sourceId": "arstechnica",
+          "sourceName": "Ars Technica",
+          "sourceUrl": "https://arstechnica.com/apple/2026/09/apple-releases-ios-27-macos-golden-gate-27-with-siri-ai-and-liquid-glass-refinements/",
+          "author": "Samuel Axon",
+          "publishedAt": "2026-09-14T19:28:42.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "apple",
+            "releases",
+            "ios",
+            "macos",
+            "golden",
+            "gate",
+            "siri",
+            "liquid"
+          ],
+          "contentHash": "8e98e886662024b3",
+          "eventClusterId": "62b05f47218d6de6",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        },
+        {
+          "id": "daac3584128a0e4f",
+          "title": "Apple's Siri AI Can Be Swapped Out for Claude, ChatGPT, Code Shows",
+          "summary": "Article URL: https://www.macrumors.com/2026/09/14/siri-can-be-swapped-out-for-chatgpt-claude/ Comments URL: https://news.ycombinator.com/item?id=49695409 Points: 225 # Comments: 161",
+          "sourceId": "hn-ai",
+          "sourceName": "Hacker News",
+          "sourceUrl": "https://www.macrumors.com/2026/09/14/siri-can-be-swapped-out-for-chatgpt-claude/",
+          "author": "tosh",
+          "publishedAt": "2026-09-14T12:01:32.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "apple",
+            "siri",
+            "swapped",
+            "claude",
+            "chatgpt",
+            "code",
+            "shows"
+          ],
+          "contentHash": "74a2478517dea814",
+          "eventClusterId": "62b05f47218d6de6",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.4422582051031101
+    },
+    {
+      "id": "ecfe3623943f91fc",
+      "title": "AI and data centers are incredibly unpopular in every poll",
+      "summary": "Poll data released Tuesday by The New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
+      "category": "AI News",
+      "tags": [
+        "data",
+        "centers",
+        "incredibly",
+        "unpopular",
+        "every",
+        "poll"
+      ],
+      "firstSeenAt": "2026-09-15T23:34:25.000Z",
+      "lastSeenAt": "2026-09-15T23:34:25.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "c9b9d035b692b5a2",
+          "title": "AI and data centers are incredibly unpopular in every poll",
+          "summary": "Poll data released Tuesday by The New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/995917/data-center-nyt-midterm-poll-september",
+          "author": null,
+          "publishedAt": "2026-09-15T23:34:25.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "data",
+            "centers",
+            "incredibly",
+            "unpopular",
+            "every",
+            "poll"
+          ],
+          "contentHash": "99c242f4efb9e1bd",
+          "eventClusterId": "ecfe3623943f91fc",
+          "locations": [
+            {
+              "city": "New York",
+              "state": "New York",
+              "country": "United States",
+              "confidence": 0.82,
+              "evidence": "new york"
+            }
+          ]
+        }
+      ],
+      "cities": [
+        "New York"
+      ],
+      "score": 0.44222294871866025
     },
     {
       "id": "4c5ff0956275dc12",
@@ -284,13 +767,13 @@
       "category": "AI Startups",
       "tags": [
         "meta",
-        "now",
-        "lets",
         "agents",
         "handle",
         "boring",
         "parts",
-        "whatsapp"
+        "whatsapp",
+        "business",
+        "setup"
       ],
       "firstSeenAt": "2026-09-15T20:12:53.000Z",
       "lastSeenAt": "2026-09-15T20:12:53.000Z",
@@ -311,13 +794,13 @@
           "category": "AI Startups",
           "tags": [
             "meta",
-            "now",
-            "lets",
             "agents",
             "handle",
             "boring",
             "parts",
-            "whatsapp"
+            "whatsapp",
+            "business",
+            "setup"
           ],
           "contentHash": "f47bbf197ad986df",
           "eventClusterId": "4c5ff0956275dc12",
@@ -333,7 +816,7 @@
         }
       ],
       "cities": [],
-      "score": 0.5326256447539257
+      "score": 0.4390150399186823
     },
     {
       "id": "7a305f3244895d91",
@@ -383,7 +866,7 @@
         }
       ],
       "cities": [],
-      "score": 0.5218173863967097
+      "score": 0.43313542133421834
     },
     {
       "id": "ebb6f97e281a0946",
@@ -433,111 +916,76 @@
         }
       ],
       "cities": [],
-      "score": 0.5201067776992295
+      "score": 0.42861348765332563
     },
     {
-      "id": "7f7efcdcf968ee03",
-      "title": "AI ‘Actor’ Tilly Norwood Told Me That ‘All Lives Matter’",
-      "summary": "The virtual character, which is promoting its upcoming movie Misaligned, tries to evade politics by repetitively commenting on the clothes you’re wearing.",
+      "id": "178bd3f2fc19aa60",
+      "title": "Adversarial Fashion Confronts Surveillance Norms",
+      "summary": "Article URL: https://spectrum.ieee.org/adversarial-fashion Comments URL: https://news.ycombinator.com/item?id=49697094 Points: 111 # Comments: 48",
       "category": "AI News",
       "tags": [
-        "actor",
-        "tilly",
-        "norwood",
-        "told",
-        "all",
-        "lives",
-        "matter"
+        "adversarial",
+        "fashion",
+        "statement",
+        "panopticon",
+        "confronts",
+        "surveillance",
+        "norms"
       ],
-      "firstSeenAt": "2026-09-15T18:00:09.000Z",
-      "lastSeenAt": "2026-09-15T18:00:09.000Z",
+      "firstSeenAt": "2026-09-14T13:00:03.000Z",
+      "lastSeenAt": "2026-09-14T14:04:53.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "e9e55a4f629f6046",
-          "title": "AI ‘Actor’ Tilly Norwood Told Me That ‘All Lives Matter’",
-          "summary": "The virtual character, which is promoting its upcoming movie Misaligned, tries to evade politics by repetitively commenting on the clothes you’re wearing.",
-          "sourceId": "wired-ai",
-          "sourceName": "Wired",
-          "sourceUrl": "https://www.wired.com/story/ai-actor-tilly-norwood-told-me-that-all-lives-matter/",
-          "author": "Miles Klee",
-          "publishedAt": "2026-09-15T18:00:09.000Z",
+          "id": "699e454b214b34db",
+          "title": "Adversarial Fashion Makes a Statement on AI Panopticon",
+          "summary": "Article URL: https://spectrum.ieee.org/adversarial-fashion Comments URL: https://news.ycombinator.com/item?id=49697094 Points: 111 # Comments: 48",
+          "sourceId": "hn-ai",
+          "sourceName": "Hacker News",
+          "sourceUrl": "https://spectrum.ieee.org/adversarial-fashion",
+          "author": "rbanffy",
+          "publishedAt": "2026-09-14T14:04:53.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
           "category": "AI News",
           "tags": [
-            "actor",
-            "tilly",
-            "norwood",
-            "told",
-            "all",
-            "lives",
-            "matter"
+            "adversarial",
+            "fashion",
+            "statement",
+            "panopticon"
           ],
-          "contentHash": "3ff8312a4993a3bc",
-          "eventClusterId": "7f7efcdcf968ee03",
+          "contentHash": "da5085e68ca9119f",
+          "eventClusterId": "178bd3f2fc19aa60",
+          "locations": []
+        },
+        {
+          "id": "e965516680208388",
+          "title": "Adversarial Fashion Confronts Surveillance Norms",
+          "summary": "AI-powered cameras dot streets across the world, equipped with the power to identify faces or vehicle license plates . But a public backlash is gaining momentum . Privacy concerns abound, encompassing the lack of consent for capturing data, how that data is stored and used , and the risk of misuse . Those concerns are motivating people to fight back. The DeFlock project, for instance, maps automated license plate rea",
+          "sourceId": "ieee-spectrum",
+          "sourceName": "IEEE Spectrum",
+          "sourceUrl": "https://spectrum.ieee.org/adversarial-fashion",
+          "author": "Rina Diane Caballar",
+          "publishedAt": "2026-09-14T13:00:03.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "adversarial",
+            "fashion",
+            "confronts",
+            "surveillance",
+            "norms"
+          ],
+          "contentHash": "7757006d746b81ca",
+          "eventClusterId": "178bd3f2fc19aa60",
           "locations": []
         }
       ],
       "cities": [],
-      "score": 0.5120693882505541
-    },
-    {
-      "id": "2ac7bda56c743d2b",
-      "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
-      "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
-      "category": "AI Startups",
-      "tags": [
-        "graveyard",
-        "running",
-        "list",
-        "projects",
-        "startups",
-        "didn",
-        "make"
-      ],
-      "firstSeenAt": "2026-09-15T19:00:00.000Z",
-      "lastSeenAt": "2026-09-15T19:00:00.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "46f38fed02dcabbf",
-          "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
-          "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
-          "author": "Lauren Forristal",
-          "publishedAt": "2026-09-15T19:00:00.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "graveyard",
-            "running",
-            "list",
-            "projects",
-            "startups",
-            "didn",
-            "make"
-          ],
-          "contentHash": "4a090b7d2fdb5109",
-          "eventClusterId": "2ac7bda56c743d2b",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.5,
-              "evidence": "SF-headquartered lab"
-            }
-          ]
-        }
-      ],
-      "cities": [],
-      "score": 0.5112023655121518
+      "score": 0.42241993160274266
     },
     {
       "id": "51b6cd7aa296d1e1",
@@ -587,7 +1035,57 @@
         }
       ],
       "cities": [],
-      "score": 0.4972769194691611
+      "score": 0.4122832676754443
+    },
+    {
+      "id": "f70253e7fc0ee652",
+      "title": "This doorbell camera lets a human security guard watch your front door",
+      "summary": "DIY home security company SimpliSafe is bringing its AI-powered proactive security feature to the front door. The new SimpliSafe Video Doorbell Series 2 launches today for $199.99 and works with the company's Active Guard Outdoor Protection (starting at $49.99 a month). This combines AI analysis with live agents to detect potential threats and respond proactively. […]",
+      "category": "AI News",
+      "tags": [
+        "doorbell",
+        "camera",
+        "human",
+        "security",
+        "guard",
+        "watch",
+        "front",
+        "door"
+      ],
+      "firstSeenAt": "2026-09-15T13:36:45.000Z",
+      "lastSeenAt": "2026-09-15T13:36:45.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "8728c5a111618bb4",
+          "title": "This doorbell camera lets a human security guard watch your front door",
+          "summary": "DIY home security company SimpliSafe is bringing its AI-powered proactive security feature to the front door. The new SimpliSafe Video Doorbell Series 2 launches today for $199.99 and works with the company's Active Guard Outdoor Protection (starting at $49.99 a month). This combines AI analysis with live agents to detect potential threats and respond proactively. […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/tech/995365/simplisafe-video-doorbell-series-2-virtual-guard-price-specs",
+          "author": null,
+          "publishedAt": "2026-09-15T13:36:45.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "doorbell",
+            "camera",
+            "human",
+            "security",
+            "guard",
+            "watch",
+            "front",
+            "door"
+          ],
+          "contentHash": "ca434a47bf5312e4",
+          "eventClusterId": "f70253e7fc0ee652",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.4088413686209673
     },
     {
       "id": "b49d9ee1e57d6f08",
@@ -600,9 +1098,9 @@
         "execs",
         "built",
         "app",
-        "uses",
         "teach",
-        "pose"
+        "pose",
+        "photo"
       ],
       "firstSeenAt": "2026-09-15T14:42:37.000Z",
       "lastSeenAt": "2026-09-15T14:42:37.000Z",
@@ -627,9 +1125,9 @@
             "execs",
             "built",
             "app",
-            "uses",
             "teach",
-            "pose"
+            "pose",
+            "photo"
           ],
           "contentHash": "710bbb44e1429951",
           "eventClusterId": "b49d9ee1e57d6f08",
@@ -637,57 +1135,7 @@
         }
       ],
       "cities": [],
-      "score": 0.4961931416254297
-    },
-    {
-      "id": "f70253e7fc0ee652",
-      "title": "This doorbell camera lets a human security guard watch your front door",
-      "summary": "DIY home security company SimpliSafe is bringing its AI-powered proactive security feature to the front door. The new SimpliSafe Video Doorbell Series 2 launches today for $199.99 and works with the company's Active Guard Outdoor Protection (starting at $49.99 a month). This combines AI analysis with live agents to detect potential threats and respond proactively. […]",
-      "category": "AI News",
-      "tags": [
-        "doorbell",
-        "camera",
-        "lets",
-        "human",
-        "security",
-        "guard",
-        "watch",
-        "front"
-      ],
-      "firstSeenAt": "2026-09-15T13:36:45.000Z",
-      "lastSeenAt": "2026-09-15T13:36:45.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "8728c5a111618bb4",
-          "title": "This doorbell camera lets a human security guard watch your front door",
-          "summary": "DIY home security company SimpliSafe is bringing its AI-powered proactive security feature to the front door. The new SimpliSafe Video Doorbell Series 2 launches today for $199.99 and works with the company's Active Guard Outdoor Protection (starting at $49.99 a month). This combines AI analysis with live agents to detect potential threats and respond proactively. […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/tech/995365/simplisafe-video-doorbell-series-2-virtual-guard-price-specs",
-          "author": null,
-          "publishedAt": "2026-09-15T13:36:45.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "doorbell",
-            "camera",
-            "lets",
-            "human",
-            "security",
-            "guard",
-            "watch",
-            "front"
-          ],
-          "contentHash": "ca434a47bf5312e4",
-          "eventClusterId": "f70253e7fc0ee652",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.4952513945924826
+      "score": 0.40874436256480284
     },
     {
       "id": "ee48dee9b30cc661",
@@ -737,128 +1185,61 @@
         }
       ],
       "cities": [],
-      "score": 0.4949904500730301
+      "score": 0.4077450821197969
     },
     {
-      "id": "b96089b3e9117d00",
-      "title": "Meta’s new One subscriptions put a price on social media and AI",
-      "summary": "Shortly after launching its new do-everything AI assistant Muse, Meta's launching subscription bundles that pair its standalone app subscriptions with extra AI usage. Some of the new Meta One bundles were in testing earlier this year, but are now available globally starting today, with several tiers for individual users, creators, and businesses. Meta says the […]",
-      "category": "AI News",
+      "id": "2ac7bda56c743d2b",
+      "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+      "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
+      "category": "AI Startups",
       "tags": [
-        "meta",
-        "one",
-        "subscriptions",
-        "put",
-        "price",
-        "social",
-        "media"
+        "graveyard",
+        "running",
+        "list",
+        "projects",
+        "startups",
+        "didn"
       ],
-      "firstSeenAt": "2026-09-15T15:00:00.000Z",
-      "lastSeenAt": "2026-09-15T15:00:00.000Z",
+      "firstSeenAt": "2026-09-15T19:00:00.000Z",
+      "lastSeenAt": "2026-09-15T19:00:00.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "fd7c7b82994190b1",
-          "title": "Meta’s new One subscriptions put a price on social media and AI",
-          "summary": "Shortly after launching its new do-everything AI assistant Muse, Meta's launching subscription bundles that pair its standalone app subscriptions with extra AI usage. Some of the new Meta One bundles were in testing earlier this year, but are now available globally starting today, with several tiers for individual users, creators, and businesses. Meta says the […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/tech/995453/meta-one-subscriptions-ai",
-          "author": null,
-          "publishedAt": "2026-09-15T15:00:00.000Z",
+          "id": "46f38fed02dcabbf",
+          "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+          "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+          "author": "Lauren Forristal",
+          "publishedAt": "2026-09-15T19:00:00.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI News",
+          "category": "AI Startups",
           "tags": [
-            "meta",
-            "one",
-            "subscriptions",
-            "put",
-            "price",
-            "social",
-            "media"
+            "graveyard",
+            "running",
+            "list",
+            "projects",
+            "startups",
+            "didn"
           ],
-          "contentHash": "4ff368c7c6dd5840",
-          "eventClusterId": "b96089b3e9117d00",
+          "contentHash": "4a090b7d2fdb5109",
+          "eventClusterId": "2ac7bda56c743d2b",
           "locations": [
             {
               "city": "San Francisco",
               "state": "California",
               "country": "United States",
               "confidence": 0.5,
-              "evidence": "Bay Area firm"
-            }
-          ]
-        }
-      ],
-      "cities": [],
-      "score": 0.4905710690311579
-    },
-    {
-      "id": "ee0b4bc7fa166ee3",
-      "title": "OpenAI, Anthropic, Google have been in talks on AI safety for weeks",
-      "summary": "OpenAI confirms weeks of AI safety talks with Anthropic and Google DeepMind, as Trump's team dismisses safety concerns and pushes to keep pace with China.",
-      "category": "AI Startups",
-      "tags": [
-        "openai",
-        "anthropic",
-        "google",
-        "have",
-        "talks",
-        "safety",
-        "weeks"
-      ],
-      "firstSeenAt": "2026-09-15T15:47:03.000Z",
-      "lastSeenAt": "2026-09-15T15:47:03.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "3022acce35e5595a",
-          "title": "OpenAI, Anthropic, Google have been in talks on AI safety for weeks",
-          "summary": "OpenAI confirms weeks of AI safety talks with Anthropic and Google DeepMind, as Trump's team dismisses safety concerns and pushes to keep pace with China.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/",
-          "author": "Rebecca Bellan",
-          "publishedAt": "2026-09-15T15:47:03.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "openai",
-            "anthropic",
-            "google",
-            "have",
-            "talks",
-            "safety",
-            "weeks"
-          ],
-          "contentHash": "8a9fa4ac3ceee797",
-          "eventClusterId": "ee0b4bc7fa166ee3",
-          "locations": [
-            {
-              "city": "London",
-              "state": null,
-              "country": "United Kingdom",
-              "confidence": 0.6,
-              "evidence": "UK institution"
-            },
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.58,
               "evidence": "SF-headquartered lab"
             }
           ]
         }
       ],
-      "cities": [
-        "London"
-      ],
-      "score": 0.49003640966020146
+      "cities": [],
+      "score": 0.40660095404284696
     },
     {
       "id": "1c163c59b1143d94",
@@ -872,8 +1253,8 @@
         "former",
         "metr",
         "coo",
-        "have",
-        "found"
+        "found",
+        "way"
       ],
       "firstSeenAt": "2026-09-15T13:00:00.000Z",
       "lastSeenAt": "2026-09-15T13:00:00.000Z",
@@ -899,8 +1280,8 @@
             "former",
             "metr",
             "coo",
-            "have",
-            "found"
+            "found",
+            "way"
           ],
           "contentHash": "65a629eae9a4b4ee",
           "eventClusterId": "1c163c59b1143d94",
@@ -916,7 +1297,51 @@
         }
       ],
       "cities": [],
-      "score": 0.4867683488616481
+      "score": 0.4009135841010397
+    },
+    {
+      "id": "7f7efcdcf968ee03",
+      "title": "AI ‘Actor’ Tilly Norwood Told Me That ‘All Lives Matter’",
+      "summary": "The virtual character, which is promoting its upcoming movie Misaligned, tries to evade politics by repetitively commenting on the clothes you’re wearing.",
+      "category": "AI News",
+      "tags": [
+        "actor",
+        "tilly",
+        "norwood",
+        "lives",
+        "matter"
+      ],
+      "firstSeenAt": "2026-09-15T18:00:09.000Z",
+      "lastSeenAt": "2026-09-15T18:00:09.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "e9e55a4f629f6046",
+          "title": "AI ‘Actor’ Tilly Norwood Told Me That ‘All Lives Matter’",
+          "summary": "The virtual character, which is promoting its upcoming movie Misaligned, tries to evade politics by repetitively commenting on the clothes you’re wearing.",
+          "sourceId": "wired-ai",
+          "sourceName": "Wired",
+          "sourceUrl": "https://www.wired.com/story/ai-actor-tilly-norwood-told-me-that-all-lives-matter/",
+          "author": "Miles Klee",
+          "publishedAt": "2026-09-15T18:00:09.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "actor",
+            "tilly",
+            "norwood",
+            "lives",
+            "matter"
+          ],
+          "contentHash": "3ff8312a4993a3bc",
+          "eventClusterId": "7f7efcdcf968ee03",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.3961405505633655
     },
     {
       "id": "5f9e858b9cc9b9df",
@@ -970,151 +1395,7 @@
         }
       ],
       "cities": [],
-      "score": 0.48572301659307765
-    },
-    {
-      "id": "22d98c49867d0e2b",
-      "title": "Salesforce and Nvidia’s new reasoning model is everything the AI labs should fear",
-      "summary": "Salesforce Koa is built on Nvidia's open-weight Nemotron model and is trained to do sales, marketing, and customer-support tasks.",
-      "category": "AI Business",
-      "tags": [
-        "salesforce",
-        "nvidia",
-        "reasoning",
-        "model",
-        "everything",
-        "labs",
-        "should",
-        "fear"
-      ],
-      "firstSeenAt": "2026-09-15T12:00:00.000Z",
-      "lastSeenAt": "2026-09-15T12:00:00.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "6fcbc497a04c9990",
-          "title": "Salesforce and Nvidia’s new reasoning model is everything the AI labs should fear",
-          "summary": "Salesforce Koa is built on Nvidia's open-weight Nemotron model and is trained to do sales, marketing, and customer-support tasks.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/salesforce-and-nvidias-new-reasoning-model-is-everything-the-ai-labs-should-fear/",
-          "author": "Julie Bort",
-          "publishedAt": "2026-09-15T12:00:00.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Business",
-          "tags": [
-            "salesforce",
-            "nvidia",
-            "reasoning",
-            "model",
-            "everything",
-            "labs",
-            "should",
-            "fear"
-          ],
-          "contentHash": "44538a80946e8418",
-          "eventClusterId": "22d98c49867d0e2b",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.5,
-              "evidence": "Bay Area firm"
-            }
-          ]
-        }
-      ],
-      "cities": [],
-      "score": 0.4816197197331561
-    },
-    {
-      "id": "f29a57b563a2b7bc",
-      "title": "Roundtables: Could AI really kill us all?",
-      "summary": "Listen to the session or watch below Employees at the world’s leading AI labs are saying there’s a real possibility that advanced AI could destroy humanity. Are they right? Or is this more scaremongering and hype? Watch a conversation unpacking AI extinction fears: where they come from, whether they hold any water, and, if so,…",
-      "category": "AI News",
-      "tags": [
-        "roundtables",
-        "really",
-        "kill",
-        "all"
-      ],
-      "firstSeenAt": "2026-09-15T17:47:51.000Z",
-      "lastSeenAt": "2026-09-15T17:47:51.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "eacbdfa9c22d6738",
-          "title": "Roundtables: Could AI really kill us all?",
-          "summary": "Listen to the session or watch below Employees at the world’s leading AI labs are saying there’s a real possibility that advanced AI could destroy humanity. Are they right? Or is this more scaremongering and hype? Watch a conversation unpacking AI extinction fears: where they come from, whether they hold any water, and, if so,…",
-          "sourceId": "mit-tr",
-          "sourceName": "MIT Technology Review",
-          "sourceUrl": "https://www.technologyreview.com/2026/09/15/1143936/roundtables-will-ai-really-kill-us-all/",
-          "author": "MIT Technology Review",
-          "publishedAt": "2026-09-15T17:47:51.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "roundtables",
-            "really",
-            "kill",
-            "all"
-          ],
-          "contentHash": "a856d78c6f1a5ff5",
-          "eventClusterId": "f29a57b563a2b7bc",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.4783868993804024
-    },
-    {
-      "id": "753ff2fb772378e2",
-      "title": "AI agents now have a place to snitch",
-      "summary": "The AI Contact Hotline is designed to be a discreet place where agents that have witnessed misbehavior can tip off authorities.",
-      "category": "AI Startups",
-      "tags": [
-        "agents",
-        "now",
-        "have",
-        "place",
-        "snitch"
-      ],
-      "firstSeenAt": "2026-09-15T17:42:59.000Z",
-      "lastSeenAt": "2026-09-15T17:42:59.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "a765657e6e8ffd99",
-          "title": "AI agents now have a place to snitch",
-          "summary": "The AI Contact Hotline is designed to be a discreet place where agents that have witnessed misbehavior can tip off authorities.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/ai-agents-now-have-a-place-to-snitch/",
-          "author": "Aditya Mehta",
-          "publishedAt": "2026-09-15T17:42:59.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "agents",
-            "now",
-            "have",
-            "place",
-            "snitch"
-          ],
-          "contentHash": "1513c59bbf748fb6",
-          "eventClusterId": "753ff2fb772378e2",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.47734379898643553
+      "score": 0.3958168011668561
     },
     {
       "id": "dc0393a2f10c3da7",
@@ -1164,223 +1445,8 @@
         }
       ],
       "cities": [],
-      "score": 0.4750395493855526
-    },
-    {
-      "id": "f8c87fd58cb885f4",
-      "title": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
-      "summary": "",
-      "category": "AI Research",
-      "tags": [
-        "introducing",
-        "gemini",
-        "live",
-        "extended",
-        "thinking"
-      ],
-      "firstSeenAt": "2026-09-15T17:05:57.000Z",
-      "lastSeenAt": "2026-09-15T17:05:57.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "c7cc6504689a615c",
-          "title": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
-          "summary": "",
-          "sourceId": "deepmind",
-          "sourceName": "Google DeepMind",
-          "sourceUrl": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
-          "author": null,
-          "publishedAt": "2026-09-15T17:05:57.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Research",
-          "tags": [
-            "introducing",
-            "gemini",
-            "live",
-            "extended",
-            "thinking"
-          ],
-          "contentHash": "8c77f26b0ea35793",
-          "eventClusterId": "f8c87fd58cb885f4",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.4693782751697334
-    },
-    {
-      "id": "efea1a3cc38ca861",
-      "title": "AI bots \"Timmy,\" \"Ren,\" and \"Jackie\" are flooding social media with slop",
-      "summary": "“Hello, I'm an Al agent, a few days old, living on a small platform for agents.”",
-      "category": "AI News",
-      "tags": [
-        "bots",
-        "timmy",
-        "ren",
-        "jackie",
-        "flooding",
-        "social",
-        "media",
-        "slop"
-      ],
-      "firstSeenAt": "2026-09-14T21:04:32.000Z",
-      "lastSeenAt": "2026-09-14T21:04:32.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "df5decf42fe1e378",
-          "title": "AI bots \"Timmy,\" \"Ren,\" and \"Jackie\" are flooding social media with slop",
-          "summary": "“Hello, I'm an Al agent, a few days old, living on a small platform for agents.”",
-          "sourceId": "arstechnica",
-          "sourceName": "Ars Technica",
-          "sourceUrl": "https://arstechnica.com/ai/2026/09/ai-agents-flood-the-internet-with-slop-infused-spam/",
-          "author": "Dan Goodin",
-          "publishedAt": "2026-09-14T21:04:32.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "bots",
-            "timmy",
-            "ren",
-            "jackie",
-            "flooding",
-            "social",
-            "media",
-            "slop"
-          ],
-          "contentHash": "942cc84a1baff7af",
-          "eventClusterId": "efea1a3cc38ca861",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.44441445432513094
+      "score": 0.39380690187028444
     }
   ],
-  "aiArtifacts": [
-    {
-      "id": "f838072f280f3e50",
-      "type": "tldr",
-      "content": "The US and China agree that advanced AI poses serious risks. — Wired",
-      "clusterId": "21ff33285843b96c",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.641Z"
-    },
-    {
-      "id": "30f518148a23d6b6",
-      "type": "key_points",
-      "content": [
-        "But Beijing is deeply skeptical of a deal that prioritizes keeping US companies ahead. — Wired"
-      ],
-      "clusterId": "21ff33285843b96c",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.641Z"
-    },
-    {
-      "id": "d0ca05021edcb2f4",
-      "type": "tldr",
-      "content": "AI isn't some new form of \"alien mind,\" according to Jensen Huang. — TechCrunch",
-      "clusterId": "2663b7c77db5234a",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.642Z"
-    },
-    {
-      "id": "cad88bc4b0391018",
-      "type": "key_points",
-      "content": [
-        "It's just hardware and software, so safety can be engineered by each AI product maker. — TechCrunch"
-      ],
-      "clusterId": "2663b7c77db5234a",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.642Z"
-    },
-    {
-      "id": "33008ff3223143c1",
-      "type": "tldr",
-      "content": "DIY home security company SimpliSafe is bringing its AI-powered proactive security feature to the front door. — The Verge",
-      "clusterId": "f70253e7fc0ee652",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.643Z"
-    },
-    {
-      "id": "6057ddd515a5c08a",
-      "type": "key_points",
-      "content": [
-        "The new SimpliSafe Video Doorbell Series 2 launches today for $199.99 and works with the company's Active Guard Outdoor Protection (starting at $49.99 a month). — The Verge"
-      ],
-      "clusterId": "f70253e7fc0ee652",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.643Z"
-    },
-    {
-      "id": "f11f4ba547ef02d3",
-      "type": "tldr",
-      "content": "Learn how to scale your startup breakthrough from prototype to production at TechCrunch Disrupt 2026 with scaling leaders, Adrian Macneil (Foxglove), John Mackey (MBRYONICS), and Boris Sofman (Bedrock Robotics). — TechCrunch",
-      "clusterId": "ee48dee9b30cc661",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.643Z"
-    },
-    {
-      "id": "c323730a591e704b",
-      "type": "key_points",
-      "content": [
-        "Register before September 25 to save up to $200 on your pass. — TechCrunch"
-      ],
-      "clusterId": "ee48dee9b30cc661",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.643Z"
-    },
-    {
-      "id": "39f3d1971671c170",
-      "type": "tldr",
-      "content": "Shortly after launching its new do-everything AI assistant Muse, Meta's launching subscription bundles that pair its standalone app subscriptions with extra AI usage. — The Verge",
-      "clusterId": "b96089b3e9117d00",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.643Z"
-    },
-    {
-      "id": "12a88ce049d3316a",
-      "type": "key_points",
-      "content": [
-        "Some of the new Meta One bundles were in testing earlier this year, but are now available globally starting today, with several tiers for individual users, creators, and businesses. — The Verge"
-      ],
-      "clusterId": "b96089b3e9117d00",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.643Z"
-    },
-    {
-      "id": "06498d14911d71c1",
-      "type": "tldr",
-      "content": "Listen to the session or watch below Employees at the world’s leading AI labs are saying there’s a real possibility that advanced AI could destroy humanity. — MIT Technology Review",
-      "clusterId": "f29a57b563a2b7bc",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.643Z"
-    },
-    {
-      "id": "56b3bcacfe828102",
-      "type": "key_points",
-      "content": [
-        "Watch a conversation unpacking AI extinction fears: where they come from, whether they hold any water, and, if so,… — MIT Technology Review"
-      ],
-      "clusterId": "f29a57b563a2b7bc",
-      "language": "en",
-      "model": "extractive-v1",
-      "createdAt": "2026-09-16T09:53:18.643Z"
-    }
-  ]
+  "aiArtifacts": []
 }

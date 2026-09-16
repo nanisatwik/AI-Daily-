@@ -136,7 +136,7 @@ async function main() {
     `\n${raw.length} ingested → ${onTopic.length} on-topic → ${dated.length} dated within ${MAX_AGE_HOURS}h → ${articles.length} after per-source cap`
   );
 
-  const clusters = rank(clusterArticles(articles), trustOf, weightOf);
+  const clusters = rank(clusterArticles(articles, trustOf), trustOf, weightOf);
   const published = clusters.slice(0, MAX_EVENTS);
 
   const merged = clusters.filter((c) => c.articles.length > 1).length;

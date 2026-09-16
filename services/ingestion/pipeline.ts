@@ -88,6 +88,55 @@ const STOP = new Set([
   "from","as","is","are","was","were","be","been","it","its","this","that",
   "these","those","new","says","say","said","after","over","into","amid","how",
   "why","what","will","can","could","may","more","than","you","your",
+  // Function words that survived the first pass and were observed matching
+  // unrelated headlines to each other: "You Don't Need To Train" paired with
+  // "We don't need AI regulation" on {don, need}. "don" is the wreckage of an
+  // apostrophe, not a word.
+  "not","don","need","needs","out","off","who","when","where","which","while",
+  "them","they","their","there","has","have","had","about","just","now","get",
+  "got","gets","make","makes","made","one","two","all","any","own","let","lets",
+  "too","very","still","back","even","also","like","want","wants","tells",
+  "told","puts","put","going","goes","our","his","her","use","used","uses",
+  "many","much","some","such","only","would","should","must","been","being",
+]);
+
+/**
+ * Vocabulary that describes the SUBJECT of an AI story rather than identifying
+ * a particular event. In this paper "model" and "agent" are as uninformative
+ * as "the" — two headlines sharing them have shown no evidence of covering the
+ * same thing.
+ *
+ * Stated rather than learned, deliberately. Inverse document frequency is the
+ * textbook way to discover which words are uninformative, and it was measured
+ * here and rejected: at ~120 articles a day "foundation" and "huang" each
+ * appear three times and look equally rare. The corpus is far too small for
+ * document frequency to carry meaning, so the field's own vocabulary is listed
+ * by hand instead.
+ */
+const DOMAIN = new Set([
+  // the field itself
+  "artificial","intelligence","machine","learning","deep","neural","network",
+  "networks","model","models","modeling","modelling","llm","llms","language",
+  "generative","transformer","transformers","agent","agents","agentic",
+  "chatbot","chatbots","bot","bots","robot","robots",
+  // method vocabulary
+  "training","train","trained","tuning","fine","inference","reasoning",
+  "prompt","prompting","embedding","embeddings","alignment","distillation",
+  "quantization","pruning","benchmark","benchmarks","evaluating","evaluation",
+  "evaluate","dataset","datasets","weight","weights","parameter","parameters",
+  "token","tokens","context","multimodal","cross","transfer","sparse",
+  "adaptive","versus","supervised","unsupervised","reinforcement",
+  // paper furniture
+  "using","via","towards","toward","novel","efficient","robust","scalable",
+  "framework","approach","method","methods","system","systems","study",
+  "analysis","survey","research","researchers","paper","results","performance",
+  "improving","improved","learn","generation","based","aware","guided",
+  "driven","aided","toward","enabling","enables","leveraging",
+  // generic tech and news filler that identifies nothing
+  "data","source","open","first","best","top","big","tech","technology",
+  "company","companies","startup","startups","industry","million","billion",
+  "users","people","world","years","year","report","reports","launch",
+  "launches","announces","announced","unveils","reveals",
 ]);
 
 const NAMED_ENTITIES: Record<string, string> = {
@@ -133,6 +182,17 @@ export function tokenize(s: string): Set<string> {
       .split(/\s+/)
       .filter((t) => t.length > 2 && !STOP.has(t))
   );
+}
+
+/**
+ * The tokens left once the field's own vocabulary is removed — in practice the
+ * names: people, companies, products, places. These are what distinguish one
+ * event from another, so these are what clustering matches on.
+ */
+export function contentTokens(s: string): Set<string> {
+  const out = new Set<string>();
+  for (const t of tokenize(s)) if (!DOMAIN.has(t)) out.add(t);
+  return out;
 }
 
 export function classify(item: RawItem): Section {
@@ -206,17 +266,28 @@ export function normalize(item: RawItem): Article | null {
  * 03  Deduplication and event clustering
  * ------------------------------------------------------------------ */
 
-function jaccard(a: Set<string>, b: Set<string>): number {
-  if (a.size === 0 || b.size === 0) return 0;
-  let shared = 0;
-  for (const t of a) if (b.has(t)) shared++;
-  return shared / (a.size + b.size - shared);
-}
+/**
+ * How many names two headlines must share to be treated as one event.
+ *
+ * This replaced a Jaccard similarity threshold of 0.42, which was measured
+ * against a full day of the wire and found to be unreachable: across 124
+ * articles from 12 publishers the strongest cross-publisher score in the whole
+ * corpus was 0.200. Worse, lowering it could not have helped, because the true
+ * and false pairs overlapped completely — 0.200 was two unrelated arXiv papers
+ * sharing "evaluating", while the day's most widely covered story scored 0.158.
+ * No cut point separates those, so the signal had to change rather than the
+ * threshold.
+ *
+ * Two independent outlets naming the same two specific things is not
+ * coincidence. One shared name usually is: "Apple" alone joined an iOS release
+ * to an OpenAI lawsuit.
+ */
+export const MIN_SHARED_TOKENS = 2;
 
-/** Two headlines describing one event. Tuned to group, not to over-merge. */
-export const CLUSTER_AT = 0.42;
-
-export function clusterArticles(articles: Article[]): EventCluster[] {
+export function clusterArticles(
+  articles: Article[],
+  trustOf: (sourceId: string) => number = () => 0.5
+): EventCluster[] {
   // Exact repeats of the same headline never earn a second slot.
   const seen = new Set<string>();
   const unique = articles.filter((a) => {
@@ -226,36 +297,50 @@ export function clusterArticles(articles: Article[]): EventCluster[] {
     return true;
   });
 
-  const tokens = new Map(unique.map((a) => [a.id, tokenize(a.title)]));
-  const clusters: { articles: Article[]; tokens: Set<string> }[] = [];
+  const tokens = new Map(unique.map((a) => [a.id, contentTokens(a.title)]));
+  const clusters: { articles: Article[] }[] = [];
 
   for (const article of unique) {
     const mine = tokens.get(article.id)!;
     let best: (typeof clusters)[number] | null = null;
-    let bestScore = CLUSTER_AT;
+    let bestShared = 0;
 
     for (const c of clusters) {
-      const score = jaccard(mine, c.tokens);
-      if (score >= bestScore) {
+      // Compared against each member separately, and never against the union
+      // of the cluster's tokens. A union grows every time an article joins, so
+      // matching against it made a cluster HARDER to join the more
+      // corroboration it had already gathered — exactly backwards.
+      let shared = 0;
+      for (const member of c.articles) {
+        const theirs = tokens.get(member.id)!;
+        let n = 0;
+        for (const t of mine) if (theirs.has(t)) n++;
+        if (n > shared) shared = n;
+      }
+
+      if (shared >= MIN_SHARED_TOKENS && shared > bestShared) {
         best = c;
-        bestScore = score;
+        bestShared = shared;
       }
     }
 
-    if (best) {
-      best.articles.push(article);
-      for (const t of mine) best.tokens.add(t);
-    } else {
-      clusters.push({ articles: [article], tokens: new Set(mine) });
-    }
+    if (best) best.articles.push(article);
+    else clusters.push({ articles: [article] });
   }
 
   return clusters.map((c) => {
     const id = hash(c.articles.map((a) => a.id).sort().join("|"));
-    const byTrust = [...c.articles].sort(
-      (a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)
-    );
-    const lead = byTrust[0];
+    // We cannot write our own headline, so we borrow one — and it should be
+    // the most trustworthy outlet's, not merely the last to file. This sorted
+    // by date alone while every cluster held one article, so the mismatch
+    // between the name and the comparator never showed; the moment clustering
+    // began working it would have let the least authoritative outlet in a
+    // cluster set the headline for all of them.
+    const lead = [...c.articles].sort(
+      (a, b) =>
+        trustOf(b.sourceId) - trustOf(a.sourceId) ||
+        Date.parse(b.publishedAt) - Date.parse(a.publishedAt)
+    )[0];
     const times = c.articles.map((a) => Date.parse(a.publishedAt));
 
     for (const a of c.articles) a.eventClusterId = id;
@@ -307,8 +392,30 @@ export function rank(
     const freshness = Math.exp(-Math.max(ageHours, 0) / 20);
 
     const outlets = new Set(c.articles.map((a) => a.sourceId));
-    const corroboration = Math.min(outlets.size / 5, 1);
+    /**
+     * Zero when one outlet reported it, because one outlet reporting something
+     * is not corroboration.
+     *
+     * This was `outlets.size / 5`, which paid a solo report 0.2 — a fifth of
+     * the credit for having none — and so squeezed the term's real range to
+     * 0.2..0.6, worth 0.136 of score. Freshness spans nearly 0..1 inside a
+     * single day, worth 0.27. Weight alone does not decide a front page;
+     * weight times achievable range does, and on those numbers freshness
+     * quietly outranked corroboration by two to one despite the smaller
+     * coefficient. A three-outlet story on the day's biggest argument lost the
+     * lead to a single-source cooling piece filed twenty minutes earlier.
+     */
+    const corroboration = Math.min((outlets.size - 1) / 3, 1);
 
+    /**
+     * Mean trust across the outlets. Note this can in principle dilute: a
+     * joining outlet whose trust is below about 0.42 lowers the mean by more
+     * than the extra corroboration adds back, so being picked up would cost a
+     * story score. Measured, not assumed — and it cannot currently happen, as
+     * the least trusted source in `sources.ts` sits at 0.60. Left as a mean
+     * rather than a max deliberately: a weak outlet joining should temper the
+     * average, just never enough to punish the story.
+     */
     const trust =
       [...outlets].reduce((sum, id) => sum + trustOf(id), 0) /
       Math.max(outlets.size, 1);

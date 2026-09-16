@@ -34,13 +34,27 @@ function toStory(cluster: EventCluster): Story {
   const seen = new Set<string>();
   const body = byTime
     .filter((a) => {
-      if (seen.has(a.sourceId)) return false;
+      // The outlet is claimed only when the article is actually accepted.
+      // Marking it seen first meant a publisher whose newest report carried a
+      // stub standfirst locked out its own longer one.
+      if (seen.has(a.sourceId) || a.summary.length <= 40) return false;
       seen.add(a.sourceId);
-      return a.summary.length > 40;
+      return true;
     })
     .sort((a, b) => b.summary.length - a.summary.length)
     .slice(0, 3)
     .map((a) => a.summary);
+
+  // One credit per outlet, newest report first. Two reports from the same
+  // publication are one outlet's coverage, not two — the tally marks beside a
+  // headline count independent corroboration, and the ranking counts distinct
+  // outlets as well. Crediting "TechCrunch, TechCrunch" overstated both.
+  const credited = new Set<string>();
+  const sources = byTime.filter((a) => {
+    if (credited.has(a.sourceId)) return false;
+    credited.add(a.sourceId);
+    return true;
+  });
 
   return {
     id: cluster.id,
@@ -48,7 +62,7 @@ function toStory(cluster: EventCluster): Story {
     deck: cluster.summary.slice(0, 240),
     body: body.length ? body : [cluster.summary || cluster.title],
     section: cluster.category,
-    sources: byTime.map((a) => ({
+    sources: sources.map((a) => ({
       name: a.sourceName,
       url: a.sourceUrl,
       publishedAt: a.publishedAt,
