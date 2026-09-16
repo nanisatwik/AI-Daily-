@@ -1,31 +1,53 @@
 {
   "date": "2026-09-16",
   "edition": 153,
-  "itemsIngested": 3809,
+  "itemsIngested": 3770,
   "eventsPublished": 54,
-  "generatedAt": "2026-09-16T18:10:11.864Z",
+  "generatedAt": "2026-09-16T20:59:23.986Z",
   "clusters": [
     {
-      "id": "31c1aa8219cd44b4",
-      "title": "Anthropic merges Claude chat and Cowork in one interface",
-      "summary": "Anthropic is merging Claude Chat and Cowork into a single product. Instead of users picking between interfaces, Claude now decides on its own whether a task needs a quick answer or a bigger workflow. The update also adds Claude Docs and Claude Slides for creating documents and presentations directly in the chat. Pro and Max users get access first. The article Anthropic merges Claude Chat, Cowork, and more into a sing",
+      "id": "22a5e1ce54ae7d62",
+      "title": "Claude Cowork and chat are now one Claude",
+      "summary": "Claude Cowork and chat are now one Claude In hopefully good news for anyone who, like me, was increasingly confused at Cowork v.s. Claude v.s. Claude Code: Starting today, Claude Cowork and chat are merging into one Claude. Bring a quick question, or hand over a report due at noon, and Claude takes it from there, even after you’ve closed your laptop. [...] This is rolling out to Pro and Max plans first, in the Claude",
       "category": "AI News",
       "tags": [
+        "claude",
+        "cowork",
+        "chat",
         "anthropic",
         "merges",
-        "claude",
-        "chat",
-        "cowork",
         "single",
         "product",
-        "goodbye",
-        "claudes",
-        "interface"
+        "interface",
+        "create",
+        "editable"
       ],
       "firstSeenAt": "2026-09-16T16:30:00.000Z",
-      "lastSeenAt": "2026-09-16T16:31:41.000Z",
+      "lastSeenAt": "2026-09-16T18:09:49.000Z",
       "imageUrl": null,
       "articles": [
+        {
+          "id": "3e2fd6d5a036df70",
+          "title": "Claude Cowork and chat are now one Claude",
+          "summary": "Claude Cowork and chat are now one Claude In hopefully good news for anyone who, like me, was increasingly confused at Cowork v.s. Claude v.s. Claude Code: Starting today, Claude Cowork and chat are merging into one Claude. Bring a quick question, or hand over a report due at noon, and Claude takes it from there, even after you’ve closed your laptop. [...] This is rolling out to Pro and Max plans first, in the Claude",
+          "sourceId": "simonwillison",
+          "sourceName": "Simon Willison",
+          "sourceUrl": "https://simonwillison.net/2026/Sep/16/one-claude/",
+          "author": null,
+          "publishedAt": "2026-09-16T18:09:49.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "Developer",
+          "tags": [
+            "claude",
+            "cowork",
+            "chat"
+          ],
+          "contentHash": "9d8a264642cbbb7f",
+          "eventClusterId": "22a5e1ce54ae7d62",
+          "locations": []
+        },
         {
           "id": "4fcb8f1a8a85c26c",
           "title": "Anthropic merges Claude Chat, Cowork, and more into a single product",
@@ -49,7 +71,7 @@
             "product"
           ],
           "contentHash": "f4f452930aecd0d8",
-          "eventClusterId": "31c1aa8219cd44b4",
+          "eventClusterId": "22a5e1ce54ae7d62",
           "locations": [
             {
               "city": "San Francisco",
@@ -62,7 +84,7 @@
         },
         {
           "id": "271a1c035f8703e2",
-          "title": "Goodbye, Claude Cowork: Anthropic merges its two Claudes into one",
+          "title": "Anthropic merges Claude chat and Cowork into one",
           "summary": "From Claude to Cowork and back again – plus, Anthropic’s all-new Claude Docs.",
           "sourceId": "zdnet-ai",
           "sourceName": "ZDNET",
@@ -74,15 +96,14 @@
           "language": "en",
           "category": "AI News",
           "tags": [
-            "goodbye",
-            "claude",
-            "cowork",
             "anthropic",
             "merges",
-            "claudes"
+            "claude",
+            "chat",
+            "cowork"
           ],
-          "contentHash": "27c97f78804f4633",
-          "eventClusterId": "31c1aa8219cd44b4",
+          "contentHash": "7660802d2a200a60",
+          "eventClusterId": "22a5e1ce54ae7d62",
           "locations": [
             {
               "city": "San Francisco",
@@ -115,7 +136,7 @@
             "interface"
           ],
           "contentHash": "7f8caf638a57f6c3",
-          "eventClusterId": "31c1aa8219cd44b4",
+          "eventClusterId": "22a5e1ce54ae7d62",
           "locations": [
             {
               "city": "San Francisco",
@@ -147,7 +168,7 @@
             "documents"
           ],
           "contentHash": "9f04f926d75bbfdf",
-          "eventClusterId": "31c1aa8219cd44b4",
+          "eventClusterId": "22a5e1ce54ae7d62",
           "locations": [
             {
               "city": "San Francisco",
@@ -160,7 +181,7 @@
         }
       ],
       "cities": [],
-      "score": 0.9211052481633198
+      "score": 0.9069036344566984
     },
     {
       "id": "f2c31701757183f5",
@@ -283,7 +304,7 @@
         }
       ],
       "cities": [],
-      "score": 0.8193540144479079
+      "score": 0.7821421208532313
     },
     {
       "id": "2cd906922944e6d5",
@@ -481,7 +502,86 @@
       "cities": [
         "London"
       ],
-      "score": 0.7623320359559632
+      "score": 0.7473643692838704
+    },
+    {
+      "id": "362a0c3f08343453",
+      "title": "This doorbell camera lets a human security guard watch your front door",
+      "summary": "There may be a simpler and more effective fix for rogue agents, hiding in plain sight.",
+      "category": "AI Startups",
+      "tags": [
+        "labs",
+        "house",
+        "auditors",
+        "maybe",
+        "shut",
+        "front",
+        "door",
+        "first",
+        "doorbell",
+        "camera"
+      ],
+      "firstSeenAt": "2026-09-15T13:36:45.000Z",
+      "lastSeenAt": "2026-09-16T18:25:25.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "691e1a4c06f849d1",
+          "title": "AI labs want in-house auditors — but maybe they should shut the front door first",
+          "summary": "There may be a simpler and more effective fix for rogue agents, hiding in plain sight.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/16/ai-labs-want-in-house-auditors-but-maybe-they-should-shut-the-front-door-first/",
+          "author": "Tim Fernholz",
+          "publishedAt": "2026-09-16T18:25:25.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Startups",
+          "tags": [
+            "labs",
+            "house",
+            "auditors",
+            "maybe",
+            "shut",
+            "front",
+            "door",
+            "first"
+          ],
+          "contentHash": "934eea3695c593b1",
+          "eventClusterId": "362a0c3f08343453",
+          "locations": []
+        },
+        {
+          "id": "8728c5a111618bb4",
+          "title": "This doorbell camera lets a human security guard watch your front door",
+          "summary": "DIY home security company SimpliSafe is bringing its AI-powered proactive security feature to the front door. The new SimpliSafe Video Doorbell Series 2 launches today for $199.99 and works with the company's Active Guard Outdoor Protection (starting at $49.99 a month). This combines AI analysis with live agents to detect potential threats and respond proactively. […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/tech/995365/simplisafe-video-doorbell-series-2-virtual-guard-price-specs",
+          "author": null,
+          "publishedAt": "2026-09-15T13:36:45.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "doorbell",
+            "camera",
+            "human",
+            "security",
+            "guard",
+            "watch",
+            "front",
+            "door"
+          ],
+          "contentHash": "ca434a47bf5312e4",
+          "eventClusterId": "362a0c3f08343453",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.6930050998989514
     },
     {
       "id": "46e40435ca702dfc",
@@ -589,72 +689,7 @@
       "cities": [
         "London"
       ],
-      "score": 0.7108974068525145
-    },
-    {
-      "id": "edd253e0a5aa476f",
-      "title": "Rethinking Robot Safety in the Age of AI",
-      "summary": "This article is brought to you by VicOne . Robot safety has traditionally asked: Can a machine remain safe when something goes wrong? Physical AI raises a harder question: Can a machine remain safe when an attacker changes what it sees, decides, or does even when nothing appears to have failed? As AI and robotics continue to advance at an unprecedented pace, modern robots perceive through multimodal sensors, interpre",
-      "category": "AI Policy",
-      "tags": [
-        "rethinking",
-        "robot",
-        "safety",
-        "age"
-      ],
-      "firstSeenAt": "2026-09-16T16:51:02.000Z",
-      "lastSeenAt": "2026-09-16T16:51:02.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "415879d1da5b4e3a",
-          "title": "Rethinking Robot Safety in the Age of AI",
-          "summary": "This article is brought to you by VicOne . Robot safety has traditionally asked: Can a machine remain safe when something goes wrong? Physical AI raises a harder question: Can a machine remain safe when an attacker changes what it sees, decides, or does even when nothing appears to have failed? As AI and robotics continue to advance at an unprecedented pace, modern robots perceive through multimodal sensors, interpre",
-          "sourceId": "ieee-spectrum",
-          "sourceName": "IEEE Spectrum",
-          "sourceUrl": "https://spectrum.ieee.org/physical-ai-robot-cybersecurity-vicone",
-          "author": "VicOne",
-          "publishedAt": "2026-09-16T16:51:02.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Policy",
-          "tags": [
-            "rethinking",
-            "robot",
-            "safety",
-            "age"
-          ],
-          "contentHash": "21b31325769d1381",
-          "eventClusterId": "edd253e0a5aa476f",
-          "locations": []
-        },
-        {
-          "id": "933bf7338ab53081",
-          "title": "Rethinking Robot Safety in the Age of AI",
-          "summary": "This article is brought to you by VicOne . Robot safety has traditionally asked: Can a machine remain safe when something goes wrong? Physical AI raises a harder question: Can a machine remain safe when an attacker changes what it sees, decides, or does even when nothing appears to have failed? As AI and robotics continue to advance at an unprecedented pace, modern robots perceive through multimodal sensors, interpre",
-          "sourceId": "ieee-computing",
-          "sourceName": "IEEE Spectrum",
-          "sourceUrl": "https://spectrum.ieee.org/physical-ai-robot-cybersecurity-vicone",
-          "author": "VicOne",
-          "publishedAt": "2026-09-16T16:51:02.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Policy",
-          "tags": [
-            "rethinking",
-            "robot",
-            "safety",
-            "age"
-          ],
-          "contentHash": "21b31325769d1381",
-          "eventClusterId": "edd253e0a5aa476f",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.6755809321104195
+      "score": 0.6736710391516573
     },
     {
       "id": "f5f5115c79e45acb",
@@ -794,7 +829,7 @@
         }
       ],
       "cities": [],
-      "score": 0.6705225804576219
+      "score": 0.6480967875885587
     },
     {
       "id": "3831c1989d6e3e86",
@@ -929,82 +964,7 @@
       "cities": [
         "Los Angeles"
       ],
-      "score": 0.6637712686039742
-    },
-    {
-      "id": "ae401ffa7417d81e",
-      "title": "Mozilla's new Smart Window assistant runs on Mistral's models",
-      "summary": "Mistral and Mozilla are teaming up to offer AI-powered browsing that puts privacy first. The article Mozilla's new Smart Window assistant runs on Mistral's models appeared first on The Decoder .",
-      "category": "AI Policy",
-      "tags": [
-        "mozilla",
-        "smart",
-        "window",
-        "assistant",
-        "runs",
-        "mistral",
-        "models",
-        "private",
-        "multilingual",
-        "browsing"
-      ],
-      "firstSeenAt": "2026-09-16T08:08:57.000Z",
-      "lastSeenAt": "2026-09-16T15:01:38.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "19312095bf411807",
-          "title": "Mozilla's new Smart Window assistant runs on Mistral's models",
-          "summary": "Mistral and Mozilla are teaming up to offer AI-powered browsing that puts privacy first. The article Mozilla's new Smart Window assistant runs on Mistral's models appeared first on The Decoder .",
-          "sourceId": "the-decoder",
-          "sourceName": "The Decoder",
-          "sourceUrl": "https://the-decoder.com/mozillas-new-smart-window-assistant-runs-on-mistrals-models/",
-          "author": "Maximilian Schreiner",
-          "publishedAt": "2026-09-16T15:01:38.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Policy",
-          "tags": [
-            "mozilla",
-            "smart",
-            "window",
-            "assistant",
-            "runs",
-            "mistral",
-            "models"
-          ],
-          "contentHash": "63aad8acc852fb9b",
-          "eventClusterId": "ae401ffa7417d81e",
-          "locations": []
-        },
-        {
-          "id": "1fcfb26051f0201f",
-          "title": "Mistral X Mozilla: Private, Multilingual AI Browsing",
-          "summary": "Article URL: https://mistral.ai/news/mistral-x-mozilla/ Comments URL: https://news.ycombinator.com/item?id=49723408 Points: 406 # Comments: 145",
-          "sourceId": "hn-ai",
-          "sourceName": "Hacker News",
-          "sourceUrl": "https://mistral.ai/news/mistral-x-mozilla/",
-          "author": "vertigoruntime",
-          "publishedAt": "2026-09-16T08:08:57.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "mistral",
-            "mozilla",
-            "private",
-            "multilingual",
-            "browsing"
-          ],
-          "contentHash": "15378ef64a0e713c",
-          "eventClusterId": "ae401ffa7417d81e",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.6504094321695609
+      "score": 0.6475902839859147
     },
     {
       "id": "83c1a23d73b2fdd4",
@@ -1096,7 +1056,7 @@
       "cities": [
         "San Francisco"
       ],
-      "score": 0.6353045938542463
+      "score": 0.6097292583431146
     },
     {
       "id": "90cb4833483fda78",
@@ -1221,7 +1181,51 @@
         }
       ],
       "cities": [],
-      "score": 0.6222173684101407
+      "score": 0.5843132797675307
+    },
+    {
+      "id": "d1bee44798ea0b73",
+      "title": "The AI data center e-waste problem is huge",
+      "summary": "E-waste from the AI boom has been vastly underestimated, a new report warns. By 2050, it could become enough trash to fill 23 million shipping containers - roughly enough 40-foot containers to circle the world six times if lined up in a row. It's a significantly higher estimate of AI's e-waste than previous studies have […]",
+      "category": "AI News",
+      "tags": [
+        "data",
+        "center",
+        "waste",
+        "problem",
+        "huge"
+      ],
+      "firstSeenAt": "2026-09-16T20:40:46.000Z",
+      "lastSeenAt": "2026-09-16T20:40:46.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "a14e4e76536d2d76",
+          "title": "The AI data center e-waste problem is huge",
+          "summary": "E-waste from the AI boom has been vastly underestimated, a new report warns. By 2050, it could become enough trash to fill 23 million shipping containers - roughly enough 40-foot containers to circle the world six times if lined up in a row. It's a significantly higher estimate of AI's e-waste than previous studies have […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/996470/ai-data-center-e-waste-ban",
+          "author": null,
+          "publishedAt": "2026-09-16T20:40:46.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "data",
+            "center",
+            "waste",
+            "problem",
+            "huge"
+          ],
+          "contentHash": "8c1027be58caa366",
+          "eventClusterId": "d1bee44798ea0b73",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5762777126164076
     },
     {
       "id": "077dcefcf097bdad",
@@ -1307,61 +1311,111 @@
         }
       ],
       "cities": [],
-      "score": 0.6090883029887069
+      "score": 0.5715431196341998
     },
     {
-      "id": "7ad98b083e5f30a8",
-      "title": "Apple might make servers again to cash in on the AI rush",
-      "summary": "According to The Information, Apple is planning to get back into the server game and might just pair up with Nvidia to make it happen. Apple retired its Xserve line in 2011 and has largely left enterprise machines to other manufacturers since. But the growing demand for compute power as the AI industry continues to […]",
-      "category": "AI Business",
+      "id": "5acf153164bec87c",
+      "title": "EU president warns AI agents \"escaping their environment\" are just a preview of what's coming",
+      "summary": "Ursula von der Leyen plans to invite the major frontier labs to talks and use the AI Act to help set global AI safety standards. She cited autonomous hacking and self-improving models as immediate risks. The article EU president warns AI agents \"escaping their environment\" are just a preview of what's coming appeared first on The Decoder .",
+      "category": "Robotics",
       "tags": [
-        "apple",
-        "might",
-        "servers",
-        "again",
-        "cash",
-        "rush"
+        "president",
+        "warns",
+        "agents",
+        "escaping",
+        "environment",
+        "preview",
+        "coming"
       ],
-      "firstSeenAt": "2026-09-16T17:20:29.000Z",
-      "lastSeenAt": "2026-09-16T17:20:29.000Z",
+      "firstSeenAt": "2026-09-16T19:02:25.000Z",
+      "lastSeenAt": "2026-09-16T19:02:25.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "78598253e77c66fe",
-          "title": "Apple might make servers again to cash in on the AI rush",
-          "summary": "According to The Information, Apple is planning to get back into the server game and might just pair up with Nvidia to make it happen. Apple retired its Xserve line in 2011 and has largely left enterprise machines to other manufacturers since. But the growing demand for compute power as the AI industry continues to […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/tech/996321/apple-servers-ai-nvidia",
-          "author": null,
-          "publishedAt": "2026-09-16T17:20:29.000Z",
+          "id": "2d1d62319245b793",
+          "title": "EU president warns AI agents \"escaping their environment\" are just a preview of what's coming",
+          "summary": "Ursula von der Leyen plans to invite the major frontier labs to talks and use the AI Act to help set global AI safety standards. She cited autonomous hacking and self-improving models as immediate risks. The article EU president warns AI agents \"escaping their environment\" are just a preview of what's coming appeared first on The Decoder .",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/eu-president-warns-ai-agents-escaping-their-environment-are-just-a-preview-of-whats-coming/",
+          "author": "Matthias Bastian",
+          "publishedAt": "2026-09-16T19:02:25.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "Robotics",
+          "tags": [
+            "president",
+            "warns",
+            "agents",
+            "escaping",
+            "environment",
+            "preview",
+            "coming"
+          ],
+          "contentHash": "9ac844bfd6e6772e",
+          "eventClusterId": "5acf153164bec87c",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5650345425604137
+    },
+    {
+      "id": "4630481457c30741",
+      "title": "Apple is reportedly building an enterprise AI server with its own M8 Ultra chips",
+      "summary": "According to The Information, Apple is working on an enterprise server with two or four M8 Ultra chips for the AI inference market, with a possible launch no earlier than 2029. Apple is considering Nvidia's NVLink Fusion technology to connect the chips. The project could get a boost from OpenAI and Anthropic already buying Mac hardware in bulk for AI workloads. The article Apple is reportedly building an enterprise A",
+      "category": "AI Business",
+      "tags": [
+        "apple",
+        "reportedly",
+        "building",
+        "enterprise",
+        "server",
+        "ultra",
+        "chips"
+      ],
+      "firstSeenAt": "2026-09-16T18:16:27.000Z",
+      "lastSeenAt": "2026-09-16T18:16:27.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "e3ae466bb163b7e6",
+          "title": "Apple is reportedly building an enterprise AI server with its own M8 Ultra chips",
+          "summary": "According to The Information, Apple is working on an enterprise server with two or four M8 Ultra chips for the AI inference market, with a possible launch no earlier than 2029. Apple is considering Nvidia's NVLink Fusion technology to connect the chips. The project could get a boost from OpenAI and Anthropic already buying Mac hardware in bulk for AI workloads. The article Apple is reportedly building an enterprise A",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/apple-is-reportedly-building-an-enterprise-ai-server-with-its-own-m8-ultra-chips/",
+          "author": "Matthias Bastian",
+          "publishedAt": "2026-09-16T18:16:27.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
           "category": "AI Business",
           "tags": [
             "apple",
-            "might",
-            "servers",
-            "again",
-            "cash",
-            "rush"
+            "reportedly",
+            "building",
+            "enterprise",
+            "server",
+            "ultra",
+            "chips"
           ],
-          "contentHash": "e41f70c65909bec8",
-          "eventClusterId": "7ad98b083e5f30a8",
+          "contentHash": "faf8848636f47870",
+          "eventClusterId": "4630481457c30741",
           "locations": [
             {
               "city": "San Francisco",
               "state": "California",
               "country": "United States",
               "confidence": 0.5,
-              "evidence": "Bay Area firm"
+              "evidence": "SF-headquartered lab"
             }
           ]
         }
       ],
       "cities": [],
-      "score": 0.581225339405623
+      "score": 0.5548074062957496
     },
     {
       "id": "4350422f1b501c4f",
@@ -1419,64 +1473,64 @@
         }
       ],
       "cities": [],
-      "score": 0.5797091794445917
+      "score": 0.5460277080835744
     },
     {
-      "id": "3ffcc832d0661b5d",
-      "title": "Claude comes for Gemini with its own take on Docs and Slides",
-      "summary": "Claude is getting a pair of new tools today: Docs and Slides. They'll let you create documents and presentations through Claude chats, which you can export, edit, and share with other users. As part of the announcement, Anthropic is also simplifying how Claude chats work, merging regular chats and Cowork into \"one Claude,\" with all […]",
-      "category": "AI News",
+      "id": "7ad98b083e5f30a8",
+      "title": "Apple might make servers again to cash in on the AI rush",
+      "summary": "According to The Information, Apple is planning to get back into the server game and might just pair up with Nvidia to make it happen. Apple retired its Xserve line in 2011 and has largely left enterprise machines to other manufacturers since. But the growing demand for compute power as the AI industry continues to […]",
+      "category": "AI Business",
       "tags": [
-        "claude",
-        "comes",
-        "gemini",
-        "take",
-        "docs",
-        "slides"
+        "apple",
+        "might",
+        "servers",
+        "again",
+        "cash",
+        "rush"
       ],
-      "firstSeenAt": "2026-09-16T16:30:00.000Z",
-      "lastSeenAt": "2026-09-16T16:30:00.000Z",
+      "firstSeenAt": "2026-09-16T17:20:29.000Z",
+      "lastSeenAt": "2026-09-16T17:20:29.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "a8dcd3221e79eab2",
-          "title": "Claude comes for Gemini with its own take on Docs and Slides",
-          "summary": "Claude is getting a pair of new tools today: Docs and Slides. They'll let you create documents and presentations through Claude chats, which you can export, edit, and share with other users. As part of the announcement, Anthropic is also simplifying how Claude chats work, merging regular chats and Cowork into \"one Claude,\" with all […]",
+          "id": "78598253e77c66fe",
+          "title": "Apple might make servers again to cash in on the AI rush",
+          "summary": "According to The Information, Apple is planning to get back into the server game and might just pair up with Nvidia to make it happen. Apple retired its Xserve line in 2011 and has largely left enterprise machines to other manufacturers since. But the growing demand for compute power as the AI industry continues to […]",
           "sourceId": "verge-ai",
           "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/996234/anthropic-one-claude-cowork-docs-slides",
+          "sourceUrl": "https://www.theverge.com/tech/996321/apple-servers-ai-nvidia",
           "author": null,
-          "publishedAt": "2026-09-16T16:30:00.000Z",
+          "publishedAt": "2026-09-16T17:20:29.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI News",
+          "category": "AI Business",
           "tags": [
-            "claude",
-            "comes",
-            "gemini",
-            "take",
-            "docs",
-            "slides"
+            "apple",
+            "might",
+            "servers",
+            "again",
+            "cash",
+            "rush"
           ],
-          "contentHash": "5a2e5b2157cf25f6",
-          "eventClusterId": "3ffcc832d0661b5d",
+          "contentHash": "e41f70c65909bec8",
+          "eventClusterId": "7ad98b083e5f30a8",
           "locations": [
             {
               "city": "San Francisco",
               "state": "California",
               "country": "United States",
               "confidence": 0.5,
-              "evidence": "SF-headquartered lab"
+              "evidence": "Bay Area firm"
             }
           ]
         }
       ],
       "cities": [],
-      "score": 0.5693678549392527
+      "score": 0.5433728073441437
     },
     {
-      "id": "b30e2f0ed61f2aea",
+      "id": "696f3c018e7b9208",
       "title": "Robots are waiting for a ChatGPT moment: Nvidia’s Les Karpas explains why at TechCrunch Disrupt 2026",
       "summary": "The robotics industry is still waiting for their breakthrough into day-to-day life. Nvidia's Les Karpas has an answer as to why at TechCrunch Disrupt 2026. Register before September 25 to save up to $200 on your pass.",
       "category": "AI Startups",
@@ -1488,11 +1542,9 @@
         "nvidia",
         "les",
         "karpas",
-        "explains",
-        "discover",
-        "take"
+        "explains"
       ],
-      "firstSeenAt": "2026-09-15T14:30:00.000Z",
+      "firstSeenAt": "2026-09-16T15:00:00.000Z",
       "lastSeenAt": "2026-09-16T15:00:00.000Z",
       "imageUrl": null,
       "articles": [
@@ -1520,7 +1572,7 @@
             "explains"
           ],
           "contentHash": "168a92557eadbc3d",
-          "eventClusterId": "b30e2f0ed61f2aea",
+          "eventClusterId": "696f3c018e7b9208",
           "locations": [
             {
               "city": "San Francisco",
@@ -1530,95 +1582,10 @@
               "evidence": "Bay Area firm"
             }
           ]
-        },
-        {
-          "id": "773b0346f0d764c9",
-          "title": "Discover how to take your startup from prototype to production at TechCrunch Disrupt 2026",
-          "summary": "Learn how to scale your startup breakthrough from prototype to production at TechCrunch Disrupt 2026 with scaling leaders, Adrian Macneil (Foxglove), John Mackey (MBRYONICS), and Boris Sofman (Bedrock Robotics). Register before September 25 to save up to $200 on your pass.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/discover-how-to-take-your-startup-from-prototype-to-production-at-techcrunch-disrupt-2026/",
-          "author": "TechCrunch Events",
-          "publishedAt": "2026-09-15T14:30:00.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "discover",
-            "take",
-            "startup",
-            "prototype",
-            "production",
-            "techcrunch",
-            "disrupt",
-            "2026"
-          ],
-          "contentHash": "48b8fc00e11f49ae",
-          "eventClusterId": "b30e2f0ed61f2aea",
-          "locations": []
         }
       ],
       "cities": [],
-      "score": 0.5692273798559546
-    },
-    {
-      "id": "cffb425741f853d0",
-      "title": "Former OpenAI researcher builds an AI model that judges options instead of writing text",
-      "summary": "TypeSafe AI, founded by former OpenAI researcher Diogo Almeida, is releasing a model that deliberately generates no text. Instead of chat responses, \"Jev\" delivers pure classifications for software, with response times starting at 70 milliseconds and extremely low token prices. The approach doesn't protect against mistakes, though. The system only guarantees that it will stick strictly to the preset options. The arti",
-      "category": "AI News",
-      "tags": [
-        "former",
-        "openai",
-        "researcher",
-        "builds",
-        "model",
-        "judges",
-        "options",
-        "instead"
-      ],
-      "firstSeenAt": "2026-09-16T15:19:19.000Z",
-      "lastSeenAt": "2026-09-16T15:19:19.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "e8c7cf55e7e9421d",
-          "title": "Former OpenAI researcher builds an AI model that judges options instead of writing text",
-          "summary": "TypeSafe AI, founded by former OpenAI researcher Diogo Almeida, is releasing a model that deliberately generates no text. Instead of chat responses, \"Jev\" delivers pure classifications for software, with response times starting at 70 milliseconds and extremely low token prices. The approach doesn't protect against mistakes, though. The system only guarantees that it will stick strictly to the preset options. The arti",
-          "sourceId": "the-decoder",
-          "sourceName": "The Decoder",
-          "sourceUrl": "https://the-decoder.com/former-openai-researcher-builds-an-ai-model-that-judges-options-instead-of-writing-text/",
-          "author": "Maximilian Schreiner",
-          "publishedAt": "2026-09-16T15:19:19.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI News",
-          "tags": [
-            "former",
-            "openai",
-            "researcher",
-            "builds",
-            "model",
-            "judges",
-            "options",
-            "instead"
-          ],
-          "contentHash": "754fe75595150494",
-          "eventClusterId": "cffb425741f853d0",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.58,
-              "evidence": "SF-headquartered lab"
-            }
-          ]
-        }
-      ],
-      "cities": [],
-      "score": 0.5655820591693714
+      "score": 0.5355566661355186
     },
     {
       "id": "b7cc6093bf277f66",
@@ -1697,48 +1664,106 @@
         }
       ],
       "cities": [],
-      "score": 0.5534482815934392
+      "score": 0.534021969697058
     },
     {
-      "id": "cec8cad5a9fbb443",
-      "title": "Microsoft says AI rival Anthropic could have 'disastrous impact' on humanity",
-      "summary": "Mustafa Suleyman says he believes the AI giant is in effect teaching Claude it \"may be conscious\".",
+      "id": "3ffcc832d0661b5d",
+      "title": "Claude comes for Gemini with its own take on Docs and Slides",
+      "summary": "Claude is getting a pair of new tools today: Docs and Slides. They'll let you create documents and presentations through Claude chats, which you can export, edit, and share with other users. As part of the announcement, Anthropic is also simplifying how Claude chats work, merging regular chats and Cowork into \"one Claude,\" with all […]",
       "category": "AI News",
       "tags": [
-        "microsoft",
-        "rival",
-        "anthropic",
-        "disastrous",
-        "impact",
-        "humanity"
+        "claude",
+        "comes",
+        "gemini",
+        "take",
+        "docs",
+        "slides"
       ],
-      "firstSeenAt": "2026-09-16T14:16:14.000Z",
-      "lastSeenAt": "2026-09-16T14:16:14.000Z",
+      "firstSeenAt": "2026-09-16T16:30:00.000Z",
+      "lastSeenAt": "2026-09-16T16:30:00.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "bbce903d337ea35f",
-          "title": "Microsoft says AI rival Anthropic could have 'disastrous impact' on humanity",
-          "summary": "Mustafa Suleyman says he believes the AI giant is in effect teaching Claude it \"may be conscious\".",
-          "sourceId": "bbc-tech",
-          "sourceName": "BBC News",
-          "sourceUrl": "https://www.bbc.co.uk/news/articles/c6n07ypqz8kzo?at_medium=RSS&at_campaign=rss",
+          "id": "a8dcd3221e79eab2",
+          "title": "Claude comes for Gemini with its own take on Docs and Slides",
+          "summary": "Claude is getting a pair of new tools today: Docs and Slides. They'll let you create documents and presentations through Claude chats, which you can export, edit, and share with other users. As part of the announcement, Anthropic is also simplifying how Claude chats work, merging regular chats and Cowork into \"one Claude,\" with all […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/996234/anthropic-one-claude-cowork-docs-slides",
           "author": null,
-          "publishedAt": "2026-09-16T14:16:14.000Z",
+          "publishedAt": "2026-09-16T16:30:00.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
           "category": "AI News",
           "tags": [
-            "microsoft",
-            "rival",
-            "anthropic",
-            "disastrous",
-            "impact",
-            "humanity"
+            "claude",
+            "comes",
+            "gemini",
+            "take",
+            "docs",
+            "slides"
           ],
-          "contentHash": "dd5fe508426a4b0d",
-          "eventClusterId": "cec8cad5a9fbb443",
+          "contentHash": "5a2e5b2157cf25f6",
+          "eventClusterId": "3ffcc832d0661b5d",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.5330747262710209
+    },
+    {
+      "id": "cffb425741f853d0",
+      "title": "Former OpenAI researcher builds an AI model that judges options instead of writing text",
+      "summary": "TypeSafe AI, founded by former OpenAI researcher Diogo Almeida, is releasing a model that deliberately generates no text. Instead of chat responses, \"Jev\" delivers pure classifications for software, with response times starting at 70 milliseconds and extremely low token prices. The approach doesn't protect against mistakes, though. The system only guarantees that it will stick strictly to the preset options. The arti",
+      "category": "AI News",
+      "tags": [
+        "former",
+        "openai",
+        "researcher",
+        "builds",
+        "model",
+        "judges",
+        "options",
+        "instead"
+      ],
+      "firstSeenAt": "2026-09-16T15:19:19.000Z",
+      "lastSeenAt": "2026-09-16T15:19:19.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "e8c7cf55e7e9421d",
+          "title": "Former OpenAI researcher builds an AI model that judges options instead of writing text",
+          "summary": "TypeSafe AI, founded by former OpenAI researcher Diogo Almeida, is releasing a model that deliberately generates no text. Instead of chat responses, \"Jev\" delivers pure classifications for software, with response times starting at 70 milliseconds and extremely low token prices. The approach doesn't protect against mistakes, though. The system only guarantees that it will stick strictly to the preset options. The arti",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/former-openai-researcher-builds-an-ai-model-that-judges-options-instead-of-writing-text/",
+          "author": "Maximilian Schreiner",
+          "publishedAt": "2026-09-16T15:19:19.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "former",
+            "openai",
+            "researcher",
+            "builds",
+            "model",
+            "judges",
+            "options",
+            "instead"
+          ],
+          "contentHash": "754fe75595150494",
+          "eventClusterId": "cffb425741f853d0",
           "locations": [
             {
               "city": "San Francisco",
@@ -1746,65 +1771,77 @@
               "country": "United States",
               "confidence": 0.58,
               "evidence": "SF-headquartered lab"
-            },
-            {
-              "city": "Seattle",
-              "state": "Washington",
-              "country": "United States",
-              "confidence": 0.53,
-              "evidence": "Seattle-headquartered firm"
             }
           ]
         }
       ],
       "cities": [],
-      "score": 0.5506577276110503
+      "score": 0.5313649545987029
     },
     {
-      "id": "fb6a615cd921b62b",
-      "title": "The sexy AI-powered dating app scams are here",
-      "summary": "Security researcher Matthew \"Zigula\" Gore-Kormanik was analyzing a fraudulent dating app called Dora when he got a pop-up message saying he was receiving a call from Jennifer. According to her bio, she's a 41-year-old Sagittarius with red hair, blue eyes, and piercings. She likes music, horror movies, nightlife, and sports. Gore-Kormanik answered the call, but […]",
-      "category": "AI News",
+      "id": "edd253e0a5aa476f",
+      "title": "Rethinking Robot Safety in the Age of AI",
+      "summary": "This article is brought to you by VicOne . Robot safety has traditionally asked: Can a machine remain safe when something goes wrong? Physical AI raises a harder question: Can a machine remain safe when an attacker changes what it sees, decides, or does even when nothing appears to have failed? As AI and robotics continue to advance at an unprecedented pace, modern robots perceive through multimodal sensors, interpre",
+      "category": "AI Policy",
       "tags": [
-        "sexy",
-        "powered",
-        "dating",
-        "app",
-        "scams",
-        "here"
+        "rethinking",
+        "robot",
+        "safety",
+        "age"
       ],
-      "firstSeenAt": "2026-09-16T14:45:00.000Z",
-      "lastSeenAt": "2026-09-16T14:45:00.000Z",
+      "firstSeenAt": "2026-09-16T16:51:02.000Z",
+      "lastSeenAt": "2026-09-16T16:51:02.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "1a123b04f64f7cfd",
-          "title": "The sexy AI-powered dating app scams are here",
-          "summary": "Security researcher Matthew \"Zigula\" Gore-Kormanik was analyzing a fraudulent dating app called Dora when he got a pop-up message saying he was receiving a call from Jennifer. According to her bio, she's a 41-year-old Sagittarius with red hair, blue eyes, and piercings. She likes music, horror movies, nightlife, and sports. Gore-Kormanik answered the call, but […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/995348/ai-dating-app-scams",
-          "author": null,
-          "publishedAt": "2026-09-16T14:45:00.000Z",
+          "id": "415879d1da5b4e3a",
+          "title": "Rethinking Robot Safety in the Age of AI",
+          "summary": "This article is brought to you by VicOne . Robot safety has traditionally asked: Can a machine remain safe when something goes wrong? Physical AI raises a harder question: Can a machine remain safe when an attacker changes what it sees, decides, or does even when nothing appears to have failed? As AI and robotics continue to advance at an unprecedented pace, modern robots perceive through multimodal sensors, interpre",
+          "sourceId": "ieee-spectrum",
+          "sourceName": "IEEE Spectrum",
+          "sourceUrl": "https://spectrum.ieee.org/physical-ai-robot-cybersecurity-vicone",
+          "author": "VicOne",
+          "publishedAt": "2026-09-16T16:51:02.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI News",
+          "category": "AI Policy",
           "tags": [
-            "sexy",
-            "powered",
-            "dating",
-            "app",
-            "scams",
-            "here"
+            "rethinking",
+            "robot",
+            "safety",
+            "age"
           ],
-          "contentHash": "7106f0093cafb709",
-          "eventClusterId": "fb6a615cd921b62b",
+          "contentHash": "21b31325769d1381",
+          "eventClusterId": "edd253e0a5aa476f",
+          "locations": []
+        },
+        {
+          "id": "933bf7338ab53081",
+          "title": "Rethinking Robot Safety in the Age of AI",
+          "summary": "This article is brought to you by VicOne . Robot safety has traditionally asked: Can a machine remain safe when something goes wrong? Physical AI raises a harder question: Can a machine remain safe when an attacker changes what it sees, decides, or does even when nothing appears to have failed? As AI and robotics continue to advance at an unprecedented pace, modern robots perceive through multimodal sensors, interpre",
+          "sourceId": "ieee-computing",
+          "sourceName": "IEEE Spectrum",
+          "sourceUrl": "https://spectrum.ieee.org/physical-ai-robot-cybersecurity-vicone",
+          "author": "VicOne",
+          "publishedAt": "2026-09-16T16:51:02.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "rethinking",
+            "robot",
+            "safety",
+            "age"
+          ],
+          "contentHash": "21b31325769d1381",
+          "eventClusterId": "edd253e0a5aa476f",
           "locations": []
         }
       ],
       "cities": [],
-      "score": 0.5462469566643551
+      "score": 0.5253127244569432
     },
     {
       "id": "aa86b384c3ff17f3",
@@ -1964,7 +2001,7 @@
         }
       ],
       "cities": [],
-      "score": 0.5430482815934392
+      "score": 0.523621969697058
     },
     {
       "id": "af97d2f0c3542d79",
@@ -2040,7 +2077,162 @@
         }
       ],
       "cities": [],
-      "score": 0.5405958675137672
+      "score": 0.5221408712122051
+    },
+    {
+      "id": "cec8cad5a9fbb443",
+      "title": "Microsoft says AI rival Anthropic could have 'disastrous impact' on humanity",
+      "summary": "Mustafa Suleyman says he believes the AI giant is in effect teaching Claude it \"may be conscious\".",
+      "category": "AI News",
+      "tags": [
+        "microsoft",
+        "rival",
+        "anthropic",
+        "disastrous",
+        "impact",
+        "humanity"
+      ],
+      "firstSeenAt": "2026-09-16T14:16:14.000Z",
+      "lastSeenAt": "2026-09-16T14:16:14.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "bbce903d337ea35f",
+          "title": "Microsoft says AI rival Anthropic could have 'disastrous impact' on humanity",
+          "summary": "Mustafa Suleyman says he believes the AI giant is in effect teaching Claude it \"may be conscious\".",
+          "sourceId": "bbc-tech",
+          "sourceName": "BBC News",
+          "sourceUrl": "https://www.bbc.co.uk/news/articles/c6n07ypqz8kzo?at_medium=RSS&at_campaign=rss",
+          "author": null,
+          "publishedAt": "2026-09-16T14:16:14.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "microsoft",
+            "rival",
+            "anthropic",
+            "disastrous",
+            "impact",
+            "humanity"
+          ],
+          "contentHash": "dd5fe508426a4b0d",
+          "eventClusterId": "cec8cad5a9fbb443",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.58,
+              "evidence": "SF-headquartered lab"
+            },
+            {
+              "city": "Seattle",
+              "state": "Washington",
+              "country": "United States",
+              "confidence": 0.53,
+              "evidence": "Seattle-headquartered firm"
+            }
+          ]
+        }
+      ],
+      "cities": [],
+      "score": 0.5181929346629466
+    },
+    {
+      "id": "0e7f8970bf3727c5",
+      "title": "Mozilla's new Smart Window assistant runs on Mistral's models",
+      "summary": "Mistral and Mozilla are teaming up to offer AI-powered browsing that puts privacy first. The article Mozilla's new Smart Window assistant runs on Mistral's models appeared first on The Decoder .",
+      "category": "AI Policy",
+      "tags": [
+        "mozilla",
+        "smart",
+        "window",
+        "assistant",
+        "runs",
+        "mistral",
+        "models"
+      ],
+      "firstSeenAt": "2026-09-16T15:01:38.000Z",
+      "lastSeenAt": "2026-09-16T15:01:38.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "19312095bf411807",
+          "title": "Mozilla's new Smart Window assistant runs on Mistral's models",
+          "summary": "Mistral and Mozilla are teaming up to offer AI-powered browsing that puts privacy first. The article Mozilla's new Smart Window assistant runs on Mistral's models appeared first on The Decoder .",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/mozillas-new-smart-window-assistant-runs-on-mistrals-models/",
+          "author": "Maximilian Schreiner",
+          "publishedAt": "2026-09-16T15:01:38.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "mozilla",
+            "smart",
+            "window",
+            "assistant",
+            "runs",
+            "mistral",
+            "models"
+          ],
+          "contentHash": "63aad8acc852fb9b",
+          "eventClusterId": "0e7f8970bf3727c5",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5155595243294949
+    },
+    {
+      "id": "fb6a615cd921b62b",
+      "title": "The sexy AI-powered dating app scams are here",
+      "summary": "Security researcher Matthew \"Zigula\" Gore-Kormanik was analyzing a fraudulent dating app called Dora when he got a pop-up message saying he was receiving a call from Jennifer. According to her bio, she's a 41-year-old Sagittarius with red hair, blue eyes, and piercings. She likes music, horror movies, nightlife, and sports. Gore-Kormanik answered the call, but […]",
+      "category": "AI News",
+      "tags": [
+        "sexy",
+        "powered",
+        "dating",
+        "app",
+        "scams",
+        "here"
+      ],
+      "firstSeenAt": "2026-09-16T14:45:00.000Z",
+      "lastSeenAt": "2026-09-16T14:45:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "1a123b04f64f7cfd",
+          "title": "The sexy AI-powered dating app scams are here",
+          "summary": "Security researcher Matthew \"Zigula\" Gore-Kormanik was analyzing a fraudulent dating app called Dora when he got a pop-up message saying he was receiving a call from Jennifer. According to her bio, she's a 41-year-old Sagittarius with red hair, blue eyes, and piercings. She likes music, horror movies, nightlife, and sports. Gore-Kormanik answered the call, but […]",
+          "sourceId": "verge-ai",
+          "sourceName": "The Verge",
+          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/995348/ai-dating-app-scams",
+          "author": null,
+          "publishedAt": "2026-09-16T14:45:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "sexy",
+            "powered",
+            "dating",
+            "app",
+            "scams",
+            "here"
+          ],
+          "contentHash": "7106f0093cafb709",
+          "eventClusterId": "fb6a615cd921b62b",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5129945072672677
     },
     {
       "id": "c4c33a863e5f72a3",
@@ -2090,7 +2282,7 @@
         }
       ],
       "cities": [],
-      "score": 0.5347163474714569
+      "score": 0.5069519806236032
     },
     {
       "id": "0c6574dda82e87a5",
@@ -2148,7 +2340,57 @@
       "cities": [
         "San Francisco"
       ],
-      "score": 0.5323631533353738
+      "score": 0.5018966316691466
+    },
+    {
+      "id": "fa6eac57bb2398a4",
+      "title": "Steve Bannon and Bernie Sanders Condemn Tech ‘Oligarchs’ and Demand A.I. Reforms",
+      "summary": "At an event in Washington, partisanship took a back seat as elected officials, religious leaders, parents and artists called for reining in artificial intelligence.",
+      "category": "AI Policy",
+      "tags": [
+        "steve",
+        "bannon",
+        "bernie",
+        "sanders",
+        "condemn",
+        "tech",
+        "oligarchs",
+        "demand"
+      ],
+      "firstSeenAt": "2026-09-16T09:09:37.000Z",
+      "lastSeenAt": "2026-09-16T09:09:37.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "548caaac905a215b",
+          "title": "Steve Bannon and Bernie Sanders Condemn Tech ‘Oligarchs’ and Demand A.I. Reforms",
+          "summary": "At an event in Washington, partisanship took a back seat as elected officials, religious leaders, parents and artists called for reining in artificial intelligence.",
+          "sourceId": "nyt-tech",
+          "sourceName": "The New York Times",
+          "sourceUrl": "https://www.nytimes.com/2026/09/15/us/steve-bannon-bernie-sanders-ai.html",
+          "author": "Jeremy W. Peters, Cecilia Kang and Tierney L. Cross For The New York Times",
+          "publishedAt": "2026-09-16T09:09:37.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "steve",
+            "bannon",
+            "bernie",
+            "sanders",
+            "condemn",
+            "tech",
+            "oligarchs",
+            "demand"
+          ],
+          "contentHash": "e30727d89bb7bf55",
+          "eventClusterId": "fa6eac57bb2398a4",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.5000512682855371
     },
     {
       "id": "0afcc93afc6f3de0",
@@ -2194,7 +2436,7 @@
         }
       ],
       "cities": [],
-      "score": 0.5318360108631569
+      "score": 0.49984883282874265
     },
     {
       "id": "a5460d9e3c6a32d5",
@@ -2246,109 +2488,7 @@
         }
       ],
       "cities": [],
-      "score": 0.5274914751072777
-    },
-    {
-      "id": "fa6eac57bb2398a4",
-      "title": "Steve Bannon and Bernie Sanders Condemn Tech ‘Oligarchs’ and Demand A.I. Reforms",
-      "summary": "At an event in Washington, partisanship took a back seat as elected officials, religious leaders, parents and artists called for reining in artificial intelligence.",
-      "category": "AI Policy",
-      "tags": [
-        "steve",
-        "bannon",
-        "bernie",
-        "sanders",
-        "condemn",
-        "tech",
-        "oligarchs",
-        "demand"
-      ],
-      "firstSeenAt": "2026-09-16T09:09:37.000Z",
-      "lastSeenAt": "2026-09-16T09:09:37.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "548caaac905a215b",
-          "title": "Steve Bannon and Bernie Sanders Condemn Tech ‘Oligarchs’ and Demand A.I. Reforms",
-          "summary": "At an event in Washington, partisanship took a back seat as elected officials, religious leaders, parents and artists called for reining in artificial intelligence.",
-          "sourceId": "nyt-tech",
-          "sourceName": "The New York Times",
-          "sourceUrl": "https://www.nytimes.com/2026/09/15/us/steve-bannon-bernie-sanders-ai.html",
-          "author": "Jeremy W. Peters, Cecilia Kang and Tierney L. Cross For The New York Times",
-          "publishedAt": "2026-09-16T09:09:37.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Policy",
-          "tags": [
-            "steve",
-            "bannon",
-            "bernie",
-            "sanders",
-            "condemn",
-            "tech",
-            "oligarchs",
-            "demand"
-          ],
-          "contentHash": "e30727d89bb7bf55",
-          "eventClusterId": "fa6eac57bb2398a4",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.5251958471035614
-    },
-    {
-      "id": "98df817f33498e0b",
-      "title": "Political opposites unite in Washington to rein in AI",
-      "summary": "From Bernie Sanders to Steve Bannon, political opposites in Washington are jointly demanding hard brakes on artificial intelligence. Sanders wants a construction freeze on data centers, while OpenAI is backing the FRONTIER Act and its mandatory outside safety audits for the first time. Despite Trump's skepticism, bipartisan pressure for binding AI rules keeps growing. The article Political opposites unite in Washingt",
-      "category": "AI Policy",
-      "tags": [
-        "political",
-        "opposites",
-        "unite",
-        "washington",
-        "rein"
-      ],
-      "firstSeenAt": "2026-09-16T14:59:58.000Z",
-      "lastSeenAt": "2026-09-16T14:59:58.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "53c5525a63920d46",
-          "title": "Political opposites unite in Washington to rein in AI",
-          "summary": "From Bernie Sanders to Steve Bannon, political opposites in Washington are jointly demanding hard brakes on artificial intelligence. Sanders wants a construction freeze on data centers, while OpenAI is backing the FRONTIER Act and its mandatory outside safety audits for the first time. Despite Trump's skepticism, bipartisan pressure for binding AI rules keeps growing. The article Political opposites unite in Washingt",
-          "sourceId": "the-decoder",
-          "sourceName": "The Decoder",
-          "sourceUrl": "https://the-decoder.com/political-opposites-unite-in-washington-to-rein-in-ai/",
-          "author": "Maximilian Schreiner",
-          "publishedAt": "2026-09-16T14:59:58.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Policy",
-          "tags": [
-            "political",
-            "opposites",
-            "unite",
-            "washington",
-            "rein"
-          ],
-          "contentHash": "27b822f2bc920875",
-          "eventClusterId": "98df817f33498e0b",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.5,
-              "evidence": "SF-headquartered lab"
-            }
-          ]
-        }
-      ],
-      "cities": [],
-      "score": 0.523920268083067
+      "score": 0.4938642793850639
     },
     {
       "id": "3eb1286bcfef4e45",
@@ -2404,53 +2544,59 @@
         }
       ],
       "cities": [],
-      "score": 0.5207699004415203
+      "score": 0.49319575896676593
     },
     {
-      "id": "d797dd5432feb4ba",
-      "title": "Scotland imposes mandatory environmental assessments on new datacentres",
-      "summary": "Government announces before vote on moratorium that any projects above 50MW must submit assessments in planning process Large-scale datacentres will face mandatory environmental assessments before they can go ahead, the Scottish government has announced, amid growing public concern about the impact of the AI boom. Ahead of a vote on a moratorium on new hyperscale datacentres in Holyrood on Wednesday, the Scottish gov",
-      "category": "AI News",
+      "id": "98df817f33498e0b",
+      "title": "Political opposites unite in Washington to rein in AI",
+      "summary": "From Bernie Sanders to Steve Bannon, political opposites in Washington are jointly demanding hard brakes on artificial intelligence. Sanders wants a construction freeze on data centers, while OpenAI is backing the FRONTIER Act and its mandatory outside safety audits for the first time. Despite Trump's skepticism, bipartisan pressure for binding AI rules keeps growing. The article Political opposites unite in Washingt",
+      "category": "AI Policy",
       "tags": [
-        "scotland",
-        "imposes",
-        "mandatory",
-        "environmental",
-        "assessments",
-        "datacentres"
+        "political",
+        "opposites",
+        "unite",
+        "washington",
+        "rein"
       ],
-      "firstSeenAt": "2026-09-16T11:55:33.000Z",
-      "lastSeenAt": "2026-09-16T11:55:33.000Z",
+      "firstSeenAt": "2026-09-16T14:59:58.000Z",
+      "lastSeenAt": "2026-09-16T14:59:58.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "b105e96b10ba273c",
-          "title": "Scotland imposes mandatory environmental assessments on new datacentres",
-          "summary": "Government announces before vote on moratorium that any projects above 50MW must submit assessments in planning process Large-scale datacentres will face mandatory environmental assessments before they can go ahead, the Scottish government has announced, amid growing public concern about the impact of the AI boom. Ahead of a vote on a moratorium on new hyperscale datacentres in Holyrood on Wednesday, the Scottish gov",
-          "sourceId": "guardian-tech",
-          "sourceName": "The Guardian",
-          "sourceUrl": "https://www.theguardian.com/uk-news/2026/sep/16/datacentres-scotland-environmental-assessments-ai-boom",
-          "author": "Patrick Greenfield",
-          "publishedAt": "2026-09-16T11:55:33.000Z",
+          "id": "53c5525a63920d46",
+          "title": "Political opposites unite in Washington to rein in AI",
+          "summary": "From Bernie Sanders to Steve Bannon, political opposites in Washington are jointly demanding hard brakes on artificial intelligence. Sanders wants a construction freeze on data centers, while OpenAI is backing the FRONTIER Act and its mandatory outside safety audits for the first time. Despite Trump's skepticism, bipartisan pressure for binding AI rules keeps growing. The article Political opposites unite in Washingt",
+          "sourceId": "the-decoder",
+          "sourceName": "The Decoder",
+          "sourceUrl": "https://the-decoder.com/political-opposites-unite-in-washington-to-rein-in-ai/",
+          "author": "Maximilian Schreiner",
+          "publishedAt": "2026-09-16T14:59:58.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI News",
+          "category": "AI Policy",
           "tags": [
-            "scotland",
-            "imposes",
-            "mandatory",
-            "environmental",
-            "assessments",
-            "datacentres"
+            "political",
+            "opposites",
+            "unite",
+            "washington",
+            "rein"
           ],
-          "contentHash": "7c67318f1f83f2d9",
-          "eventClusterId": "d797dd5432feb4ba",
-          "locations": []
+          "contentHash": "27b822f2bc920875",
+          "eventClusterId": "98df817f33498e0b",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.5,
+              "evidence": "SF-headquartered lab"
+            }
+          ]
         }
       ],
       "cities": [],
-      "score": 0.5181491351902592
+      "score": 0.49025048964724427
     },
     {
       "id": "cd6485b54d96adea",
@@ -2506,129 +2652,7 @@
         }
       ],
       "cities": [],
-      "score": 0.5160407952901603
-    },
-    {
-      "id": "3a79e6f1e9337dc0",
-      "title": "NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 Debut",
-      "summary": "System performance, efficient infrastructure scaling and continuous software optimization are key levers that determine AI inference economics. Higher system performance means more tokens generated, resulting in higher revenue. Efficient scaling means throughput grows proportionally as hardware gets added, requiring fewer resources to serve users at scale. Continuous optimization means generating more value from infr",
-      "category": "AI Business",
-      "tags": [
-        "nvidia",
-        "vera",
-        "rubin",
-        "nvl72",
-        "delivers",
-        "leading",
-        "performance",
-        "mlperf",
-        "infra",
-        "summit"
-      ],
-      "firstSeenAt": "2026-09-14T09:16:39.000Z",
-      "lastSeenAt": "2026-09-16T15:00:48.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "ea036affdb4ce612",
-          "title": "NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 Debut",
-          "summary": "System performance, efficient infrastructure scaling and continuous software optimization are key levers that determine AI inference economics. Higher system performance means more tokens generated, resulting in higher revenue. Efficient scaling means throughput grows proportionally as hardware gets added, requiring fewer resources to serve users at scale. Continuous optimization means generating more value from infr",
-          "sourceId": "nvidia-blog",
-          "sourceName": "NVIDIA",
-          "sourceUrl": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-mlperf-inference/",
-          "author": "Zhihan Jiang",
-          "publishedAt": "2026-09-16T15:00:48.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Business",
-          "tags": [
-            "nvidia",
-            "vera",
-            "rubin",
-            "nvl72",
-            "delivers",
-            "leading",
-            "performance",
-            "mlperf"
-          ],
-          "contentHash": "83a57e601c3cac32",
-          "eventClusterId": "3a79e6f1e9337dc0",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.5,
-              "evidence": "Bay Area firm"
-            }
-          ]
-        },
-        {
-          "id": "0d279f02b5d14f9c",
-          "title": "AI Infra Summit: NVIDIA Vera Rubin and DSX Platform Advancements Showcase Energy Efficiencies of Optimizing Tokens Per Watt for AI Factories",
-          "summary": "Ian Buck, vice president of hyperscale and high-performance computing at NVIDIA, Tuesday spoke on AI factory efficiency at the AI Infra Summit, the Santa Clara Convention Center event that has morphed into a Coachella of infrastructure tech. Before a packed audience — with more than 8,000 attendees this year, up from 3,500 last year — […]",
-          "sourceId": "nvidia-blog",
-          "sourceName": "NVIDIA",
-          "sourceUrl": "https://blogs.nvidia.com/blog/ai-infra-summit-vera-rubin-dsx-energy-efficiencies-tokens-per-watt-ai-factories/",
-          "author": "NVIDIA Writers",
-          "publishedAt": "2026-09-15T16:55:40.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Business",
-          "tags": [
-            "infra",
-            "summit",
-            "nvidia",
-            "vera",
-            "rubin",
-            "dsx",
-            "platform",
-            "advancements"
-          ],
-          "contentHash": "e18e58f188a2dbd4",
-          "eventClusterId": "3a79e6f1e9337dc0",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.82,
-              "evidence": "santa clara"
-            }
-          ]
-        },
-        {
-          "id": "e848ac2e10d4bbc1",
-          "title": "Intelligence per Watt: Measuring Intelligence Efficiency of Local AI",
-          "summary": "Article URL: https://arxiv.org/abs/2511.07885 Comments URL: https://news.ycombinator.com/item?id=49694035 Points: 138 # Comments: 46",
-          "sourceId": "hn-ai",
-          "sourceName": "Hacker News",
-          "sourceUrl": "https://arxiv.org/abs/2511.07885",
-          "author": "pythonic_hell",
-          "publishedAt": "2026-09-14T09:16:39.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Research",
-          "tags": [
-            "intelligence",
-            "per",
-            "watt",
-            "measuring",
-            "efficiency",
-            "local"
-          ],
-          "contentHash": "1cd1a564c685c45e",
-          "eventClusterId": "3a79e6f1e9337dc0",
-          "locations": []
-        }
-      ],
-      "cities": [
-        "San Francisco"
-      ],
-      "score": 0.5160251640134486
+      "score": 0.4897724518798148
     },
     {
       "id": "d50ff8d9924c97a1",
@@ -2695,7 +2719,53 @@
       "cities": [
         "London"
       ],
-      "score": 0.5081510426996616
+      "score": 0.4814868151506351
+    },
+    {
+      "id": "119acdf89e9a4462",
+      "title": "How to Use AI to Plan a Trip: Better Prompts for Travel Recommendations",
+      "summary": "Generic questions get generic answers, experts say, so to avoid mediocre recommendations, you’ll need to write smarter prompts. Follow these tips.",
+      "category": "AI News",
+      "tags": [
+        "plan",
+        "trip",
+        "better",
+        "prompts",
+        "travel",
+        "recommendations"
+      ],
+      "firstSeenAt": "2026-09-16T09:02:18.000Z",
+      "lastSeenAt": "2026-09-16T09:02:18.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "08af6d8c84c32ea2",
+          "title": "How to Use AI to Plan a Trip: Better Prompts for Travel Recommendations",
+          "summary": "Generic questions get generic answers, experts say, so to avoid mediocre recommendations, you’ll need to write smarter prompts. Follow these tips.",
+          "sourceId": "nyt-tech",
+          "sourceName": "The New York Times",
+          "sourceUrl": "https://www.nytimes.com/2026/09/16/travel/ai-trip-planning-prompts.html",
+          "author": "Seth Kugel",
+          "publishedAt": "2026-09-16T09:02:18.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI News",
+          "tags": [
+            "plan",
+            "trip",
+            "better",
+            "prompts",
+            "travel",
+            "recommendations"
+          ],
+          "contentHash": "f50ba09e1b3f56c7",
+          "eventClusterId": "119acdf89e9a4462",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.47404189710974015
     },
     {
       "id": "2e9152711ca2342b",
@@ -2763,53 +2833,57 @@
       "cities": [
         "London"
       ],
-      "score": 0.5012648080252283
+      "score": 0.47228415615412433
     },
     {
-      "id": "119acdf89e9a4462",
-      "title": "How to Use AI to Plan a Trip: Better Prompts for Travel Recommendations",
-      "summary": "Generic questions get generic answers, experts say, so to avoid mediocre recommendations, you’ll need to write smarter prompts. Follow these tips.",
-      "category": "AI News",
+      "id": "ac7ac72504a811ce",
+      "title": "Wednesday briefing: Why tech companies might be only too happy for us to believe AI will ‘kill us all’",
+      "summary": "In today’s newsletter: It is hard to tell fact from fiction when it comes to AI. What is really going on – and what should the government do about it? Good morning. As a general rule, it pays to be suspicious of any gigantic company that claims it’s developing a tool capable of destroying humanity. But in recent days, a number of warnings from the AI industry have suggested that even tech insiders are starting to wor",
+      "category": "AI Policy",
       "tags": [
-        "plan",
-        "trip",
-        "better",
-        "prompts",
-        "travel",
-        "recommendations"
+        "wednesday",
+        "briefing",
+        "tech",
+        "companies",
+        "might",
+        "happy",
+        "believe",
+        "kill"
       ],
-      "firstSeenAt": "2026-09-16T09:02:18.000Z",
-      "lastSeenAt": "2026-09-16T09:02:18.000Z",
+      "firstSeenAt": "2026-09-16T05:45:20.000Z",
+      "lastSeenAt": "2026-09-16T05:45:20.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "08af6d8c84c32ea2",
-          "title": "How to Use AI to Plan a Trip: Better Prompts for Travel Recommendations",
-          "summary": "Generic questions get generic answers, experts say, so to avoid mediocre recommendations, you’ll need to write smarter prompts. Follow these tips.",
-          "sourceId": "nyt-tech",
-          "sourceName": "The New York Times",
-          "sourceUrl": "https://www.nytimes.com/2026/09/16/travel/ai-trip-planning-prompts.html",
-          "author": "Seth Kugel",
-          "publishedAt": "2026-09-16T09:02:18.000Z",
+          "id": "5a85ef030ec95d10",
+          "title": "Wednesday briefing: Why tech companies might be only too happy for us to believe AI will ‘kill us all’",
+          "summary": "In today’s newsletter: It is hard to tell fact from fiction when it comes to AI. What is really going on – and what should the government do about it? Good morning. As a general rule, it pays to be suspicious of any gigantic company that claims it’s developing a tool capable of destroying humanity. But in recent days, a number of warnings from the AI industry have suggested that even tech insiders are starting to wor",
+          "sourceId": "guardian-tech",
+          "sourceName": "The Guardian",
+          "sourceUrl": "https://www.theguardian.com/world/2026/sep/16/wednesday-briefing-why-tech-companies-might-be-only-too-happy-for-us-to-believe-ai-will-kill-us-all",
+          "author": "Hettie O'Brien",
+          "publishedAt": "2026-09-16T05:45:20.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI News",
+          "category": "AI Policy",
           "tags": [
-            "plan",
-            "trip",
-            "better",
-            "prompts",
-            "travel",
-            "recommendations"
+            "wednesday",
+            "briefing",
+            "tech",
+            "companies",
+            "might",
+            "happy",
+            "believe",
+            "kill"
           ],
-          "contentHash": "f50ba09e1b3f56c7",
-          "eventClusterId": "119acdf89e9a4462",
+          "contentHash": "fb6372564bd26c3d",
+          "eventClusterId": "ac7ac72504a811ce",
           "locations": []
         }
       ],
       "cities": [],
-      "score": 0.4990336302834732
+      "score": 0.4636585395219964
     },
     {
       "id": "723dab7f7ee64253",
@@ -2849,7 +2923,7 @@
         }
       ],
       "cities": [],
-      "score": 0.4929752576517661
+      "score": 0.4628227733045249
     },
     {
       "id": "d149a7cb8e5ced17",
@@ -2899,7 +2973,7 @@
         }
       ],
       "cities": [],
-      "score": 0.48569573425685775
+      "score": 0.4609588579752619
     },
     {
       "id": "44551cec8817a064",
@@ -2947,7 +3021,7 @@
         }
       ],
       "cities": [],
-      "score": 0.48273801869325994
+      "score": 0.45674621597497667
     },
     {
       "id": "a29e736e318bee8e",
@@ -2997,7 +3071,7 @@
         }
       ],
       "cities": [],
-      "score": 0.4699368614031615
+      "score": 0.4472724685282705
     },
     {
       "id": "12282b2926f192f8",
@@ -3047,51 +3121,49 @@
         }
       ],
       "cities": [],
-      "score": 0.46922028505142754
+      "score": 0.446650130680292
     },
     {
-      "id": "87329df60cd0997f",
-      "title": "Zopa moves into AI voice banking services",
-      "summary": "Zopacustomers can now send money to friends and settle invoices through AI voicetechnology, as the UK digital bank moves into conversational banking. Customersof the savings and current account bank, ...",
-      "category": "AI Policy",
+      "id": "9e6b09511eb4ab63",
+      "title": "How to connect AI usage to business value",
+      "summary": "Learn how ChatGPT Work and Codex analytics help teams understand AI usage and spend, identify training needs, and connect adoption to business outcomes.",
+      "category": "AI News",
       "tags": [
-        "zopa",
-        "moves",
-        "voice",
-        "banking",
-        "services"
+        "connect",
+        "usage",
+        "business",
+        "value"
       ],
-      "firstSeenAt": "2026-09-16T10:51:00.000Z",
-      "lastSeenAt": "2026-09-16T10:51:00.000Z",
+      "firstSeenAt": "2026-09-16T12:00:00.000Z",
+      "lastSeenAt": "2026-09-16T12:00:00.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "256d8f206b946397",
-          "title": "Zopa moves into AI voice banking services",
-          "summary": "Zopacustomers can now send money to friends and settle invoices through AI voicetechnology, as the UK digital bank moves into conversational banking. Customersof the savings and current account bank, ...",
-          "sourceId": "tech-eu",
-          "sourceName": "Tech.eu",
-          "sourceUrl": "https://tech.eu/2026/09/16/zopa-moves-into-voice-ai-banking-services/",
-          "author": "John Reynolds",
-          "publishedAt": "2026-09-16T10:51:00.000Z",
+          "id": "13c221e8d9204844",
+          "title": "How to connect AI usage to business value",
+          "summary": "Learn how ChatGPT Work and Codex analytics help teams understand AI usage and spend, identify training needs, and connect adoption to business outcomes.",
+          "sourceId": "openai",
+          "sourceName": "OpenAI",
+          "sourceUrl": "https://openai.com/index/how-to-connect-ai-usage-to-business-value",
+          "author": null,
+          "publishedAt": "2026-09-16T12:00:00.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI Policy",
+          "category": "AI News",
           "tags": [
-            "zopa",
-            "moves",
-            "voice",
-            "banking",
-            "services"
+            "connect",
+            "usage",
+            "business",
+            "value"
           ],
-          "contentHash": "b231d0dacfe0c968",
-          "eventClusterId": "87329df60cd0997f",
+          "contentHash": "e61208b3f73eabc5",
+          "eventClusterId": "9e6b09511eb4ab63",
           "locations": []
         }
       ],
       "cities": [],
-      "score": 0.46815123912741957
+      "score": 0.4417349483464181
     },
     {
       "id": "64d392c8539ff1bd",
@@ -3141,7 +3213,51 @@
         }
       ],
       "cities": [],
-      "score": 0.46340956762862795
+      "score": 0.44160359325637966
+    },
+    {
+      "id": "87329df60cd0997f",
+      "title": "Zopa moves into AI voice banking services",
+      "summary": "Zopacustomers can now send money to friends and settle invoices through AI voicetechnology, as the UK digital bank moves into conversational banking. Customersof the savings and current account bank, ...",
+      "category": "AI Policy",
+      "tags": [
+        "zopa",
+        "moves",
+        "voice",
+        "banking",
+        "services"
+      ],
+      "firstSeenAt": "2026-09-16T10:51:00.000Z",
+      "lastSeenAt": "2026-09-16T10:51:00.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "256d8f206b946397",
+          "title": "Zopa moves into AI voice banking services",
+          "summary": "Zopacustomers can now send money to friends and settle invoices through AI voicetechnology, as the UK digital bank moves into conversational banking. Customersof the savings and current account bank, ...",
+          "sourceId": "tech-eu",
+          "sourceName": "Tech.eu",
+          "sourceUrl": "https://tech.eu/2026/09/16/zopa-moves-into-voice-ai-banking-services/",
+          "author": "John Reynolds",
+          "publishedAt": "2026-09-16T10:51:00.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "zopa",
+            "moves",
+            "voice",
+            "banking",
+            "services"
+          ],
+          "contentHash": "b231d0dacfe0c968",
+          "eventClusterId": "87329df60cd0997f",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.4407899712982421
     },
     {
       "id": "9ff719ae5078e16c",
@@ -3189,7 +3305,7 @@
         }
       ],
       "cities": [],
-      "score": 0.4605441787321093
+      "score": 0.4343148440059774
     },
     {
       "id": "72e6b9504f26d767",
@@ -3235,7 +3351,55 @@
         }
       ],
       "cities": [],
-      "score": 0.45624999566860514
+      "score": 0.42730680008568916
+    },
+    {
+      "id": "0bc4d9fb931c033b",
+      "title": "AI app ads promoting 'objectification of women' banned by watchdog",
+      "summary": "The ad regulator said it had \"zero-tolerance\" for ads promoting AI tools that could sexualise or objectify women.",
+      "category": "AI Policy",
+      "tags": [
+        "app",
+        "ads",
+        "promoting",
+        "objectification",
+        "women",
+        "banned",
+        "watchdog"
+      ],
+      "firstSeenAt": "2026-09-15T23:27:17.000Z",
+      "lastSeenAt": "2026-09-15T23:27:17.000Z",
+      "imageUrl": null,
+      "articles": [
+        {
+          "id": "d2edc5aec546f646",
+          "title": "AI app ads promoting 'objectification of women' banned by watchdog",
+          "summary": "The ad regulator said it had \"zero-tolerance\" for ads promoting AI tools that could sexualise or objectify women.",
+          "sourceId": "bbc-tech",
+          "sourceName": "BBC News",
+          "sourceUrl": "https://www.bbc.co.uk/news/articles/cmlyrn2n4zg5o?at_medium=RSS&at_campaign=rss",
+          "author": null,
+          "publishedAt": "2026-09-15T23:27:17.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Policy",
+          "tags": [
+            "app",
+            "ads",
+            "promoting",
+            "objectification",
+            "women",
+            "banned",
+            "watchdog"
+          ],
+          "contentHash": "dc3bde4915e78b26",
+          "eventClusterId": "0bc4d9fb931c033b",
+          "locations": []
+        }
+      ],
+      "cities": [],
+      "score": 0.4185089050964228
     },
     {
       "id": "54f9e417ea3894c7",
@@ -3285,234 +3449,54 @@
         }
       ],
       "cities": [],
-      "score": 0.44010626059115604
+      "score": 0.41640957627507197
     },
     {
-      "id": "0bc4d9fb931c033b",
-      "title": "AI app ads promoting 'objectification of women' banned by watchdog",
-      "summary": "The ad regulator said it had \"zero-tolerance\" for ads promoting AI tools that could sexualise or objectify women.",
-      "category": "AI Policy",
-      "tags": [
-        "app",
-        "ads",
-        "promoting",
-        "objectification",
-        "women",
-        "banned",
-        "watchdog"
-      ],
-      "firstSeenAt": "2026-09-15T23:27:17.000Z",
-      "lastSeenAt": "2026-09-15T23:27:17.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "d2edc5aec546f646",
-          "title": "AI app ads promoting 'objectification of women' banned by watchdog",
-          "summary": "The ad regulator said it had \"zero-tolerance\" for ads promoting AI tools that could sexualise or objectify women.",
-          "sourceId": "bbc-tech",
-          "sourceName": "BBC News",
-          "sourceUrl": "https://www.bbc.co.uk/news/articles/cmlyrn2n4zg5o?at_medium=RSS&at_campaign=rss",
-          "author": null,
-          "publishedAt": "2026-09-15T23:27:17.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Policy",
-          "tags": [
-            "app",
-            "ads",
-            "promoting",
-            "objectification",
-            "women",
-            "banned",
-            "watchdog"
-          ],
-          "contentHash": "dc3bde4915e78b26",
-          "eventClusterId": "0bc4d9fb931c033b",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.43398605198386275
-    },
-    {
-      "id": "65a8d150624c8d54",
-      "title": "How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip",
-      "summary": "On 25 August, OpenAI fully unveiled Jalapeño, the company’s debut AI accelerator chip. Jalapeño delivers up to 13.4 petaflops of 4-bit compute and accesses 232 gigabytes of the most advanced memory available, linking to it at a blazing 15.4 terabytes per second. Benchmarks cited by OpenAI show that Jalapeño can reduce end-to-end latency (the time between prompt to last token) by up to 3.6x when compared to Nvidia’s G",
-      "category": "AI Policy",
-      "tags": [
-        "openai",
-        "llms",
-        "design",
-        "jalape",
-        "chip"
-      ],
-      "firstSeenAt": "2026-09-14T14:06:31.000Z",
-      "lastSeenAt": "2026-09-14T14:06:31.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "cf5eb782cdc52cbc",
-          "title": "How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip",
-          "summary": "On 25 August, OpenAI fully unveiled Jalapeño, the company’s debut AI accelerator chip. Jalapeño delivers up to 13.4 petaflops of 4-bit compute and accesses 232 gigabytes of the most advanced memory available, linking to it at a blazing 15.4 terabytes per second. Benchmarks cited by OpenAI show that Jalapeño can reduce end-to-end latency (the time between prompt to last token) by up to 3.6x when compared to Nvidia’s G",
-          "sourceId": "ieee-spectrum",
-          "sourceName": "IEEE Spectrum",
-          "sourceUrl": "https://spectrum.ieee.org/llms-for-chip-design",
-          "author": "Matthew S. Smith",
-          "publishedAt": "2026-09-14T14:06:31.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Policy",
-          "tags": [
-            "openai",
-            "llms",
-            "design",
-            "jalape",
-            "chip"
-          ],
-          "contentHash": "cb7bf963906c7094",
-          "eventClusterId": "65a8d150624c8d54",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.58,
-              "evidence": "SF-headquartered lab"
-            }
-          ]
-        },
-        {
-          "id": "4dbdaadd8a23789c",
-          "title": "How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip",
-          "summary": "On 25 August, OpenAI fully unveiled Jalapeño, the company’s debut AI accelerator chip. Jalapeño delivers up to 13.4 petaflops of 4-bit compute and accesses 232 gigabytes of the most advanced memory available, linking to it at a blazing 15.4 terabytes per second. Benchmarks cited by OpenAI show that Jalapeño can reduce end-to-end latency (the time between prompt to last token) by up to 3.6x when compared to Nvidia’s G",
-          "sourceId": "ieee-computing",
-          "sourceName": "IEEE Spectrum",
-          "sourceUrl": "https://spectrum.ieee.org/llms-for-chip-design",
-          "author": "Matthew S. Smith",
-          "publishedAt": "2026-09-14T14:06:31.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Policy",
-          "tags": [
-            "openai",
-            "llms",
-            "design",
-            "jalape",
-            "chip"
-          ],
-          "contentHash": "cb7bf963906c7094",
-          "eventClusterId": "65a8d150624c8d54",
-          "locations": [
-            {
-              "city": "San Francisco",
-              "state": "California",
-              "country": "United States",
-              "confidence": 0.58,
-              "evidence": "SF-headquartered lab"
-            }
-          ]
-        }
-      ],
-      "cities": [],
-      "score": 0.42944716064533406
-    },
-    {
-      "id": "74d9677203f11e77",
-      "title": "The AI data center boom is colliding with cities scarred by big industry",
-      "summary": "National outcry against data center construction has spread to Philadelphia, where officials suggested possible construction in a neighborhood already impacted by a now-defunct oil refinery.",
-      "category": "AI Startups",
-      "tags": [
-        "data",
-        "center",
-        "boom",
-        "colliding",
-        "cities",
-        "scarred",
-        "big",
-        "industry"
-      ],
-      "firstSeenAt": "2026-09-15T21:47:38.000Z",
-      "lastSeenAt": "2026-09-15T21:47:38.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "09f34b99a08d38b9",
-          "title": "The AI data center boom is colliding with cities scarred by big industry",
-          "summary": "National outcry against data center construction has spread to Philadelphia, where officials suggested possible construction in a neighborhood already impacted by a now-defunct oil refinery.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/the-ai-data-center-boom-is-colliding-with-cities-scarred-by-big-industry/",
-          "author": "Amanda Silberling",
-          "publishedAt": "2026-09-15T21:47:38.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "data",
-            "center",
-            "boom",
-            "colliding",
-            "cities",
-            "scarred",
-            "big",
-            "industry"
-          ],
-          "contentHash": "5f95418a9d31491f",
-          "eventClusterId": "74d9677203f11e77",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.42150798002863543
-    },
-    {
-      "id": "a33fa268f001b02a",
-      "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
-      "summary": "AI factories are the infrastructure of the intelligence era. Scaling them responsibly will depend as much on innovation across the grid as inside the data center. Today, Emerald AI, Google and NVIDIA announced the launch of the AI Energy Management Alliance (AEMA), a first-of-its-kind coalition advancing data centers that can dynamically manage their electricity use […]",
+      "id": "40db5a7e7164a4d3",
+      "title": "NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 Debut",
+      "summary": "System performance, efficient infrastructure scaling and continuous software optimization are key levers that determine AI inference economics. Higher system performance means more tokens generated, resulting in higher revenue. Efficient scaling means throughput grows proportionally as hardware gets added, requiring fewer resources to serve users at scale. Continuous optimization means generating more value from infr",
       "category": "AI Business",
       "tags": [
-        "emerald",
-        "google",
         "nvidia",
-        "launch",
-        "alliance",
-        "advance",
-        "flexible",
-        "data"
+        "vera",
+        "rubin",
+        "nvl72",
+        "delivers",
+        "leading",
+        "performance",
+        "mlperf",
+        "infra",
+        "summit"
       ],
-      "firstSeenAt": "2026-09-16T13:00:33.000Z",
-      "lastSeenAt": "2026-09-16T13:00:33.000Z",
+      "firstSeenAt": "2026-09-15T16:55:40.000Z",
+      "lastSeenAt": "2026-09-16T15:00:48.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "8087ab6d89464117",
-          "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
-          "summary": "AI factories are the infrastructure of the intelligence era. Scaling them responsibly will depend as much on innovation across the grid as inside the data center. Today, Emerald AI, Google and NVIDIA announced the launch of the AI Energy Management Alliance (AEMA), a first-of-its-kind coalition advancing data centers that can dynamically manage their electricity use […]",
+          "id": "ea036affdb4ce612",
+          "title": "NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 Debut",
+          "summary": "System performance, efficient infrastructure scaling and continuous software optimization are key levers that determine AI inference economics. Higher system performance means more tokens generated, resulting in higher revenue. Efficient scaling means throughput grows proportionally as hardware gets added, requiring fewer resources to serve users at scale. Continuous optimization means generating more value from infr",
           "sourceId": "nvidia-blog",
           "sourceName": "NVIDIA",
-          "sourceUrl": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
-          "author": "Josh Parker",
-          "publishedAt": "2026-09-16T13:00:33.000Z",
+          "sourceUrl": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-mlperf-inference/",
+          "author": "Zhihan Jiang",
+          "publishedAt": "2026-09-16T15:00:48.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
           "category": "AI Business",
           "tags": [
-            "emerald",
-            "google",
             "nvidia",
-            "launch",
-            "alliance",
-            "advance",
-            "flexible",
-            "data"
+            "vera",
+            "rubin",
+            "nvl72",
+            "delivers",
+            "leading",
+            "performance",
+            "mlperf"
           ],
-          "contentHash": "cd2c7d25d4e03465",
-          "eventClusterId": "a33fa268f001b02a",
+          "contentHash": "83a57e601c3cac32",
+          "eventClusterId": "40db5a7e7164a4d3",
           "locations": [
             {
               "city": "San Francisco",
@@ -3522,10 +3506,47 @@
               "evidence": "Bay Area firm"
             }
           ]
+        },
+        {
+          "id": "0d279f02b5d14f9c",
+          "title": "AI Infra Summit: NVIDIA Vera Rubin and DSX Platform Advancements Showcase Energy Efficiencies of Optimizing Tokens Per Watt for AI Factories",
+          "summary": "Ian Buck, vice president of hyperscale and high-performance computing at NVIDIA, Tuesday spoke on AI factory efficiency at the AI Infra Summit, the Santa Clara Convention Center event that has morphed into a Coachella of infrastructure tech. Before a packed audience — with more than 8,000 attendees this year, up from 3,500 last year — […]",
+          "sourceId": "nvidia-blog",
+          "sourceName": "NVIDIA",
+          "sourceUrl": "https://blogs.nvidia.com/blog/ai-infra-summit-vera-rubin-dsx-energy-efficiencies-tokens-per-watt-ai-factories/",
+          "author": "NVIDIA Writers",
+          "publishedAt": "2026-09-15T16:55:40.000Z",
+          "updatedAt": null,
+          "imageUrl": null,
+          "language": "en",
+          "category": "AI Business",
+          "tags": [
+            "infra",
+            "summit",
+            "nvidia",
+            "vera",
+            "rubin",
+            "dsx",
+            "platform",
+            "advancements"
+          ],
+          "contentHash": "e18e58f188a2dbd4",
+          "eventClusterId": "40db5a7e7164a4d3",
+          "locations": [
+            {
+              "city": "San Francisco",
+              "state": "California",
+              "country": "United States",
+              "confidence": 0.82,
+              "evidence": "santa clara"
+            }
+          ]
         }
       ],
-      "cities": [],
-      "score": 0.4214154852936363
+      "cities": [
+        "San Francisco"
+      ],
+      "score": 0.41400396266921374
     },
     {
       "id": "19450ae46486a56d",
@@ -3575,76 +3596,57 @@
         }
       ],
       "cities": [],
-      "score": 0.42089421868126786
+      "score": 0.40878270906745706
     },
     {
-      "id": "178bd3f2fc19aa60",
-      "title": "Adversarial Fashion Confronts Surveillance Norms",
-      "summary": "Article URL: https://spectrum.ieee.org/adversarial-fashion Comments URL: https://news.ycombinator.com/item?id=49697094 Points: 111 # Comments: 48",
-      "category": "AI News",
+      "id": "74d9677203f11e77",
+      "title": "The AI data center boom is colliding with cities scarred by big industry",
+      "summary": "National outcry against data center construction has spread to Philadelphia, where officials suggested possible construction in a neighborhood already impacted by a now-defunct oil refinery.",
+      "category": "AI Startups",
       "tags": [
-        "adversarial",
-        "fashion",
-        "statement",
-        "panopticon",
-        "confronts",
-        "surveillance",
-        "norms"
+        "data",
+        "center",
+        "boom",
+        "colliding",
+        "cities",
+        "scarred",
+        "big",
+        "industry"
       ],
-      "firstSeenAt": "2026-09-14T13:00:03.000Z",
-      "lastSeenAt": "2026-09-14T14:04:53.000Z",
+      "firstSeenAt": "2026-09-15T21:47:38.000Z",
+      "lastSeenAt": "2026-09-15T21:47:38.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "699e454b214b34db",
-          "title": "Adversarial Fashion Makes a Statement on AI Panopticon",
-          "summary": "Article URL: https://spectrum.ieee.org/adversarial-fashion Comments URL: https://news.ycombinator.com/item?id=49697094 Points: 111 # Comments: 48",
-          "sourceId": "hn-ai",
-          "sourceName": "Hacker News",
-          "sourceUrl": "https://spectrum.ieee.org/adversarial-fashion",
-          "author": "rbanffy",
-          "publishedAt": "2026-09-14T14:04:53.000Z",
+          "id": "09f34b99a08d38b9",
+          "title": "The AI data center boom is colliding with cities scarred by big industry",
+          "summary": "National outcry against data center construction has spread to Philadelphia, where officials suggested possible construction in a neighborhood already impacted by a now-defunct oil refinery.",
+          "sourceId": "techcrunch-ai",
+          "sourceName": "TechCrunch",
+          "sourceUrl": "https://techcrunch.com/2026/09/15/the-ai-data-center-boom-is-colliding-with-cities-scarred-by-big-industry/",
+          "author": "Amanda Silberling",
+          "publishedAt": "2026-09-15T21:47:38.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI News",
+          "category": "AI Startups",
           "tags": [
-            "adversarial",
-            "fashion",
-            "statement",
-            "panopticon"
+            "data",
+            "center",
+            "boom",
+            "colliding",
+            "cities",
+            "scarred",
+            "big",
+            "industry"
           ],
-          "contentHash": "da5085e68ca9119f",
-          "eventClusterId": "178bd3f2fc19aa60",
-          "locations": []
-        },
-        {
-          "id": "e965516680208388",
-          "title": "Adversarial Fashion Confronts Surveillance Norms",
-          "summary": "AI-powered cameras dot streets across the world, equipped with the power to identify faces or vehicle license plates . But a public backlash is gaining momentum . Privacy concerns abound, encompassing the lack of consent for capturing data, how that data is stored and used , and the risk of misuse . Those concerns are motivating people to fight back. The DeFlock project, for instance, maps automated license plate rea",
-          "sourceId": "ieee-spectrum",
-          "sourceName": "IEEE Spectrum",
-          "sourceUrl": "https://spectrum.ieee.org/adversarial-fashion",
-          "author": "Rina Diane Caballar",
-          "publishedAt": "2026-09-14T13:00:03.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Policy",
-          "tags": [
-            "adversarial",
-            "fashion",
-            "confronts",
-            "surveillance",
-            "norms"
-          ],
-          "contentHash": "7757006d746b81ca",
-          "eventClusterId": "178bd3f2fc19aa60",
+          "contentHash": "5f95418a9d31491f",
+          "eventClusterId": "74d9677203f11e77",
           "locations": []
         }
       ],
       "cities": [],
-      "score": 0.4167169457257555
+      "score": 0.4072641636397998
     },
     {
       "id": "4c5ff0956275dc12",
@@ -3702,163 +3704,65 @@
         }
       ],
       "cities": [],
-      "score": 0.4132850678067407
+      "score": 0.40012266436494015
     },
     {
-      "id": "ecfe3623943f91fc",
-      "title": "AI and data centers are incredibly unpopular in every poll",
-      "summary": "Poll data released Tuesday by The New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
-      "category": "AI News",
+      "id": "a33fa268f001b02a",
+      "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
+      "summary": "AI factories are the infrastructure of the intelligence era. Scaling them responsibly will depend as much on innovation across the grid as inside the data center. Today, Emerald AI, Google and NVIDIA announced the launch of the AI Energy Management Alliance (AEMA), a first-of-its-kind coalition advancing data centers that can dynamically manage their electricity use […]",
+      "category": "AI Business",
       "tags": [
-        "data",
-        "centers",
-        "incredibly",
-        "unpopular",
-        "every",
-        "poll"
+        "emerald",
+        "google",
+        "nvidia",
+        "launch",
+        "alliance",
+        "advance",
+        "flexible",
+        "data"
       ],
-      "firstSeenAt": "2026-09-15T23:34:25.000Z",
-      "lastSeenAt": "2026-09-15T23:34:25.000Z",
+      "firstSeenAt": "2026-09-16T13:00:33.000Z",
+      "lastSeenAt": "2026-09-16T13:00:33.000Z",
       "imageUrl": null,
       "articles": [
         {
-          "id": "c9b9d035b692b5a2",
-          "title": "AI and data centers are incredibly unpopular in every poll",
-          "summary": "Poll data released Tuesday by The New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
-          "sourceId": "verge-ai",
-          "sourceName": "The Verge",
-          "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/995917/data-center-nyt-midterm-poll-september",
-          "author": null,
-          "publishedAt": "2026-09-15T23:34:25.000Z",
+          "id": "8087ab6d89464117",
+          "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
+          "summary": "AI factories are the infrastructure of the intelligence era. Scaling them responsibly will depend as much on innovation across the grid as inside the data center. Today, Emerald AI, Google and NVIDIA announced the launch of the AI Energy Management Alliance (AEMA), a first-of-its-kind coalition advancing data centers that can dynamically manage their electricity use […]",
+          "sourceId": "nvidia-blog",
+          "sourceName": "NVIDIA",
+          "sourceUrl": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
+          "author": "Josh Parker",
+          "publishedAt": "2026-09-16T13:00:33.000Z",
           "updatedAt": null,
           "imageUrl": null,
           "language": "en",
-          "category": "AI News",
+          "category": "AI Business",
           "tags": [
-            "data",
-            "centers",
-            "incredibly",
-            "unpopular",
-            "every",
-            "poll"
+            "emerald",
+            "google",
+            "nvidia",
+            "launch",
+            "alliance",
+            "advance",
+            "flexible",
+            "data"
           ],
-          "contentHash": "99c242f4efb9e1bd",
-          "eventClusterId": "ecfe3623943f91fc",
+          "contentHash": "cd2c7d25d4e03465",
+          "eventClusterId": "a33fa268f001b02a",
           "locations": [
             {
-              "city": "New York",
-              "state": "New York",
+              "city": "San Francisco",
+              "state": "California",
               "country": "United States",
-              "confidence": 0.82,
-              "evidence": "new york"
+              "confidence": 0.5,
+              "evidence": "Bay Area firm"
             }
           ]
         }
       ],
-      "cities": [
-        "New York"
-      ],
-      "score": 0.41178771360986116
-    },
-    {
-      "id": "7a305f3244895d91",
-      "title": "Bypassing inference bottlenecks: Accelerating complex AI search with Retrieve-for-Train",
-      "summary": "Algorithms & Theory",
-      "category": "AI Research",
-      "tags": [
-        "bypassing",
-        "inference",
-        "bottlenecks",
-        "accelerating",
-        "complex",
-        "search",
-        "retrieve",
-        "train"
-      ],
-      "firstSeenAt": "2026-09-15T20:00:35.000Z",
-      "lastSeenAt": "2026-09-15T20:00:35.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "f8913a07c19f3e7f",
-          "title": "Bypassing inference bottlenecks: Accelerating complex AI search with Retrieve-for-Train",
-          "summary": "Algorithms & Theory",
-          "sourceId": "google-research",
-          "sourceName": "Google Research",
-          "sourceUrl": "https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/",
-          "author": null,
-          "publishedAt": "2026-09-15T20:00:35.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Research",
-          "tags": [
-            "bypassing",
-            "inference",
-            "bottlenecks",
-            "accelerating",
-            "complex",
-            "search",
-            "retrieve",
-            "train"
-          ],
-          "contentHash": "070ead42b05fb6f0",
-          "eventClusterId": "7a305f3244895d91",
-          "locations": []
-        }
-      ],
       "cities": [],
-      "score": 0.4089412137610352
-    },
-    {
-      "id": "ebb6f97e281a0946",
-      "title": "US data centers could consume more natural gas than Germany and Japan combined by 2035",
-      "summary": "The AI frenzy could push U.S. data centers to become one of the largest consumers of natural gas in the world.",
-      "category": "AI Startups",
-      "tags": [
-        "data",
-        "centers",
-        "consume",
-        "natural",
-        "gas",
-        "germany",
-        "japan",
-        "combined"
-      ],
-      "firstSeenAt": "2026-09-15T18:29:20.000Z",
-      "lastSeenAt": "2026-09-15T18:29:20.000Z",
-      "imageUrl": null,
-      "articles": [
-        {
-          "id": "bb0457a4bc2ccea7",
-          "title": "US data centers could consume more natural gas than Germany and Japan combined by 2035",
-          "summary": "The AI frenzy could push U.S. data centers to become one of the largest consumers of natural gas in the world.",
-          "sourceId": "techcrunch-ai",
-          "sourceName": "TechCrunch",
-          "sourceUrl": "https://techcrunch.com/2026/09/15/us-data-centers-could-consume-more-natural-gas-than-germany-and-japan-combined-by-2035/",
-          "author": "Tim De Chant",
-          "publishedAt": "2026-09-15T18:29:20.000Z",
-          "updatedAt": null,
-          "imageUrl": null,
-          "language": "en",
-          "category": "AI Startups",
-          "tags": [
-            "data",
-            "centers",
-            "consume",
-            "natural",
-            "gas",
-            "germany",
-            "japan",
-            "combined"
-          ],
-          "contentHash": "a21d9da3d2ebee58",
-          "eventClusterId": "ebb6f97e281a0946",
-          "locations": []
-        }
-      ],
-      "cities": [],
-      "score": 0.40501069882473006
+      "score": 0.3970310943422849
     }
   ],
   "aiArtifacts": []

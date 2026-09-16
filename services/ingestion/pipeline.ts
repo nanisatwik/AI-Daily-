@@ -393,6 +393,20 @@ export function rank(
 
     const outlets = new Set(c.articles.map((a) => a.sourceId));
     /**
+     * Corroboration counts PUBLISHERS, not feeds.
+     *
+     * One publisher may be read through several feeds — IEEE Spectrum arrives
+     * on this wire as both `ieee-spectrum` and `ieee-computing` — and counting
+     * feed ids treated that as two independent outlets agreeing with each
+     * other. On the edition where this was found it had lifted two stories,
+     * one of them into the top five, on corroboration that did not exist.
+     *
+     * This is the same defect that kept Techmeme off the source list: a feed
+     * that manufactures corroboration is worse than no feed. It was then
+     * introduced by adding a second IEEE feed.
+     */
+    const publishers = new Set(c.articles.map((a) => a.sourceName));
+    /**
      * Zero when one outlet reported it, because one outlet reporting something
      * is not corroboration.
      *
@@ -405,7 +419,7 @@ export function rank(
      * coefficient. A three-outlet story on the day's biggest argument lost the
      * lead to a single-source cooling piece filed twenty minutes earlier.
      */
-    const corroboration = Math.min((outlets.size - 1) / 3, 1);
+    const corroboration = Math.min((publishers.size - 1) / 3, 1);
 
     /**
      * Mean trust across the outlets. Note this can in principle dilute: a

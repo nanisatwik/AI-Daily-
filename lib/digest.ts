@@ -45,14 +45,19 @@ function toStory(cluster: EventCluster): Story {
     .slice(0, 3)
     .map((a) => a.summary);
 
-  // One credit per outlet, newest report first. Two reports from the same
+  // One credit per PUBLISHER, newest report first. Two reports from the same
   // publication are one outlet's coverage, not two — the tally marks beside a
   // headline count independent corroboration, and the ranking counts distinct
-  // outlets as well. Crediting "TechCrunch, TechCrunch" overstated both.
+  // publishers as well. Crediting "TechCrunch, TechCrunch" overstated both.
+  //
+  // Keyed on the publisher's name rather than its feed id, because one
+  // publisher can be read through several feeds: IEEE Spectrum arrives here as
+  // both `ieee-spectrum` and `ieee-computing`, and deduping by id credited it
+  // twice and drew two tally marks for a single outlet.
   const credited = new Set<string>();
   const sources = byTime.filter((a) => {
-    if (credited.has(a.sourceId)) return false;
-    credited.add(a.sourceId);
+    if (credited.has(a.sourceName)) return false;
+    credited.add(a.sourceName);
     return true;
   });
 
@@ -227,7 +232,9 @@ export function getSearchIndex(): SearchDoc[] {
     sources: [...new Set(c.articles.map((a) => a.sourceName))],
     tags: c.tags,
     publishedAt: c.lastSeenAt,
-    sourceCount: new Set(c.articles.map((a) => a.sourceId)).size,
+    // By publisher name, not feed id — one publisher may arrive on several
+    // feeds, and search weights this the same way the ranking does.
+    sourceCount: new Set(c.articles.map((a) => a.sourceName)).size,
     cities: c.cities ?? [],
     score: c.score,
   }));
