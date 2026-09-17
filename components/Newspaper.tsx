@@ -189,8 +189,9 @@ export default function Newspaper({ pages, labels }: Props) {
       const el = segRefs.current[i];
       const s = g.segments[i];
       if (!el || !s) continue;
+      // Transform only. The strip's width rides in the transform as scaleX,
+      // because width is a layout property and this runs on every frame.
       el.style.transform = s.transform;
-      el.style.width = `${(s.width + 1).toFixed(2)}px`;
       // A shade over each strip is the cheapest way to light a curve: only the
       // child's opacity changes, so the compositor handles it.
       const shade = el.firstElementChild as HTMLElement | null;
@@ -596,6 +597,9 @@ export default function Newspaper({ pages, labels }: Props) {
                     style={{
                       top: "-12%",
                       height: "124%",
+                      // One pixel, scaled to the strip's real width by the
+                      // transform. See the note in lib/curl.ts.
+                      width: "1px",
                       transformOrigin: "0 0",
                       background: "var(--paper)",
                       willChange: "transform",

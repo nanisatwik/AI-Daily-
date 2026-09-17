@@ -132,9 +132,24 @@ export function curlGeometry(
     const sheen = 0.09 * Math.exp(-Math.pow((phi - 0.38) / 0.3, 2));
 
     segments.push({
+      /**
+       * The strip's width is carried as `scaleX`, not as a width.
+       *
+       * Every strip on the bend is the same width — `radius * dPhi` — and that
+       * width changes as the radius grows through the drag. It used to be
+       * written to `style.width` on all twenty-two strips on every frame, and
+       * width is a layout property: the browser had to re-run layout twenty-two
+       * times per frame, sixty times a second, for a value that is identical
+       * across the strips and only decorative in effect. `transform` never
+       * touches layout — the compositor applies it on the GPU — so the same
+       * geometry now costs nothing but a matrix. The strips are 1px wide in the
+       * markup and scaled to size from their left edge.
+       *
+       * The extra pixel closes the hairline seam between adjacent strips.
+       */
       transform: `translate3d(${x.toFixed(2)}px, 0px, ${z.toFixed(
         2
-      )}px) rotateY(${deg.toFixed(2)}deg)`,
+      )}px) rotateY(${deg.toFixed(2)}deg) scaleX(${(segWidth + 1).toFixed(3)})`,
       width: segWidth,
       light: Math.min((0.42 + 0.58 * facing) * reverse + sheen, 1),
     });
