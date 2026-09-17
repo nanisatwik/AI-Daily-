@@ -11,7 +11,7 @@ import {
 } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { PointingHand } from "./Ornament";
-import { curlGeometry, BEND_SEGMENTS } from "@/lib/curl";
+import { curlGeometry, BEND_SEGMENTS, segmentShade } from "@/lib/curl";
 import { travelProgress, shouldCommit } from "@/lib/turn";
 
 const PAPER_EASE = [0.22, 1, 0.28, 1] as const;
@@ -34,6 +34,9 @@ const FLICK_WINDOW_MS = 90;
  * path: onPointerDown declines those presses outright.
  */
 const TAP_ZONE = 0.16;
+/** Base width the cast shadow is scaled from; never rendered at this size. */
+const SHADOW_BASE = 100;
+
 /** Movement before a press becomes a drag, so clicks still work. */
 const SLOP = 8;
 /** A full, uninterrupted turn. */
@@ -90,6 +93,7 @@ export default function Newspaper({ pages, labels }: Props) {
   const curlLayer = useRef<HTMLDivElement>(null);
   const liftedRef = useRef<HTMLDivElement>(null);
   const shadowRef = useRef<HTMLDivElement>(null);
+  const shadowSpinRef = useRef<HTMLDivElement>(null);
   const segRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const size = useRef({ w: 0, h: 0 });
@@ -192,10 +196,6 @@ export default function Newspaper({ pages, labels }: Props) {
       // Transform only. The strip's width rides in the transform as scaleX,
       // because width is a layout property and this runs on every frame.
       el.style.transform = s.transform;
-      // A shade over each strip is the cheapest way to light a curve: only the
-      // child's opacity changes, so the compositor handles it.
-      const shade = el.firstElementChild as HTMLElement | null;
-      if (shade) shade.style.opacity = ((1 - s.light) * 0.62).toFixed(3);
     }
 
     const lifted = liftedRef.current;
@@ -208,14 +208,22 @@ export default function Newspaper({ pages, labels }: Props) {
 
     const shadow = shadowRef.current;
     if (shadow) {
-      shadow.style.left = `${g.shadow.left.toFixed(2)}px`;
-      shadow.style.width = `${g.shadow.width.toFixed(2)}px`;
-      shadow.style.opacity = g.shadow.opacity.toFixed(3);
-      // The cast follows the crease, so it leans with it.
-      shadow.style.transformOrigin = `${g.pivot.x.toFixed(
+      // Position and length as a transform, from a fixed base width.
+      shadow.style.transform = `translateX(${g.shadow.left.toFixed(
         2
-      )}px ${g.pivot.y.toFixed(2)}px`;
-      shadow.style.transform = `rotate(${g.rigRotateDeg.toFixed(3)}deg)`;
+      )}px) scaleX(${(g.shadow.width / SHADOW_BASE).toFixed(4)})`;
+      shadow.style.opacity = g.shadow.opacity.toFixed(3);
+      // The cast follows the crease, so it leans with it. The origin is
+      // compensated for the wrapper spanning the whole sheet where the cast
+      // itself used to start at its own left edge and hang 12% above the top,
+      // so the lean turns about exactly the point it always did.
+      const spin = shadowSpinRef.current;
+      if (spin) {
+        spin.style.transformOrigin = `${(g.shadow.left + g.pivot.x).toFixed(
+          2
+        )}px ${(g.pivot.y - 0.12 * h).toFixed(2)}px`;
+        spin.style.transform = `rotate(${g.rigRotateDeg.toFixed(3)}deg)`;
+      }
     }
   }, []);
 
@@ -552,17 +560,38 @@ export default function Newspaper({ pages, labels }: Props) {
                   cannot spill past the crease. */}
               {isFlying && lifting && (
                 <div
-                  ref={shadowRef}
-                  className="absolute z-20 pointer-events-none opacity-0"
-                  style={{
-                    top: "-12%",
-                    height: "124%",
-                    willChange: "left, width, opacity, transform",
-                    background:
-                      "linear-gradient(to left, rgba(26,15,4,0.85) 0%, rgba(26,15,4,0.34) 22%, rgba(26,15,4,0) 78%)",
-                  }}
+                  ref={shadowSpinRef}
+                  className="absolute inset-0 z-20 pointer-events-none"
+                  style={{ willChange: "transform" }}
                   aria-hidden="true"
-                />
+                >
+                  {/*
+                    Two elements so that neither has to be laid out.
+
+                    The cast used to carry its own `left` and `width`, written
+                    every frame — and because the browser runs a single layout
+                    pass per frame rather than one per write, those two were
+                    enough on their own to keep that pass alive for the whole
+                    turn. Removing the twenty-two on the bend bought nothing
+                    while these remained. The lean now rides on this wrapper and
+                    the position and length ride on the child as a transform, so
+                    a turn dirties no layout at all.
+                  */}
+                  <div
+                    ref={shadowRef}
+                    className="absolute opacity-0"
+                    style={{
+                      left: 0,
+                      top: "-12%",
+                      height: "124%",
+                      width: `${SHADOW_BASE}px`,
+                      transformOrigin: "0 0",
+                      willChange: "transform, opacity",
+                      background:
+                        "linear-gradient(to left, rgba(26,15,4,0.85) 0%, rgba(26,15,4,0.34) 22%, rgba(26,15,4,0) 78%)",
+                    }}
+                  />
+                </div>
               )}
             </div>
           );
@@ -606,9 +635,12 @@ export default function Newspaper({ pages, labels }: Props) {
                       backfaceVisibility: "hidden",
                     }}
                   >
+                    {/* Lit once. A strip's shading depends only on its
+                        angle around the bend, which never changes — see
+                        SEGMENT_LIGHT. */}
                     <div
-                      className="absolute inset-0 bg-[#150d03] opacity-0"
-                      style={{ willChange: "opacity" }}
+                      className="absolute inset-0 bg-[#150d03]"
+                      style={{ opacity: segmentShade(i) }}
                     />
                   </div>
                 ))}
