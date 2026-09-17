@@ -509,7 +509,16 @@ export default function BriefingPlayer({ briefing }: { briefing: Briefing }) {
     );
   }, [briefing]);
 
-  const estimate = briefing.seconds / (DELIVERY.rate * rate) + gapSeconds;
+  /**
+   * Speech scales with the pace; silence does not.
+   *
+   * This read `briefing.seconds`, which now carries the pauses baked into it —
+   * so adding `gapSeconds` charged for every breath twice, and dividing by the
+   * rate shortened waits that are fixed timeouts and do not move. The clock
+   * promised 5:34 for a bulletin that runs 5:15. `speechSeconds` is the spoken
+   * part alone, which is the only part a speed control can hurry.
+   */
+  const estimate = briefing.speechSeconds / (DELIVERY.rate * rate) + gapSeconds;
   const spent = running || phase === "done" ? elapsedTo[line] / rate : 0;
   const progress =
     phase === "done" ? 100 : Math.min(100, (spent / estimate) * 100);

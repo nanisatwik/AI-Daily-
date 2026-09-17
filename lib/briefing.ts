@@ -8,14 +8,24 @@ import type { Story } from "./digest";
  * the morning grouped by desk with the corroboration read out, a quick
  * rundown of what there was no time for, and a close.
  *
- * Nothing here is spoken by a paid service. Every word is a word a publisher
- * filed or a line of studio furniture written by hand, and the voice reading
- * it already lives on the reader's machine — see components/Briefing.tsx.
+ * Nothing here is spoken by a paid service. By default every word is a word a
+ * publisher filed or a line of studio furniture written by hand, and the voice
+ * reading it runs either on the reader's own machine — see
+ * components/Briefing.tsx — or on the press, once a day, from weights that
+ * cost nothing to use.
  *
- * The module is deliberately pure and free of browser APIs so the same script
- * can be built on the server: the running order is rendered in the first HTML
- * the reader receives, which is what keeps the panel from flickering into
- * existence after hydration.
+ * A caller may pass generated copy, and then some of those words are a model's
+ * rather than a publisher's: see `BriefSource` below. The blueprint's rule is
+ * that anything a model wrote is rendered with a visible label, always, so a
+ * page that turns this on owes its readers a different line of small print
+ * from the one that currently says nothing is generated.
+ *
+ * The module is deliberately pure — no browser APIs, no edition read at module
+ * scope — so the same script can be built three times over and come out
+ * identical: on the server, where the running order goes into the first HTML
+ * the reader receives, in the browser, and in the press job that records it.
+ * It has to be identical, because the recorded player maps audio marks onto
+ * script lines by index.
  */
 
 /* ------------------------------------------------------------------ *
@@ -23,29 +33,59 @@ import type { Story } from "./digest";
  * ------------------------------------------------------------------ */
 
 /**
- * Words a minute at rate 1.
+ * What a recorded bulletin actually sounds like, in numbers.
  *
- * 150 is the broadcast convention — the figure scripts have been timed
- * against since actual wireless — and it is close enough to the default
- * SpeechSynthesis voices to plan against. It is an estimate and cannot be
- * anything else: every platform ships different voices, and none of them
- * expose a duration before speaking. The panel says "about five minutes"
- * rather than a running clock for that reason.
+ * This is the one place the pacing lives. services/ai/voice.ts imports the two
+ * gaps from here rather than declaring its own, because the two have to agree:
+ * the sizer decides how much script fits into five minutes and the recorder
+ * decides how long the file is, and when they disagree the paper bills a
+ * bulletin as something it is not. It did. The edition of 2026-09-17 was sized
+ * at 298 seconds and came out at 5:59 in the lady's voice and 6:40 in the
+ * gentleman's.
+ *
+ * The figures are measured rather than conventional. The recording manifest
+ * stores the exact sample offset of every spoken line, so subtracting the
+ * silence the recorder inserted from the distance between two marks gives what
+ * a line's audio really cost. On that edition — 63 lines, 690 words —
+ * `af_heart` produced 335.3 seconds of speech. Fitted against word counts that
+ * is 138 words a minute plus 0.56 seconds a line, because Kokoro pads every
+ * clip it generates with a little quiet at each end: at sixty-odd lines that
+ * padding alone is over half a minute, and it is most of what the old estimate
+ * was missing. The broadcast convention of 150 words a minute, which is what
+ * this file used to assume, predicted 276 seconds for that same take.
+ *
+ * The fixed per-line term earns its second parameter. Held out across line
+ * lengths — fitted on lines under eight words, tested on the rest — a flat
+ * words-a-minute rate was 22% out where rate-plus-fixed was 13%, and the sign
+ * of the error flips with the line mix, which is exactly the failure that
+ * matters when an edition is short enough to be mostly studio furniture.
+ *
+ * Calibrated against `af_heart` at speed 1. The recorder brings its other
+ * voices onto this pace instead of letting each one decide the length of the
+ * bulletin; see the VOICES table in services/ai/voice.ts.
+ *
+ * lib/voices.ts carries the same two gaps as `DELIVERY.gapMs` and
+ * `itemGapMs`, for the browser fallback player. They cannot be shared: this
+ * module is imported both by the Next bundle and by a plain `node` process,
+ * and no single import specifier satisfies both — Node needs the `.ts`
+ * extension and the app's tsconfig refuses it. The numbers agree; if one is
+ * changed the other must be.
  */
-export const WORDS_PER_MINUTE = 150;
+export const PACE = {
+  wordsPerMinute: 138,
+  /** Leading and trailing quiet inside one generated clip. */
+  perLineSeconds: 0.56,
+  /** A breath between sentences. */
+  gapSeconds: 0.26,
+  /** A longer settling pause where the running order moves to a new item. */
+  itemGapSeconds: 0.62,
+} as const;
 
 /**
- * The silence between two utterances.
- *
- * `speechSynthesis` queues utterances rather than streaming one signal, so
- * every line boundary costs a real gap while the engine picks the next one up.
- * At roughly seventy lines that is most of half a minute — a tenth of the
- * budget — so it is charged for rather than ignored. Measured loosely in
- * Chrome; it is an allowance, not a constant of nature.
+ * Five minutes, as the blueprint asks — and five minutes of finished
+ * recording, silence included, rather than five minutes of words with the
+ * pauses billed to nobody.
  */
-const LINE_GAP_SECONDS = 0.35;
-
-/** Five minutes, as the blueprint asks. */
 export const TARGET_SECONDS = 300;
 
 /**
@@ -70,17 +110,18 @@ const MAX_LINE_WORDS = 26;
  */
 const RUNDOWN_SHARE = 0.18;
 
-/** Stories given an extra publisher sentence, in editorial order. */
+/** Stories given a second paragraph of their own, in editorial order. */
 const DEPTH_ITEMS = 3;
 
 /**
- * Utterances any one story may spend on the publisher's standfirst.
+ * Utterances any one story may spend on its summary.
  *
  * A 240-character deck is two or three lines, so this never bites on today's
  * wire. It is here because the selector prices the lead before it knows
  * whether it fits and then keeps it regardless — without a ceiling, one
  * unusually long standfirst would be read out in full and the bulletin would
- * be over before the second story.
+ * be over before the second story. It caps generated copy for the same
+ * reason: a model asked for one sentence may still return five.
  */
 const MAX_DECK_LINES = 4;
 
@@ -92,9 +133,24 @@ const upperFirst = (text: string) =>
 const quantity = (n: number, one: string, many: string) =>
   `${spellNumber(n)} ${n === 1 ? one : many}`;
 
-const secondsFor = (lines: string[]) =>
-  (lines.reduce((n, l) => n + countWords(l), 0) / WORDS_PER_MINUTE) * 60 +
-  lines.length * LINE_GAP_SECONDS;
+/** Seconds of audio one line becomes, silence excluded. */
+const clipSeconds = (text: string) =>
+  (countWords(text) / PACE.wordsPerMinute) * 60 + PACE.perLineSeconds;
+
+/**
+ * What one entry of the running order costs the bulletin, silence included.
+ *
+ * Every entry is followed by the longer settling pause, so that is charged
+ * here rather than left for the final total to discover. It overcharges the
+ * bulletin by exactly one item gap, since the last entry is followed by
+ * nothing — 0.62s of head room, and the right direction to be wrong in.
+ */
+const draftSeconds = (lines: string[]) =>
+  lines.length === 0
+    ? 0
+    : lines.reduce((n, l) => n + clipSeconds(l), 0) +
+      (lines.length - 1) * PACE.gapSeconds +
+      PACE.itemGapSeconds;
 
 /* ------------------------------------------------------------------ *
  * Numbers and dates, spelled for a voice
@@ -254,6 +310,34 @@ const currency = (symbol: string) =>
 
 const TERMINATED = /[.!?]["')\]]?$/;
 
+/**
+ * An ellipsis is a publisher saying "there is more", not a full stop.
+ *
+ * Six of today's fifty-four standfirsts end in one, and `speakable` collapses
+ * "..." to ".." on its way past, which TERMINATED then happily accepts — so
+ * "…testing audio-enabled products and A.." was reaching the microphone as
+ * though it were a finished sentence. Both spellings are refused here.
+ */
+const TRUNCATED = /(?:…|\.\.)["')\]]?$/;
+
+/**
+ * Words a sentence cannot end on.
+ *
+ * Cutting an unfinished standfirst back by its last token leaves whatever
+ * preceded the fragment, and on a 240-character slice that is very often a
+ * conjunction or a preposition: "…testing audio-enabled products and." The
+ * reader hears an unfinished thought, which is the thing the trimming was
+ * supposed to prevent.
+ */
+const DANGLING = new Set([
+  "and", "or", "but", "of", "to", "in", "on", "for", "with", "at", "by",
+  "from", "as", "the", "a", "an", "its", "this", "that", "which", "who",
+  "into", "over", "under", "after", "before", "than", "is", "are", "was",
+  "were", "has", "have", "had", "will", "would", "about", "between",
+]);
+
+const bareWord = (w: string) => w.toLowerCase().replace(/[^a-z]/g, "");
+
 function splitSentences(text: string): string[] {
   return text
     .split(/(?<=[.!?])\s+(?=["'(“]?[A-Z0-9])/)
@@ -272,17 +356,23 @@ function splitSentences(text: string): string[] {
  *
  * When there is no full stop at all — a single unfinished sentence — the tail
  * is cut back to a word boundary with its last token dropped, because that
- * token is the one most likely to be a fragment.
+ * token is the one most likely to be a fragment, and then back again past any
+ * word a sentence cannot end on.
  */
 function wholeSentences(text: string): string[] {
   const all = splitSentences(text);
-  const finished = all.filter((s) => TERMINATED.test(s));
+  const finished = all.filter((s) => TERMINATED.test(s) && !TRUNCATED.test(s));
   if (finished.length > 0) return finished;
   if (all.length === 0) return [];
 
   const words = all[0].split(/\s+/);
   if (words.length < 6) return [];
-  return [`${words.slice(0, Math.max(5, words.length - 1)).join(" ")}.`];
+  const kept = words.slice(0, words.length - 1);
+  while (kept.length > 0 && DANGLING.has(bareWord(kept[kept.length - 1]))) kept.pop();
+  // Below five words there is no longer a sentence left to salvage, only the
+  // opening of one, and silence is better than a stub.
+  if (kept.length < 5) return [];
+  return [`${kept.join(" ").replace(/[\s.,;:—–-]+$/, "")}.`];
 }
 
 /**
@@ -328,6 +418,77 @@ function toLines(sentence: string): string[] {
 }
 
 const spokenProse = (text: string) => wholeSentences(speakable(text)).flatMap(toLines);
+
+/* ------------------------------------------------------------------ *
+ * Generated copy, where the editor has produced any
+ * ------------------------------------------------------------------ */
+
+/**
+ * The part of lib/digest.ts's `Brief` that a bulletin can read out.
+ *
+ * Declared here as a structural subset rather than imported, because
+ * lib/digest.ts reads the edition at module scope through a bundler alias and
+ * the recorder runs under plain `node`, where that alias does not exist. A
+ * `Brief` satisfies this shape, so a caller hands `getBrief` straight over.
+ */
+export type SpokenBrief = {
+  tldr?: string | null;
+  whyItMatters?: string | null;
+};
+
+/**
+ * Where generated copy comes from, if it exists at all.
+ *
+ * Injected rather than read, for the same reason — and because this module is
+ * also in the client bundle, where pulling the edition in at module scope
+ * would ship the whole day's news to every reader of the briefing page.
+ *
+ * Absent in any of its forms — no function, no entry for this story, null
+ * fields, blank strings, a lookup that throws — the bulletin is word for word
+ * the one it has always been. An edition that never went through the editor,
+ * because nobody supplied a key, has to sound exactly as good as one that was
+ * never offered the choice.
+ */
+export type BriefSource = (storyId: string) => SpokenBrief | null | undefined;
+
+/**
+ * A publisher credit signed onto the end of a generated summary.
+ *
+ * The extractive briefer writes "… — TechCrunch", and a bulletin that has just
+ * said "Reported by two outlets, Tech.eu and TechCrunch" does not need to say
+ * it again. Read aloud it is worse than redundant: `speakable` turns the dash
+ * into a comma, so the sentence ends on a publisher's name for no reason. Only
+ * a short, capitalised, unpunctuated tail is taken, so a summary that genuinely
+ * ends in a dashed clause survives.
+ */
+const CREDIT_TAIL = /\s+[—–]\s+[A-Z0-9][^—–!?]{0,40}[^\s.!?]$/;
+
+/**
+ * Model-written copy, made speakable.
+ *
+ * Deliberately not `spokenProse`. That exists to defend against `Story.deck`
+ * being a 240-character slice, and it throws away anything that does not end
+ * in a full stop. A generated summary is a whole thought that simply may not
+ * have been punctuated — "Treble's platform is used by voice AI developers" is
+ * one of today's — and cutting its last word off would be inventing a
+ * truncation that is not there. So this closes the sentence rather than
+ * trimming it.
+ */
+function generatedProse(text: string | null | undefined): string[] {
+  if (typeof text !== "string") return [];
+  const clean = speakable(text.replace(CREDIT_TAIL, ""));
+  if (!clean) return [];
+
+  const sentences = splitSentences(clean);
+  if (sentences.length === 0) return [];
+
+  const last = sentences.length - 1;
+  if (!TERMINATED.test(sentences[last]) || TRUNCATED.test(sentences[last])) {
+    sentences[last] = `${sentences[last].replace(/[\s.,;:—–-]+$/, "")}.`;
+  }
+
+  return sentences.filter((s) => /[a-z0-9]/i.test(s)).flatMap(toLines);
+}
 
 /** A headline is a fragment; a voice needs it closed to land the cadence. */
 function spokenHeadline(headline: string): string {
@@ -446,6 +607,7 @@ export type BriefingItem = {
   /** Half-open range of `Briefing.lines` this entry speaks. */
   from: number;
   to: number;
+  /** Predicted running time of this entry, its pauses included. */
   seconds: number;
 };
 
@@ -453,14 +615,27 @@ export type BriefingLine = {
   text: string;
   /** Index into `Briefing.items`. */
   item: number;
+  /**
+   * This line's audio plus the pause that follows it, so that the per-line,
+   * per-item and whole-bulletin totals are all the same arithmetic.
+   */
   seconds: number;
 };
 
 export type Briefing = {
   items: BriefingItem[];
   lines: BriefingLine[];
-  /** Estimated run at rate 1. */
+  /** Predicted length of the finished recording, silence included. */
   seconds: number;
+  /**
+   * The same bulletin with the silence taken back out.
+   *
+   * Kept separate because a player that offers a speed control needs both: at
+   * 1.5× the words take two thirds as long and the breaths take exactly as
+   * long as they always did, so neither number alone can say how long the
+   * bulletin will run.
+   */
+  speechSeconds: number;
   words: number;
   /** Stories that made the bulletin. */
   read: number;
@@ -521,7 +696,8 @@ function storyDraft(
   story: Story,
   kind: "lead" | "story",
   desk: string | null,
-  withDepth: boolean
+  withDepth: boolean,
+  brief: SpokenBrief | null
 ): Draft {
   const lines: string[] = [];
   if (desk) lines.push(`From ${desk}.`);
@@ -533,13 +709,35 @@ function storyDraft(
   const credit = spokenSources(named);
   if (credit) lines.push(credit);
 
-  lines.push(...spokenProse(story.deck).slice(0, MAX_DECK_LINES));
+  /**
+   * A written summary in preference to the publisher's standfirst.
+   *
+   * The standfirst is a 240-character slice of whatever the feed put in its
+   * description field, which on this wire means a first-person blog paragraph,
+   * an arXiv abstract filed against the wrong cluster, or a sentence stopped
+   * mid-word. A generated `tldr` is one sentence about the story. Where one
+   * exists it is simply the better copy to read out; where it does not, this
+   * is the line the bulletin has always spoken.
+   */
+  const summary = generatedProse(brief?.tldr);
+  lines.push(
+    ...(summary.length > 0 ? summary : spokenProse(story.deck)).slice(0, MAX_DECK_LINES)
+  );
 
   if (withDepth) {
-    const extra = extraParagraph(story);
     // One paragraph, not the whole column: the point of a briefing is that it
     // ends. The full body is a click away on the story page.
-    if (extra) lines.push(...spokenProse(extra).slice(0, 2));
+    //
+    // "Why it matters" is what a second paragraph is reaching for anyway, and
+    // it says it in a sentence rather than in the second-longest standfirst
+    // some publisher happened to file.
+    const why = generatedProse(brief?.whyItMatters);
+    if (why.length > 0) {
+      lines.push(...why.slice(0, 2));
+    } else {
+      const extra = extraParagraph(story);
+      if (extra) lines.push(...spokenProse(extra).slice(0, 2));
+    }
   }
 
   return {
@@ -567,13 +765,36 @@ function storyDraft(
  * Selection happens in score order and grouping happens afterwards, in that
  * order for a reason: grouping first and then filling would let the fourth
  * story on the largest desk beat the best story on a smaller one.
+ *
+ * `targetSeconds` is the length of the finished recording, pauses and all.
+ * The budget is spent in that currency throughout, which is the whole of the
+ * fix for a bulletin that was billed at five minutes and ran six.
  */
 export function buildBriefing(
   stories: Story[],
   date: string,
-  targetSeconds: number = TARGET_SECONDS
+  targetSeconds: number = TARGET_SECONDS,
+  briefs?: BriefSource
 ): Briefing {
   const total = stories.length;
+
+  /**
+   * Generated copy for a story, if the editor has run and the caller passed a
+   * way to reach it.
+   *
+   * Wrapped rather than called directly: the editor is a separate job that may
+   * be half-written or half-run, and a lookup that throws should cost one
+   * story its better copy, not take the bulletin off air. The briefing is the
+   * last thing on the page that ought to be fragile.
+   */
+  const briefFor = (id: string): SpokenBrief | null => {
+    if (!briefs) return null;
+    try {
+      return briefs(id) ?? null;
+    } catch {
+      return null;
+    }
+  };
 
   if (total === 0) {
     const bare = furniture(date, 0, 0, 0);
@@ -585,7 +806,7 @@ export function buildBriefing(
 
   const priced = furniture(date, total, total, targetSeconds);
   const budget =
-    targetSeconds - secondsFor(priced.open) - secondsFor(priced.close);
+    targetSeconds - draftSeconds(priced.open) - draftSeconds(priced.close);
 
   const fullBudget = budget * (1 - RUNDOWN_SHARE);
 
@@ -604,9 +825,10 @@ export function buildBriefing(
       // Priced as though it opens a desk when the desk is new, so the
       // announcements cannot quietly push the bulletin over its target.
       desksSeen.has(story.section) ? null : deskName(story.section),
-      depth
+      depth,
+      briefFor(story.id)
     );
-    const cost = secondsFor(draft.lines);
+    const cost = draftSeconds(draft.lines);
     if (chosen.length > 0 && spent + cost > fullBudget) break;
     chosen.push({ story, depth });
     desksSeen.add(story.section);
@@ -616,7 +838,7 @@ export function buildBriefing(
   // Pass two: headlines only, filling whatever the full items left.
   const rundown: Story[] = [];
   for (const story of stories.slice(chosen.length)) {
-    const cost = secondsFor([spokenHeadline(story.headline)]);
+    const cost = draftSeconds([spokenHeadline(story.headline)]);
     if (spent + cost > budget) break;
     rundown.push(story);
     spent += cost;
@@ -637,7 +859,15 @@ export function buildBriefing(
 
   const drafts: Draft[] = [];
 
-  drafts.push(storyDraft(lead.story, "lead", deskName(lead.story.section), lead.depth));
+  drafts.push(
+    storyDraft(
+      lead.story,
+      "lead",
+      deskName(lead.story.section),
+      lead.depth,
+      briefFor(lead.story.id)
+    )
+  );
 
   for (const [section, picks] of byDesk) {
     picks.forEach((pick, i) => {
@@ -645,7 +875,13 @@ export function buildBriefing(
       // not announce it again.
       const heads = i === 0 && section !== lead.story.section;
       drafts.push(
-        storyDraft(pick.story, "story", heads ? deskName(section) : null, pick.depth)
+        storyDraft(
+          pick.story,
+          "story",
+          heads ? deskName(section) : null,
+          pick.depth,
+          briefFor(pick.story.id)
+        )
       );
     });
   }
@@ -670,8 +906,8 @@ export function buildBriefing(
   // the laid-out bulletin can run a few seconds long. Headlines come off the
   // back of the rundown until it fits, which is the same thing a producer
   // does to a script that overruns.
-  const furnitureCost = secondsFor(priced.open) + secondsFor(priced.close);
-  const bodyCost = () => drafts.reduce((n, d) => n + secondsFor(d.lines), 0);
+  const furnitureCost = draftSeconds(priced.open) + draftSeconds(priced.close);
+  const bodyCost = () => drafts.reduce((n, d) => n + draftSeconds(d.lines), 0);
   while (furnitureCost + bodyCost() > targetSeconds) {
     const last = drafts.map((d) => d.kind).lastIndexOf("rundown");
     if (last === -1) break;
@@ -719,21 +955,40 @@ function assemble(drafts: Draft[], read: number, total: number): Briefing {
   drafts.forEach((draft, index) => {
     const from = lines.length;
     for (const text of draft.lines) {
-      lines.push({ text, item: index, seconds: secondsFor([text]) });
+      lines.push({ text, item: index, seconds: clipSeconds(text) });
     }
     const { lines: _spoken, ...meta } = draft;
-    items.push({
-      ...meta,
-      from,
-      to: lines.length,
-      seconds: secondsFor(draft.lines),
-    });
+    items.push({ ...meta, from, to: lines.length, seconds: 0 });
   });
+
+  const speechSeconds = lines.reduce((n, l) => n + l.seconds, 0);
+
+  /**
+   * The silence, charged to the line it follows.
+   *
+   * Written in here rather than allowed for per line, because only the
+   * laid-out bulletin knows where one entry ends and the next begins — and
+   * that is the difference between a breath and a settling pause. Charging it
+   * backwards means the per-line, per-item and whole-bulletin totals are all
+   * the same arithmetic, so the running time printed beside an entry and the
+   * running time of the file agree instead of drifting apart.
+   */
+  for (let i = 0; i < lines.length - 1; i++) {
+    lines[i].seconds +=
+      lines[i + 1].item !== lines[i].item ? PACE.itemGapSeconds : PACE.gapSeconds;
+  }
+
+  for (const item of items) {
+    item.seconds = lines
+      .slice(item.from, item.to)
+      .reduce((n, l) => n + l.seconds, 0);
+  }
 
   return {
     items,
     lines,
     seconds: items.reduce((n, i) => n + i.seconds, 0),
+    speechSeconds,
     words: lines.reduce((n, l) => n + countWords(l.text), 0),
     read,
     total,

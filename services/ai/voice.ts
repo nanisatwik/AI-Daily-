@@ -36,7 +36,7 @@ import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { KokoroTTS } from "kokoro-js";
-import { buildBriefing } from "../../lib/briefing.ts";
+import { buildBriefing, PACE } from "../../lib/briefing.ts";
 import type { Story } from "../../lib/digest.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -56,15 +56,51 @@ const DTYPE = "q8" as const;
  * recording: the best female voice is graded A, while the best male voice
  * available is a C+. The gentleman will sound less convincing than the lady
  * and no amount of wiring changes that.
+ *
+ * WHY EACH VOICE CARRIES A SPEED
+ *
+ * The two read at different speeds. Given the identical 63-line script of the
+ * edition of 2026-09-17, `af_heart` produced 335.3 seconds of speech and
+ * `am_michael` produced 376.3 — the same words, forty-one seconds apart, which
+ * is longer than the whole of the closing rundown. Billed as five minutes, one
+ * ran 5:59 and the other 6:40.
+ *
+ * One script cannot be sized for two lengths, so the usual options are to pick
+ * a voice and let the other be wrong, or to stop promising five minutes and
+ * promise a range instead. Neither is necessary here: Kokoro takes a `speed`
+ * argument, and it is not a resample — it scales the duration predictor inside
+ * the model, so the tempo changes and the pitch does not. The difference
+ * between these two voices is only tempo. So it is removed, and the bulletin
+ * is one length again.
+ *
+ * `af_heart` sets the pace, for two reasons. It is the A-graded voice and the
+ * one the player opens on, so it is what the paper actually sounds like; and
+ * `am_michael` at his own pace reads at 110 words a minute, which is slower
+ * than any newsreader who has ever held the job. Bringing him up to 123 is a
+ * correction, not a distortion — where slowing the better voice to meet him
+ * would have made the paper worse in order to make the arithmetic easier.
+ *
+ * lib/briefing.ts sizes the script against `af_heart` at speed 1. If that
+ * reference voice is ever changed, PACE there has to be measured again.
  */
 const VOICES = {
-  lady: "af_heart",
-  gentleman: "am_michael",
+  lady: { id: "af_heart", speed: 1 },
+  /** 376.3s at speed 1 against the reference take's 335.3s. */
+  gentleman: { id: "am_michael", speed: 1.12 },
 } as const;
 
-/** A breath between sentences, and a longer settling pause between stories. */
-const GAP_MS = 260;
-const ITEM_GAP_MS = 620;
+/**
+ * How far a finished take may drift from the sizer's prediction before the job
+ * says so.
+ *
+ * The prediction and the recording are produced by two different pieces of
+ * arithmetic that are supposed to describe the same thing, and there is no
+ * assertion that keeps them honest — only this. Four per cent of five minutes
+ * is twelve seconds, which is about the noise floor for a script whose line
+ * lengths vary; anything past it means the calibration has gone stale, and the
+ * press log is where somebody will see it.
+ */
+const DRIFT_TOLERANCE = 0.04;
 
 /* ------------------------------------------------------------------ *
  * WAV assembly
@@ -188,27 +224,58 @@ async function main() {
    * so importing it from a plain Node script would pull in the whole app. The
    * briefing only needs these fields, and mapping them explicitly also means
    * this script fails loudly if the edition format moves under it.
+   *
+   * IT HAS TO BE THE SAME MAPPING, FIELD FOR FIELD
+   *
+   * components/Recording.tsx keys the line it highlights off the manifest's
+   * marks by index, against a script the page built for itself. So the two
+   * scripts are one script or the player is wrong about every line — and this
+   * mapping had drifted from `toStory`: it took one body paragraph where the
+   * page takes up to three distinct publishers', and it credited outlets by
+   * feed id where the page credits them by name. On the edition of 2026-09-17
+   * that was a 63-line recording playing against a 59-line script, so the
+   * highlight, the running order and every seek were pointing at the wrong
+   * sentence. This is now `lib/digest.ts` `toStory` verbatim; if that changes,
+   * this changes with it.
    */
   const stories: Story[] = edition.clusters.map((c: any) => {
+    const byTime = [...c.articles].sort(
+      (a: any, b: any) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)
+    );
+
     const seen = new Set<string>();
-    const sources = c.articles
+    const body = byTime
       .filter((a: any) => {
-        if (seen.has(a.sourceId)) return false;
+        // Nullish-guarded where the page is not, because a missing standfirst
+        // should cost the bulletin one paragraph rather than the whole
+        // edition. The outcome is identical wherever the page does not throw:
+        // an empty summary is under forty characters and is dropped anyway.
+        if (seen.has(a.sourceId) || (a.summary ?? "").length <= 40) return false;
         seen.add(a.sourceId);
         return true;
       })
-      .map((a: any) => ({
-        name: a.sourceName,
-        url: a.sourceUrl,
-        publishedAt: a.publishedAt,
-      }));
+      .sort((a: any, b: any) => b.summary.length - a.summary.length)
+      .slice(0, 3)
+      .map((a: any) => a.summary);
+
+    const credited = new Set<string>();
+    const sources = byTime.filter((a: any) => {
+      if (credited.has(a.sourceName)) return false;
+      credited.add(a.sourceName);
+      return true;
+    });
+
     return {
       id: c.id,
       headline: c.title,
       deck: (c.summary ?? "").slice(0, 240),
-      body: [c.summary ?? c.title],
+      body: body.length ? body : [c.summary || c.title],
       section: c.category,
-      sources,
+      sources: sources.map((a: any) => ({
+        name: a.sourceName,
+        url: a.sourceUrl,
+        publishedAt: a.publishedAt,
+      })),
       publishedAt: c.lastSeenAt,
       score: c.score,
     } as Story;
@@ -220,9 +287,31 @@ async function main() {
    * of about one costs five minutes of wall clock every time.
    */
   const target = Number(process.env.BRIEFING_SECONDS) || undefined;
+
+  /**
+   * No generated copy is passed, deliberately.
+   *
+   * lib/briefing.ts will prefer a story's `tldr` and `why_it_matters` over the
+   * publisher's standfirst when a caller hands it a lookup, and on today's
+   * edition that would be a real improvement: thirty-four of fifty-four
+   * clusters carry one, and the standfirst filed against Veridion is an arXiv
+   * abstract about a different story entirely.
+   *
+   * It stays off because the page does not pass one either, and the recording
+   * and the printed script have to be the same script — see the mapping above.
+   * Turning it on is one line in app/briefing/page.tsx:
+   *
+   *   buildBriefing(digest.stories, digest.date, undefined, getBrief)
+   *
+   * and the same fourth argument here, built from `edition.aiArtifacts`. One
+   * without the other desynchronises the player.
+   */
   const briefing = buildBriefing(stories, edition.date, target);
   console.log(
-    `Briefing: ${briefing.items.length} items, ${briefing.lines.length} lines, ${briefing.words} words, est ${Math.round(briefing.seconds)}s`
+    `Briefing: ${briefing.items.length} items, ${briefing.lines.length} lines, ${briefing.words} words`
+  );
+  console.log(
+    `  predicted ${briefing.seconds.toFixed(1)}s = ${briefing.speechSeconds.toFixed(1)}s of speech + ${(briefing.seconds - briefing.speechSeconds).toFixed(1)}s of silence`
   );
 
   console.log(`Loading ${MODEL_ID} (${DTYPE})…`);
@@ -238,7 +327,9 @@ async function main() {
   > = {};
 
   for (const [timbre, voice] of Object.entries(VOICES)) {
-    console.log(`\nRecording the ${timbre} announcer (${voice})…`);
+    console.log(
+      `\nRecording the ${timbre} announcer (${voice.id}${voice.speed === 1 ? "" : ` at ${voice.speed}×`})…`
+    );
     const started = Date.now();
     const chunks: Float32Array[] = [];
     let rate = 24000;
@@ -255,7 +346,10 @@ async function main() {
 
     for (let i = 0; i < briefing.lines.length; i++) {
       const line = briefing.lines[i];
-      const audio = await tts.generate(line.text, { voice });
+      const audio = await tts.generate(line.text, {
+        voice: voice.id,
+        speed: voice.speed,
+      });
       rate = audio.sampling_rate;
       marks.push({ at: +(cursor / rate).toFixed(3), item: line.item });
       cursor += (audio.audio as Float32Array).length;
@@ -263,10 +357,18 @@ async function main() {
 
       // Silence is part of the recording rather than something the player has
       // to time. Baked in, every device hears the same pacing.
+      //
+      // The two lengths come from lib/briefing.ts, which is the module that
+      // budgets for them. They used to be declared here as well, and a sizer
+      // that does not know what the recorder is inserting is a sizer that will
+      // be wrong by however many lines the bulletin happens to have.
       const last = i === briefing.lines.length - 1;
       if (!last) {
         const crossing = briefing.lines[i + 1].item !== line.item;
-        const pad = silence((crossing ? ITEM_GAP_MS : GAP_MS) / 1000, rate);
+        const pad = silence(
+          crossing ? PACE.itemGapSeconds : PACE.gapSeconds,
+          rate
+        );
         cursor += pad.length;
         chunks.push(pad);
       }
@@ -300,6 +402,25 @@ async function main() {
     console.log(
       `  ${Math.round(seconds)}s of audio in ${((Date.now() - started) / 1000).toFixed(0)}s of compute (realtime ${((Date.now() - started) / 1000 / seconds).toFixed(2)}x)`
     );
+
+    /**
+     * The take against the prediction, every run.
+     *
+     * This is the only thing holding the sizer's arithmetic and the recorder's
+     * output together: the one bills the bulletin as five minutes and the
+     * other decides whether it is. They were nearly a minute apart and nothing
+     * said so, for as long as nobody happened to look at the length of the
+     * file. Now the press log says it, in the run that made it.
+     */
+    const drift = seconds / briefing.seconds - 1;
+    console.log(
+      `  predicted ${briefing.seconds.toFixed(1)}s, recorded ${seconds.toFixed(1)}s (${drift >= 0 ? "+" : ""}${(drift * 100).toFixed(1)}%)`
+    );
+    if (Math.abs(drift) > DRIFT_TOLERANCE) {
+      console.log(
+        `  WARNING: the ${timbre} take is ${Math.abs(seconds - briefing.seconds).toFixed(0)}s off its prediction. PACE in lib/briefing.ts is calibrated against ${VOICES.lady.id} at speed 1; if a voice or a model has changed, measure it again.`
+      );
+    }
   }
 
   /**
