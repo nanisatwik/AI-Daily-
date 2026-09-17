@@ -14,7 +14,7 @@ import PaperTexture from "./PaperTexture";
  * It sets `pointerEvents: "none"`, or it would swallow every tap on the page.
  *
  * Scrolling is vertical and ordinary, deliberately. The brief rules out
- * imitating the web app's page curl — that geometry is tuned in `lib/curl.ts`
+ * imitating the web app's page fold — that geometry is tuned in `lib/peel.ts`
  * over many sessions and a bad copy would be worse than none — and asks that
  * any horizontal paging be declared as a plain paged ScrollView. This does not
  * page horizontally at all. A phone column is a column: you scroll it, the way

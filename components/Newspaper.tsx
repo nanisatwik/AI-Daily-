@@ -11,11 +11,16 @@ import {
 } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { PointingHand } from "./Ornament";
-import { curlGeometry, BEND_SEGMENTS, segmentShade } from "@/lib/curl";
+import {
+  peelLayers,
+  foldReach,
+  foldClearance,
+  wholeSheet,
+  type FoldBox,
+} from "@/lib/peel";
 import { travelProgress, shouldCommit } from "@/lib/turn";
 
 const PAPER_EASE = [0.22, 1, 0.28, 1] as const;
-/** Past this share of a turn, letting go finishes it. */
 /**
  * How long the hand may pause before a release stops counting as a flick.
  *
@@ -34,24 +39,45 @@ const FLICK_WINDOW_MS = 90;
  * path: onPointerDown declines those presses outright.
  */
 const TAP_ZONE = 0.16;
-/** Base width the cast shadow is scaled from; never rendered at this size. */
-const SHADOW_BASE = 100;
 
 /** Movement before a press becomes a drag, so clicks still work. */
 const SLOP = 8;
-/** A full, uninterrupted turn. */
-const TURN_MS = 1050;
-/** Where a driven turn is taken hold of — low and right, as a reader would. */
-const DRIVEN_GRAB = 0.75;
 
-/** Free-edge position with the sheet lying flat — far enough right for no curl. */
-const flatAt = (w: number) => w * 1.02;
-/** Free-edge position with the sheet fully turned and clear of the page. */
-const turnedAt = (w: number) => -w * 1.15;
+/**
+ * A full, uninterrupted turn.
+ *
+ * The cylinder this replaced ran for 1050ms, which is roughly three times what
+ * a hand takes to flick a page over and about three times the peel in the
+ * reference the owner sent. A fold has no long roll to show off, so the extra
+ * time bought nothing but the feeling of waiting.
+ */
+const TURN_MS = 340;
+/**
+ * Where a driven turn is taken hold of — low and at the fore-edge, as a reader
+ * would, but low within the window rather than low on the sheet.
+ *
+ * These pages are several thousand pixels tall and scroll, so three quarters of
+ * the way down the paper is usually some way below the bottom of the screen.
+ * The old rig grabbed there and got away with it because the grab height only
+ * tilted a cylinder; a fold collapses onto the point it was taken by, so that
+ * point had better be somewhere the reader is looking.
+ */
+const DRIVEN_GRAB = 0.78;
+
+/**
+ * How far a driven turn's crease leans, as a share of the sheet's width across
+ * the height of the window.
+ *
+ * Held as an offset over a height rather than as an angle for the same reason
+ * the old rig held its lean that way: an angle that reads as a corner peel on
+ * one shape of page slices another corner to corner.
+ */
+const DRIVEN_LEAN = 0.2;
 
 type Props = { pages: ReactNode[]; labels: string[] };
 type Side = "next" | "prev";
 type Lift = { target: number; side: Side };
+type Pt = { x: number; y: number };
 
 /**
  * Three phases, in the proportions a hand actually turns a page.
@@ -86,26 +112,61 @@ export default function Newspaper({ pages, labels }: Props) {
   const [lifting, setLifting] = useState<Lift | null>(null);
 
   const sheetRef = useRef<HTMLDivElement>(null);
-  /** One entry per sheet in the stack; paint() clips whichever is flying. */
-  const pageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  /**
+   * One pair of elements per sheet: the box whose clip rect is the crease, and
+   * the counter-transformed box inside it that holds the page still. paint()
+   * drives whichever pair is flying and leaves the rest at rest.
+   */
+  const clipRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const innerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const flyingRef = useRef(0);
-  const rigRef = useRef<HTMLDivElement>(null);
-  const curlLayer = useRef<HTMLDivElement>(null);
-  const liftedRef = useRef<HTMLDivElement>(null);
-  const shadowRef = useRef<HTMLDivElement>(null);
-  const shadowSpinRef = useRef<HTMLDivElement>(null);
-  const segRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const flapClipRef = useRef<HTMLDivElement>(null);
+  const flapRef = useRef<HTMLDivElement>(null);
+  const creaseRef = useRef<HTMLDivElement>(null);
 
   const size = useRef({ w: 0, h: 0 });
-  const cursor = useRef(0);
-  const grabX = useRef(0);
-  const grabY = useRef(-1);
   /**
-   * How far the free edge can still travel from where the sheet was taken hold
-   * of. Progress is measured against this rather than the sheet's width: the
-   * hand runs out of paper at the spine, so a grab near the spine offers less
-   * travel than the full width and measuring against the width made the turn
-   * unfinishable from the inner half of the sheet.
+   * How far past the paper each clip box's rect reaches, as overflow-clip-margin.
+   *
+   * A rectangle turned to an arbitrary crease angle only still covers the sheet
+   * if it is bigger than the sheet's diagonal, so this is measured from it. The
+   * check asserts the covering; a margin of a few pixels fails it loudly.
+   */
+  const margin = useRef(0);
+
+  /** The point on the sheet the fold collapses onto. */
+  const anchor = useRef<Pt>({ x: 0, y: 0 });
+  /** Where that point has been carried to. Everything else follows from these two. */
+  const hand = useRef<Pt>({ x: 0, y: 0 });
+  /** Unit fold direction, fixed when the drag was recognised. */
+  const dir = useRef<Pt>({ x: -1, y: 0 });
+  /** Where the reader actually pressed, which progress is measured from. */
+  const press = useRef<Pt>({ x: 0, y: 0 });
+  /** Turning back only: the hand distance at which the sheet is wholly hidden. */
+  const folding = useRef(0);
+  /**
+   * The band of sheet on screen when the turn began, in sheet coordinates.
+   *
+   * A finished fold has to have carried its crease off this, not off the whole
+   * six-thousand-pixel sheet. Read once per turn, because the reader cannot
+   * scroll while they are holding the paper.
+   */
+  const view = useRef<FoldBox>({ x0: 0, y0: 0, x1: 0, y1: 0 });
+  /**
+   * The grid's position, read once per press.
+   *
+   * It used to be read on every pointermove. Nothing in a turn dirties layout
+   * any more, so that read was free in principle — but it is a forced flush in
+   * the middle of the one gesture that cannot afford one, and the paper does
+   * not move under the reader while they are holding it.
+   */
+  const frame0 = useRef<{ left: number; top: number }>({ left: 0, top: 0 });
+  /**
+   * How far the hand can still go before it runs out of paper. Progress is
+   * measured against this rather than the sheet's width: the hand runs out of
+   * paper at the spine, so a grab near the spine offers less travel than the
+   * full width and measuring against the width made the turn unfinishable from
+   * the inner half of the sheet.
    */
   const travel = useRef(0);
   /** Smoothed signed px/ms, and when it was last sampled. */
@@ -118,20 +179,77 @@ export default function Newspaper({ pages, labels }: Props) {
   const dragging = useRef(false);
   const frame = useRef(0);
   const anim = useRef(0);
+  /** Backstop that lands the sheet when animation frames stop arriving. */
+  const land = useRef(0);
 
   const total = pages.length;
+
+  /**
+   * Everything about the rig that depends on the sheet's size, written when the
+   * sheet is measured rather than when the hand moves.
+   *
+   * The crease band's box is included: it has to span the whole clip rect, and
+   * `top`/`height` are layout properties. Sizing it here means a turn writes
+   * nothing to it but an opacity.
+   */
+  /**
+   * The band of sheet the reader can actually see, in sheet coordinates.
+   *
+   * Horizontally the paper is always wholly in view — it is the width of the
+   * column — so only the vertical extent is worth trimming.
+   */
+  const visible = useCallback((): FoldBox => {
+    const { w, h } = size.current;
+    const top = sheetRef.current?.getBoundingClientRect().top ?? 0;
+    return {
+      x0: 0,
+      x1: w,
+      y0: Math.max(0, -top),
+      y1: Math.min(h, -top + window.innerHeight),
+    };
+  }, []);
+
+  const layout = useCallback(() => {
+    const m = margin.current;
+    const { w, h } = size.current;
+
+    for (const el of clipRefs.current) {
+      if (el) el.style.overflowClipMargin = `${m}px`;
+    }
+
+    const clip = flapClipRef.current;
+    if (clip) clip.style.overflowClipMargin = `${m}px`;
+
+    const crease = creaseRef.current;
+    if (crease) {
+      // Laid along the crease from the fold line outwards: local x = −m is the
+      // clip box's leading edge, which peelLayers puts exactly on the fold.
+      crease.style.left = `${-m}px`;
+      crease.style.top = `${-m}px`;
+      crease.style.height = `${h + 2 * m}px`;
+      crease.style.width = `${Math.min(Math.max(w * 0.05, 16), 64)}px`;
+    }
+  }, []);
 
   useLayoutEffect(() => {
     const el = sheetRef.current;
     if (!el) return;
     const measure = () => {
-      size.current = { w: el.clientWidth, h: el.clientHeight };
+      const w = el.clientWidth;
+      const h = el.clientHeight;
+      size.current = { w, h };
+      margin.current = Math.ceil(Math.hypot(w, h)) + 64;
+      layout();
     };
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);
     return () => ro.disconnect();
-  }, [page, folded]);
+  }, [page, folded, layout]);
+
+  // The flap only exists while a sheet is off the table, so it needs sizing the
+  // moment it mounts — before the first frame of the fold, not during it.
+  useLayoutEffect(layout, [lifting, layout]);
 
   useEffect(() => {
     if (reduce) {
@@ -148,82 +266,69 @@ export default function Newspaper({ pages, labels }: Props) {
     () => () => {
       cancelAnimationFrame(frame.current);
       cancelAnimationFrame(anim.current);
+      window.clearTimeout(land.current);
     },
     []
   );
 
   /**
-   * Writes the curl straight to the DOM. Called from rAF only — React does not
+   * Writes the fold straight to the DOM. Called from rAF only — React does not
    * render while a page is being held, which is what keeps this feeling like
    * paper rather than a slideshow.
    *
-   * Both directions share one coordinate system: a sheet always curls from the
-   * right edge leftwards. Turning back is the same motion run backwards, with
-   * the incoming page as the one in flight — so there is no mirroring, and no
-   * flipped handedness to invert the depth order of the bend.
+   * Five writes, all of them transforms and opacities, and not one of them
+   * something the browser has to paint to honour. The rig this replaced wrote
+   * twenty-two strip transforms, a clip-path on the lifted run, and a clip-path
+   * on the flying page — and that last one dirtied a whole printed sheet.
+   *
+   * Both directions share one coordinate system: the flying sheet is always the
+   * one being folded, and turning back is the same fold run backwards with the
+   * incoming page in flight. So there is no mirroring and no flipped
+   * handedness anywhere in here.
    */
   const paint = useCallback(() => {
-    const { w, h } = size.current;
-    const pageEl = pageRefs.current[flyingRef.current];
-    // Wait for the curl rig to mount. Clipping the page before the bend exists
-    // would show one frame of a sheet cut off against nothing.
-    if (!pageEl || !curlLayer.current || w === 0) return;
+    const { w } = size.current;
+    const clipEl = clipRefs.current[flyingRef.current];
+    const innerEl = innerRefs.current[flyingRef.current];
+    // Wait for the flap to mount. Creasing the page before it exists would
+    // show one frame of a sheet cut off against nothing.
+    if (!clipEl || !innerEl || !flapClipRef.current || w === 0) return;
 
-    const g = curlGeometry(w, h, cursor.current, grabY.current);
+    const a = anchor.current;
+    const p = hand.current;
+    const g = peelLayers(
+      w,
+      size.current.h,
+      { ax: a.x, ay: a.y, px: p.x, py: p.y },
+      margin.current
+    );
 
     if (!g) {
-      pageEl.style.clipPath = "";
-      curlLayer.current.style.opacity = "0";
+      clipEl.style.transform = "";
+      innerEl.style.transform = "";
+      flapClipRef.current.style.opacity = "0";
       return;
     }
 
-    pageEl.style.clipPath = g.pageClip;
-    curlLayer.current.style.opacity = "1";
+    // The clip box sweeps across the page; the page inside carries the exact
+    // inverse, so it stays where the reader left it. Checked to 1.3e-4px.
+    clipEl.style.transform = g.clip;
+    innerEl.style.transform = g.page;
 
-    // Lean the whole rig so the crease follows the corner being led.
-    const rig = rigRef.current;
-    if (rig) {
-      rig.style.transformOrigin = `${g.pivot.x.toFixed(
-        2
-      )}px ${g.pivot.y.toFixed(2)}px`;
-      rig.style.transform = `rotate(${g.rigRotateDeg.toFixed(3)}deg)`;
-    }
-
-    for (let i = 0; i < g.segments.length; i++) {
-      const el = segRefs.current[i];
-      const s = g.segments[i];
-      if (!el || !s) continue;
-      // Transform only. The strip's width rides in the transform as scaleX,
-      // because width is a layout property and this runs on every frame.
-      el.style.transform = s.transform;
-    }
-
-    const lifted = liftedRef.current;
-    if (lifted) {
-      lifted.style.transform = g.lifted.transform;
-      lifted.style.clipPath = g.lifted.clip;
-      const shade = lifted.querySelector<HTMLElement>("[data-shade]");
-      if (shade) shade.style.opacity = ((1 - g.lifted.light) * 0.62).toFixed(3);
-    }
-
-    const shadow = shadowRef.current;
-    if (shadow) {
-      // Position and length as a transform, from a fixed base width.
-      shadow.style.transform = `translateX(${g.shadow.left.toFixed(
-        2
-      )}px) scaleX(${(g.shadow.width / SHADOW_BASE).toFixed(4)})`;
-      shadow.style.opacity = g.shadow.opacity.toFixed(3);
-      // The cast follows the crease, so it leans with it. The origin is
-      // compensated for the wrapper spanning the whole sheet where the cast
-      // itself used to start at its own left edge and hang 12% above the top,
-      // so the lean turns about exactly the point it always did.
-      const spin = shadowSpinRef.current;
-      if (spin) {
-        spin.style.transformOrigin = `${(g.shadow.left + g.pivot.x).toFixed(
-          2
-        )}px ${(g.pivot.y - 0.12 * h).toFixed(2)}px`;
-        spin.style.transform = `rotate(${g.rigRotateDeg.toFixed(3)}deg)`;
-      }
+    const flapClip = flapClipRef.current;
+    const flap = flapRef.current;
+    const crease = creaseRef.current;
+    if (flap && crease) {
+      flapClip.style.opacity = "1";
+      // The flap needs no box of its own: the same half-plane that keeps the
+      // flat page is exactly the half the lifted corner lands in.
+      flapClip.style.transform = g.clip;
+      flap.style.transform = g.flap;
+      // The fold darkens as the sheet comes off the page beneath and then
+      // stops. Paper does not keep getting dimmer once it has left the table.
+      crease.style.opacity = (0.52 * Math.min(g.span / (w * 0.16), 1)).toFixed(
+        3
+      );
     }
   }, []);
 
@@ -252,91 +357,225 @@ export default function Newspaper({ pages, labels }: Props) {
     return () => root.classList.remove("turning");
   }, [lifting]);
 
+  /** Lift a sheet onto its own compositor layer, or put it back down again. */
+  const promote = useCallback((i: number, on: boolean) => {
+    const want = on ? "transform" : "";
+    const clip = clipRefs.current[i];
+    const inner = innerRefs.current[i];
+    if (clip) clip.style.willChange = want;
+    if (inner) inner.style.willChange = want;
+  }, []);
+
   const reset = useCallback(() => {
     targetRef.current = null;
     pending.current = null;
     dragging.current = false;
     amount.current = 0;
-    grabY.current = -1;
-    // Clear every sheet's clip, not just the current one — a turn that commits
-    // swaps which sheet is flying, and a stale clip would strand a page cut in
-    // half on the next turn.
-    for (const el of pageRefs.current) if (el) el.style.clipPath = "";
+    folding.current = 0;
+    // Clear every sheet, not just the one that flew — a turn that commits swaps
+    // which sheet is flying, and a stale transform would strand the next page
+    // creased down the middle.
+    for (let i = 0; i < clipRefs.current.length; i++) {
+      const clip = clipRefs.current[i];
+      const inner = innerRefs.current[i];
+      if (clip) clip.style.transform = "";
+      if (inner) inner.style.transform = "";
+      promote(i, false);
+    }
     setLifting(null);
-  }, []);
+  }, [promote]);
 
-  /** Carry the free edge to a destination, painting directly, then finish. */
+  /** Carry the hand to a destination, painting directly, then finish. */
   const glide = useCallback(
-    (toX: number, ms: number, commit: number | null) => {
+    (to: Pt, ms: number, commit: number | null) => {
       cancelAnimationFrame(anim.current);
-      const from = cursor.current;
+      const fx = hand.current.x;
+      const fy = hand.current.y;
       const start = performance.now();
 
+      /**
+       * Finish the turn, from whichever gets there first.
+       *
+       * Landing the sheet is not decoration — it is what clears `lifting`, and
+       * `lifting` is what holds the `.turning` class that hides the grain and
+       * the vignette, and what the guard in turn() checks before allowing the
+       * next page. So a glide that never reaches its final frame does not
+       * merely look unfinished: the paper loses its texture for good and no
+       * further page will turn.
+       *
+       * That is reachable in ordinary use. A tab backgrounded mid-turn stops
+       * receiving animation frames, and the callback that would have finished
+       * the turn is simply never called. Observed here too, where the preview
+       * pane stops rAF entirely when it is not the front window.
+       */
+      let done = false;
+      const settle = () => {
+        if (done) return;
+        done = true;
+        window.clearTimeout(land.current);
+        cancelAnimationFrame(anim.current);
+        if (commit !== null) setPage(commit);
+        reset();
+      };
+
       const step = (now: number) => {
+        if (done) return;
         const t = Math.min((now - start) / ms, 1);
-        cursor.current = from + (toX - from) * pageEase(t);
+        const e = pageEase(t);
+        hand.current = { x: fx + (to.x - fx) * e, y: fy + (to.y - fy) * e };
         paint();
 
         if (t < 1) {
           anim.current = requestAnimationFrame(step);
         } else {
-          if (commit !== null) setPage(commit);
-          reset();
+          settle();
         }
       };
       anim.current = requestAnimationFrame(step);
+      // Timers keep running where animation frames do not. Generous enough
+      // never to cut a real glide short, short enough that a reader who comes
+      // back to the tab finds a settled page rather than a stranded one.
+      window.clearTimeout(land.current);
+      land.current = window.setTimeout(settle, ms + 400);
     },
     [paint, reset]
   );
 
+  /**
+   * Take hold of a sheet at (atX, atY) and fold it along (ux, uy).
+   *
+   * The anchor is wherever the reader actually pressed, which is what lets the
+   * page come off any corner or any edge: grab the middle of the fore-edge and
+   * the crease stands upright, grab low and near the corner and it leans, and
+   * neither case is special-cased anywhere. The old rig could only begin a turn
+   * from a strip at the sheet's left or right, because a cylinder has to know
+   * which edge it is rolling from.
+   */
   const begin = useCallback(
-    (s: Side, target: number, atX: number, atY: number) => {
-      const { w } = size.current;
+    (
+      s: Side,
+      flies: number,
+      target: number,
+      atX: number,
+      atY: number,
+      ux: number,
+      uy: number
+    ) => {
+      const { w, h } = size.current;
       sideRef.current = s;
       targetRef.current = target;
-      grabX.current = atX;
-      grabY.current = atY;
-      // Forwards the edge travels left towards the spine; backwards it travels
-      // right towards the fore-edge. Either way it is bounded by the paper.
-      travel.current = s === "next" ? atX : w - atX;
+      dir.current = { x: ux, y: uy };
+      press.current = { x: atX, y: atY };
+
+      view.current = visible();
+
+      // How far the hand may go is a question about the paper, so it is asked
+      // of the whole sheet. Capped at the width for the same reason peelLayers
+      // caps its progress there: a page several thousand pixels tall must not
+      // ask for a drag that long before it will admit the reader meant to turn
+      // it.
+      travel.current = Math.min(
+        Math.max(foldReach(wholeSheet(w, h), atX, atY, ux, uy), 1),
+        w
+      );
+
+      if (s === "next") {
+        // Forwards the reader is holding the paper, so the hand is the fold:
+        // whatever they pressed stays under their finger for the whole drag.
+        anchor.current = { x: atX, y: atY };
+        hand.current = { x: atX, y: atY };
+        folding.current = 0;
+      } else {
+        // Backwards there is nothing to hold — the sheet is already over on the
+        // other side — so the hand's travel drives the fold instead. A fold
+        // collapses onto its anchor, so the anchor has to sit out where the
+        // drag leaves the paper: left at the press point the sheet would unfold
+        // only as far as the reader's finger and then snap the rest of the way.
+        const reach = foldReach(view.current, atX, atY, ux, uy);
+        const ax = atX + ux * reach;
+        const ay = atY + uy * reach;
+        anchor.current = { x: ax, y: ay };
+        folding.current = foldClearance(view.current, ax, ay, -ux, -uy);
+        hand.current = {
+          x: ax - ux * folding.current,
+          y: ay - uy * folding.current,
+        };
+      }
+
       amount.current = 0;
       vel.current = 0;
       lastMove.current = null;
-      // Start at the pose that matches what is already on screen, so taking
-      // hold of the sheet never makes it jump.
-      cursor.current = s === "next" ? flatAt(w) : turnedAt(w);
-      // No height captured here any more: the grid stack keeps the sheet one
-      // fixed size, so there is nothing to freeze for the length of a turn.
+      promote(flies, true);
       setLifting({ target, side: s });
     },
-    []
+    [promote, visible]
   );
 
-  /** Turn by control rather than by hand — the same curl, driven for you. */
+  /**
+   * Where the hand has to finish for the turn to be over — or to be undone.
+   *
+   * A crease is a perpendicular bisector, so it advances at half the hand's
+   * speed. That is why a drag to the spine leaves the fold standing at the
+   * spine with half the page still showing, and why finishing a turn means
+   * carrying the hand on past where the reader let go rather than snapping the
+   * crease to the edge.
+   */
+  const settle = useCallback((done: boolean): Pt => {
+    const a = anchor.current;
+    const u = dir.current;
+
+    if (sideRef.current === "prev") {
+      // Flat, or all the way back over.
+      return done
+        ? { x: a.x, y: a.y }
+        : { x: a.x - u.x * folding.current, y: a.y - u.y * folding.current };
+    }
+
+    // Collapsing the fold onto its anchor is the page lying back down.
+    if (!done) return { x: a.x, y: a.y };
+
+    // Leave along the fold the reader actually made, not the one they started:
+    // a corner taken off diagonally should carry on diagonally.
+    const dx = hand.current.x - a.x;
+    const dy = hand.current.y - a.y;
+    const len = Math.hypot(dx, dy);
+    const fx = len > 1 ? dx / len : u.x;
+    const fy = len > 1 ? dy / len : u.y;
+    const span = foldClearance(view.current, a.x, a.y, fx, fy);
+    return { x: a.x + fx * span, y: a.y + fy * span };
+  }, []);
+
+  /** Turn by control rather than by hand — the same fold, driven for you. */
   const turn = useCallback(
     (next: number) => {
       if (next < 0 || next >= total || next === page || lifting) return;
-      const { w } = size.current;
+      const { w, h } = size.current;
 
-      if (reduce || w === 0) {
+      if (reduce || w === 0 || h === 0) {
         setPage(next);
         return;
       }
 
       const forward = next > page;
-      const h = sheetRef.current?.offsetHeight ?? 0;
+      const band = visible();
+      const deep = Math.max(band.y1 - band.y0, 1);
+      // Up and towards the spine, so the crease leans the way a hand leans it
+      // and the corner nearest the reader comes away first.
+      const lean = (DRIVEN_LEAN * w) / deep;
+      const len = Math.hypot(1, lean);
       begin(
         forward ? "next" : "prev",
+        forward ? page : next,
         next,
         forward ? w : 0,
-        h * DRIVEN_GRAB
+        band.y0 + deep * DRIVEN_GRAB,
+        (forward ? -1 : 1) / len,
+        -lean / len
       );
       dragging.current = false;
-      requestAnimationFrame(() =>
-        glide(forward ? turnedAt(w) : flatAt(w), TURN_MS, next)
-      );
+      requestAnimationFrame(() => glide(settle(true), TURN_MS, next));
     },
-    [begin, glide, lifting, page, reduce, total]
+    [begin, glide, lifting, page, reduce, settle, total, visible]
   );
 
   useEffect(() => {
@@ -356,16 +595,6 @@ export default function Newspaper({ pages, labels }: Props) {
     return () => window.removeEventListener("keydown", onKey);
   }, [page, turn]);
 
-  const localX = (clientX: number) => {
-    const rect = sheetRef.current?.getBoundingClientRect();
-    return rect ? clientX - rect.left : null;
-  };
-
-  const localY = (clientY: number) => {
-    const rect = sheetRef.current?.getBoundingClientRect();
-    return rect ? clientY - rect.top : 0;
-  };
-
   const onPointerDown = useCallback(
     (e: ReactPointerEvent<HTMLDivElement>) => {
       if (reduce || lifting || e.button !== 0) return;
@@ -373,23 +602,35 @@ export default function Newspaper({ pages, labels }: Props) {
       if ((e.target as HTMLElement).closest("a, button, input, textarea, select"))
         return;
 
-      const lx = localX(e.clientX);
-      if (lx === null) return;
-      pending.current = { cx: e.clientX, lx, ly: localY(e.clientY) };
+      const rect = sheetRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      frame0.current = { left: rect.left, top: rect.top };
+      pending.current = {
+        cx: e.clientX,
+        lx: e.clientX - rect.left,
+        ly: e.clientY - rect.top,
+      };
+      // The forward turn is much the commoner one, so its layer is worth
+      // preparing on the press rather than on the first move — the promotion
+      // then happens in the pause before the hand starts travelling.
+      promote(page, true);
       try {
         e.currentTarget.setPointerCapture(e.pointerId);
       } catch {}
     },
-    [lifting, reduce]
+    [lifting, page, promote, reduce]
   );
 
   const onPointerMove = useCallback(
     (e: ReactPointerEvent<HTMLDivElement>) => {
-      const lx = localX(e.clientX);
-      if (lx === null) return;
+      const lx = e.clientX - frame0.current.left;
+      const ly = e.clientY - frame0.current.top;
 
       const p = pending.current;
       if (p && !dragging.current) {
+        // Still the horizontal component that decides whether this is a turn at
+        // all. touch-action gives vertical panning to the scroller, and a
+        // reader running their thumb down a column has not asked for a page.
         const dx = e.clientX - p.cx;
         if (Math.abs(dx) < SLOP) return;
 
@@ -397,9 +638,22 @@ export default function Newspaper({ pages, labels }: Props) {
         const target = forward ? page + 1 : page - 1;
         if (target < 0 || target >= total) {
           pending.current = null;
+          promote(page, false);
           return;
         }
-        begin(forward ? "next" : "prev", target, p.lx, p.ly);
+        // The fold itself follows the whole drag rather than its horizontal
+        // part, which is what lets the corner come away at an angle.
+        const rise = ly - p.ly;
+        const len = Math.hypot(dx, rise) || 1;
+        begin(
+          forward ? "next" : "prev",
+          forward ? page : target,
+          target,
+          p.lx,
+          p.ly,
+          dx / len,
+          rise / len
+        );
         dragging.current = true;
       }
 
@@ -415,24 +669,27 @@ export default function Newspaper({ pages, labels }: Props) {
       }
       lastMove.current = { x: e.clientX, t };
 
-      const { w } = size.current;
+      const u = dir.current;
+      const from = press.current;
+      // Progress is the hand's travel along the fold, so wandering sideways
+      // neither adds to the turn nor takes from it. For a straight drag left or
+      // right this is the same number the old rig measured, to the pixel.
+      const pulled = Math.max(
+        (lx - from.x) * u.x + (ly - from.y) * u.y,
+        0
+      );
+      amount.current = travelProgress(pulled, travel.current);
+
       if (sideRef.current === "next") {
-        // Forwards the free edge rides under the hand: offset from where the
-        // sheet was taken hold of, so it lifts from the point being pulled.
-        const pulled = Math.max(grabX.current - lx, 0);
-        amount.current = travelProgress(pulled, travel.current);
-        cursor.current = flatAt(w) - pulled;
+        hand.current = { x: lx, y: ly };
       } else {
-        // Backwards there is no free edge to hold — the sheet is already over
-        // on the left — so the hand's travel drives the turn directly.
-        const pushed = Math.max(lx - grabX.current, 0);
-        amount.current = travelProgress(pushed, travel.current);
-        cursor.current =
-          turnedAt(w) + amount.current * (flatAt(w) - turnedAt(w));
+        const a = anchor.current;
+        const d = (1 - amount.current) * folding.current;
+        hand.current = { x: a.x - u.x * d, y: a.y - u.y * d };
       }
       schedule();
     },
-    [begin, page, schedule, total]
+    [begin, page, promote, schedule, total]
   );
 
   const onPointerUp = useCallback(() => {
@@ -440,6 +697,7 @@ export default function Newspaper({ pages, labels }: Props) {
     pending.current = null;
 
     if (!dragging.current) {
+      promote(page, false);
       // Never became a drag, so read it as a tap on the sheet's edge.
       if (tapped && !reduce) {
         const { w } = size.current;
@@ -452,9 +710,6 @@ export default function Newspaper({ pages, labels }: Props) {
 
     dragging.current = false;
 
-    const { w } = size.current;
-    const forward = sideRef.current === "next";
-
     // A hand that has come to rest is not flicking, whatever it was doing a
     // moment ago.
     const stale =
@@ -465,20 +720,17 @@ export default function Newspaper({ pages, labels }: Props) {
       shouldCommit({
         progress: amount.current,
         velocity: stale ? 0 : vel.current,
-        forward,
+        forward: sideRef.current === "next",
       });
 
     // Time what is left of the turn, so a nearly finished page does not crawl
-    // and a barely started one does not snap.
+    // and a barely started one does not snap. Scaled down with TURN_MS: a fold
+    // that takes 340ms in full cannot spend 720ms finishing the last tenth.
     const left = done ? 1 - amount.current : amount.current;
-    const ms = Math.max(300, Math.min(TURN_MS * left * 1.4, 720));
+    const ms = Math.max(140, Math.min(TURN_MS * left * 1.25, 320));
 
-    if (done) {
-      glide(forward ? turnedAt(w) : flatAt(w), ms, targetRef.current);
-    } else {
-      glide(forward ? flatAt(w) : turnedAt(w), ms, null);
-    }
-  }, [glide, page, reduce, turn]);
+    glide(settle(done), ms, done ? targetRef.current : null);
+  }, [glide, page, promote, reduce, settle, turn]);
 
   const showFold = page === 0 && folded && !reduce;
 
@@ -507,7 +759,7 @@ export default function Newspaper({ pages, labels }: Props) {
         matter which page is face up, and a short page ends in blank newsprint
         rather than collapsing around its content.
 
-        This is also what makes the turn geometry stable: the curl reads its
+        This is also what makes the fold geometry stable: the peel reads its
         dimensions from this box, which never changes size.
       */}
       <div
@@ -532,9 +784,6 @@ export default function Newspaper({ pages, labels }: Props) {
           return (
             <div
               key={i}
-              ref={(el) => {
-                pageRefs.current[i] = el;
-              }}
               // Hidden sheets stay in the grid so they keep holding the height,
               // but visibility:hidden takes them out of the a11y tree.
               // min-w-0 too: grid items default to min-width:auto, which would
@@ -547,135 +796,131 @@ export default function Newspaper({ pages, labels }: Props) {
               }}
               aria-hidden={!isFlying}
             >
-              {isFlying && showFold ? (
-                <FoldedSheet onOpened={() => setFolded(false)}>
-                  {sheet}
-                </FoldedSheet>
-              ) : (
-                sheet
-              )}
+              {/*
+                The crease, as a clip rather than a clip-path.
 
-              {/* Cast by the raised sheet onto the page still lying flat. Lives
-                  inside the flying sheet so it inherits that sheet's clip and
-                  cannot spill past the crease. */}
-              {isFlying && lifting && (
+                `overflow: clip` and not `hidden`, for two reasons. `hidden`
+                would make this a scroll container, and a scroll container is
+                where a `position: sticky` descendant sticks; `clip` is also the
+                only overflow value that takes `overflow-clip-margin`, which is
+                what pushes the clip rect out past the paper. That matters twice
+                over: idle, the ragged printed edges bleed ten pixels past the
+                sheet and must not be trimmed, and mid-fold the rect has to be
+                wider than the sheet's diagonal or a crease laid across a corner
+                would cut the page short. The margin is written from the
+                measured diagonal — see `layout`.
+
+                `relative` so that nothing inside the page can resolve its
+                containing block to the grid cell outside this box and escape
+                the clip.
+              */}
+              <div
+                ref={(el) => {
+                  clipRefs.current[i] = el;
+                }}
+                className="relative h-full"
+                style={{ overflow: "clip", transformOrigin: "0 0" }}
+              >
+                {/*
+                  And the counter-transform. This carries the exact inverse of
+                  the box above, so as the clip sweeps across the sheet the
+                  sheet itself does not move by so much as a thousandth of a
+                  pixel — which is the whole point. `clip-path` would have said
+                  the same thing about the same straight line and repainted four
+                  hundred and seventy nodes of type to say it.
+                */}
                 <div
-                  ref={shadowSpinRef}
-                  className="absolute inset-0 z-20 pointer-events-none"
-                  style={{ willChange: "transform" }}
-                  aria-hidden="true"
+                  ref={(el) => {
+                    innerRefs.current[i] = el;
+                  }}
+                  className="relative h-full"
+                  style={{ transformOrigin: "0 0" }}
                 >
-                  {/*
-                    Two elements so that neither has to be laid out.
-
-                    The cast used to carry its own `left` and `width`, written
-                    every frame — and because the browser runs a single layout
-                    pass per frame rather than one per write, those two were
-                    enough on their own to keep that pass alive for the whole
-                    turn. Removing the twenty-two on the bend bought nothing
-                    while these remained. The lean now rides on this wrapper and
-                    the position and length ride on the child as a transform, so
-                    a turn dirties no layout at all.
-                  */}
-                  <div
-                    ref={shadowRef}
-                    className="absolute opacity-0"
-                    style={{
-                      left: 0,
-                      top: "-12%",
-                      height: "124%",
-                      width: `${SHADOW_BASE}px`,
-                      transformOrigin: "0 0",
-                      willChange: "transform, opacity",
-                      background:
-                        "linear-gradient(to left, rgba(26,15,4,0.85) 0%, rgba(26,15,4,0.34) 22%, rgba(26,15,4,0) 78%)",
-                    }}
-                  />
+                  {isFlying && showFold ? (
+                    <FoldedSheet onOpened={() => setFolded(false)}>
+                      {sheet}
+                    </FoldedSheet>
+                  ) : (
+                    sheet
+                  )}
                 </div>
-              )}
+              </div>
             </div>
           );
         })}
 
         {lifting && (
-          // Flat wrapper, kept out of the 3D context purely to trim anything
-          // the leaning rig pushes past the edges of the sheet.
+          // Trims the fold to the paper. A lifted corner does stand out past a
+          // real sheet's edge, but this canvas is one fixed rectangle and a
+          // flap spilling over the masthead reads as a bug, not as paper.
           <div
             className="absolute inset-0 z-30 pointer-events-none overflow-hidden"
             aria-hidden="true"
           >
-            <div ref={rigRef} className="absolute inset-0">
-              <div
-                ref={curlLayer}
-                className="absolute inset-0 opacity-0"
-                style={{
-                  transformStyle: "preserve-3d",
-                  perspective: "1500px",
-                  perspectiveOrigin: "50% 34%",
-                }}
-              >
-                {/* The bend: strips around a half-cylinder, each lit by angle.
-                    Run tall so a leaning crease still covers the full sheet. */}
-                {Array.from({ length: BEND_SEGMENTS }).map((_, i) => (
-                  <div
-                    key={i}
-                    ref={(el) => {
-                      segRefs.current[i] = el;
-                    }}
-                    className="absolute left-0"
-                    style={{
-                      top: "-12%",
-                      height: "124%",
-                      // One pixel, scaled to the strip's real width by the
-                      // transform. See the note in lib/curl.ts.
-                      width: "1px",
-                      transformOrigin: "0 0",
-                      background: "var(--paper)",
-                      willChange: "transform",
-                      backfaceVisibility: "hidden",
-                    }}
-                  >
-                    {/* Lit once. A strip's shading depends only on its
-                        angle around the bend, which never changes — see
-                        SEGMENT_LIGHT. */}
-                    <div
-                      className="absolute inset-0 bg-[#150d03]"
-                      style={{ opacity: segmentShade(i) }}
-                    />
-                  </div>
-                ))}
+            {/*
+              The flap's clip box — the same half-plane, and literally the same
+              transform, as the flying page's. Everything the fold lifts lands
+              on the flat side of the crease, so one orientation serves both and
+              there is no second angle to keep in step with the first.
+            */}
+            <div
+              ref={flapClipRef}
+              className="absolute inset-0 opacity-0"
+              style={{
+                overflow: "clip",
+                transformOrigin: "0 0",
+                willChange: "transform, opacity",
+              }}
+            >
+              {/*
+                The lifted corner: the reverse of the sheet, mirrored in the
+                crease. Its box is the whole sheet, so the mirror image of the
+                sheet's own edges is where the flap ends — and the box-shadow
+                that follows those edges is painted once, in this element's own
+                frame, and merely carried about by the transform. The previous
+                rig cast its shadow from a gradient whose position and length
+                were rewritten every frame.
 
-                {/* The run already lifted: flat, face-down, off the page. */}
-                <div
-                  ref={liftedRef}
-                  className="absolute left-0 w-full"
-                  style={{
-                    top: "-12%",
-                    height: "124%",
-                    transformOrigin: "0 0",
-                    willChange: "transform, clip-path",
-                    backfaceVisibility: "hidden",
-                  }}
-                >
-                  <div
-                    className="absolute inset-0 bg-[var(--paper)]"
-                    style={{ borderRight: "1px solid rgba(120,96,58,0.55)" }}
-                  />
-                  {/* Newsprint is thin: the far face shows faintly through.
-                      Held at the sheet's own offset inside the taller box. */}
-                  <div
-                    className="absolute left-0 w-full opacity-[0.11]"
-                    style={{ top: "9.677%" }}
-                  >
-                    {pages[flying]}
-                  </div>
-                  <div
-                    data-shade
-                    className="absolute inset-0 bg-[#150d03] opacity-0"
-                    style={{ willChange: "opacity" }}
-                  />
-                </div>
-              </div>
+                No page content in here. The old lifted run carried a second
+                copy of the whole printed sheet at eleven per cent opacity for
+                the show-through, which is four hundred and seventy nodes to lay
+                out and paint at the exact moment the reader starts to drag. At
+                340ms and that opacity nobody was ever going to read it.
+              */}
+              <div
+                ref={flapRef}
+                className="absolute inset-0"
+                style={{
+                  transformOrigin: "0 0",
+                  willChange: "transform",
+                  // The reverse of a sheet is never brighter than its face.
+                  // Both stops sit at or below the paper's own value, so the
+                  // lifted corner reads as the back of the page rather than as
+                  // a panel lit from somewhere the room has no lamp.
+                  background:
+                    "linear-gradient(104deg, var(--sheet-back) 0%, var(--paper-deep) 55%, var(--sheet-back) 100%)",
+                  border: "1px solid rgba(120,96,58,0.45)",
+                  boxShadow:
+                    "0 0 26px 2px rgba(26,15,4,0.32), 0 0 5px rgba(26,15,4,0.26)",
+                }}
+              />
+
+              {/*
+                The fold line. Laid out along the crease in this box's own
+                frame — local x of minus the clip margin is exactly where
+                peelLayers puts the fold — so it needs no rotation of its own
+                and no geometry per frame, only an opacity.
+              */}
+              <div
+                ref={creaseRef}
+                className="absolute"
+                style={{
+                  opacity: 0,
+                  willChange: "opacity",
+                  background:
+                    "linear-gradient(to right, rgba(26,15,4,0.9) 0%, rgba(26,15,4,0.4) 24%, rgba(26,15,4,0) 100%)",
+                }}
+              />
             </div>
           </div>
         )}

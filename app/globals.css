@@ -283,6 +283,50 @@ body {
   background: currentColor;
 }
 
+/*
+ * A rule that draws itself on, for the one under the nameplate.
+ *
+ * That rule was an <svg><line> stretched across the page with
+ * preserveAspectRatio="none" and vector-effect="non-scaling-stroke", drawn by
+ * animating pathLength. Motion animates pathLength through a stroke dash
+ * pattern measured against the 100-unit viewBox, while non-scaling-stroke
+ * asks for the stroke in screen space; once the viewBox is stretched roughly
+ * twelvefold across a broadsheet the two no longer agree, and the solid rule
+ * closing the masthead arrived as a row of stray dashes.
+ *
+ * A rule is two borders. It needs no geometry, and scaleX is a compositor
+ * transform — so this costs no layout and no re-rasterising, where the SVG
+ * re-measured its own stroke on every frame of the draw.
+ */
+.rule-draw {
+  transform-origin: left center;
+  animation: rule-draw 900ms cubic-bezier(0.16, 1, 0.3, 1) 280ms both;
+}
+
+@keyframes rule-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Mid-turn the frame budget belongs to the sheet, and the rule is by then
+   already drawn: dropping the animation leaves it at its full width. */
+.turning .rule-draw {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The blanket rule at the foot of this file collapses the duration but not
+     the delay, which would leave the rule missing for a quarter of a second
+     on a machine asked to hold still. */
+  .rule-draw {
+    animation-delay: 0s;
+  }
+}
+
 ::selection {
   background: var(--accent);
   color: var(--paper);
