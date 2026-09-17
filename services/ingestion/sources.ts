@@ -1,4 +1,4 @@
-import type { Section, Source } from "../../lib/types.ts";
+import type { PublisherType, Section, Source } from "../../lib/types.ts";
 
 export type Feed = {
   source: Source;

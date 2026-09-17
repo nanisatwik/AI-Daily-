@@ -37,6 +37,22 @@ jobs:
       - name: Compile the briefs
         run: node services/ai/extractive.ts
 
+      # The extractive briefs above can say what was reported; they cannot say
+      # why it matters. This writes that part with a model, on Google's free
+      # tier, and overlays it onto the briefs just compiled — every event it
+      # cannot do keeps the extractive brief it already has.
+      #
+      # `continue-on-error` for the same reason the recording has it: the
+      # edition going out matters more than the analysis on it. A quota that
+      # ran out, an API having a bad morning, or no key configured at all must
+      # leave a printable paper rather than a failed run. Without the secret
+      # the step is dormant and exits 0 on its own.
+      - name: Write the analysis
+        run: node services/ai/analyse.ts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        continue-on-error: true
+
       # Neural speech runs at roughly a second of computation per second of
       # audio, so it cannot be done in the reader's browser while they wait —
       # measured at a real-time factor of 1.01 to 1.10 on a sixteen-core

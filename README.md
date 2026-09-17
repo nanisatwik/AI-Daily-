@@ -24,7 +24,8 @@ public RSS/Atom feeds
         │                                                   ▼
         │                                          data/edition-latest.json
         │                                                   │
-        └──────────── briefing (extractive) ────────────────┤
+        ├──────────── briefing (extractive) ────────────────┤
+        └──────────── analysis (Gemini, optional) ──────────┤
                                                             ▼
                                               Next.js, built statically
 ```
@@ -38,12 +39,18 @@ Everything above is a scheduled GitHub Action. Nothing runs between editions.
 ```bash
 npm install
 npm run edition   # gather the wire, then compile briefs
+npm run analyse   # optional: write the analysis, needs GEMINI_API_KEY
 npm run dev
 ```
 
 `npm run edition` reaches out to the feeds listed in
 `services/ingestion/sources.ts` and rewrites `data/edition-latest.json`. The app
 reads that file at build time.
+
+`npm run analyse` overlays model-written analysis onto that same file. Without
+a key it prints a line saying so and changes nothing; with one, see below.
+`ANALYSIS_LIMIT=3 npm run analyse` does three events, which is enough to see
+the whole path work without spending an edition's worth of requests.
 
 ---
 
@@ -74,18 +81,51 @@ That corroboration count is what the **tally marks** beside each headline show.
 
 ## About the briefs
 
-The panel on each story is **extractive**: every line is a sentence a publisher
+A story's panel is one of two things, and it says which on its face.
+
+**Compiled from sources** is extractive: every line is a sentence a publisher
 actually filed, selected automatically and attributed to the outlet that wrote
 it. Nothing is generated, so nothing can be hallucinated — and it costs nothing.
+Its honest limit is that it can tell you *what was reported*, not *why it
+matters*.
 
-Its honest limit: it can tell you *what was reported*, not *why it matters*.
-Analysis requires generation, and manufacturing it algorithmically would mean
-inventing editorial judgement and passing it off as reporting. So those fields
-stay empty rather than being faked.
+**Written by a model** fills that gap. `services/ai/analyse.ts` asks Gemini for
+the four fields the extractive pass cannot supply — the summary, the key
+points, why it matters, who it lands on — and writes them onto the story.
 
-`services/ai/enrich.ts` implements the generated version against the Anthropic
-API. It is dormant — it runs only if `ANTHROPIC_API_KEY` is set, and the paper
-works without it.
+What governs it is **retrieval before generation**. The model is handed the
+headlines and standfirsts that publishers filed about that one event, and
+nothing else. It is never asked what it knows about the news, because a model
+asked that will answer, and the answer would be indistinguishable from the one
+drawn from the sources. Three things hold the line:
+
+- the prompt says the reports are the only evidence, and that a figure not in
+  them may not be written;
+- the model is given a way to decline, and a story it calls too thinly sourced
+  simply keeps its extractive brief;
+- every number in the returned brief is checked against the reports it was
+  shown. One that appears in neither throws the whole brief away — a reply that
+  invented a statistic has not earned trust in its other sentences.
+
+It is **dormant without `GEMINI_API_KEY`**, and the paper prints exactly as it
+does with one. The daily workflow step is `continue-on-error`, because the
+edition going out matters more than the analysis on it.
+
+### Why it is still free
+
+Gemini's free tier needs no card, and `gemini-3.5-flash-lite` is the model it
+is generous with: measured in September 2026 at 15 requests a minute and 500 a
+day, against 5 and 20 for full Flash. An edition is 54 events and one request
+each — 11% of the day's allowance, four minutes of mostly waiting at the
+per-minute pace.
+
+Google stopped publishing those numbers during 2026, so the script treats them
+as perishable. They set the pacing; the run also stops the moment the API says
+the day is spent, keeps everything already written, and leaves the rest of the
+edition extractive. Since the clusters are ranked highest-first, a run that
+stops early is one where the front of the paper got the analysis. Override
+`GEMINI_MODEL`, `GEMINI_RPM` and `GEMINI_DAILY_REQUESTS` when the allowance
+moves again.
 
 ---
 
@@ -121,7 +161,7 @@ lib/
   search.ts          client-side index
 services/
   ingestion/         feeds → normalise → cluster → rank
-  ai/                briefing
+  ai/                briefing, analysis, the recorded voice
 data/                the editions themselves
 .github/workflows/   the daily press run
 ```
@@ -211,4 +251,6 @@ instead.
 ## Deploying
 
 Vercel's free tier, connected to the repository. The GitHub Action commits a new
-edition each morning; Vercel rebuilds on the commit. No secrets are required.
+edition each morning; Vercel rebuilds on the commit. No secrets are required to
+deploy — the one the Action can use, `GEMINI_API_KEY`, is optional, free, and
+only ever read at press time.
