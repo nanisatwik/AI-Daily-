@@ -75,6 +75,18 @@ export function SectionNav({
           {s.section}
         </Link>
       ))}
+      {/*
+        The briefing had no link from anywhere in the paper for a day after it
+        went live, so the only spoken edition a reader could find was the
+        floating reader — which drove the operating system's synthesiser. The
+        good voice existed and was unreachable.
+      */}
+      <Link
+        href="/briefing"
+        className="kicker text-[var(--accent)] hover:opacity-60 transition-opacity"
+      >
+        The wireless
+      </Link>
       <Link
         href="/yours"
         className="kicker text-[var(--accent)] hover:opacity-60 transition-opacity"

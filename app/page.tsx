@@ -3,17 +3,29 @@ import PageSheet from "@/components/PageSheet";
 import KeyboardNav from "@/components/KeyboardNav";
 import VoiceReader from "@/components/VoiceReader";
 import { FrontPage, InnerPage } from "@/components/editionPages";
+import { readRecording } from "@/lib/recording";
 import {
   getLeadStory,
   getSecondaryStories,
   getRemainingStories,
   getInnerSheets,
+  getDigest,
 } from "@/lib/digest";
 
 export default function Home() {
   const lead = getLeadStory();
   const rail = getSecondaryStories();
   const strip = getRemainingStories();
+
+  /**
+   * The recording, if the press made one this morning.
+   *
+   * Passed to the floating reader so the button a reader can actually find
+   * plays the neural voice rather than the operating system's synthesiser. It
+   * was live for a day without this, and so nobody heard it.
+   */
+  const digestDate = getDigest().date;
+  const recording = readRecording(digestDate);
 
   // Named from what actually lands on each sheet, because the split is by
   // length rather than by a fixed list of sections — see getInnerSheets.
@@ -53,6 +65,7 @@ export default function Home() {
       <Newspaper pages={pages} labels={LABELS} />
       <KeyboardNav />
       <VoiceReader
+        recording={recording}
         passages={[lead, ...rail, ...strip].map((s) => ({
           headline: s.headline,
           deck: s.deck,

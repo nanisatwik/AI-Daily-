@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PointingHand } from "./Ornament";
+import Link from "next/link";
 import { pickVoices, DELIVERY } from "@/lib/voices";
+import type { RecordingManifest } from "@/lib/recording";
 
 /**
  * The newspaper read aloud — blueprint section 6.
@@ -46,7 +48,26 @@ function toLines(passages: Passage[], mode: Mode): string[] {
   return lines;
 }
 
-export default function VoiceReader({ passages }: { passages: Passage[] }) {
+/**
+ * The floating reader.
+ *
+ * Its "five-minute brief" plays the recording the press made this morning when
+ * there is one, and only falls back to the browser's own synthesiser when there
+ * is not. That distinction is the whole point of this component's existence in
+ * its current shape: the recorded neural voice shipped and was live for a day
+ * while every reader still heard Microsoft David, because this button — the
+ * only spoken edition anyone could find — never knew the recording existed.
+ *
+ * "The whole edition" stays on the synthesiser. Nothing is recorded for it;
+ * fifty-four stories is not a five-minute bulletin.
+ */
+export default function VoiceReader({
+  passages,
+  recording = null,
+}: {
+  passages: Passage[];
+  recording?: RecordingManifest | null;
+}) {
   const [supported, setSupported] = useState(false);
   const [open, setOpen] = useState(false);
   const [speaking, setSpeaking] = useState(false);
@@ -56,6 +77,18 @@ export default function VoiceReader({ passages }: { passages: Passage[] }) {
   // A multiplier on DELIVERY.rate, so "1x" means the broadcast pace rather
   // than the synthesiser's hurried default.
   const [rate, setRate] = useState<number>(1);
+
+  /* ---- the recording, when the press made one ---- */
+  const audio = useRef<HTMLAudioElement | null>(null);
+  const timbres = recording ? Object.keys(recording.voices) : [];
+  const [timbre, setTimbre] = useState(timbres[0] ?? "lady");
+  const cut = recording
+    ? (recording.voices[timbre] ?? recording.voices[timbres[0]])
+    : null;
+  /** True while the recording is the thing being played, not the synthesiser. */
+  const [onAir, setOnAir] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const [at, setAt] = useState(0);
 
   const lines = useRef<string[]>([]);
   const cursor = useRef(0);
@@ -71,7 +104,9 @@ export default function VoiceReader({ passages }: { passages: Passage[] }) {
 
   useEffect(() => {
     rateRef.current = rate;
-  }, [rate]);
+    // One speed control for both engines.
+    if (audio.current) audio.current.playbackRate = rate;
+  }, [rate, timbre]);
 
   useEffect(() => {
     const ok = typeof window !== "undefined" && "speechSynthesis" in window;
@@ -149,6 +184,89 @@ export default function VoiceReader({ passages }: { passages: Passage[] }) {
     [passages, speakFrom]
   );
 
+  /* ---- recorded playback ---- */
+
+  const playRecording = useCallback(() => {
+    // Silence the synthesiser first: the two engines share no state and would
+    // otherwise talk over each other.
+    stopping.current = true;
+    window.speechSynthesis.cancel();
+    stopping.current = false;
+    setSpeaking(false);
+    setOnAir(true);
+    // After the element exists and has a source.
+    requestAnimationFrame(() => {
+      const el = audio.current;
+      if (!el) return;
+      el.playbackRate = rateRef.current;
+      // A rejected play() is the autoplay policy, not a broken file. Leaving
+      // `playing` true would show a pause button that does nothing.
+      el.play().then(
+        () => setPlaying(true),
+        () => setPlaying(false)
+      );
+    });
+  }, []);
+
+  const stopRecording = useCallback(() => {
+    const el = audio.current;
+    if (el) {
+      el.pause();
+      el.currentTime = 0;
+    }
+    setOnAir(false);
+    setPlaying(false);
+    setAt(0);
+  }, []);
+
+  const toggleRecording = useCallback(() => {
+    const el = audio.current;
+    if (!el) return;
+    if (el.paused) {
+      el.play().then(
+        () => setPlaying(true),
+        () => setPlaying(false)
+      );
+    } else {
+      el.pause();
+      setPlaying(false);
+    }
+  }, []);
+
+  const nudge = useCallback((seconds: number) => {
+    const el = audio.current;
+    if (!el || !Number.isFinite(el.duration)) return;
+    el.currentTime = Math.max(0, Math.min(el.currentTime + seconds, el.duration));
+  }, []);
+
+  /**
+   * Switching announcer keeps your place in the bulletin.
+   *
+   * The two recordings are the same words at different speaking rates, so they
+   * are different lengths — carrying the raw playhead across would land
+   * somewhere else in the news. The fraction through is what is preserved.
+   */
+  const changeTimbre = useCallback(
+    (next: string) => {
+      const el = audio.current;
+      const was = playing;
+      const share =
+        el && Number.isFinite(el.duration) && el.duration > 0
+          ? el.currentTime / el.duration
+          : 0;
+      setTimbre(next);
+      requestAnimationFrame(() => {
+        const e2 = audio.current;
+        if (!e2) return;
+        const target = recording?.voices[next]?.seconds ?? 0;
+        e2.currentTime = share * target;
+        e2.playbackRate = rateRef.current;
+        if (was) e2.play().catch(() => setPlaying(false));
+      });
+    },
+    [playing, recording]
+  );
+
   const stop = useCallback(() => {
     stopping.current = true;
     window.speechSynthesis.cancel();
@@ -214,12 +332,29 @@ export default function VoiceReader({ passages }: { passages: Passage[] }) {
         </button>
       ) : (
         <div className="w-[290px] border-2 border-[var(--ink)] bg-[var(--paper)] p-4 shadow-[4px_4px_0_0_var(--rule)]">
+          {cut && (
+            <audio
+              ref={audio}
+              src={cut.file}
+              preload="none"
+              onTimeUpdate={(e) => setAt(e.currentTarget.currentTime)}
+              onPlay={() => setPlaying(true)}
+              onPause={() => setPlaying(false)}
+              onEnded={() => {
+                setPlaying(false);
+                setOnAir(false);
+                setAt(0);
+              }}
+            />
+          )}
+
           <div className="flex items-center justify-between gap-3 pb-2.5 mb-3 border-b border-[var(--ink)]">
             <span className="kicker text-[var(--accent)]">The wireless</span>
             <button
               type="button"
               onClick={() => {
                 stop();
+                stopRecording();
                 setOpen(false);
               }}
               className="kicker text-[var(--ink-faint)] hover:text-[var(--ink)] transition-colors cursor-pointer"
@@ -229,14 +364,71 @@ export default function VoiceReader({ passages }: { passages: Passage[] }) {
             </button>
           </div>
 
-          {!speaking ? (
+          {onAir && cut ? (
+            <>
+              <p className="meta">
+                {playing ? "On air" : "Held"} &middot; {clockOf(at)} of{" "}
+                {clockOf(cut.seconds)}
+              </p>
+
+              <div className="mt-2.5 h-[3px] bg-[var(--rule)]" aria-hidden="true">
+                <div
+                  className="h-full bg-[var(--accent)]"
+                  style={{
+                    width: `${Math.min((at / Math.max(cut.seconds, 1)) * 100, 100)}%`,
+                  }}
+                />
+              </div>
+
+              <div className="mt-3 flex items-center gap-1.5">
+                <Control onClick={() => nudge(-15)} label="Back fifteen seconds">
+                  &larr;
+                </Control>
+                <Control
+                  onClick={toggleRecording}
+                  label={playing ? "Hold" : "Resume"}
+                  wide
+                >
+                  {playing ? "Hold" : "Resume"}
+                </Control>
+                <Control onClick={() => nudge(15)} label="On fifteen seconds">
+                  &rarr;
+                </Control>
+                <Control onClick={stopRecording} label="Stop">
+                  &#9632;
+                </Control>
+              </div>
+
+              {timbres.length > 1 && (
+                <div className="mt-3 flex items-center gap-2">
+                  <span className="meta shrink-0">Announcer</span>
+                  {timbres.map((t) => (
+                    <button
+                      key={t}
+                      type="button"
+                      onClick={() => changeTimbre(t)}
+                      aria-pressed={timbre === t}
+                      aria-label={`Read by the ${t} announcer`}
+                      className={`kicker px-1.5 py-0.5 transition-colors cursor-pointer ${
+                        timbre === t
+                          ? "text-[var(--accent)]"
+                          : "text-[var(--ink-faint)] hover:text-[var(--ink)]"
+                      }`}
+                    >
+                      {t === "lady" ? "Lady" : t === "gentleman" ? "Gentleman" : t}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </>
+          ) : !speaking ? (
             <div className="space-y-2">
               <button
                 type="button"
-                onClick={() => start("brief")}
+                onClick={() => (cut ? playRecording() : start("brief"))}
                 className="kicker w-full border border-[var(--ink)] px-3 py-2 hover:bg-[var(--ink)] hover:text-[var(--paper)] transition-colors cursor-pointer"
               >
-                Five-minute brief
+                {cut ? "This morning's bulletin" : "Five-minute brief"}
               </button>
               <button
                 type="button"
@@ -296,13 +488,39 @@ export default function VoiceReader({ passages }: { passages: Passage[] }) {
           </div>
 
           <p className="meta mt-3 normal-case tracking-normal text-[11px] font-body italic leading-snug">
-            Read by your browser&rsquo;s own voice. Every word spoken is printed
-            on the page.
+            {onAir && cut ? (
+              <>
+                Recorded this morning when the edition went to press, so it
+                sounds the same on every device.{" "}
+                <Link href="/briefing" className="underline hover:text-[var(--accent)]">
+                  The running order and full script
+                </Link>{" "}
+                are on the wireless page.
+              </>
+            ) : cut ? (
+              <>
+                The bulletin is a recording made at press time. The whole
+                edition is read by your browser&rsquo;s own voice, which will
+                sound like a machine — there is nothing recorded for all
+                fifty-four stories.
+              </>
+            ) : (
+              <>
+                Read by your browser&rsquo;s own voice. Every word spoken is
+                printed on the page.
+              </>
+            )}
           </p>
         </div>
       )}
     </div>
   );
+}
+
+/** m:ss, for a progress readout. */
+function clockOf(seconds: number): string {
+  const s = Math.max(0, Math.round(seconds));
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 }
 
 function Control({

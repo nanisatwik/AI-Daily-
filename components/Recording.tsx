@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { formatClock, type Briefing } from "@/lib/briefing";
+import type { RecordingManifest } from "@/lib/recording";
 import { TallyMarks } from "./stories";
 
 /**
@@ -29,18 +30,7 @@ import { TallyMarks } from "./stories";
  * recording was made for it.
  */
 
-export type VoiceCut = {
-  file: string;
-  seconds: number;
-  /** Where each spoken line begins, in seconds. Exact, taken at assembly. */
-  marks: { at: number; item: number }[];
-};
-
-export type RecordingManifest = {
-  date: string;
-  edition: number;
-  voices: Record<string, VoiceCut>;
-};
+export type { VoiceCut, RecordingManifest } from "@/lib/recording";
 
 const LABELS: Record<string, string> = {
   lady: "Lady",

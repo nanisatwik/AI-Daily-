@@ -5,29 +5,10 @@ import BriefingPlayer from "@/components/Briefing";
 import NightToggle from "@/components/NightToggle";
 import KeyboardNav from "@/components/KeyboardNav";
 import { PointingHand } from "@/components/Ornament";
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
-import RecordedBriefing, {
-  type RecordingManifest,
-} from "@/components/Recording";
+import RecordedBriefing from "@/components/Recording";
+import { readRecording } from "@/lib/recording";
 import { getDigest, formatEditionDate } from "@/lib/digest";
 import { buildBriefing } from "@/lib/briefing";
-
-function readRecording(date: string): RecordingManifest | null {
-  try {
-    const raw = readFileSync(
-      join(process.cwd(), "public", "briefing", "manifest.json"),
-      "utf8"
-    );
-    const m = JSON.parse(raw) as RecordingManifest;
-    // Stale recording against a fresh edition: the words would not match.
-    if (m.date !== date) return null;
-    return Object.keys(m.voices ?? {}).length > 0 ? m : null;
-  } catch {
-    // No recording yet — the browser-voice player still works.
-    return null;
-  }
-}
 
 export const metadata: Metadata = {
   title: "The five-minute briefing — The AI Daily",
