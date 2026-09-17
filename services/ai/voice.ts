@@ -34,6 +34,7 @@ import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
+import { createRequire } from "node:module";
 import { KokoroTTS } from "kokoro-js";
 import { buildBriefing } from "../../lib/briefing.ts";
 import type { Story } from "../../lib/digest.ts";
@@ -116,16 +117,36 @@ function toWav(samples: Float32Array, rate: number): Buffer {
 }
 
 /**
+ * Where to find ffmpeg.
+ *
+ * GitHub's Ubuntu runners carry it; a Windows checkout generally does not, so
+ * a local run used to fall back to keeping a fourteen-megabyte WAV. The
+ * `ffmpeg-static` package ships a binary per platform, which makes the local
+ * run produce exactly what CI produces. The system one is still preferred when
+ * present — it is the one the runner would use anyway.
+ */
+function ffmpegPath(): string {
+  const probe = spawnSync("ffmpeg", ["-version"], { encoding: "utf8" });
+  if (!probe.error && probe.status === 0) return "ffmpeg";
+  try {
+    // Resolved lazily: the package is a dev dependency and CI does not need it.
+    return createRequire(import.meta.url)("ffmpeg-static") as string;
+  } catch {
+    return "ffmpeg";
+  }
+}
+
+/**
  * WAV is committed to the repository every day, so it has to be compressed.
  *
  * Five minutes of 24kHz mono WAV is about fourteen megabytes; the same speech
- * as 48kbps mono MP3 is under two. ffmpeg is present on GitHub's Ubuntu
- * runners. If it is missing — a local run on a machine without it — the WAV is
- * kept rather than the recording being abandoned, and the caller is told.
+ * as 40kbps mono MP3 is under one and a half. If no ffmpeg can be found at all
+ * the WAV is kept rather than the recording being abandoned, and the caller is
+ * told which happened.
  */
 function toMp3(wav: string, mp3: string): boolean {
   const r = spawnSync(
-    "ffmpeg",
+    ffmpegPath(),
     [
       "-y",
       "-loglevel",
