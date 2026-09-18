@@ -184,9 +184,9 @@ export class Gemini {
 
       const detail = await readError(res);
 
-      // 401 and 403 are not worth retrying and not worth spending the rest of
-      // the edition discovering 53 more times.
-      if (res.status === 401 || res.status === 403) {
+      // A credential problem is not worth retrying and not worth spending the
+      // rest of the edition discovering fifty-three more times.
+      if (isKeyProblem(res.status, detail)) {
         throw new Misconfigured(detail.message);
       }
 
@@ -196,7 +196,7 @@ export class Gemini {
       // edition. `rate_limit_exceeded` is the per-minute meter and clears by
       // itself within the minute.
       if (res.status === 429) {
-        if (detail.code === "quota_exceeded") {
+        if (isDailyQuota(detail)) {
           throw new QuotaExhausted(detail.message);
         }
         if (attempt === MAX_ATTEMPTS) throw new Declined(detail.message);
@@ -328,17 +328,70 @@ export function readOutput(body: Interaction): string {
   return text;
 }
 
-async function readError(res: Response): Promise<{ code: string; message: string }> {
+/**
+ * Google's error body, read as it actually arrives.
+ *
+ * Captured from a live call with a deliberately invalid key:
+ *
+ *   { error: { code: 400, status: "INVALID_ARGUMENT",
+ *              message: "API key not valid...",
+ *              details: [{ reason: "API_KEY_INVALID", ... }] } }
+ *
+ * `code` is a NUMBER, not one of the string codes the error documentation
+ * describes, and the machine-readable part is `status` and `details[].reason`.
+ * Triaging on a string code meant the quota branch could never be reached and
+ * an invalid key was mistaken for a malformed prompt — fifty-four times, once
+ * per cluster, each costing a request.
+ */
+async function readError(
+  res: Response
+): Promise<{ code: string; status: string; reason: string; message: string }> {
   let code = `http_${res.status}`;
+  let status = "";
+  let reason = "";
   let message = res.statusText || code;
   try {
-    const body = (await res.json()) as ApiError;
-    if (body.error?.code) code = body.error.code;
-    if (body.error?.message) message = body.error.message;
+    // The interactions endpoint answers some errors with a single-element
+    // array rather than an object, so unwrap before reading.
+    const raw = (await res.json()) as unknown;
+    const body = (Array.isArray(raw) ? raw[0] : raw) as ApiError & {
+      error?: { status?: string; details?: { reason?: string }[] };
+    };
+    const err = body?.error;
+    if (err?.code !== undefined) code = String(err.code);
+    if (err?.status) status = err.status;
+    if (err?.message) message = err.message;
+    reason = err?.details?.find((d) => d?.reason)?.reason ?? "";
   } catch {
     // A non-JSON body from a gateway or a proxy. The status is the whole story.
   }
-  return { code, message: `${code}: ${message}`.slice(0, 300) };
+  return { code, status, reason, message: `${code}: ${message}`.slice(0, 300) };
+}
+
+/** A credential problem, however Google chooses to dress it up. */
+export function isKeyProblem(
+  httpStatus: number,
+  d: { status: string; reason: string; message: string }
+): boolean {
+  if (httpStatus === 401 || httpStatus === 403) return true;
+  // An invalid key arrives as a 400, which is otherwise the code for "your
+  // prompt was wrong" — so it has to be told apart by reason, or every cluster
+  // in the edition gets blamed for the key in turn.
+  return (
+    /API_KEY_INVALID|PERMISSION_DENIED|UNAUTHENTICATED/i.test(d.reason) ||
+    /API key not valid|API key expired|invalid authentication/i.test(d.message)
+  );
+}
+
+/** A per-day allowance, as opposed to the per-minute meter. */
+export function isDailyQuota(d: { status: string; reason: string; message: string }): boolean {
+  if (/quota_exceeded/i.test(d.reason) || /quota_exceeded/i.test(d.status)) return true;
+  // RESOURCE_EXHAUSTED covers both meters; only the text distinguishes them.
+  // Separator-tolerant: the metric names arrive snake_cased, as in
+  // "generate_requests_per_model_per_day", so matching only whitespace missed
+  // every real one and a day's allowance was retried as a per-minute limit.
+  const perDay = /per[\s_-]*day|daily/i;
+  return perDay.test(d.message) || perDay.test(d.reason);
 }
 
 /** Google answers 429 with a `Retry-After` in seconds when it knows one. */
