@@ -44,29 +44,28 @@ const MAX_ATTEMPTS = 3;
 /** First backoff; doubles, with jitter, and is overridden by `Retry-After`. */
 const BACKOFF_MS = 4_000;
 
-/* ------------------------------------------------------------------ *
- * Failures, sorted by what the caller should do about them
- * ------------------------------------------------------------------ */
+import {
+  Declined,
+  Misconfigured,
+  QuotaExhausted,
+  type Model,
+  type Reply,
+  type ResponseSchema,
+} from "./provider.ts";
 
-/** The day's allowance is gone. Keep what was generated and stop asking. */
-export class QuotaExhausted extends Error {}
-
-/** The key is missing, wrong, or not permitted. Nothing will work today. */
-export class Misconfigured extends Error {}
-
-/** This one cluster did not come back. Every other cluster is unaffected. */
-export class Declined extends Error {}
+export { Declined, Misconfigured, QuotaExhausted };
+export type { Reply, ResponseSchema };
 
 /* ------------------------------------------------------------------ *
  * The wire shapes
+ *
+ * The failure classes and the schema type moved to provider.ts when a second
+ * provider arrived. They have to be the SAME classes in both clients, not
+ * merely classes of the same name: the run sorts failures with `instanceof`,
+ * and two private copies of `QuotaExhausted` would mean a Groq quota being
+ * mistaken for an ordinary error and the whole edition retried against a
+ * spent allowance.
  * ------------------------------------------------------------------ */
-
-/** JSON Schema, restricted to the keywords the API documents as supported. */
-export type ResponseSchema = {
-  type: "object";
-  properties: Record<string, unknown>;
-  required: string[];
-};
 
 type Interaction = {
   id?: string;
@@ -82,8 +81,6 @@ type Interaction = {
 
 type ApiError = { error?: { code?: string; message?: string } };
 
-export type Reply = { text: string; tokens: number };
-
 export type GeminiConfig = {
   apiKey: string;
   model: string;
@@ -98,7 +95,7 @@ export function isConfigured(): boolean {
   return (process.env.GEMINI_API_KEY ?? "").trim().length > 0;
 }
 
-export class Gemini {
+export class Gemini implements Model {
   private readonly config: GeminiConfig;
   /** When the previous request was *started*, for per-minute spacing. */
   private lastStartedAt = 0;

@@ -12,33 +12,28 @@
  *
  * DORMANT WITHOUT A KEY
  *
- * No `GEMINI_API_KEY`, no generation, and the edition prints exactly as the
+ * No provider configured, no generation, and the edition prints exactly as the
  * extractive pass left it. Same contract as `lib/firebase.ts`: the feature is
  * additive, its absence is a normal state rather than a failure, and the step
  * exits 0 so a paper without it is still a paper.
  *
- * THE ARITHMETIC, FOR 54 CLUSTERS, ONCE A DAY
+ * WHICHEVER MODEL WILL HAVE US
  *
- * Google's free tier is metered per minute and per day, and during 2026 it
- * stopped publishing the per-model numbers — the documentation now says to
- * read them off the AI Studio dashboard. The figures below were measured
- * against the API in September 2026 and are treated as perishable: they set
- * the pacing, and the run also stops the moment the API itself says the day is
- * spent, because that is the only source of truth that cannot go stale.
+ * There were two providers by the second day of this feature existing, and not
+ * by design. Gemini was wired up and checked, and then Google put the project
+ * behind a manual review gate — `Status: Restricted`, `permission_denied: Your
+ * project has been denied access` — which no setting undoes and which a great
+ * many people hit the same week. Resting a pillar of the paper on one
+ * company's policy was the actual mistake; see provider.ts, which now holds
+ * the choice and the free-tier arithmetic for each.
  *
- *   gemini-3.5-flash-lite    15 requests/minute    500 requests/day
- *   gemini-3.5-flash          5 requests/minute     20 requests/day
+ * An edition is 54 clusters and one request each, so the allowance matters more
+ * than the model does: Groq's free plan permits a thousand requests a day and
+ * Gemini's five hundred, against an edition's fifty-four. Either is ample; what
+ * is not ample is depending on exactly one of them.
  *
- * That gap is the whole reason for the model choice. An edition is 54 clusters
- * and one request each, which is 11% of Flash-Lite's day and nearly three
- * times Flash's. Flash-Lite could not be the wrong call here: the work is
- * rewriting supplied text into four short fields, which is what the model is
- * for, and there is no second edition to spend the rest of the allowance on.
- *
- * At 15 a minute the run spaces itself four seconds apart, so 54 clusters take
- * a little under four minutes of mostly waiting. That is why it runs serially:
- * concurrency would not finish sooner, it would only reach the per-minute
- * limit faster and spend requests on being told so.
+ * The run is serial on purpose. Concurrency would not finish sooner — it would
+ * only reach the per-minute limit faster and spend requests on being told so.
  *
  * WHAT IT DOES TO AN EDITION
  *
@@ -55,23 +50,29 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import type { AiArtifact, Edition, EventCluster } from "../../lib/types.ts";
-import { Gemini, Misconfigured, QuotaExhausted, isConfigured } from "./gemini.ts";
+import {
+  Misconfigured,
+  QuotaExhausted,
+  chooseProvider,
+  hasKey,
+  providers,
+  signupLines,
+  type Model,
+} from "./provider.ts";
 import { SCHEMA, SYSTEM, evidenceFor, promptFor, readBrief, vet } from "./analysis.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const EDITION = join(ROOT, "data", "edition-latest.json");
 
 /**
- * Flash-Lite, not Flash.
+ * The model, its pace and its daily allowance come from whichever provider
+ * answered — see provider.ts.
  *
- * The task is rewriting supplied text into four short fields with no reasoning
- * to do, and the free tier gives Flash-Lite twenty-five times the daily
- * allowance. Override with GEMINI_MODEL if Google moves the goalposts again;
- * the pacing figures below should move with it.
+ * They were constants here while Gemini was the only thing to be constant
+ * about. Then Google restricted the project and a second provider became
+ * necessary, at which point a hardcoded model was the thing standing between a
+ * refusal and a working paper.
  */
-const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
-const RPM = Number(process.env.GEMINI_RPM) || 15;
-const DAILY_REQUESTS = Number(process.env.GEMINI_DAILY_REQUESTS) || 500;
 
 /**
  * A shorter run, for exercising the whole path without spending an edition's
@@ -85,13 +86,14 @@ type Outcome =
   | { kind: "failed"; reason: string };
 
 async function analyse(
-  gemini: Gemini,
+  model: Model,
+  modelName: string,
   cluster: EventCluster,
   now: string
 ): Promise<Outcome> {
   const { corpus } = evidenceFor(cluster);
 
-  const reply = await gemini.generate(SYSTEM, promptFor(cluster), SCHEMA);
+  const reply = await model.generate(SYSTEM, promptFor(cluster), SCHEMA);
 
   let brief;
   try {
@@ -112,9 +114,14 @@ async function analyse(
    * impossible to spot in a diff.
    */
   const id = (field: string) =>
-    createHash("sha1").update(`${cluster.id}|${MODEL}|${field}`).digest("hex").slice(0, 16);
+    createHash("sha1").update(`${cluster.id}|${modelName}|${field}`).digest("hex").slice(0, 16);
 
-  const base = { clusterId: cluster.id, language: "en", model: MODEL, createdAt: now };
+  const base = {
+    clusterId: cluster.id,
+    language: "en",
+    model: modelName,
+    createdAt: now,
+  };
 
   return {
     kind: "written",
@@ -139,10 +146,10 @@ async function analyse(
 
 async function main() {
   // A key sitting in `.env.local`, where `.env.example` tells the reader to put
-  // it, is not visible to a plain `node` process. Loaded only when the variable
-  // is not already set, so CI's repository secret always wins and a stale local
-  // file can never shadow it.
-  if (!process.env.GEMINI_API_KEY) {
+  // it, is not visible to a plain `node` process. Consulted only when no
+  // provider's key is already set, so CI's repository secret always wins and a
+  // stale local file can never shadow it.
+  if (!providers().some((p) => hasKey(p.keyName))) {
     try {
       (process as { loadEnvFile?: (path: string) => void }).loadEnvFile?.(
         join(ROOT, ".env.local")
@@ -152,11 +159,13 @@ async function main() {
     }
   }
 
-  if (!isConfigured()) {
+  const provider = chooseProvider();
+  if (!provider) {
     console.log(
-      "No GEMINI_API_KEY, so no analysis was generated and none was needed.\n" +
+      "No model is configured, so no analysis was generated and none was needed.\n" +
         "  The edition prints with the extractive briefs it already has.\n" +
-        "  A free key, no card required: https://aistudio.google.com/apikey"
+        "  Either of these is free and asks for no card:\n" +
+        signupLines()
     );
     return;
   }
@@ -167,21 +176,18 @@ async function main() {
   // is taking the front of the paper. Nothing here re-sorts it.
   const planned = edition.clusters.slice(
     0,
-    Math.min(edition.clusters.length, LIMIT, DAILY_REQUESTS)
+    Math.min(edition.clusters.length, LIMIT, provider.dailyRequests)
   );
 
   console.log(
-    `Analysing ${planned.length} of ${edition.clusters.length} events with ${MODEL}\n` +
-      `  free tier: ${RPM} requests/minute, ${DAILY_REQUESTS}/day — this run needs ${planned.length}, ` +
-      `about ${Math.ceil((planned.length * 60) / RPM / 60)} min at that pace`
+    `Analysing ${planned.length} of ${edition.clusters.length} events with ` +
+      `${provider.label} ${provider.model}\n` +
+      `  free tier: ${provider.rpm} requests/minute, ${provider.dailyRequests}/day — ` +
+      `this run needs ${planned.length}, about ` +
+      `${Math.max(Math.ceil(planned.length / provider.rpm), 1)} min at that pace`
   );
 
-  const gemini = new Gemini({
-    apiKey: (process.env.GEMINI_API_KEY ?? "").trim(),
-    model: MODEL,
-    rpm: RPM,
-    budget: DAILY_REQUESTS,
-  });
+  const model = await provider.create(provider.dailyRequests);
 
   const now = new Date().toISOString();
   const started = Date.now();
@@ -197,7 +203,7 @@ async function main() {
     let outcome: Outcome;
 
     try {
-      outcome = await analyse(gemini, cluster, now);
+      outcome = await analyse(model, provider.model, cluster, now);
     } catch (err) {
       // The day's allowance is gone, or the key is not usable. Either way the
       // loop ends here and everything already written is kept.
@@ -260,10 +266,10 @@ async function main() {
   const seconds = ((Date.now() - started) / 1000).toFixed(0);
   console.log(
     `\n${generated.size} analysed, ${abstained} left extractive, ${failed} failed — ` +
-      `${gemini.requestsSpent} requests, ${gemini.tokensSpent} tokens, ${seconds}s`
+      `${model.requestsSpent} requests, ${model.tokensSpent} tokens, ${seconds}s`
   );
   console.log(
-    `Free-tier allowance after this run: about ${gemini.budgetRemaining} of ${DAILY_REQUESTS} requests left today.`
+    `${provider.label} allowance after this run: about ${model.budgetRemaining} of ${provider.dailyRequests} requests left today.`
   );
 
   if (halted) {
@@ -278,8 +284,10 @@ async function main() {
     console.error(
       `\nThe key was refused, so nothing further was asked and nothing was spent.\n` +
         `  ${fatal.message}\n\n` +
-        `Check GEMINI_API_KEY against https://aistudio.google.com/apikey.\n` +
-        `The newspaper prints without this step — analysis is additive.`
+        `Check ${provider.keyName} against ${provider.signup}.\n` +
+        `Another provider can be used instead — set its key, or force one with\n` +
+        `AI_PROVIDER. The newspaper prints without this step either way;\n` +
+        `analysis is additive.`
     );
     process.exit(1);
   }

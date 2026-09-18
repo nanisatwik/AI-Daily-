@@ -50,7 +50,11 @@ jobs:
       - name: Write the analysis
         run: node services/ai/analyse.ts
         env:
+          # Whichever is configured. The step picks the first one with a key and
+          # is dormant with neither, so an unset secret is a normal state.
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
         continue-on-error: true
 
       # Neural speech runs at roughly a second of computation per second of
