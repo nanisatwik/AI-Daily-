@@ -6,14 +6,34 @@ import NightToggle from "@/components/NightToggle";
 import KeyboardNav from "@/components/KeyboardNav";
 import { PointingHand } from "@/components/Ornament";
 import RecordedBriefing from "@/components/Recording";
-import { readRecording } from "@/lib/recording";
+import { readRecording, recordingFits } from "@/lib/recording";
 import { getDigest, formatEditionDate } from "@/lib/digest";
-import { buildBriefing } from "@/lib/briefing";
+import { buildBriefing, scriptFingerprint } from "@/lib/briefing";
+
+const TITLE = "The five-minute briefing — The AI Daily";
+const DESCRIPTION =
+  "Today's edition read aloud in order: the lead story, the desks, and what else came over the wire. Spoken by your own browser, so it costs nothing.";
 
 export const metadata: Metadata = {
-  title: "The five-minute briefing — The AI Daily",
-  description:
-    "Today's edition read aloud in order: the lead story, the desks, and what else came over the wire. Spoken by your own browser, so it costs nothing.",
+  title: TITLE,
+  description: DESCRIPTION,
+  // `website`, not `article`: the wireless is a standing page of the paper
+  // that gets re-cut each morning, and it has no single author or hour to
+  // declare. siteName and locale are restated because Next replaces the
+  // parent openGraph block rather than merging into it; see app/layout.tsx.
+  openGraph: {
+    type: "website",
+    siteName: "The AI Daily",
+    locale: "en_GB",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/briefing",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function BriefingPage() {
@@ -41,6 +61,8 @@ export default function BriefingPage() {
    * which is worse than falling back to the browser's own.
    */
   const recording = readRecording(digest.date);
+  /** The script this page just built, to match against what was recorded. */
+  const fingerprint = scriptFingerprint(briefing.lines);
 
   return (
     <div className="min-h-screen px-3 sm:px-6 py-4 sm:py-7">
@@ -59,7 +81,15 @@ export default function BriefingPage() {
           <NightToggle />
         </div>
 
-        {recording ? (
+        {/*
+          The recorded voice, but only if it is a recording of this script.
+          The player maps marks onto lines by index, so a recording of a
+          different script does not sound worse — it highlights and seeks to
+          the wrong sentence while sounding exactly as confident. That went
+          live once. `recordingFits` is the check; the browser's own voice is
+          the answer when it says no.
+        */}
+        {recording && recordingFits(recording, briefing.lines, fingerprint) ? (
           <RecordedBriefing briefing={briefing} manifest={recording} />
         ) : (
           <BriefingPlayer briefing={briefing} />

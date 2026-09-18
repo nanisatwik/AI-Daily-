@@ -101,6 +101,18 @@ export const TARGET_SECONDS = 300;
 const MAX_LINE_WORDS = 26;
 
 /**
+ * How short a hard-split part may get while avoiding a mid-phrase break.
+ *
+ * `bestBreak` searches a window around the even split for a better place to
+ * cut, and this is how far into a part that search may reach. Without a floor
+ * a long run of function words — "on behalf of the members of the board of
+ * the" — would let the break slide until one part was a fragment. Below it the
+ * search gives up and takes the clumsy cut, on the grounds that a breath in an
+ * odd place is a smaller fault than an utterance of two words.
+ */
+const MIN_SPLIT_WORDS = 6;
+
+/**
  * Share of the bulletin kept back for the closing rundown.
  *
  * A briefing that spends its whole budget on full items ends by simply
@@ -338,6 +350,56 @@ const DANGLING = new Set([
 
 const bareWord = (w: string) => w.toLowerCase().replace(/[^a-z]/g, "");
 
+/**
+ * Words that open a clause, and so make a good place to break just before.
+ *
+ * A sentence too long for one utterance has to be cut somewhere, and an even
+ * word count cuts wherever it happens to land — "...on millions / of newspaper
+ * articles", straight through a noun phrase. A reader breaking the same
+ * sentence aloud would stop at the joint: before the "that", before the "and".
+ * These are those joints, as far as a word list can find them without parsing
+ * the sentence.
+ */
+const CLAUSE_OPENERS = new Set([
+  "that", "which", "who", "whose", "whom", "because", "while", "after",
+  "before", "although", "though", "when", "where", "since", "unless",
+  "until", "whether", "if", "and", "but", "or", "so", "yet", "despite",
+  "including", "according", "amid", "as",
+]);
+
+/**
+ * Where to break a run of words that has no punctuation to break on.
+ *
+ * `target` is the even-split point, which keeps the parts the same length and
+ * is what this used to use unconditionally. The window around it is searched
+ * for somewhere better, nearest first, because a break two words from even
+ * that lands on a clause joint reads far better than an even one mid-phrase,
+ * and nobody can hear two words of imbalance.
+ *
+ * Preference order: immediately before a clause opener; failing that, anywhere
+ * that does not leave a function word hanging at the end; failing both, the
+ * even point, on the grounds that a clumsy breath beats an orphaned tail.
+ */
+function bestBreak(words: string[], from: number, target: number, left: number): number {
+  const WINDOW = 5;
+  const lowest = Math.max(MIN_SPLIT_WORDS, target - WINDOW);
+  const highest = Math.min(left - MIN_SPLIT_WORDS, MAX_LINE_WORDS, target + WINDOW);
+
+  const candidates: number[] = [];
+  for (let take = lowest; take <= highest; take++) candidates.push(take);
+  candidates.sort((a, b) => Math.abs(a - target) - Math.abs(b - target));
+
+  const opener = candidates.find((take) =>
+    CLAUSE_OPENERS.has(bareWord(words[from + take]))
+  );
+  if (opener !== undefined) return opener;
+
+  const clean = candidates.find(
+    (take) => !DANGLING.has(bareWord(words[from + take - 1]))
+  );
+  return clean ?? target;
+}
+
 function splitSentences(text: string): string[] {
   return text
     .split(/(?<=[.!?])\s+(?=["'(“]?[A-Z0-9])/)
@@ -399,13 +461,40 @@ function toLines(sentence: string): string[] {
     if (countWords(clause) > MAX_LINE_WORDS) {
       flush();
       const words = clause.split(/\s+/);
-      // Split into equal parts rather than filling greedily to the cap. Greedy
-      // filling left a 28-word clause as 26 words and then "GPT-Live family."
-      // on its own, and a two-word utterance after a full breath sounds like
-      // the reader lost their place. Two fourteens do not.
-      const per = Math.ceil(words.length / Math.ceil(words.length / MAX_LINE_WORDS));
-      for (let i = 0; i < words.length; i += per) {
-        out.push(words.slice(i, i + per).join(" "));
+      /**
+       * Split into equal parts rather than filling greedily to the cap. Greedy
+       * filling left a 28-word clause as 26 words and then "GPT-Live family."
+       * on its own, and a two-word utterance after a full breath sounds like
+       * the reader lost their place. Two fourteens do not.
+       *
+       * The break is then nudged to the nearest clause joint — see
+       * `bestBreak`. Counting words alone put seven breaks mid-phrase in the
+       * edition of 2026-09-18 — "...their AI training on millions of",
+       * "...companies in the industry are developing the" — and because the
+       * recorder bakes `gapSeconds` of silence in after every line, each one
+       * is an audible quarter-second hole where no reader would breathe.
+       *
+       * A word list finds clause joints and not every bad break: "whether
+       * rapid / advances will..." still splits an adjective from its noun,
+       * which needs a parser to see.
+       */
+      let i = 0;
+      while (i < words.length) {
+        const left = words.length - i;
+        // Recomputed each time so that moving one boundary does not leave the
+        // tail lopsided, and no part can exceed the cap.
+        const parts = Math.max(1, Math.ceil(left / MAX_LINE_WORDS));
+        const target = Math.min(left, Math.ceil(left / parts));
+        /**
+         * The last part is never nudged. There is no following phrase for a
+         * word to belong to, so there is no mid-phrase break to avoid — and
+         * moving it only strands a tail. Nudging it turned "...humans to rein
+         * it in." into "...humans to rein it" and then "in." on its own,
+         * which is the orphan this split was written to prevent.
+         */
+        const take = target < left ? bestBreak(words, i, target, left) : target;
+        out.push(words.slice(i, i + take).join(" "));
+        i += take;
       }
       continue;
     }
@@ -642,6 +731,42 @@ export type Briefing = {
   /** Stories in the edition, so the close can be honest about the rest. */
   total: number;
 };
+
+/**
+ * A short fingerprint of a script, so a recording can prove it is of this one.
+ *
+ * The recorded player maps audio marks onto script lines by index, which is
+ * only meaningful if the script the press recorded and the script the page
+ * built are the same script. They were not once: the recorder carried its own
+ * copy of `toStory` that had drifted from lib/digest.ts, and a 63-line
+ * recording played against a 59-line script on the live site — every
+ * highlight, every seek and the whole running order pointing at the wrong
+ * sentence. The copy was fixed, but "keep these two in step by hand" is the
+ * kind of invariant that holds until it doesn't, so this makes a mismatch
+ * detectable instead of merely regrettable.
+ *
+ * FNV-1a, and deliberately not `crypto`: this has to produce the same digits
+ * in the press's plain `node` process, in the Next server render and in the
+ * browser, and a 32-bit integer hash is the same arithmetic everywhere.
+ * Collisions do not matter here — this is not guarding against a forgery, only
+ * against two scripts that were meant to be identical and are not.
+ *
+ * The line boundary is folded in as well. Without it the same words divided
+ * differently — which is exactly what a change to `toLines` produces — would
+ * fingerprint the same, and that is the drift most likely to happen.
+ */
+export function scriptFingerprint(lines: { text: string }[]): string {
+  let hash = 0x811c9dc5;
+  const feed = (code: number) => {
+    hash ^= code;
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  };
+  for (const line of lines) {
+    for (let i = 0; i < line.text.length; i++) feed(line.text.charCodeAt(i));
+    feed(10);
+  }
+  return hash.toString(16).padStart(8, "0");
+}
 
 type Draft = Omit<BriefingItem, "from" | "to" | "seconds"> & { lines: string[] };
 

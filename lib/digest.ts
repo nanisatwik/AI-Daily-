@@ -1,4 +1,4 @@
-import type { Edition, EventCluster, Section } from "./types";
+import type { AiArtifact, Edition, EventCluster, Section } from "./types";
 import type { SearchDoc } from "./search";
 import raw from "@/data/edition-latest.json";
 
@@ -24,7 +24,17 @@ export type Story = {
   score: number;
 };
 
-function toStory(cluster: EventCluster): Story {
+/**
+ * Exported so lib/archive.ts can set an older edition's columns with the very
+ * same rules, rather than keeping a second copy of them. Every judgement below
+ * — one standfirst per publisher, one credit per publisher, the tally marks
+ * that follow from that — was arrived at by fixing a specific mis-set column,
+ * and a story from Tuesday's paper has to be set the way Tuesday set it.
+ * services/ai/voice.ts already records what the alternative costs: it carries
+ * this function transcribed, with a note that it must be re-transcribed by hand
+ * whenever this one changes.
+ */
+export function toStory(cluster: EventCluster): Story {
   const byTime = [...cluster.articles].sort(
     (a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)
   );
@@ -195,8 +205,20 @@ export type Brief = {
   model: string;
 };
 
-export function getBrief(storyId: string): Brief | null {
-  const mine = (edition.aiArtifacts ?? []).filter((a) => a.clusterId === storyId);
+/**
+ * The panel for one story, out of whichever edition's artifacts are handed in.
+ *
+ * Split out from `getBrief` for lib/archive.ts, which has to read the analysis
+ * that ran on the night the story was printed. Taking it from today's edition
+ * instead would be worse than printing no panel at all: the run that wrote
+ * those artifacts saw that night's sources, and an edition can carry none at
+ * all — 2026-09-16 has zero, 2026-09-18 has seventy-eight.
+ */
+export function briefFrom(
+  artifacts: AiArtifact[],
+  storyId: string
+): Brief | null {
+  const mine = artifacts.filter((a) => a.clusterId === storyId);
   if (mine.length === 0) return null;
 
   const pick = (type: string) => mine.find((a) => a.type === type)?.content;
@@ -211,6 +233,10 @@ export function getBrief(storyId: string): Brief | null {
     whoIsAffected: asText(pick("who_is_affected")),
     model: mine[0].model,
   };
+}
+
+export function getBrief(storyId: string): Brief | null {
+  return briefFrom(edition.aiArtifacts ?? [], storyId);
 }
 
 /** True once an edition has been through enrichment. */

@@ -23,7 +23,46 @@ export type RecordingManifest = {
   date: string;
   edition: number;
   voices: Record<string, VoiceCut>;
+  /**
+   * Fingerprint of the script that was recorded — see `scriptFingerprint` in
+   * lib/briefing.ts.
+   *
+   * Optional because a manifest written before this field existed is still a
+   * perfectly good recording, and refusing to play one would be a worse
+   * outcome than the problem it guards against. Absent, `recordingFits` falls
+   * back to comparing line counts, which is what actually went wrong the one
+   * time this went wrong.
+   */
+  script?: string;
 };
+
+/**
+ * Whether this recording is a recording of this script.
+ *
+ * The player maps marks onto lines by index, so a recording of a different
+ * script does not degrade — it misleads. Every highlight, every skip and the
+ * whole running order point at the wrong sentence, confidently. That shipped
+ * once: the recorder's copy of `toStory` had drifted from lib/digest.ts and a
+ * 63-line recording played against a 59-line script on the live site.
+ *
+ * A caller that gets `false` should use the browser's own voice instead. It
+ * sounds worse, and sounding worse is much better than being wrong — a reader
+ * can hear that a synthesiser is a synthesiser, but cannot hear that the
+ * highlighted sentence is not the one being spoken.
+ */
+export function recordingFits(
+  manifest: RecordingManifest,
+  lines: { text: string }[],
+  fingerprint: string
+): boolean {
+  const cuts = Object.values(manifest.voices ?? {});
+  if (cuts.length === 0) return false;
+  // One mark per line, in every voice. Two voices of the same script must
+  // agree with the script and therefore with each other.
+  if (!cuts.every((cut) => (cut.marks?.length ?? 0) === lines.length)) return false;
+  // Only compared when the press recorded one; see the note on the field.
+  return manifest.script === undefined || manifest.script === fingerprint;
+}
 
 /**
  * The manifest, or null when there is nothing to play.

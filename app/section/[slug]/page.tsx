@@ -29,9 +29,34 @@ export async function generateMetadata({
   const { slug } = await params;
   const found = resolve(slug);
   if (!found) return { title: "Section not found — The AI Daily" };
+
+  // The count is in the description because a desk page is otherwise
+  // indistinguishable from the other six in a list of search results, and the
+  // count is the one thing that actually differs day to day.
+  const description = `${found.count} ${
+    found.count === 1 ? "story" : "stories"
+  } filed to the ${found.section} desk in today's edition of The AI Daily, every one with its sources named.`;
+
   return {
     title: `${found.section} — The AI Daily`,
-    description: `Every ${found.section} story in today's edition of The AI Daily.`,
+    description,
+    // A desk is a page of the paper rather than a piece of writing, so
+    // `website` and no `publishedTime` — the stories it collects carry those.
+    // siteName and locale are restated because Next replaces the parent
+    // openGraph block rather than merging into it; see app/layout.tsx.
+    openGraph: {
+      type: "website",
+      siteName: "The AI Daily",
+      locale: "en_GB",
+      title: `${found.section} — The AI Daily`,
+      description,
+      url: `/section/${slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${found.section} — The AI Daily`,
+      description,
+    },
   };
 }
 

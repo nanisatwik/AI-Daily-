@@ -9,37 +9,103 @@ import { PageIn, Reveal, PressIn } from "@/components/motion";
 import { TallyMarks } from "@/components/stories";
 import AiBrief from "@/components/AiBrief";
 import ClipButton from "@/components/ClipButton";
+import { getDigest, formatEditionDate, relativeTime } from "@/lib/digest";
 import {
-  getStory,
-  getAllStoryIds,
-  getDigest,
-  getBrief,
-  formatEditionDate,
-  relativeTime,
-} from "@/lib/digest";
+  getArchivedStory,
+  getArchivedBrief,
+  getStoriesAlongside,
+  getPrerenderedStoryIds,
+} from "@/lib/archive";
 import { readingMinutes } from "@/lib/types";
 
 
+/**
+ * A recent window, not the whole archive.
+ *
+ * The ids come from lib/archive.ts rather than from today's edition, which is
+ * the fix: reading `getAllStoryIds()` meant the build prerendered fifty-four
+ * pages and the route answered for nothing else, so 131 of the 185 stories this
+ * paper has printed were 404 and every shared link died within a day.
+ *
+ * `dynamicParams` is deliberately not exported here. Its default is `true`,
+ * which is what makes an id outside the window render on first request and be
+ * cached from then on — see PRERENDER_EDITIONS in lib/archive.ts for why the
+ * window exists at all and what it costs. Setting it to `false` would rebuild
+ * the defect: only the window would resolve.
+ *
+ * A genuinely unknown id still 404s, because the page below calls `notFound()`
+ * when the archive has never heard of it.
+ */
 export function generateStaticParams() {
-  return getAllStoryIds().map((id) => ({ id }));
+  return getPrerenderedStoryIds().map((id) => ({ id }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps<"/story/[id]">): Promise<Metadata> {
   const { id } = await params;
-  const story = getStory(id);
+  const story = getArchivedStory(id)?.story;
   if (!story) return { title: "Not found — The AI Daily" };
-  return { title: `${story.headline} — The AI Daily`, description: story.deck };
+  return {
+    title: `${story.headline} — The AI Daily`,
+    description: story.deck,
+    /**
+     * The card a shared story link unfurls into.
+     *
+     * `og:title` is the bare headline, not the `<title>` above it. A card
+     * prints `og:site_name` on its own line, so carrying "— The AI Daily" into
+     * the title as well spends one of the two lines a preview gets on saying
+     * the same thing twice.
+     *
+     * `siteName` and `locale` are restated rather than inherited because Next
+     * replaces the parent `openGraph` block wholesale when a segment declares
+     * its own — see the note in app/layout.tsx. `images` is left to the
+     * `opengraph-image` convention.
+     *
+     * `publishedTime` is the story's own hour, which for a clustered event is
+     * when the wire last carried it. That is the same figure the column prints
+     * beside the tally marks, so a card that disagreed with the page would be
+     * the odd one out.
+     */
+    openGraph: {
+      type: "article",
+      siteName: "The AI Daily",
+      locale: "en_GB",
+      title: story.headline,
+      description: story.deck,
+      publishedTime: story.publishedAt,
+      // Canonical, so a link that arrives carrying somebody's tracking
+      // parameters still shares as one story rather than as a new page.
+      url: `/story/${story.id}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: story.headline,
+      description: story.deck,
+    },
+  };
 }
 
 export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
   const { id } = await params;
-  const story = getStory(id);
-  if (!story) notFound();
+  const printed = getArchivedStory(id);
+  if (!printed) notFound();
 
-  const digest = getDigest();
-  const others = digest.stories.filter((s) => s.id !== story.id).slice(0, 3);
+  const { story } = printed;
+  const others = getStoriesAlongside(story.id, 3);
+
+  /**
+   * Whether this column is in the paper on the press, or out of the archive.
+   *
+   * The masthead below carries the printing edition either way, which for one
+   * of today's fifty-four is today's date and No. 155 — the same two values it
+   * printed before the archive existed. But a masthead alone does not tell a
+   * reader who arrived from a six-day-old link that they are not reading
+   * today's news; it just quietly shows a date they have no reason to check
+   * against. So an archived story says so, once, in the dateline, in the type
+   * the dateline is already set in.
+   */
+  const archived = printed.date !== getDigest().date;
 
   return (
     <div className="min-h-screen px-3 sm:px-6 py-4 sm:py-7">
@@ -66,7 +132,7 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
             The AI Daily
           </Link>
           <p className="meta mt-1.5">
-            {formatEditionDate(digest.date)} &middot; No. {digest.edition}
+            {formatEditionDate(printed.date)} &middot; No. {printed.edition}
           </p>
         </div>
 
@@ -102,6 +168,13 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
                 {story.sources.length} sources &middot;{" "}
                 {relativeTime(story.publishedAt)} &middot;{" "}
                 {readingMinutes(story.body.join(" "))} min read
+                {archived && (
+                  <>
+                    {" "}
+                    &middot; From the edition of{" "}
+                    {formatEditionDate(printed.date)}
+                  </>
+                )}
               </span>
             </div>
 
@@ -117,7 +190,8 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
           <ClipButton storyId={story.id} />
         </div>
 
-        <AiBrief brief={getBrief(story.id)} />
+        {/* The panel the editor wrote on the night this story ran, not tonight's. */}
+        <AiBrief brief={getArchivedBrief(story.id)} />
 
         <Reveal className="mt-12">
           <div className="border-2 border-[var(--ink)] p-5 sm:p-7">

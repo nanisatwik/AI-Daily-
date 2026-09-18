@@ -36,7 +36,7 @@ import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { KokoroTTS } from "kokoro-js";
-import { buildBriefing, PACE } from "../../lib/briefing.ts";
+import { buildBriefing, PACE, scriptFingerprint } from "../../lib/briefing.ts";
 import type { Story } from "../../lib/digest.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -82,11 +82,34 @@ const DTYPE = "q8" as const;
  *
  * lib/briefing.ts sizes the script against `af_heart` at speed 1. If that
  * reference voice is ever changed, PACE there has to be measured again.
+ *
+ * HOW THE MULTIPLIER WAS ARRIVED AT THE SECOND TIME
+ *
+ * 1.12 was the ratio of two totals from one edition, and it under-corrected:
+ * on 2026-09-18 he still ran 316s against her 304s. The marks say why. Fitted
+ * line by line against her on the identical script, he came to 1.0189x her
+ * speech plus a fixed 0.142s a line (r2 0.9984) — so most of what was left
+ * was not tempo at all but the quiet Kokoro leaves at the edge of each clip,
+ * of which his voice has more.
+ *
+ * Whether `speed` could remove that mattered, because if it could not then a
+ * bigger multiplier would be speeding his words up to pay for his breaths and
+ * would be wrong again at any other line count. Measured directly — the same
+ * ten lines at speed 1.0 and 1.5 — it can: 50.00s became 32.23s, an effective
+ * 1.5516 for a nominal 1.5, and solving each line for a fixed non-scaling pad
+ * gives a negative one ten times out of ten, which is unphysical. `speed`
+ * scales the whole clip, its silence included, and slightly over-delivers:
+ * duration goes as 1/speed^1.083 over that range.
+ *
+ * So the correction is a multiplier after all, and the arithmetic to shed the
+ * remaining 4.2% is 1.12 x 1.0419^(1/1.083) = 1.163. His words end up 1.9%
+ * quicker than hers rather than 1.9% slower — about 124 words a minute, which
+ * no listener will notice and no newsreader would blush at.
  */
 const VOICES = {
   lady: { id: "af_heart", speed: 1 },
-  /** 376.3s at speed 1 against the reference take's 335.3s. */
-  gentleman: { id: "am_michael", speed: 1.12 },
+  /** 1.12 left him 4.2% long; see the measurement above. */
+  gentleman: { id: "am_michael", speed: 1.163 },
 } as const;
 
 /**
@@ -432,7 +455,17 @@ async function main() {
   await writeFile(
     join(OUT_DIR, "manifest.json"),
     JSON.stringify(
-      { date: edition.date, edition: edition.edition, voices: manifest },
+      {
+        date: edition.date,
+        edition: edition.edition,
+        /**
+         * What was read, so the page can refuse a recording of something
+         * else. The marks are indices into this script and nothing in the
+         * file itself says which script that was — see `recordingFits`.
+         */
+        script: scriptFingerprint(briefing.lines),
+        voices: manifest,
+      },
       null,
       2
     ) + "\n"
