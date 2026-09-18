@@ -370,6 +370,97 @@ export const FEEDS: Feed[] = [
     url: "https://export.arxiv.org/rss/cs.CV",
     defaultCategory: "AI Research",
   },
+  /* ------------------------------------------------------------------ *
+   * Regional desks, for the LOCAL pillar.
+   *
+   * Measured before any of these were added: of fifty-four stories in an
+   * edition, exactly ONE named a hub city outright. Six more carried a tag
+   * only because geo.ts inferred one from an institution or a phrase like
+   * "Silicon Valley" — and it missed nothing, there were no mentions left on
+   * the table. So the pillar was thin for a reason no algorithm could fix:
+   * national tech press writes "the startup raised $20M" and never says where
+   * the startup is.
+   *
+   * These were chosen on that specific basis. Each was fetched and its copy
+   * counted for hub-city mentions, not merely checked for a pulse: GeekWire
+   * names Seattle in sixteen items out of thirty-five, BetaKit names Toronto
+   * in fifteen. Inc42 and Crunchbase News answer perfectly well and were
+   * rejected anyway — neither named a single hub city across thirty-four
+   * items, which is the difference between a paper that reports ON a city and
+   * one that merely happens to sit in it.
+   *
+   * They are general regional press, so most of what they file is not about
+   * AI at all. The relevance gate already handles that, and the per-source cap
+   * stops any of them crowding the edition.
+   * ------------------------------------------------------------------ */
+
+  {
+    source: {
+      id: "geekwire",
+      name: "GeekWire",
+      url: "https://www.geekwire.com",
+      publisherType: "publication",
+      trust: 0.8,
+    },
+    url: "https://www.geekwire.com/feed/",
+    defaultCategory: "AI Startups",
+  },
+  {
+    source: {
+      id: "betakit",
+      name: "BetaKit",
+      url: "https://betakit.com",
+      publisherType: "publication",
+      trust: 0.78,
+    },
+    url: "https://betakit.com/feed/",
+    defaultCategory: "AI Startups",
+  },
+  {
+    source: {
+      id: "e27",
+      name: "e27",
+      url: "https://e27.co",
+      publisherType: "publication",
+      trust: 0.74,
+    },
+    url: "https://e27.co/feed/",
+    defaultCategory: "AI Startups",
+  },
+  {
+    source: {
+      id: "et-tech",
+      name: "The Economic Times",
+      url: "https://economictimes.indiatimes.com",
+      publisherType: "publication",
+      trust: 0.8,
+    },
+    url: "https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms",
+    defaultCategory: "AI Business",
+  },
+  {
+    source: {
+      id: "thehindu-tech",
+      name: "The Hindu",
+      url: "https://www.thehindu.com",
+      publisherType: "publication",
+      trust: 0.82,
+    },
+    url: "https://www.thehindu.com/sci-tech/technology/feeder/default.rss",
+    defaultCategory: "AI News",
+  },
+  {
+    source: {
+      id: "uktn",
+      name: "UKTN",
+      url: "https://www.uktech.news",
+      publisherType: "publication",
+      trust: 0.76,
+    },
+    url: "https://www.uktech.news/feed",
+    defaultCategory: "AI Startups",
+  },
+
   {
     source: {
       id: "arxiv-ro",

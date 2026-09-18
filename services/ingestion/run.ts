@@ -9,7 +9,7 @@
 import { writeFile, mkdir, readdir } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { Article, Edition } from "../../lib/types.ts";
+import type { Article, Edition, EventCluster } from "../../lib/types.ts";
 import { FEEDS, TYPE_WEIGHT } from "./sources.ts";
 import { Registry, classify } from "./registry.ts";
 import {
@@ -33,6 +33,25 @@ const MAX_AGE_HOURS = 72;
  * A broadsheet that prints white space reads as broken rather than spacious.
  */
 const MAX_EVENTS = 54;
+/**
+ * Column inches held for the local desk.
+ *
+ * Regional press was added so that stories would say where they happened, and
+ * it worked — Toronto, Seattle and Boston all appeared in the pool where before
+ * there was nothing outside London and the Bay. Then the ranking threw them
+ * straight back out: a story one regional outlet filed cannot outscore one that
+ * four national outlets covered, because corroboration is the heaviest term and
+ * it is the one thing local reporting never has.
+ *
+ * Measured: adding six regional feeds grew the pool from 246 events to 325 and
+ * changed the printed edition from seven geo-tagged stories to six. Necessary
+ * and not sufficient.
+ *
+ * So the cut reserves places, the way a paper keeps a column for the local
+ * desk rather than letting the wire win every inch. A reader who follows
+ * Bengaluru is not served by a page that only ever carries San Francisco.
+ */
+const LOCAL_SLOTS = 8;
 /**
  * No single publisher may dominate an edition. arXiv alone files hundreds of
  * preprints a day; left uncapped it buries every other source and leaves
@@ -71,6 +90,54 @@ async function nextEditionNumber(today: string): Promise<number> {
   } catch {
     return 150;
   }
+}
+
+/**
+ * Take the top `max` by editorial score, but not at the cost of every story
+ * that names a place.
+ *
+ * Where the plain cut carries fewer than `slots` geo-tagged events, the best
+ * tagged events below the line are promoted and the weakest UNTAGGED events in
+ * the cut make way for them — never another tagged one, or a paper with nine
+ * local stories would drop one to reach eight. The result is re-sorted so the
+ * page still reads in editorial order: reserving a place is not the same as
+ * putting local news at the top.
+ *
+ * Nothing is invented. If the wire carried no tagged events at all, the cut is
+ * exactly what it was.
+ */
+export function withLocalDesk(
+  ranked: EventCluster[],
+  max: number,
+  slots: number
+): EventCluster[] {
+  const isLocal = (c: EventCluster) => (c.cities ?? []).length > 0;
+
+  const cut = ranked.slice(0, max);
+  const shortfall = slots - cut.filter(isLocal).length;
+  if (shortfall <= 0) return cut;
+
+  /**
+   * A promotion needs somewhere to put it.
+   *
+   * Bounded by the untagged stories available to drop as well as by the
+   * shortfall, because without that second bound a quota larger than the
+   * supply of droppable stories overflows the page: `slice(-n)` with an n past
+   * the end takes the whole array, so every untagged story left and every
+   * tagged story arrived. A check asking for a quota of 999 got a hundred
+   * stories onto a fifty-four story page.
+   */
+  const droppable = cut.filter((c) => !isLocal(c));
+  const room = Math.min(shortfall, droppable.length);
+  const promote = ranked.slice(max).filter(isLocal).slice(0, room);
+  if (promote.length === 0) return cut;
+
+  // `cut` is in score order, so the weakest droppable are at its end.
+  const dropped = new Set(droppable.slice(-promote.length));
+
+  return [...cut.filter((c) => !dropped.has(c)), ...promote].sort(
+    (a, b) => b.score - a.score
+  );
 }
 
 async function main() {
@@ -145,7 +212,7 @@ async function main() {
   );
 
   const clusters = rank(clusterArticles(articles, trustOf), trustOf, weightOf);
-  const published = clusters.slice(0, MAX_EVENTS);
+  const published = withLocalDesk(clusters, MAX_EVENTS, LOCAL_SLOTS);
 
   const merged = clusters.filter((c) => c.articles.length > 1).length;
   console.log(
