@@ -30,6 +30,6 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "//": "services/ is a standalone Node worker run directly by `node` (which strips types and requires .ts specifiers), not bundled by Next. mobile/ is the React Native client and has its own tsconfig and its own platform types — checking it against `lib: dom` here fails on React Native APIs that genuinely exist there, such as StyleSheet.absoluteFillObject.",
-  "exclude": ["node_modules", "services", "mobile"]
+  "//": "services/ is a standalone Node worker run directly by `node` (which strips types and requires .ts specifiers), not bundled by Next. checks/ is the same, and for the same reason: the suites import the app's own modules by relative .ts specifier so that plain `node` can resolve them, which this config rejects without allowImportingTsExtensions — and turning that on for the whole app would let a .ts specifier into the bundle, where it does not belong. mobile/ is the React Native client and has its own tsconfig and its own platform types — checking it against `lib: dom` here fails on React Native APIs that genuinely exist there, such as StyleSheet.absoluteFillObject.",
+  "exclude": ["node_modules", "services", "checks", "mobile"]
 }

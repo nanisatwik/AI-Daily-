@@ -11,7 +11,7 @@
 import sharp from "sharp";
 import { mkdir, writeFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const OUT = join(ROOT, "public", "icons");
@@ -78,7 +78,14 @@ async function main() {
   console.log(`\nWrote ${TARGETS.length + 1} files to public/icons`);
 }
 
-main().catch((err) => {
-  console.error("Icon generation failed:", err);
-  process.exit(1);
-});
+/** Only when this file is the thing node was asked to run; see checks/services.check.ts. */
+const invokedDirectly =
+  process.argv[1] !== undefined &&
+  import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error("Icon generation failed:", err);
+    process.exit(1);
+  });
+}

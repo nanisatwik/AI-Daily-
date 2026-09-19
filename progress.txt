@@ -1,0 +1,151 @@
+Append-only. Newest at the bottom. Every iteration writes here before it stops,
+because the next one starts with no memory of this one.
+
+================================================================================
+2026-09-19 — seeding the loop
+================================================================================
+
+Written by the session that set Ralph up, from work already done. Read all of
+this before picking a story; most of it was paid for with a bug.
+
+VERIFICATION
+
+The project's discipline is a numeric check written BEFORE the logic is
+trusted, run under plain `node` (Node 24 strips TypeScript natively). The
+suites have caught, among others: a slice() overflow that returned 100 stories
+for a 54-story page, a quota regex that matched only whitespace, a commit
+threshold that made the page turn unsatisfiable from the inner half of the
+sheet, and a dead CSS selector.
+
+Three habits worth copying:
+
+  - Write the check first, then the logic.
+  - Prove the check can fail. Sabotage the thing it guards, watch it report,
+    restore. A check that has never failed has never been tested.
+  - Derive figures, never hardcode them. The archive suite asserted "6
+    editions, 185 stories, 131 recovered" and failed the next morning on the
+    press run working correctly. A check that cries wolf daily gets muted, and
+    a muted check is worse than none.
+
+THINGS THAT LOOK LIKE BUGS AND ARE NOT
+
+  - The preview pane intermittently returns a BLANK screenshot when Claude's
+    window is not frontmost. The page is fine. Verify via read_page or computed
+    styles and say which you did. This has produced false bug reports twice.
+  - Console buffers SURVIVE navigation. Open a fresh tab before concluding
+    there are errors, or you are reading errors from an edit you already fixed.
+  - requestAnimationFrame is throttled or stopped entirely in a background
+    pane. A frozen animation there is not a frozen animation.
+  - Synthetic PointerEvents do not reliably drive the page-turn rig. A previous
+    session read its own synthetic events as a regression. Reason from the code
+    or drive it by hand.
+
+THINGS THAT ARE BUGS AND LOOK LIKE NOTHING
+
+  - Heredocs eat backslashes: a doubled backslash collapses to one. This has
+    corrupted files three times — \s+ became a literal s, and \b inside a
+    template literal became a backspace character. Use the editor for anything
+    containing a regex.
+  - `.night .turning` can never match: both classes are on <html>, and a
+    descendant combinator needs two elements. Written with a space it falls
+    through in silence. Compound selectors for two classes on one element.
+  - Fitting a calibration to a single observation and then asserting the fit
+    guarantees the drift the assertion exists to catch. PACE was fitted to one
+    morning's recording and was 6.5% out two mornings later.
+
+WHAT THE PAPER CLAIMS ABOUT ITSELF
+
+Be careful here; two false claims have shipped.
+
+  - The colophon said "every story was clustered from multiple sources". On
+    2026-09-19, 35 of 54 stories carried exactly one outlet. Corrected.
+  - The first-run screen nearly printed the gap between items read and columns
+    printed as "duplicates". Of 3,022, only 47 were second reports of a printed
+    event; 2,975 were never printed at all. Say both numbers or neither.
+
+A paper whose argument is corroboration cannot overstate its own.
+
+WHERE THINGS LIVE
+
+  app/globals.css      the entire design system. No Tailwind theme file.
+  lib/archive.ts       every edition ever printed; story pages read from here
+  lib/digest.ts        today's edition only — this is the distinction that
+                       keeps catching people
+  lib/briefing.ts      the spoken script and the pacing calibration
+  lib/turn.ts          when a drag becomes a turn, and the spine constraint
+  lib/peel.ts          the fold geometry
+  components/Newspaper.tsx  the page-turn rig, 1100+ lines, most reworked file
+
+OPEN, AND WHY
+
+  - The check suites are not in the repo. THIS IS STORY ONE and nothing else
+    should be attempted before it: without it a fresh iteration has no feedback
+    loop at all.
+  - No working model provider key, so no generated copy exists and its quality
+    has never been measured on any provider.
+  - The paper has never run on a physical phone.
+
+================================================================================
+2026-09-19 — story checks-in-repo
+================================================================================
+
+The ten suites now live in checks/ and run with `npm run check`. Four things
+bit on the way, all worth knowing:
+
+  - The migration rewrote absolute paths by inserting a helper after the last
+    `import` line. Two suites build a module resolve hook as a TEMPLATE STRING
+    containing import statements, so the helper landed INSIDE the hook source
+    and its own import went with it. A scripted rewrite that looks for
+    "lines starting with import" cannot tell code from a string that contains
+    code. Targeted edits for those two.
+
+  - `process.exit()` trips a libuv assertion on Windows during teardown, so a
+    suite printed ALL CHECKS PASSED and still exited non-zero. Every suite now
+    sets `process.exitCode` and lets the process end by itself. Worth copying
+    into anything new.
+
+  - checks/ had to be excluded from the root tsconfig, exactly as services/
+    already is: the suites import by relative .ts specifier so plain `node` can
+    resolve them, and the app config rejects that. Turning on
+    allowImportingTsExtensions for the whole app would let a .ts specifier into
+    the bundle. So the suites are not typechecked — they are verified by being
+    run, which is what they are for.
+
+  - The runner spawns each suite as its own process rather than importing them.
+    They mutate process.env to exercise configuration and two register a
+    resolve hook; in one process they would fight over both.
+
+Proved the loop works rather than assuming it: removed `.turning .glass` from
+globals.css and widened MAX_LEAN from 0.12 to 0.45, and the run reported
+chrome FAILED (1) and spine FAILED (5) with exit code 1. Restored, green again,
+`git diff` empty.
+
+Note for whoever adds a suite: put it in checks/, end it with
+`process.exitCode = fails.length ? 1 : 0`, and the runner will find it.
+
+--- and the bug the story uncovered -------------------------------------------
+
+Running the suite rewrote the edition. Every file under services/ calls its
+main() at module scope, and checks/localdesk.check.ts imports one helper out of
+services/ingestion/run.ts — so `npm run check` fetched thirty-seven live feeds,
+re-clustered, and overwrote data/edition-latest.json while the other suites
+were reading it. The story count moved 237 -> 238 between two runs, which is
+the only reason it was caught. In CI it would have rewritten the paper on every
+push, and the recorded bulletin is fingerprinted against the script the edition
+produces, so the site would have fallen back to the browser voice each morning.
+
+All six jobs now guard their main() with
+
+    const invokedDirectly =
+      process.argv[1] !== undefined &&
+      import.meta.url === pathToFileURL(process.argv[1]).href;
+
+Verified both directions: `node services/ai/analyse.ts` still runs (prints the
+dormant message), and importing it executes nothing.
+
+checks/services.check.ts asserts it. Writing that check found a sixth job
+nobody had counted — services/icons/generate.ts — and then caught a bug in
+itself: the first detector looked for a call at the left margin, which stops
+matching the moment a file is guarded and the call indents. It reported one job
+where there are six. A detector that goes blind as soon as the fix lands is
+worse than none; it now looks for the main() DECLARATION.

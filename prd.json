@@ -1,0 +1,147 @@
+{
+  "feature": "Harden the paper: feedback loops, discoverability, and the screens still on paper only",
+  "branchName": "ralph/paper-hardening",
+  "notes": [
+    "Every story here must be completable in one context window. If one turns out not to be, split it in prd.json and say so in progress.txt rather than half-finishing it.",
+    "Stories carrying blockedBy need something from a human. Skip them; never clear the field yourself."
+  ],
+  "userStories": [
+    {
+      "id": "checks-in-repo",
+      "priority": 1,
+      "passes": true,
+      "title": "Move the check suites into the repository",
+      "why": "Ten numeric check suites exist and are the project's core verification discipline, but they live in a temporary scratchpad outside the repo. A fresh agent — which is every Ralph iteration — has none of them. Until this lands there is no feedback loop and broken code compounds silently.",
+      "acceptanceCriteria": [
+        "All ten suites live in checks/ in the repository",
+        "Their absolute file:///C:/Users/... imports become relative, so they run on any machine and on a CI runner",
+        "npm run check runs every suite and exits non-zero if any fails",
+        "Running npm run check on a clean tree passes",
+        "Deliberately breaking one thing each suite guards makes that suite fail, and this is demonstrated rather than assumed"
+      ]
+    },
+    {
+      "id": "checks-in-ci",
+      "priority": 2,
+      "passes": false,
+      "title": "Run the checks in GitHub Actions",
+      "why": "The nightly press run rebuilds the edition and can move any figure the suites assert on. Nobody reads a green log, but everybody notices a red one.",
+      "acceptanceCriteria": [
+        "A workflow runs npx tsc --noEmit, npm run check and npm run build on push and pull request",
+        "It does not run the ingestion, the model or the recorder — those cost time and quota and are the press run's job",
+        "The edition workflow also runs the checks after it commits, so a bad edition is visible the morning it lands",
+        "The workflow is verified by reading a real run, not by reasoning about the YAML"
+      ]
+    },
+    {
+      "id": "search-the-archive",
+      "priority": 3,
+      "passes": false,
+      "title": "Let the index search every edition, not just today",
+      "why": "237 stories are reachable and permanently addressed, but app/search/page.tsx calls getDigest(), so only today's 54 are findable. 183 columns are reachable and undiscoverable from inside the paper.",
+      "acceptanceCriteria": [
+        "Search covers the whole archive through lib/archive.ts",
+        "A result says which edition it was printed in, using the dateline vocabulary already in lib/digest.ts",
+        "Today's paper outranks an older printing of the same event",
+        "The cost of searching 237 and growing is considered and the trade-off stated in a comment",
+        "A check asserts an archive-only story is findable by its headline",
+        "Verified in the browser: search a term that appears only in an archived story and see it"
+      ]
+    },
+    {
+      "id": "og-images",
+      "priority": 4,
+      "passes": false,
+      "title": "Generate the Open Graph card images",
+      "why": "Every page declares twitter:card=summary_large_image and supplies no image, which is the weakest possible state: the card reserves a large slot and shows nothing. A shared story should unfurl as a clipping from this paper.",
+      "acceptanceCriteria": [
+        "Uses Next's opengraph-image file convention; app/sitemap.ts and the per-page openGraph blocks deliberately left images unset for this",
+        "A root card and a per-story card at minimum",
+        "The real typefaces render, not a fallback sans — ImageResponse does not inherit next/font, so the font data has to be supplied and the licence checked",
+        "Build time is reported before and after; if it becomes unacceptable, say so with numbers rather than quietly reducing scope",
+        "The built HTML emits og:image with absolute URLs resolved from metadataBase",
+        "The generated images are looked at, not merely generated"
+      ]
+    },
+    {
+      "id": "share-cards-for-standing-pages",
+      "priority": 5,
+      "passes": false,
+      "title": "Give the index and Your Edition their own share cards",
+      "why": "Both inherit the root openGraph block, so a shared link to either reads 'The AI Daily — Two Cents Edition' rather than what the page is. Small, and the last gap in the metadata work.",
+      "acceptanceCriteria": [
+        "app/search/page.tsx and app/yours/page.tsx declare their own openGraph and twitter blocks",
+        "siteName and locale are restated, because Next replaces the parent block rather than merging into it",
+        "No openGraph.images is set if og-images has not landed yet",
+        "Verified by reading the built HTML for both routes"
+      ]
+    },
+    {
+      "id": "surface-the-drift",
+      "priority": 6,
+      "passes": false,
+      "title": "Make the briefing's pacing drift impossible to miss",
+      "why": "The recorder warns when a take is more than 4% off its prediction. It fired on the press run of 2026-09-19 and nobody read the log, so the bulletin was billed at five minutes and ran 4:37 for two days. A warning nobody reads is not a feedback loop.",
+      "acceptanceCriteria": [
+        "The recorder writes the predicted seconds into public/briefing/manifest.json alongside the measured ones",
+        "A check asserts the committed manifest's drift is inside tolerance, so npm run check catches it without anyone reading a log",
+        "The field is optional on read, exactly as script is, so a manifest written before this lands is still playable",
+        "Demonstrated to fail on a manifest with an out-of-tolerance drift"
+      ]
+    },
+    {
+      "id": "briefing-generated-copy",
+      "priority": 7,
+      "passes": false,
+      "title": "Switch on generated copy in the bulletin",
+      "why": "lib/briefing.ts already accepts generated copy and app/briefing/page.tsx already has the comment describing the one-line change. It is off because the page and the recorder must pass the identical fourth argument — one without the other desynchronises the marks from the script.",
+      "acceptanceCriteria": [
+        "app/briefing/page.tsx and services/ai/voice.ts both pass the brief lookup, in the same change",
+        "The script fingerprint matches between page and manifest afterwards, verified with the real recording",
+        "Anything a model wrote carries a visible label, which is the paper's standing rule",
+        "The bulletin is re-recorded and the take is inside tolerance"
+      ],
+      "blockedBy": "No working model provider key. Needs GROQ_API_KEY as a repository secret before any generated copy exists to switch on."
+    },
+    {
+      "id": "subscribe-screen",
+      "priority": 8,
+      "passes": false,
+      "title": "Build the subscription screen from the approved mockup",
+      "why": "The account panel exists but is a plain form. The approved design sets it as a period order coupon on glass — underlines rather than boxes, delivery hour as a real choice, the price stated plainly, and nothing demanded before the paper has been read.",
+      "acceptanceCriteria": [
+        "Matches screen 05 of the approved mockup in scripts/ralph/mockups/ if present, otherwise the design described in UI-GUIDE.md",
+        "Uses the .glass class rather than declaring backdrop-filter, which is suspended during page turns for a measured reason",
+        "Readable in both editions and at phone width",
+        "No credential is collected that the project cannot yet store — accounts are dormant until Firebase is configured",
+        "Verified in the browser at phone and desktop width"
+      ]
+    },
+    {
+      "id": "firebase-accounts",
+      "priority": 20,
+      "passes": false,
+      "title": "Turn the dormant accounts on",
+      "why": "Account code is written and wired but inert. It needs a Firebase project's public config and firestore.rules deployed.",
+      "acceptanceCriteria": [
+        "NEXT_PUBLIC_FIREBASE_* values configured",
+        "firestore.rules deployed",
+        "Sign-in, registration and preference sync verified end to end in the browser"
+      ],
+      "blockedBy": "Needs the owner's Firebase project config. The NEXT_PUBLIC_ values are not secrets and can be pasted in chat."
+    },
+    {
+      "id": "mobile-on-hardware",
+      "priority": 21,
+      "passes": false,
+      "title": "Run the paper on a real handset",
+      "why": "Never once run on a phone. The grain tiling, the installed icon and splash, the offline round-trip and the page turn under a real finger are all unverified on hardware.",
+      "acceptanceCriteria": [
+        "The app loads on a physical device",
+        "The corner peel is dragged by hand and the spine holds",
+        "Grain, icon, splash and offline behaviour are each confirmed or reported broken"
+      ],
+      "blockedBy": "Needs a physical phone or an emulator. LAN was blocked by router AP isolation; expo tunnel is the known workaround."
+    }
+  ]
+}

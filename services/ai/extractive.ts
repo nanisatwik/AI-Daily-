@@ -15,7 +15,7 @@
 
 import { readFile, writeFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
 import type { AiArtifact, Edition, EventCluster } from "../../lib/types.ts";
 
@@ -192,7 +192,24 @@ async function main() {
   );
 }
 
-main().catch((err) => {
-  console.error("Briefing failed:", err);
-  process.exit(1);
-});
+/**
+ * Only when this file is the thing that was run.
+ *
+ * Without the guard, `main()` fires on import — and importing one exported
+ * helper out of this module is enough to set the whole job going. checks/
+ * localdesk.check.ts imports `withLocalDesk` from here, and running the check
+ * suite therefore fetched thirty-seven live feeds and rewrote the edition
+ * underneath every other suite in the same run. The story count moved from 237
+ * to 238 between two runs of `npm run check`, which is how it was noticed. On
+ * a CI runner it would have rewritten the paper on every push.
+ */
+const invokedDirectly =
+  process.argv[1] !== undefined &&
+  import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error("Briefing failed:", err);
+    process.exit(1);
+  });
+}
