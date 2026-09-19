@@ -101,8 +101,34 @@ export function search(
     hits.push({ ...doc, score, matched });
   }
 
+  /**
+   * Relevance, then the newer paper, then the newer hour.
+   *
+   * The index now reaches back through the archive, so two columns can match a
+   * term equally well and be a month apart. A reader searching "policy" wants
+   * this morning's policy before September's, and the edition date is the only
+   * thing that says which is which — `publishedAt` is when the wire last
+   * carried the event, which for a story that ran three mornings running is
+   * the same hour on all three printings.
+   *
+   * Deliberately a tiebreak and not a bonus. Weighting recency into the score
+   * would bury an exact match on an archived headline under every weak match
+   * from today, which is the opposite of what someone typing that headline
+   * wants. A reader who searches for a specific old column should find it
+   * first; a reader who searches for a topic should get this morning's.
+   *
+   * `date` is present on documents from lib/archive.ts and absent on the
+   * single-edition index lib/digest.ts builds, where every document is from
+   * the same paper and the term would do nothing anyway.
+   */
+  const printed = (h: SearchHit) =>
+    (h as SearchHit & { date?: string }).date ?? "";
+
   return hits.sort(
-    (a, b) => b.score - a.score || Date.parse(b.publishedAt) - Date.parse(a.publishedAt)
+    (a, b) =>
+      b.score - a.score ||
+      printed(b).localeCompare(printed(a)) ||
+      Date.parse(b.publishedAt) - Date.parse(a.publishedAt)
   );
 }
 

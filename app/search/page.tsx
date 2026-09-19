@@ -6,8 +6,8 @@ import NightToggle from "@/components/NightToggle";
 import KeyboardNav from "@/components/KeyboardNav";
 import TabBar from "@/components/TabBar";
 import { PointingHand } from "@/components/Ornament";
+import { getArchiveSearchIndex, getArchiveEditions } from "@/lib/archive";
 import {
-  getSearchIndex,
   getSectionIndex,
   getSourceIndex,
   getDigest,
@@ -16,7 +16,8 @@ import {
 
 export const metadata: Metadata = {
   title: "The index — The AI Daily",
-  description: "Search every story in today's edition by headline, topic or publisher.",
+  description:
+    "Search every story the paper has printed, by headline, topic or publisher.",
 };
 
 export default function SearchPage() {
@@ -39,8 +40,17 @@ export default function SearchPage() {
           <NightToggle />
         </div>
 
+        {/*
+          The whole archive, not today's paper.
+          237 columns have been printed and every one keeps its address, but
+          this page was built from getDigest() — so 183 of them were reachable
+          and unfindable, which is not an index. lib/archive.ts bounds it to
+          SEARCH_EDITIONS because these documents are shipped to the browser
+          and searched there; see the note on that constant for the arithmetic.
+        */}
         <SearchView
-          docs={getSearchIndex()}
+          docs={getArchiveSearchIndex()}
+          todayDate={digest.date}
           sections={getSectionIndex().map((s) => s.section)}
           sources={getSourceIndex()}
         />

@@ -36,7 +36,7 @@
     {
       "id": "search-the-archive",
       "priority": 3,
-      "passes": false,
+      "passes": true,
       "title": "Let the index search every edition, not just today",
       "why": "237 stories are reachable and permanently addressed, but app/search/page.tsx calls getDigest(), so only today's 54 are findable. 183 columns are reachable and undiscoverable from inside the paper.",
       "acceptanceCriteria": [

@@ -25,6 +25,7 @@
 
 import type { AiArtifact, Edition, EventCluster } from "./types";
 import { toStory, briefFrom, type Brief, type Story } from "./digest";
+import type { SearchDoc } from "./search";
 
 /**
  * The editions, named one by one.
@@ -121,6 +122,14 @@ function asEdition(mod: unknown): Edition | null {
   return printable ? (value as Edition) : null;
 }
 
+/**
+ * A searchable column, and the morning it was printed.
+ *
+ * `SearchDoc` is what lib/search.ts scores; the date and the edition are what
+ * a result prints so a reader can see they are looking at an older paper.
+ */
+export type ArchiveSearchDoc = SearchDoc & { date: string; edition: number };
+
 /** An id, and the edition whose printing of it this page shows. */
 export type Printing = { id: string; date: string; edition: number };
 
@@ -137,6 +146,8 @@ export type Archive = {
   alongside(id: string, count: number): Story[];
   /** Ids printed in the newest `editionsBack` editions. */
   recentIds(editionsBack: number): string[];
+  /** Every searchable column in the newest `editionsBack` editions. */
+  searchIndex(editionsBack: number): ArchiveSearchDoc[];
 };
 
 /**
@@ -179,6 +190,26 @@ export type Archive = {
  * prerender fewer.
  */
 const PRERENDER_EDITIONS = 3;
+
+/**
+ * How many editions the index searches.
+ *
+ * The second growth question, kept beside the first so they are answered in
+ * one place. There is no server, so the index is shipped to the browser and
+ * searched there — which makes its size a download rather than a query cost.
+ *
+ * Measured on 2026-09-19: 510 bytes a story, 118KB for the whole archive as it
+ * stands. At fifty-four columns a morning that is 0.8MB after a month and
+ * 9.6MB after a year, and nobody should pay ten megabytes to look something
+ * up. Thirty editions is about a month of paper and roughly 0.8MB, which is
+ * the most this is willing to send.
+ *
+ * Today the archive is seven editions, so the window binds nothing and the
+ * index is the whole of it. It starts biting in about three weeks, and when it
+ * does the honest fix is not a bigger number here — it is searching somewhere
+ * other than the reader's browser.
+ */
+export const SEARCH_EDITIONS = 30;
 
 /**
  * Build an archive from a set of imported edition modules, keyed by path.
@@ -278,6 +309,41 @@ export function buildArchive(modules: Record<string, unknown>): Archive {
         .slice(0, count)
         .map(toStory);
     },
+    searchIndex: (editionsBack) => {
+      if (editions.length === 0) return [];
+      const from = editions[Math.max(0, editions.length - editionsBack)].date;
+      /*
+       * Built from `printings`, so a story that ran for three mornings is
+       * indexed once, under its latest printing — the same rule the story
+       * pages resolve by. Two hits for one event would be the index
+       * contradicting the paper.
+       */
+      const out: ArchiveSearchDoc[] = [];
+      for (const printing of printings) {
+        if (printing.date < from) continue;
+        const found = source.get(printing.id);
+        if (!found) continue;
+        const c = found.cluster;
+        out.push({
+          id: c.id,
+          headline: c.title,
+          deck: (c.summary ?? "").slice(0, 200),
+          section: c.category,
+          sources: [...new Set(c.articles.map((a) => a.sourceName))],
+          tags: c.tags ?? [],
+          publishedAt: c.lastSeenAt,
+          // The three the ranking needs. By publisher name rather than feed
+          // id, exactly as lib/digest.ts getSearchIndex counts them: one
+          // publisher may arrive on several feeds.
+          sourceCount: new Set(c.articles.map((a) => a.sourceName)).size,
+          cities: c.cities ?? [],
+          score: c.score,
+          date: printing.date,
+          edition: printing.edition,
+        });
+      }
+      return out;
+    },
     recentIds: (editionsBack) => {
       if (editions.length === 0) return [];
       // Counted in editions rather than in days because the press skips days —
@@ -321,6 +387,17 @@ export function getArchivePrintings(): Printing[] {
 /** The prerender window. See PRERENDER_EDITIONS for why it is a window. */
 export function getPrerenderedStoryIds(): string[] {
   return ARCHIVE.recentIds(PRERENDER_EDITIONS);
+}
+
+/**
+ * The index the reader searches, bounded by SEARCH_EDITIONS.
+ *
+ * Newest printing first, which is also the order lib/search.ts falls back to
+ * when there is no query — so an empty index page opens on this morning's
+ * paper rather than on whatever the archive happens to hold.
+ */
+export function getArchiveSearchIndex(): ArchiveSearchDoc[] {
+  return ARCHIVE.searchIndex(SEARCH_EDITIONS);
 }
 
 /** Editions on file, oldest first. For the checks and for counting. */

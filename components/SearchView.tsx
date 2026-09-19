@@ -3,15 +3,22 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { search, sectionSlug, type SearchDoc } from "@/lib/search";
+import { formatEditionDate } from "@/lib/digest";
 import { TallyMarks } from "./stories";
 
 export default function SearchView({
   docs,
+  todayDate,
   sections,
   sources,
   initialSection,
 }: {
   docs: SearchDoc[];
+  /**
+   * The edition on the press. Results from any other morning say so; results
+   * from this one stay quiet, because "today" on today's paper is noise.
+   */
+  todayDate?: string;
   sections: string[];
   sources: string[];
   initialSection?: string;
@@ -43,7 +50,7 @@ export default function SearchView({
       </div>
 
       <label htmlFor="q" className="sr-only">
-        Search this edition
+        Search every edition
       </label>
       <input
         id="q"
@@ -98,7 +105,7 @@ export default function SearchView({
           {hits.length === 0
             ? "Nothing found"
             : `${hits.length} ${hits.length === 1 ? "story" : "stories"}`}
-          {filtering ? " matching" : " in this edition"}
+          {filtering ? " matching" : " in the archive"}
         </span>
         {filtering && (
           <button
@@ -139,8 +146,24 @@ export default function SearchView({
                 <p className="font-body text-[14px] leading-[1.5] text-[var(--ink-soft)] mt-1.5 line-clamp-2">
                   {hit.deck}
                 </p>
-                <div className="mt-2">
+                <div className="mt-2 flex items-center gap-2.5">
                   <TallyMarks count={hit.sourceCount} />
+                  {/*
+                    The morning this column was printed, shown only when it is
+                    not this one. The index reaches back through the archive
+                    now, so a reader can land on a month-old column that looks
+                    exactly like today's — and a paper that does not date its
+                    own back numbers is worse than one with no archive at all.
+                  */}
+                  {"date" in hit &&
+                    (hit as SearchDoc & { date?: string }).date !== todayDate && (
+                      <span className="meta">
+                        From the edition of{" "}
+                        {formatEditionDate(
+                          (hit as SearchDoc & { date: string }).date
+                        )}
+                      </span>
+                    )}
                 </div>
               </Link>
             </li>

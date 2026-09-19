@@ -182,3 +182,36 @@ Final run: 41s, every step green, read back through the API rather than
 assumed. Note the logs endpoint needs admin rights — the runs and jobs
 endpoints are public on this repo and give step-level conclusions, which is
 enough to see which step failed.
+
+================================================================================
+2026-09-19 — story search-the-archive
+================================================================================
+
+The index reads lib/archive.ts now, so all 237 printed columns are findable
+rather than only today's 54. Results from any morning but this one carry "From
+the edition of ...".
+
+The cost is the interesting part. There is no server, so the documents are
+shipped to the browser and searched there, which makes the index a DOWNLOAD
+rather than a query. Measured: 510 bytes a story, 118KB for the archive as it
+stands, 0.8MB after a month and 9.6MB after a year at fifty-four a morning.
+Nobody should pay ten megabytes to look something up, so SEARCH_EDITIONS = 30
+sits next to PRERENDER_EDITIONS and both growth questions are answered in one
+place. Today the archive is seven editions so the window binds nothing; it
+starts biting in about three weeks, and when it does the honest fix is not a
+bigger number but searching somewhere other than the reader's browser.
+
+I wrote the check first and it caught my own bad assertion. I had asserted
+"today's columns all come before any archived one", which sounds right and is
+wrong: it buries an exact match on an archived headline under every weak match
+from this morning, so a reader typing an old headline verbatim would not find
+it. The rule that actually holds is relevance first, newest paper as the
+TIEBREAK. lib/search.ts sorts score, then printing date, then hour — and the
+date term is deliberately not folded into the score for exactly that reason.
+
+Two labels in SearchView still said "this edition" from when the index held
+one. Worth grepping for that phrase after any archive work.
+
+Verified in the browser: "rogue" returns five columns, none of them in today's
+paper, each stamped with its edition; "tomato" returns the one archived column
+that mentions it. Both returned nothing at all before this change.
