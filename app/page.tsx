@@ -2,6 +2,7 @@ import Newspaper from "@/components/Newspaper";
 import PageSheet from "@/components/PageSheet";
 import KeyboardNav from "@/components/KeyboardNav";
 import VoiceReader from "@/components/VoiceReader";
+import TabBar from "@/components/TabBar";
 import { FrontPage, InnerPage } from "@/components/editionPages";
 import { readRecording } from "@/lib/recording";
 import {
@@ -72,6 +73,9 @@ export default function Home() {
           section: s.section,
         }))}
       />
+      {/* Last child, because it doubles as the run-off at the foot of the
+          paper — see the wrapper comment in TabBar.tsx. */}
+      <TabBar />
     </div>
   );
 }

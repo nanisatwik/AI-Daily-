@@ -4,6 +4,7 @@ import PageSheet from "@/components/PageSheet";
 import SearchView from "@/components/SearchView";
 import NightToggle from "@/components/NightToggle";
 import KeyboardNav from "@/components/KeyboardNav";
+import TabBar from "@/components/TabBar";
 import { PointingHand } from "@/components/Ornament";
 import {
   getSearchIndex,
@@ -46,6 +47,7 @@ export default function SearchPage() {
       </PageSheet>
 
       <KeyboardNav />
+      <TabBar />
     </div>
   );
 }

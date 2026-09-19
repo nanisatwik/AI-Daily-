@@ -181,10 +181,20 @@ export function InnerPage({
               Set in type by machine
             </p>
             <p className="font-body italic text-[14px] text-[var(--ink-soft)] max-w-[54ch] mx-auto leading-relaxed">
-              Every story in this edition was clustered from multiple sources.
-              The tally marks show how many outlets carried it &mdash; more
-              marks, more corroboration. Nothing here was written by a press
-              office.
+              {/*
+                This read "every story in this edition was clustered from
+                multiple sources", which was not true and had been on the live
+                site for some time: on the edition of 2026-09-19, 35 of the 54
+                printed stories carried exactly one outlet and only 19 carried
+                more than one. The tally marks were telling the truth while the
+                sentence above them did not. A paper whose whole argument is
+                corroboration cannot overstate its own corroboration.
+              */}
+              Every story here was clustered across thirty-seven wires, and the
+              tally marks show what that found &mdash; one mark for each outlet
+              that carried it independently. A single mark means a single
+              source, and is printed as plainly as a row of them. Nothing here
+              was written by a press office.
             </p>
           </div>
         </Reveal>

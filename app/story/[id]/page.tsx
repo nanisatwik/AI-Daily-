@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import KeyboardNav from "@/components/KeyboardNav";
 import ReadingProgress from "@/components/ReadingProgress";
 import NightToggle from "@/components/NightToggle";
+import TabBar from "@/components/TabBar";
 import { OrnateFrame, FleuronRule, PointingHand } from "@/components/Ornament";
 import { PageIn, Reveal, PressIn } from "@/components/motion";
 import { TallyMarks } from "@/components/stories";
@@ -264,6 +265,10 @@ export default async function StoryPage({ params }: PageProps<"/story/[id]">) {
 
         <KeyboardNav />
       </div>
+
+      {/* Outside the sheet: the bar is furniture of the machine, not something
+          printed on the paper, and it is fixed to the screen either way. */}
+      <TabBar />
     </div>
   );
 }

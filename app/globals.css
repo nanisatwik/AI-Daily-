@@ -353,6 +353,113 @@ body {
   }
 }
 
+/* ==================================================================== *
+ * Floating chrome
+ *
+ * Controls that sit above the paper rather than on it: the reader's nav,
+ * the player, the search bar. Apple's own guidance for this material is
+ * that it belongs to the interface layer and that content underneath stays
+ * opaque and legible, which is also the only reading of it that leaves a
+ * newspaper looking like a newspaper. The sheet is never glass. What floats
+ * over the sheet always is.
+ * ==================================================================== */
+
+/**
+ * One pane, tinted by what it is over.
+ *
+ * By day it is a warm light pane carrying dark ink, because it is over cream
+ * paper; at night it is cream at low alpha over the ink, because it is over a
+ * dark sheet. Same material, opposite tint — which is what real glass does,
+ * and what stops the bar reading as something pasted on from another app.
+ */
+.glass {
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  background: linear-gradient(
+    165deg,
+    rgba(255, 250, 238, 0.72),
+    rgba(231, 217, 187, 0.55)
+  );
+  border: 1px solid rgba(255, 252, 242, 0.7);
+  box-shadow:
+    0 14px 34px rgba(43, 31, 18, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  color: var(--ink);
+}
+
+.night .glass {
+  background: linear-gradient(
+    160deg,
+    rgba(236, 224, 198, 0.13),
+    rgba(236, 224, 198, 0.05)
+  );
+  border-color: rgba(236, 224, 198, 0.19);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(236, 224, 198, 0.26);
+}
+
+/**
+ * Glass is suspended for the duration of a turn, for the same reason the
+ * grain and the ragged edges are — see `.turning` above.
+ *
+ * `backdrop-filter` is the most expensive thing on this page: it makes the
+ * compositor re-sample everything behind the element on every frame, and a
+ * turning sheet is a full-screen transform, so every frame is a fresh sample
+ * of a moving image. The fallback is the same pane at full opacity, so the
+ * bar does not blink out — it simply stops being see-through for the third
+ * of a second the sheet is in the air.
+ */
+.turning .glass {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: var(--paper);
+}
+
+/**
+ * Compound, not descendant. `night` and `turning` are both toggled on
+ * `<html>` — by NightToggle and by Newspaper respectively — so a space
+ * between them asks for one inside the other and can never match. Written
+ * that way first, it silently fell through to the rule above and landed the
+ * mid-turn pane on `--paper` instead of `--paper-deep`: the wrong shade, and
+ * nothing to show for the rule existing.
+ */
+.night.turning .glass {
+  background: var(--paper-deep);
+}
+
+/**
+ * The dark ground the paper is handed over on.
+ *
+ * Used by the first run and by anything that is not the edition itself. The
+ * halftone is not decoration: a five-pixel dot field is how a press renders a
+ * photograph, so it gives these screens photographic depth without shipping a
+ * single image, and it is a texture only a newspaper can use honestly.
+ */
+.shell {
+  background:
+    radial-gradient(120% 66% at 50% 8%, rgba(216, 125, 92, 0.28) 0%, transparent 62%),
+    linear-gradient(180deg, #1e1811 0%, #12100c 58%, #0d0b08 100%);
+  color: #ece0c6;
+}
+
+.halftone {
+  background-image: radial-gradient(
+    circle,
+    rgba(236, 224, 198, 0.13) 0.9px,
+    transparent 1.5px
+  );
+  background-size: 5px 5px;
+}
+
+/**
+ * The paper fading out under floating chrome, so a column does not appear to
+ * be sliced off by the bar sitting on top of it.
+ */
+.chrome-fade {
+  background: linear-gradient(180deg, transparent, var(--paper) 74%);
+}
+
 ::selection {
   background: var(--accent);
   color: var(--paper);

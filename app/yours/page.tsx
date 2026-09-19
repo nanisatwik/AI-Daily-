@@ -4,6 +4,7 @@ import PageSheet from "@/components/PageSheet";
 import YourEdition from "@/components/YourEdition";
 import NightToggle from "@/components/NightToggle";
 import KeyboardNav from "@/components/KeyboardNav";
+import TabBar from "@/components/TabBar";
 import { PointingHand } from "@/components/Ornament";
 import { getSearchIndex, getDigest, formatEditionDate } from "@/lib/digest";
 
@@ -37,6 +38,7 @@ export default function YoursPage() {
       </PageSheet>
 
       <KeyboardNav />
+      <TabBar />
     </div>
   );
 }

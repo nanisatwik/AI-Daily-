@@ -320,7 +320,19 @@ export default function VoiceReader({
   const progress = speaking ? Math.round(((index + 1) / total) * 100) : 0;
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 print:hidden">
+    /*
+     * Stood off the foot of the screen far enough to clear the tab bar.
+     *
+     * Below `lg` components/TabBar.tsx floats a 60px pane of glass across the
+     * bottom of the front page, lifted by the same
+     * `max(env(safe-area-inset-bottom), 22px)` written there. At the old
+     * `bottom-4` this button overlapped it by 42 of its own 42 pixels and,
+     * being z-50 against the bar's z-40, painted straight over the wireless
+     * and Your Edition tabs. 72 is the bar's height plus twelve of air. Above
+     * `lg` the bar is not rendered at all and the button goes back to sitting
+     * in the corner.
+     */
+    <div className="fixed right-4 bottom-[calc(max(env(safe-area-inset-bottom,0px),22px)+72px)] lg:bottom-4 z-50 print:hidden">
       {!open ? (
         <button
           type="button"

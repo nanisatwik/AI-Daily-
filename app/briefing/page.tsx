@@ -4,6 +4,7 @@ import PageSheet from "@/components/PageSheet";
 import BriefingPlayer from "@/components/Briefing";
 import NightToggle from "@/components/NightToggle";
 import KeyboardNav from "@/components/KeyboardNav";
+import TabBar from "@/components/TabBar";
 import { PointingHand } from "@/components/Ornament";
 import RecordedBriefing from "@/components/Recording";
 import { readRecording, recordingFits } from "@/lib/recording";
@@ -97,6 +98,7 @@ export default function BriefingPage() {
       </PageSheet>
 
       <KeyboardNav />
+      <TabBar />
     </div>
   );
 }

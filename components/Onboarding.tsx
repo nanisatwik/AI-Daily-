@@ -1,150 +1,69 @@
-"use client";
-
-import { useState } from "react";
-import { usePreferences } from "./Preferences";
-import { SECTIONS } from "@/lib/types";
-import { HUB_CITIES } from "@/lib/hubs";
-import { Fleuron, PointingHand } from "./Ornament";
+import { getDigest, getSectionIndex, formatEditionDate } from "@/lib/digest";
+import health from "@/data/source-health.json";
+import OnboardingFlow from "./OnboardingFlow";
 
 /**
- * First-run preferences, set as a subscription order form.
+ * First run, read off the edition rather than written down.
  *
- * The blueprint asks for a topics-and-cities picker. A 1925 paper had exactly
- * that object already — the order form you posted back to start delivery — so
- * it costs nothing to make the onboarding feel like part of the paper instead
- * of a product tour bolted to the front of it.
+ * This file is the server half of the flow and does nothing but fetch. It
+ * exists because the figures the first screen prints — the wires read, the
+ * items pulled off them, the columns that survived — live in
+ * `data/edition-latest.json`, which is 224KB, and in `data/source-health.json`,
+ * which is another 12KB. A client component that imported either would inline
+ * it into the shared bundle, and this component is mounted in the root layout,
+ * so that weight would be paid on every page of the paper by every reader,
+ * including the returning ones who never see this screen. The numbers are four
+ * integers and a list of seven desks. Those are what cross the boundary.
  *
- * Skippable in one click. Nothing here is required to read the paper, and a
- * reader who dismisses it is not asked again.
+ * It is also the pattern the rest of the paper already uses: nothing under
+ * `components/` that carries "use client" imports `lib/digest`. The pages read
+ * the edition and hand down what a client component needs — see
+ * app/yours/page.tsx handing `getSearchIndex()` to YourEdition.
  */
 export default function Onboarding() {
-  const { prefs, ready, update, toggleTopic, toggleCity } = usePreferences();
-  const [closing, setClosing] = useState(false);
-
-  // Wait for localStorage: rendering this before we know whether the reader has
-  // already subscribed would flash the form at returning readers every visit.
-  if (!ready || prefs.onboarded || closing) return null;
-
-  const finish = () => {
-    setClosing(true);
-    update({ onboarded: true });
-  };
+  const digest = getDigest();
 
   return (
-    <div
-      className="fixed inset-0 z-[60] overflow-y-auto bg-[rgba(20,12,4,0.55)] px-3 py-6 sm:px-6 sm:py-10"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="order-form-title"
-    >
-      <div className="mx-auto max-w-[620px] border-2 border-[var(--ink)] bg-[var(--paper)] px-5 py-6 sm:px-9 sm:py-8 shadow-[6px_6px_0_0_rgba(20,12,4,0.35)]">
-        <div className="text-center">
-          <p className="kicker text-[var(--accent)]">Order form</p>
-          <h2
-            id="order-form-title"
-            className="font-mast mt-2 leading-[1.05] text-[var(--ink)]"
-            style={{ fontSize: "clamp(1.6rem, 6vw, 2.4rem)" }}
-          >
-            The AI Daily
-          </h2>
-          <div className="mt-3 flex items-center justify-center gap-3 text-[var(--rule)]">
-            <span className="h-px w-14 bg-current" />
-            <Fleuron className="h-4 w-8" />
-            <span className="h-px w-14 bg-current" />
-          </div>
-          <p className="font-body italic mt-3 text-[15px] leading-relaxed text-[var(--ink-soft)] max-w-[44ch] mx-auto">
-            Tell the compositor what to set for you. Everything below is
-            optional, and none of it leaves this device.
-          </p>
-        </div>
-
-        <fieldset className="mt-7">
-          <legend className="kicker mb-3 text-[var(--ink-soft)]">
-            Desks you follow
-          </legend>
-          <div className="flex flex-wrap gap-2">
-            {SECTIONS.map((section) => {
-              const on = prefs.topics.includes(section);
-              return (
-                <button
-                  key={section}
-                  type="button"
-                  onClick={() => toggleTopic(section)}
-                  aria-pressed={on}
-                  className={`kicker cursor-pointer border px-3 py-1.5 transition-colors duration-200 ${
-                    on
-                      ? "border-[var(--accent)] bg-[var(--accent)] text-[var(--paper)]"
-                      : "border-[var(--rule)] text-[var(--ink-soft)] hover:border-[var(--ink)]"
-                  }`}
-                >
-                  {section}
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
-
-        <fieldset className="mt-6">
-          <legend className="kicker mb-3 text-[var(--ink-soft)]">
-            Where you are
-          </legend>
-          <div className="flex flex-wrap gap-2">
-            {HUB_CITIES.map((city) => {
-              const on = prefs.cities.includes(city);
-              return (
-                <button
-                  key={city}
-                  type="button"
-                  onClick={() => toggleCity(city)}
-                  aria-pressed={on}
-                  className={`kicker cursor-pointer border px-3 py-1.5 transition-colors duration-200 ${
-                    on
-                      ? "border-[var(--accent)] bg-[var(--accent)] text-[var(--paper)]"
-                      : "border-[var(--rule)] text-[var(--ink-soft)] hover:border-[var(--ink)]"
-                  }`}
-                >
-                  {city}
-                </button>
-              );
-            })}
-          </div>
-          <p className="meta mt-2.5 normal-case tracking-normal font-body italic text-[12px]">
-            Local coverage is thin today — most wire copy never names a city.
-            Choosing one weights those stories up when they appear.
-          </p>
-        </fieldset>
-
-        <fieldset className="mt-6">
-          <legend className="kicker mb-3 text-[var(--ink-soft)]">
-            Delivered at
-          </legend>
-          <input
-            type="time"
-            value={prefs.briefingTime}
-            onChange={(e) => update({ briefingTime: e.target.value })}
-            aria-label="Briefing time"
-            className="border border-[var(--rule)] bg-transparent px-3 py-1.5 font-body text-[15px] text-[var(--ink)] focus:border-[var(--accent)] focus:outline-none"
-          />
-        </fieldset>
-
-        <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <button
-            type="button"
-            onClick={finish}
-            className="kicker cursor-pointer text-[var(--ink-faint)] transition-colors hover:text-[var(--ink)]"
-          >
-            Just the general edition
-          </button>
-          <button
-            type="button"
-            onClick={finish}
-            className="kicker flex cursor-pointer items-center justify-center gap-2.5 border-2 border-[var(--ink)] px-5 py-2.5 text-[var(--ink)] transition-colors duration-300 hover:bg-[var(--ink)] hover:text-[var(--paper)]"
-          >
-            Begin delivery
-            <PointingHand className="h-3.5 w-5" />
-          </button>
-        </div>
-      </div>
-    </div>
+    <OnboardingFlow
+      /*
+       * The wire count, from the registry the ingestion job commits after every
+       * run — one entry per feed, written from the same FEEDS array that was
+       * polled. Its 37 ids are a set-for-set match with FEEDS in
+       * services/ingestion/sources.ts, checked at the time of writing.
+       *
+       * FEEDS itself is not importable from here. `services/` is excluded from
+       * tsconfig on purpose: it is a standalone Node worker run by `node`
+       * directly, so its imports carry `.ts` specifiers that this bundler's
+       * resolution does not accept. Reading the registry instead keeps the
+       * figure honest — a feed added tomorrow changes this number by itself —
+       * without dragging a worker into the app's module graph.
+       */
+      wires={health.sources.length}
+      items={digest.totalItems}
+      stories={digest.stories.length}
+      /*
+       * Outlets credited across the whole paper — the sum of each column's
+       * masthead of sources, which `toStory` has already deduplicated by
+       * publisher name.
+       *
+       * It is here because without it the first screen could only print the
+       * gap between items read and columns printed, and that gap is two
+       * different things wearing one number. On the edition of 2026-09-19 it
+       * is 3,022, of which only 47 are second reports of an event the paper
+       * actually set; the other 2,975 were never printed at all. Lumping them
+       * invites the reading that the paper folded three thousand duplicates
+       * into fifty-four columns, which it did not do and could not defend.
+       * With this figure the screen can say both numbers and be exactly right.
+       */
+      credited={digest.stories.reduce((n, s) => n + s.sources.length, 0)}
+      edition={digest.edition}
+      dateLabel={formatEditionDate(digest.date)}
+      /*
+       * Desks are discovered from the wire, never a fixed list. A section with
+       * nothing in it today is not offered, because choosing it would weight
+       * up a set of stories that does not exist.
+       */
+      desks={getSectionIndex()}
+    />
   );
 }

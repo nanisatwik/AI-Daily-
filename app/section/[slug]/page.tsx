@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PageSheet from "@/components/PageSheet";
 import NightToggle from "@/components/NightToggle";
 import KeyboardNav from "@/components/KeyboardNav";
+import TabBar from "@/components/TabBar";
 import { PointingHand, FleuronRule } from "@/components/Ornament";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { FeatureStory, ColumnItem, SectionBanner } from "@/components/stories";
@@ -147,6 +148,7 @@ export default async function SectionPage({
       </PageSheet>
 
       <KeyboardNav />
+      <TabBar />
     </div>
   );
 }
