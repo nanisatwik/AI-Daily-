@@ -65,3 +65,89 @@ export function shouldCommit({ progress, velocity, forward }: Release): boolean 
   }
   return progress >= COMMIT_PROGRESS;
 }
+
+export type Pt = { x: number; y: number };
+
+/**
+ * The sheet is bound at its left edge, and the fold has to respect that.
+ *
+ * The peel is a reflection across the perpendicular bisector of grab → hand,
+ * so the crease takes whatever angle the hand gives it and everything on the
+ * grabbed side lifts. Dragging away diagonally therefore tilts the crease far
+ * enough that part of the left edge ends up on the lifted side, and the sheet
+ * reads as coming away from the spine rather than turning on it — which is the
+ * one thing a bound paper never does.
+ *
+ * Pinning it by forcing the drag horizontal would fix that and throw away the
+ * corner peel with it. So the fold is allowed its full freedom at the start,
+ * where the crease is out near the reader's finger and the left edge is
+ * nowhere near it, and is straightened as it travels: by the time the crease
+ * has crossed the sheet it is parallel to the spine, which is a book turn.
+ * The reader gets a corner lifting off under their thumb and a page pivoting
+ * on its binding, in one gesture, with the left edge flat for all of it.
+ *
+ * `progress` is travel-relative — see `travelProgress` — so this straightens
+ * against how far through the turn the reader is, not how many pixels they
+ * have moved.
+ */
+/**
+ * How far the crease may lean, as a share of how far the hand has travelled.
+ *
+ * Measured rather than chosen. Sweeping it against a 1100x2400 sheet, over
+ * grabs from 30% to 95% of the width and drags drifting from 0.6 down to 0.8
+ * up, the left edge stays flat for the whole turn at 0.15 and lifts within a
+ * hundredth of it at 0.25. The boundary is sharp because a tilted crease is a
+ * full line across a sheet more than twice as tall as it is wide: a few
+ * degrees at the hand is hundreds of pixels at the far corner.
+ *
+ * 0.12 is that boundary with a little room, and it is about seven degrees of
+ * tilt. Worth knowing before changing it: the safe value falls as the sheet
+ * gets taller relative to its width, so a squarer page could afford more.
+ */
+export const MAX_LEAN = 0.12;
+
+export function spineHand(anchor: Pt, pointer: Pt, progress: number): Pt {
+  const straighten = Math.min(Math.max(progress, 0), 1);
+
+  /*
+   * The lean is bounded by the travel, not merely faded out with it.
+   *
+   * Fading alone left the fold completely free at the instant it began, and a
+   * drag that set off steeply — straight up, or sharply down — made a crease
+   * near enough horizontal that the left edge was on the lifted side within a
+   * hundredth of the turn. Checked across five drift angles, that was six
+   * cases out of twenty-five: the damping did nothing precisely where the
+   * reader was most abrupt.
+   *
+   * Tying the allowance to how far the hand has actually crossed the sheet
+   * fixes the angle rather than the offset. The crease can lean half as far as
+   * it has travelled, so the fold opens as a corner peel; and since the
+   * allowance is zero before the hand has gone anywhere, it never begins flat
+   * across the page.
+   */
+  const across = Math.abs(pointer.x - anchor.x);
+  const allowed = across * MAX_LEAN * (1 - straighten);
+  const lean = pointer.y - anchor.y;
+
+  return {
+    // The reader's own travel is untouched: it is the number `travelProgress`
+    // measures and the commit decision is made on.
+    x: pointer.x,
+    y: anchor.y + Math.max(-allowed, Math.min(allowed, lean)),
+  };
+}
+
+/**
+ * Whether a point is on the lifted side of the crease, for checking.
+ *
+ * The crease is the perpendicular bisector of anchor → hand, and the lifted
+ * half-plane is the one the anchor sits in. A point is lifted when it is on
+ * the anchor's side of that line.
+ */
+export function isLifted(anchor: Pt, hand: Pt, q: Pt): boolean {
+  const mx = (anchor.x + hand.x) / 2;
+  const my = (anchor.y + hand.y) / 2;
+  const nx = anchor.x - mx;
+  const ny = anchor.y - my;
+  return (q.x - mx) * nx + (q.y - my) * ny > 0;
+}

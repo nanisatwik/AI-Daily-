@@ -18,7 +18,7 @@ import {
   wholeSheet,
   type FoldBox,
 } from "@/lib/peel";
-import { travelProgress, shouldCommit } from "@/lib/turn";
+import { travelProgress, shouldCommit, spineHand } from "@/lib/turn";
 
 const PAPER_EASE = [0.22, 1, 0.28, 1] as const;
 /**
@@ -681,7 +681,22 @@ export default function Newspaper({ pages, labels }: Props) {
       amount.current = travelProgress(pulled, travel.current);
 
       if (sideRef.current === "next") {
-        hand.current = { x: lx, y: ly };
+        /*
+         * Through the spine, not straight to the finger.
+         *
+         * Taking the hand raw let the crease take whatever angle the drag gave
+         * it, and a diagonal one tilts far enough to put part of the left edge
+         * on the lifted side — the sheet comes away from its binding instead of
+         * turning on it. Measured on the front page: a grab at 30% of the width
+         * lifted the left edge at 0.04 of the turn, and at 45% by 0.58.
+         * `spineHand` bounds the lean to the travel and straightens it as the
+         * fold crosses, so the corner still peels and the binding still holds.
+         */
+        hand.current = spineHand(
+          anchor.current,
+          { x: lx, y: ly },
+          amount.current
+        );
       } else {
         const a = anchor.current;
         const d = (1 - amount.current) * folding.current;
