@@ -36,6 +36,17 @@ jobs:
       - name: Install
         run: npm ci
 
+      # `tsc` cannot check this app on a fresh checkout without this.
+      #
+      # The routes are typed with Next's own generated helpers — LayoutProps<"/">,
+      # PageProps<"/story/[id]"> — and those live in .next/types, which only
+      # exists after a build or a dev server has run. Locally there is always
+      # one lying around, so `npx tsc --noEmit` passes on a developer's machine
+      # and fails on the first CI run, which is precisely what happened here.
+      # `typegen` writes the definitions without doing the whole build.
+      - name: Generate route types
+        run: npx next typegen
+
       - name: Types
         run: npx tsc --noEmit
 
