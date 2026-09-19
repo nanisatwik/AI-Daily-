@@ -1,0 +1,48 @@
+name: Verify
+
+# Types, checks, build. Nothing else.
+#
+# Deliberately does NOT run the ingestion, the analysis or the recorder. Those
+# reach thirty-seven live feeds, spend a model's daily allowance and synthesise
+# five minutes of audio respectively — they belong to the press run, which
+# happens once a day for a reason. A verification job that did them would cost
+# the day's quota on every push and rewrite the edition under the very build it
+# was meant to be checking.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A second push while the first is still verifying makes the first answer
+# stale, so it is cancelled rather than raced.
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Matched to the press run. Node 24 strips TypeScript natively, which
+          # is what lets both the services and the check suites run unbuilt.
+          node-version: "24"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Types
+        run: npx tsc --noEmit
+
+      # The eleven numeric suites in checks/. They read the committed edition
+      # and the committed recording, so they need nothing from the network.
+      - name: Checks
+        run: npm run check
+
+      - name: Build
+        run: npm run build

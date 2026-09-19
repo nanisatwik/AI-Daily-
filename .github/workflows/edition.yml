@@ -84,3 +84,20 @@ jobs:
           fi
           git commit -m "Edition of $(date -u +%Y-%m-%d)"
           git push
+
+      # After the push, not before it.
+      #
+      # These assert against the edition that was just printed — the archive's
+      # shape, the sitemap's stamps, the bulletin's length against its own
+      # prediction — and any of them can be moved by a morning's news without
+      # anything being wrong with the code. Running them before the commit
+      # would mean a strange news day could stop the paper going out, and this
+      # project's standing rule is the opposite: the edition going out matters
+      # more than anything additive to it, which is why the analysis and the
+      # recording carry continue-on-error above.
+      #
+      # So the paper always publishes, and a check that does not like what
+      # published turns this run red. The failure is visible the morning it
+      # lands rather than whenever somebody next thinks to look.
+      - name: Check the edition that just went out
+        run: npm run check
