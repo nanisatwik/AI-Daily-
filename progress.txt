@@ -149,3 +149,36 @@ itself: the first detector looked for a call at the left margin, which stops
 matching the moment a file is guarded and the call indents. It reported one job
 where there are six. A detector that goes blind as soon as the fix lands is
 worse than none; it now looks for the main() DECLARATION.
+
+================================================================================
+2026-09-19 — story checks-in-ci
+================================================================================
+
+.github/workflows/verify.yml runs typegen, tsc, `npm run check` and the build
+on push and pull request. The press run also checks the edition it just
+printed, AFTER the push: these suites assert against the archive's shape and
+the bulletin's length, and a strange news morning can move either without the
+code being wrong. Checking before the commit would let that stop the paper
+going out, and the standing rule is the reverse.
+
+Two things broke that would never have shown locally, which is exactly why the
+story demanded a real run be read:
+
+  - package-lock.json still carried @anthropic-ai/sdk, removed from
+    package.json some time ago. `npm ci` refuses to install against a lock that
+    disagrees with the manifest, so the very first step failed for a reason
+    unrelated to the workflow. Fixed with `npm install --package-lock-only`.
+    Worth checking after any dependency change: `npm ci` is stricter than
+    `npm install` and CI is the only place that notices.
+
+  - `npx tsc --noEmit` FAILS ON A FRESH CHECKOUT. The routes are typed with
+    Next's generated helpers (LayoutProps<"/">, PageProps<"/story/[id]">) and
+    tsconfig includes .next/types to resolve them. That directory is a build
+    artifact. Any machine that has ever run the dev server has one, so the gap
+    is invisible locally and fatal on a runner. `npx next typegen` writes them
+    in about a second without doing the whole build.
+
+Final run: 41s, every step green, read back through the API rather than
+assumed. Note the logs endpoint needs admin rights — the runs and jobs
+endpoints are public on this repo and give step-level conclusions, which is
+enough to see which step failed.

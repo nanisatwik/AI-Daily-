@@ -62,6 +62,14 @@ them — the press runs nightly and any literal count goes stale by morning.
   to the wrong sentence with total confidence. `recordingFits` guards it; if
   you change how the script is built, re-record.
 
+- **`npx tsc --noEmit` fails on a fresh checkout.** The routes use Next's
+  generated types (`LayoutProps`, `PageProps`), which live in `.next/types` —
+  a build artifact. Run `npx next typegen` first. Locally you always have one
+  lying around, so this only ever bites in CI.
+- **`npm ci` is stricter than `npm install`.** It refuses a package-lock that
+  disagrees with package.json. After any dependency change, regenerate with
+  `npm install --package-lock-only` or CI fails on its first step.
+
 ## Working in the Ralph loop
 
 `prd.json` is the task list, `progress.txt` the memory, `scripts/ralph/` the

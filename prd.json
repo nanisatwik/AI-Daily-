@@ -23,7 +23,7 @@
     {
       "id": "checks-in-ci",
       "priority": 2,
-      "passes": false,
+      "passes": true,
       "title": "Run the checks in GitHub Actions",
       "why": "The nightly press run rebuilds the edition and can move any figure the suites assert on. Nobody reads a green log, but everybody notices a red one.",
       "acceptanceCriteria": [
