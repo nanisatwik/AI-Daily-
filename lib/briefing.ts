@@ -60,6 +60,40 @@ import type { Story } from "./digest";
  * of the error flips with the line mix, which is exactly the failure that
  * matters when an edition is short enough to be mostly studio furniture.
  *
+ * WHY THESE ARE NOT THE NUMBERS THAT TAKE FITS BEST
+ *
+ * They were, once: 138 words a minute plus 0.56s a line reproduces the take of
+ * 2026-09-17 to a tenth of a second, because it was fitted on that take and on
+ * nothing else. Two mornings later it over-predicted by 6.5% — 272.6s against
+ * a measured 255.9 — and the bulletin was billed at five minutes while running
+ * 4:37. Under-running is the safe direction, which is why it went unnoticed;
+ * it was still wrong.
+ *
+ * The two takes disagree about the voice itself. `af_heart` at speed 1 read
+ * 123.5 words a minute on 2026-09-17 and 133.4 on 2026-09-19 — the same voice
+ * and the same settings, on scripts of 11.0 and 12.6 words a line. That is the
+ * per-line term showing up in the aggregate: shorter lines pay the fixed cost
+ * more often per word, so they read slower.
+ *
+ * Which is directionally right and numerically useless, because two aggregate
+ * measurements cannot pin two parameters. Solving them exactly gives 280 words
+ * a minute and 2.98 seconds a line — a perfect fit to both, and nonsense. A
+ * grid search walks straight to it, which is the tell.
+ *
+ * So the per-line term is taken from the one place it is well conditioned: a
+ * regression inside a single edition, over every line in it. That gave 0.56 on
+ * the 63-line take and 0.799 on the 45-line one (r2 0.909, 45 points), and
+ * 0.68 is the middle of those. With it fixed, one parameter is left, and two
+ * measurements can fit one parameter honestly: 147 words a minute puts the
+ * error at -3.2% on the older take and +2.7% on the newer, which is as
+ * symmetric as two points allow and inside the tolerance the recorder warns
+ * at.
+ *
+ * Expect this to drift again. It is fitted on two mornings of one voice, and
+ * the honest reading is that a third would move it. services/ai/voice.ts warns
+ * at 4% for exactly this reason — the warning fired and nobody was reading the
+ * press log, which is the part of this that actually needs fixing.
+ *
  * Calibrated against `af_heart` at speed 1. The recorder brings its other
  * voices onto this pace instead of letting each one decide the length of the
  * bulletin; see the VOICES table in services/ai/voice.ts.
@@ -72,9 +106,9 @@ import type { Story } from "./digest";
  * changed the other must be.
  */
 export const PACE = {
-  wordsPerMinute: 138,
+  wordsPerMinute: 147,
   /** Leading and trailing quiet inside one generated clip. */
-  perLineSeconds: 0.56,
+  perLineSeconds: 0.68,
   /** A breath between sentences. */
   gapSeconds: 0.26,
   /** A longer settling pause where the running order moves to a new item. */
