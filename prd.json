@@ -51,7 +51,7 @@
     {
       "id": "og-images",
       "priority": 4,
-      "passes": false,
+      "passes": true,
       "title": "Generate the Open Graph card images",
       "why": "Every page declares twitter:card=summary_large_image and supplies no image, which is the weakest possible state: the card reserves a large slot and shows nothing. A shared story should unfurl as a clipping from this paper.",
       "acceptanceCriteria": [

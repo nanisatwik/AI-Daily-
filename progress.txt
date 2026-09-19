@@ -215,3 +215,47 @@ one. Worth grepping for that phrase after any archive work.
 Verified in the browser: "rogue" returns five columns, none of them in today's
 paper, each stamped with its edition; "tomato" returns the one archived column
 that mentions it. Both returned nothing at all before this change.
+
+================================================================================
+2026-09-19 — story og-images
+================================================================================
+
+Shared links now unfurl as a clipping from the paper: app/opengraph-image.tsx
+for the paper itself and app/story/[id]/opengraph-image.tsx for a column.
+
+THE FONT CONSTRAINT, WHICH IS THE WHOLE STORY
+
+`ImageResponse` does not inherit next/font. It takes font DATA, and the
+reference is explicit: only ttf, otf and woff are understood. next/font caches
+Google Fonts as woff2, so there is nothing in .next to borrow — reaching for
+one of those files is the obvious wrong move and produces a confusing runtime
+failure rather than a clear one.
+
+So two faces are committed under assets/fonts, pulled from the upstream
+google/fonts repository with their OFL licences beside them, which that licence
+both permits and requires. Static cuts, not variable: satori renders a variable
+font at its default instance and a blackletter nameplate is not worth gambling
+on. Libre Franklin — the paper's furniture face — is published variable-only,
+so the cards are set entirely in Caslon and blackletter, which is what the
+sheet's own masthead does anyway.
+
+checks/cards.check.ts asserts the faces are present, are NOT woff2 (it reads
+the first four bytes), and travel with their licence. Proved by swapping in a
+woff2 from .next: "starts with wOF2 — that is woff2, which ImageResponse
+cannot read".
+
+BUILD COST, MEASURED
+
+16s before, 20s after, 176 routes to 335. That is 159 generated cards for four
+seconds, because the story card takes the same prerender window as the story
+page — without that it would render one per id and the archive grows by
+fifty-four every morning. Sharing an older column still works; the route makes
+it on request and caches it.
+
+The story card reads lib/archive.ts, not lib/digest.ts. A card built from
+today's edition would unfurl for a day and then go blank, which is a quieter
+version of the 404 the archive work removed. Verified on a column printed
+2026-09-14 and absent from today's paper: it renders, dated its own morning.
+
+Built HTML confirmed to carry absolute og:image and twitter:image URLs
+resolved from metadataBase, with type, width, height and alt.
