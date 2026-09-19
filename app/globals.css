@@ -114,6 +114,19 @@ body {
     line-height: 1.66;
     text-align: justify;
     hyphens: auto;
+    /* Set body copy the way the metal was cut, not the way a browser defaults.
+       Old-style figures sit on the baseline with descenders, so a "$400M" or a
+       year reads as text rather than as a row of lining tabular slugs stamped
+       into a serif column; ligatures and kerning close the fi/fl/ff pairs
+       Caslon was drawn to carry. Where the webfont lacks a feature the browser
+       ignores it, so this is safe on the fallbacks too. */
+    font-feature-settings: "onum" 1, "liga" 1, "kern" 1;
+    font-variant-numeric: oldstyle-nums;
+    /* A justified column that strands one word on the last line, or carries a
+       single line over a column break, reads as a fault in the setting. Two
+       lines minimum on each side of a break. */
+    orphans: 2;
+    widows: 2;
   }
 
   .prose-column p + p {
@@ -129,6 +142,19 @@ body {
     padding-right: 0.08em;
     padding-top: 0.06em;
     color: var(--accent);
+  }
+
+  /* The placename a story is filed from, set into the head of the first
+     paragraph. Bold small caps in the body face — the way a paper has always
+     set a dateline — so it reads as furniture without switching to the sans.
+     The drop-cap initial lands on its first letter, so "SEATTLE —" opens with
+     the large accent S and continues in small caps. */
+  .dateline {
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: normal;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--ink);
   }
 
   .rule-double {

@@ -22,6 +22,14 @@ export type Story = {
   sources: { name: string; url: string; publishedAt: string }[];
   publishedAt: string;
   score: number;
+  /**
+   * Where the story is datelined, or null. Taken from the cluster's own
+   * `cities` — the places already judged confident enough to carry the story on
+   * a local edition — rather than re-derived from raw geotags. Reusing that
+   * vetted list is why there is no confidence threshold to tune here: a place
+   * the edition would not localise to is not a place we dateline from either.
+   */
+  dateline: string | null;
 };
 
 /**
@@ -84,6 +92,7 @@ export function toStory(cluster: EventCluster): Story {
     })),
     publishedAt: cluster.lastSeenAt,
     score: cluster.score,
+    dateline: cluster.cities?.[0] ?? null,
   };
 }
 
