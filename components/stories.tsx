@@ -53,6 +53,36 @@ function Byline({ story }: { story: Story }) {
   );
 }
 
+/**
+ * The two-column justified body, shared by the lead and the feature.
+ *
+ * The dateline opens the first paragraph so the existing `.drop-cap` initial
+ * falls on the placename — a drop initial running into small-caps is the
+ * classic way a paper sets "SEATTLE —", and it means the two stories that carry
+ * body copy stay set the same way rather than drifting apart. Stories the wire
+ * never placed simply open on their first word, as before.
+ */
+function StoryBody({ story, className }: { story: Story; className: string }) {
+  return (
+    <div
+      className={`prose-column drop-cap sm:columns-2 sm:gap-7 [&>p]:break-inside-avoid ${className}`}
+    >
+      {story.body.map((para, i) => (
+        <p key={i}>
+          {i === 0 && story.dateline ? (
+            <>
+              <span className="dateline">{story.dateline} &mdash; </span>
+              {para}
+            </>
+          ) : (
+            para
+          )}
+        </p>
+      ))}
+    </div>
+  );
+}
+
 export function SectionBanner({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-5">
@@ -104,11 +134,7 @@ export function LeadStory({ story }: { story: Story }) {
         <Byline story={story} />
       </div>
 
-      <div className="prose-column drop-cap mt-6 sm:columns-2 sm:gap-7 [&>p]:break-inside-avoid">
-        {story.body.map((para, i) => (
-          <p key={i}>{para}</p>
-        ))}
-      </div>
+      <StoryBody story={story} className="mt-6" />
 
       <div className="mt-6 text-center">
         <PressIn className="inline-block">
@@ -178,11 +204,7 @@ export function FeatureStory({ story }: { story: Story }) {
         <Byline story={story} />
       </div>
 
-      <div className="prose-column drop-cap mt-5 sm:columns-2 sm:gap-7 [&>p]:break-inside-avoid">
-        {story.body.map((para, i) => (
-          <p key={i}>{para}</p>
-        ))}
-      </div>
+      <StoryBody story={story} className="mt-5" />
     </article>
   );
 }
